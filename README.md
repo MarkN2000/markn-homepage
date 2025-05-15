@@ -61,6 +61,7 @@ markn-homepage/
 - Git がインストールされていること。
 - Hugo がインストールされていること。([Hugo 公式サイト](https://gohugo.io/installation/) 参照)
 - ([Tailwind CSS など Node.js ツールを使用する場合] Node.js と npm がインストールされていること)
+- 開発環境は Windows11 と VSCode
 
 ### セットアップ手順（初回のみ）
 
