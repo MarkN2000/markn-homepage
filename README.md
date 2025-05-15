@@ -28,49 +28,45 @@
 ## 技術スタック
 
 - **静的サイトジェネレーター:** Hugo
-- **CSS フレームワーク/設計:** [Tailwind CSS を推奨しましたが、まだ未定なので空欄か、検討中と記載]
+- **CSS フレームワーク/設計:** Tailwind CSS (導入予定)
 - **バージョン管理:** Git, GitHub
 - **エディタ:** VSCode
 - **記事作成:** Markdown
 
-## プロジェクト構造（予定）
+## プロジェクト構造（主要なもの）
 
-Hugo の標準的な構成に基づき、以下のようなフォルダ構造を想定しています。
 markn-homepage/
-├── archetypes/ # Markdown ファイルのテンプレート
-├── assets/ # Hugo Pipes で処理するファイル（SCSS など）
-├── content/ # サイトのコンテンツ（Markdown ファイルなど）
-│ └── posts/ # ブログ記事など
-├── data/ # サイトで使用するデータファイル（JSON, YAML, TOML）
+├── archetypes/ # Markdown ファイルのテンプレート (default.md)
+├── content/ # サイトのコンテンツ
+│ └── posts/ # 記事を格納 (my-first-post.md)
 ├── layouts/ # サイトのテンプレートファイル（HTML）
-│ ├── \_default/ # デフォルトのテンプレート (baseof.html, list.html, single.html など)
-│ └── partials/ # ヘッダー、フッターなどの部分テンプレート
-├── static/ # 画像、CSS、JavaScript などの静的ファイル
-│ └── images/ # 画像ファイル
-├── themes/ # (今回は使用しない想定だが、参考として)
-├── config.toml # Hugo の設定ファイル (または hugo.yaml, hugo.json)
-├── go.mod # (Hugo Modules を使用する場合)
-├── go.sum # (Hugo Modules を使用する場合)
-├── package.json # (Tailwind CSS など Node.js ツールを使用する場合)
+│ ├── \_default/ # デフォルトのテンプレート (baseof.html, single.html)
+│ ├── partials/ # ヘッダー、フッターなどの部分テンプレート (header.html, footer.html)
+│ └── index.html # ホームページのテンプレート
+├── static/ # 画像、CSS（手動配置の場合）などの静的ファイル
+├── public/ # (Git 管理外) Hugo が生成する公開用ファイル
+├── resources/ # (Git 管理外) Hugo Pipes が生成するキャッシュファイル
+├── hugo.toml # Hugo の設定ファイル
+├── .gitignore # Git で無視するファイルを指定
 └── README.md # このファイル
 
-## 開発環境セットアップとコマンド（予定）
+## 開発環境セットアップとコマンド
 
 ### 前提条件
 
 - Git がインストールされていること。
 - Hugo がインストールされていること。([Hugo 公式サイト](https://gohugo.io/installation/) 参照)
-- ([Tailwind CSS など Node.js ツールを使用する場合] Node.js と npm がインストールされていること)
-- 開発環境は Windows11 と VSCode
+- Node.js と npm がインストールされていること (Tailwind CSS 導入に必要)。
+- 開発環境: Windows, VSCode
 
 ### セットアップ手順（初回のみ）
 
 1.  このリポジトリをクローン（または既存のフォルダで `git init`）。
     ```bash
     git clone [リポジトリURL]
-    cd your-portfolio-project
+    cd markn-homepage
     ```
-2.  ([Tailwind CSS など Node.js ツールを使用する場合] 依存パッケージのインストール)
+2.  ([Tailwind CSS 導入後] 依存パッケージのインストール)
     ```bash
     npm install
     ```
@@ -95,23 +91,130 @@ markn-homepage/
 
 - **新しい記事の作成:**
   ```bash
-  hugo new posts/my-new-article.md
+  hugo new posts/新しい記事のファイル名.md
   ```
-  (これにより `archetypes/default.md` などのテンプレートに基づいて新しい Markdown ファイルが作成されます。)
 
 ## 開発タスク
 
-1.  Hugo のインストールとサイト雛形のセットアップ。
-2.  基本レイアウト（ベーステンプレート、ヘッダー、フッター）の作成。
-3.  ホームページ（記事カード一覧）のレイアウト作成。
-4.  個別記事ページのテンプレート作成。
-5.  CSS フレームワークの導入とスタイリング。
-6.  ショートコードの作成（基本的なものから）。
-7.  コンテンツ（プロフィール、サンプル記事）の投入。
-8.  レスポンシブ対応の調整。
-9.  プライバシーポリシーページの作成。
-10. 各種リンクの設定。
-11. レンタルサーバーでの公開。
+プロジェクトの進行状況: ★ 完了 ☆ 未着手 ◎ 進行中
+
+### 1. Hugo プロジェクト初期設定 (★)
+
+    ★ Hugoインストール
+    ★ プロジェクトフォルダ作成とGitリポジトリ初期化
+    ★ GitHubリポジトリとの連携
+    ★ Hugoサイト雛形作成 (`hugo new site . --force`)
+    ★ `.gitignore` ファイル作成と設定
+    ★ `hugo.toml` 初期設定 (baseURL, languageCode, title)
+
+### 2. 基本 HTML テンプレート作成 (★)
+
+    ★ ベーステンプレート作成 (`layouts/_default/baseof.html`)
+        ★ HTML5基本構造、metaタグ、タイトル設定
+        ★ `header` パーシャル呼び出し
+        ★ `main` ブロック定義
+        ★ `footer` パーシャル呼び出し
+    ★ ヘッダーパーシャル作成 (`layouts/partials/header.html`) (仮の内容)
+    ★ フッターパーシャル作成 (`layouts/partials/footer.html`) (仮の内容)
+    ★ ホームページテンプレート作成 (`layouts/index.html`) (仮の内容)
+
+### 3. コンテンツ作成と表示 (★)
+
+    ★ 最初の記事作成 (`content/posts/my-first-post.md`)
+        ★ フロントマター設定 (title, date, draft: false, thumbnail, excerpt, tags)
+        ★ Markdownで本文記述
+    ★ 個別記事ページテンプレート作成 (`layouts/_default/single.html`)
+        ★ `baseof.html` 継承
+        ★ タイトル、投稿日、タグ表示
+        ★ サムネイル、紹介文表示 (フロントマターから)
+        ★ 本文 (`.Content`) 表示
+    ★ ローカルサーバーでの表示確認
+
+### 4. スタイリング (Tailwind CSS 導入) (☆)
+
+    ☆ Node.jsとnpmのインストール確認
+    ☆ プロジェクトへのTailwind CSSインストール
+        ☆ `npm init -y` (package.json作成)
+        ☆ `npm install -D tailwindcss postcss autoprefixer`
+    ☆ Tailwind CSS設定ファイル生成 (`npx tailwindcss init -p`)
+    ☆ `tailwind.config.js` の設定 (contentパスの指定)
+    ☆ HugoでTailwind CSSを処理するための設定
+        ☆ `assets/css/tailwind.css` (または `main.css`など) ファイル作成と`@tailwind`ディレクティブ記述
+        ☆ `hugo.toml` に PostCSS の設定を追記 (または `postcss.config.js` があればそちらで)
+        ☆ `baseof.html` で生成されたCSSファイルを読み込む設定
+    ☆ 動作確認: 簡単なTailwindクラスをテンプレートに適用し、表示が変わるか確認
+
+### 5. ヘッダーデザイン実装 (☆)
+
+    ☆ プロフィール画像表示エリア作成
+        ☆ `static/images/` にプロフィール画像を配置
+        ☆ `header.html` で画像を表示
+    ☆ 短い自己紹介文表示エリア作成
+    ☆ 各種SNS・お問い合わせ等へのアイコンリンク表示エリア作成
+        ☆ Font Awesome や SVG アイコンの利用検討
+        ☆ リンク先URLを `hugo.toml` の `params` などで管理することも検討
+    ☆ 記事絞り込み用タグ一覧表示エリア作成
+        ☆ タグ一覧の取得と表示ロジック (`header.html` または専用パーシャル)
+        ☆ タグクリック時の動作（タグ別ページへの遷移）
+
+### 6. ホームページ（記事一覧）デザイン実装 (☆)
+
+    ☆ `layouts/index.html` を編集
+    ☆ 記事カードのHTML構造作成
+        ☆ サムネイル表示エリア (16:9)
+        ☆ タイトル表示エリア
+        ☆ 短い紹介文表示エリア (`.Params.excerpt`)
+        ☆ タグ表示エリア
+    ☆ 記事一覧をループで取得し、カードを動的に生成 (`range .Site.RegularPages.ByDate.Reverse` など)
+    ☆ CSS Grid または Flexbox を使用したカラムレイアウト実装
+        ☆ PC/タブレット: 4カラム
+        ☆ スマートフォン: 2カラム
+    ☆ レスポンシブ対応の調整
+
+### 7. 個別記事ページデザイン実装 (☆)
+
+    ☆ `layouts/_default/single.html` のスタイリング
+    ☆ タイトル、メタ情報（日付、タグ）の見た目調整
+    ☆ サムネイル、紹介文の表示調整
+    ☆ 本文エリア (`.post-content`) のスタイリング
+        ☆ 見出し、段落、リスト、画像などの基本的なMarkdown要素の表示調整
+        ☆ `figure` タグ（画像とキャプション）のスタイリング（もしあれば）
+
+### 8. フッターデザイン実装 (☆)
+
+    ☆ `layouts/partials/footer.html` のスタイリング
+    ☆ コピーライト表記の調整
+    ☆ プライバシーポリシーページへのリンク作成と配置
+    ☆ SNSリンクの再配置（ヘッダーと共通化も検討）
+
+### 9. 基本的なショートコード作成 (☆)
+
+    ☆ YouTube動画埋め込み用ショートコード (`layouts/shortcodes/youtube.html`)
+    ☆ 画像表示用ショートコード（キャプション付きなど、必要であれば） (`layouts/shortcodes/figure.html` など)
+    ☆ Booth商品ページやTwitter投稿の埋め込み用ショートコード検討・作成（oEmbedや公式埋め込みコード利用）
+
+### 10. コンテンツ拡充と調整 (☆)
+
+    ☆ プロフィール詳細ページ作成（必要であれば）
+    ☆ 作品紹介記事、解説記事などを複数作成
+    ☆ 各記事のフロントマター（サムネイル、紹介文、タグ）を適切に設定
+    ☆ `static/images/` に記事関連画像を配置
+    ☆ サイト全体のナビゲーションやリンク切れがないか確認
+
+### 11. SEO・アクセシビリティ基本対策 (☆)
+
+    ☆ 各ページの適切な `<title>` 設定（現状でもある程度対応済み）
+    ☆ meta description の設定検討（記事ごと、またはサイト全体）
+    ☆ 画像の `alt` 属性の適切な設定
+    ☆ セマンティックHTMLの使用確認
+
+### 12. 公開準備と公開 (☆)
+
+    ☆ `hugo.toml` の `baseURL` を公開用URLに設定
+    ☆ レンタルサーバーへのデプロイ手順確認・実施
+        ☆ `public/` フォルダの中身をアップロード
+    ☆ カスタムドメインの設定（もしあれば）
+    ☆ GitHub Actionsなどを使った自動デプロイの検討（任意）
 
 ---
 
