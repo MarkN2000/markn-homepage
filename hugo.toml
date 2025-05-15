@@ -1,4 +1,4 @@
-baseURL = "https://markn2000.com/"
+baseURL = "/" #"https://markn2000.com/markn-homepage/"
 languageCode = "ja-jp"
 title = "MarkN's HomePage"
 defaultContentLanguage = "ja"
