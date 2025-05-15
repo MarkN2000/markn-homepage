@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default " ja" }}">
+
+<head>
+    <meta charset="UTF-T8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    {{ hugo.Generator }}
+
+</head>
+
+<body>
+
+    <header>
+        {{ partial "header.html" . }}
+    </header>
+
+    <main>
+        {{ block "main" . }}
+        {{ end }}
+    </main>
+
+    <footer>
+        {{ partial "footer.html" . }}
+    </footer>
+
+</body>
+
+</html>
