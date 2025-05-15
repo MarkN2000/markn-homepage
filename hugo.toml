@@ -1,3 +1,14 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = "https://markn2000.com/"
+languageCode = "ja-jp"
+title = "MarkN's HomePage"
+defaultContentLanguage = "ja"
+
+# メニュー設定は後で行います
+# [menu]
+#   [[menu.main]]
+#     identifier = "about"
+#     name = "About"
+#     url = "/about/"
+#     weight = 1
+
+# 他のオプションは必要に応じて後から追加していきます
