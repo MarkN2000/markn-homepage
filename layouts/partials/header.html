@@ -1,28 +1,45 @@
-<header class="container mx-auto px-4 py-6">
-    <div class="flex items-center mb-4">
-        <img src="profile_image.jpg" alt="プロフィール画像" class="w-16 h-16 rounded-full mr-4">
-        <div>
-            <h2 class="text-xl font-semibold">[お名前/サイト名]</h2>
-            <p class="text-gray-600">[2行程度の短いプロフィール]</p>
+<header class="bg-tartan-check py-6">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center mb-6">
+            <img src="{{ " /images/profile.png" | relURL }}" alt="プロフィール画像 まーくん。(MarkN)"
+                class="w-20 h-20 rounded-full mr-4 border-2 border-white shadow-md">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-800">{{ .Site.Params.Author.name | default "まーくん。(MarkN)のホームページ"
+                    }}</h1>
+                <p class="text-gray-700">{{ .Site.Params.Author.bio | default "Resoniteでプログラミングなどをしてツールやおもちゃを作っています" }}
+                </p>
+            </div>
         </div>
-    </div>
 
-    <div class="mb-4">
-        <a href="[お問い合わせリンク]" class="text-blue-600 hover:underline mr-4">お問い合わせ</a>
-        <a href="[YouTubeリンク]" target="_blank" rel="noopener noreferrer"
-            class="text-gray-700 hover:text-red-600 mr-2">[YouTubeアイコン]</a>
-        <a href="[X(Twitter)リンク]" target="_blank" rel="noopener noreferrer"
-            class="text-gray-700 hover:text-blue-500 mr-2">[Xアイコン]</a>
-        <a href="[BOOTHリンク]" target="_blank" rel="noopener noreferrer"
-            class="text-gray-700 hover:text-pink-500 mr-2">[BOOTHアイコン]</a>
-    </div>
+        <div class="mb-6 space-x-4">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdl5UHhRc5Hq5Y_njMLCttSEqnHpWem_Ays6OpfYGGYOEIExg/viewform?usp=sharing&ouid=116153046693437475138"
+                class="text-custom-dark-blue hover:underline font-semibold">お問い合わせ</a>
+            <span class="inline-flex items-center">
+                <a href="https://www.youtube.com/@marknvr" target="_blank" rel="noopener noreferrer"
+                    class="text-custom-dark-blue hover:underline ml-1">YouTube</a>
+            </span>
+            <span class="inline-flex items-center">
+                <a href="https://x.com/markn_chansan" target="_blank" rel="noopener noreferrer"
+                    class="text-custom-dark-blue hover:underline ml-1">X (Twitter)</a>
+            </span>
+            <span class="inline-flex items-center">
+                <a href="https://markn.booth.pm/" target="_blank" rel="noopener noreferrer"
+                    class="text-custom-dark-blue hover:underline ml-1">BOOTH</a>
+            </span>
+        </div>
 
-    <div>
-        <span class="font-semibold mr-2">タグ:</span>
-        {{ range .Site.Taxonomies.tags.ByCount }}
-        <a href="{{ .Page.Permalink }}"
-            class="inline-block bg-gray-200 hover:bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{
-            .Page.Title }} ({{ .Count }})</a>
+        {{ $tags := .Site.Taxonomies.tags }}
+        {{ if gt (len $tags) 0 }}
+        <div class="p-4 bg-white bg-opacity-80 rounded-lg shadow"> <span
+                class="font-semibold mr-2 text-gray-700">タグ:</span>
+            {{ range $name, $taxonomy := $tags }}
+            {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+            <a href="{{ .Permalink }}"
+                class="inline-block bg-custom-light-blue hover:bg-blue-400 text-gray-800 font-semibold rounded-full px-3 py-1 text-sm mr-2 mb-2 transition-colors duration-150">{{
+                .Title }} ({{ len $taxonomy.Pages }})</a>
+            {{ end }}
+            {{ end }}
+        </div>
         {{ end }}
     </div>
 </header>
