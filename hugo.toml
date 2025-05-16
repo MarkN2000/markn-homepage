@@ -3,6 +3,9 @@ languageCode = "ja-jp"
 title = "MarkN's HomePage"
 defaultContentLanguage = "ja"
 
+# hugo.toml
+buildStats = true
+
 # メニュー設定は後で行います
 # [menu]
 #   [[menu.main]]

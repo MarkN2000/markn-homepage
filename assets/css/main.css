@@ -1,0 +1,17 @@
+/* assets/css/main.css */
+@import "tailwindcss";
+
+/*
+  hugo_stats.json をTailwind CSSの入力として直接CSSファイル内で
+  参照する @source ディレクティブは、v4では挙動が異なるか、
+  または tailwind.config.js の content 設定に依存する形になっている可能性があります。
+  まずは上記の @import "tailwindcss"; のみで試してみてください。
+  hugo_stats.json のスキャンは tailwind.config.js の content 設定で行われます。
+*/
+
+/* もしカスタムCSSを追加したい場合は、この下に記述します */
+/* 例:
+body {
+  font-family: 'Your Custom Font', sans-serif;
+}
+*/
