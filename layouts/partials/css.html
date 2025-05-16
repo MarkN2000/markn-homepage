@@ -1,0 +1,6 @@
+{{ $opts := dict "minify" (not hugo.IsDevelopment) "inlineImports" true }}
+{{ with resources.Get "css/main.css" }}
+{{ with . | css.TailwindCSS $opts }}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{ end }}
+{{ end }}
