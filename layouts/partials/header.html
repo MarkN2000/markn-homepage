@@ -1,7 +1,7 @@
-<header class="bg-tartan-check py-6">
+<header class="bg-header-background bg-cover bg-center py-6">
     <div class="container mx-auto px-4">
         <div class="flex items-center mb-6">
-            <img src="{{ " /images/profile.png" | relURL }}" alt="プロフィール画像 まーくん。(MarkN)"
+            <img src="{{"/images/profile.png" | relURL }}" alt="プロフィール画像 まーくん。(MarkN)"
                 class="w-20 h-20 rounded-full mr-4 border-2 border-white shadow-md">
             <div>
                 <h1 class="text-2xl font-bold text-gray-800">{{ .Site.Params.Author.name | default "まーくん。(MarkN)のホームページ"

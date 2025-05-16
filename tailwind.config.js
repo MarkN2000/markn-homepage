@@ -8,15 +8,15 @@ module.exports = {
     './assets/js/**/*.js', // JavaScriptファイル (Alpine.jsなどを使用する場合)
     // 必要に応じて他のパスを追加
   ],
-   theme: {
+     theme: {
     extend: {
       colors: {
-        'custom-light-blue': '#ADD8E6', // 例: 明るい水色 (具体的なカラーコードは調整可能)
-        'custom-dark-blue': '#0077B6',  // 例: やや濃い水色 (リンク色など)
-        // 他にも名刺で使われている色があれば追加
+        'custom-light-blue': '#ADD8E6',
+        'custom-dark-blue': '#0077B6',
       },
       backgroundImage: {
-        'tartan-check': "url('/images/bg.png')",
+        'tartan-check': "url('/images/bg.png')", // タータンチェックも残しておく場合
+        'header-background': "url('/images/header.jpg')", // header.jpgを登録
       }
     },
   },
