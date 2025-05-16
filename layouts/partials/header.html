@@ -1,5 +1,28 @@
-<div class="site-header">
-    <h1 class="bg-blue-500 text-white p-4"><a href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a></h1>
+<header class="container mx-auto px-4 py-6">
+    <div class="flex items-center mb-4">
+        <img src="profile_image.jpg" alt="プロフィール画像" class="w-16 h-16 rounded-full mr-4">
+        <div>
+            <h2 class="text-xl font-semibold">[お名前/サイト名]</h2>
+            <p class="text-gray-600">[2行程度の短いプロフィール]</p>
+        </div>
+    </div>
 
-    <p>（ここにプロフィールやリンクが入ります）</p>
-</div>
+    <div class="mb-4">
+        <a href="[お問い合わせリンク]" class="text-blue-600 hover:underline mr-4">お問い合わせ</a>
+        <a href="[YouTubeリンク]" target="_blank" rel="noopener noreferrer"
+            class="text-gray-700 hover:text-red-600 mr-2">[YouTubeアイコン]</a>
+        <a href="[X(Twitter)リンク]" target="_blank" rel="noopener noreferrer"
+            class="text-gray-700 hover:text-blue-500 mr-2">[Xアイコン]</a>
+        <a href="[BOOTHリンク]" target="_blank" rel="noopener noreferrer"
+            class="text-gray-700 hover:text-pink-500 mr-2">[BOOTHアイコン]</a>
+    </div>
+
+    <div>
+        <span class="font-semibold mr-2">タグ:</span>
+        {{ range .Site.Taxonomies.tags.ByCount }}
+        <a href="{{ .Page.Permalink }}"
+            class="inline-block bg-gray-200 hover:bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{
+            .Page.Title }} ({{ .Count }})</a>
+        {{ end }}
+    </div>
+</header>
