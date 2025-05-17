@@ -1,9 +1,12 @@
 {{ define "main" }}
 <div class="container mx-auto p-4">
-    <h1 class="text-3xl font-bold text-blue-600">ホームページへようこそ！</h1>
+    <h1 class="text-3xl font-bold text-primary">ホームページへようこそ！</h1> <!-変更箇所 -->
     <p class="mt-4">Tailwind CSS v4 と Hugo で構築中です。</p>
     <div class="mt-8 p-6 bg-gray-100 rounded-lg shadow-md">
         <p class="text-lg">これはTailwind CSSのスタイルが適用されたボックスです。</p>
+    </div>
+    <div class="mt-4 p-4 bg-accent-yellow text-gray-900">
+        アクセントカラー（黄色）のテスト
     </div>
 </div>
 {{ end }}

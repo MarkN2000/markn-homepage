@@ -1,4 +1,32 @@
 @import "tailwindcss";
 
-/* ここに @theme ディレクティブやカスタムCSSを記述していきます */
-/* 例: @theme { --color-primary: #007bff; } */
+@theme {
+  /* カスタムカラーパレット */
+  /* README.md の指示に基づき、水色系をメインカラーとします */
+  --color-primary: #0ea5e9; /* 水色系 (Tailwindのsky-500相当) */
+  --color-primary-hover: #0284c7; /* 水色系ホバー時 (Tailwindのsky-600相当) */
+  /* アクセントカラーの例 */
+  --color-secondary: #ec4899; /* ピンク系 (Tailwindのpink-500相当) */
+  --color-accent-yellow: #facc15; /* 黄色系 (Tailwindのyellow-400相当) */
+  --color-accent-orange: #f97316; /* オレンジ系 (Tailwindのorange-500相当) */
+  --color-accent-white: #ffffff; /* 白 */
+  /* カスタムフォントファミリー */
+  /* README.md の指示に基づき、Noto Sans JP を基本フォントとします */
+  /* デフォルトのsans-serifフォールバックも念のため残しておきます */
+    --font-family-sans: "Noto Sans JP", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* 基本的なbodyのスタイリング */
+body {
+font-family: theme('fontFamily.sans'); /* @themeで定義したsansフォントを適用 */
+background-image: url('/images/bg.png');
+background-repeat: repeat;
+color: theme('colors.gray.800'); /* 基本の文字色 (例: Tailwindのgray-800) */
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+/* 可読性のため、コンテンツのメインエリアには背景色を重ねることを想定したクラス(例) */
+.content-wrapper {
+background-color: theme('colors.white');
+}

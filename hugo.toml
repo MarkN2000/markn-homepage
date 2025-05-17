@@ -2,13 +2,14 @@ baseURL = "/"
 languageCode = "ja-jp"
 title = "まーくん。(MarkN)のホームページ"
 
-[markup.goldmark.renderer]
-  unsafe = true # HTMLタグをMarkdown内で許可する場合
+[params]
+  description = "Resoniteでプログラミングなどをしてツールやおもちゃを作っています" # この行
 
-# PostCSS の設定 (Hugo 0.121.0 以降でより明示的な設定が可能)
+[markup.goldmark.renderer]
+  unsafe = true
+
 [build]
   [build.processing]
     [build.processing.css]
       [build.processing.css.postcss]
-        # PostCSS の設定を Hugo に伝える (通常は postcss.config.js で十分)
-        # config = "./postcss.config.js" # 明示的に指定する場合
+        # config = "./postcss.config.js"
