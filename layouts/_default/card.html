@@ -37,6 +37,13 @@
     
     {{/* カードコンテンツエリア */}}
     <div class="p-4 flex flex-col flex-grow"> {{/* flex flex-col flex-grow を追加 */}}
+                {{/* タイトル */}}
+        <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-2">
+            <a href="{{ .RelPermalink }}" class="hover:text-primary transition-colors duration-150" title="{{ .Title }}">
+                {{ .Title }}
+            </a>
+        </h3>
+        {{/* 概要 */}}
         <h3 class="text-lg font-semibold text-gray-800 mb-2 line-clamp-2">
         <a href="{{ .RelPermalink }}" 
             class="block text-sm text-gray-700 hover:text-primary mb-3 line-clamp-3 flex-grow transition-colors duration-150"

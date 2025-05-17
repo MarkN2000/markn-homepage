@@ -30,13 +30,6 @@
       <description></description>
     </item>
     <item>
-      <title>Tips</title>
-      <link>http://localhost:1313/tags/tips/</link>
-      <pubDate>Sat, 17 May 2025 10:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/tips/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Resonite</title>
       <link>http://localhost:1313/tags/resonite/</link>
       <pubDate>Sat, 17 May 2025 10:00:00 +0901</pubDate>
@@ -48,6 +41,27 @@
       <link>http://localhost:1313/tags/%E3%82%A2%E3%83%90%E3%82%BF%E3%83%BC/</link>
       <pubDate>Sat, 17 May 2025 10:00:00 +0901</pubDate>
       <guid>http://localhost:1313/tags/%E3%82%A2%E3%83%90%E3%82%BF%E3%83%BC/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI</title>
+      <link>http://localhost:1313/tags/ai/</link>
+      <pubDate>Sat, 17 May 2025 05:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ブログ</title>
+      <link>http://localhost:1313/tags/%E3%83%96%E3%83%AD%E3%82%B0/</link>
+      <pubDate>Sat, 17 May 2025 05:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E3%83%96%E3%83%AD%E3%82%B0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>プログラミング</title>
+      <link>http://localhost:1313/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link>
+      <pubDate>Sat, 17 May 2025 05:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</guid>
       <description></description>
     </item>
   </channel>
