@@ -1,0 +1,25 @@
+{{/* layouts/shortcodes/youtube.html */}}
+{{- $videoId := "" -}}
+{{- if .IsNamedParams -}}
+    {{- $videoId = .Get "id" | default (.Get 0) -}}
+{{- else -}}
+    {{- $videoId = .Get 0 -}}
+{{- end -}}
+
+{{- if $videoId -}}
+<div class="my-6 aspect-video overflow-hidden rounded-lg shadow-md"> {{/* README.md記事カードのスタイルを参考に、上下マージン、アスペクト比16:9、角丸、影を追加 */}}
+    <iframe 
+        class="w-full h-full" 
+        src="https://www.youtube.com/embed/{{ $videoId }}" 
+        title="YouTube video player for {{ $videoId }}" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen>
+    </iframe>
+</div>
+{{- else -}}
+<div class="my-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+    Error: YouTubeショートコードにビデオIDが指定されていません。
+</div>
+{{- end -}}
