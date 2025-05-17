@@ -4,6 +4,8 @@ date: 2025-05-17T15:00:00+09:00
 draft: false
 tags: ["Hugo", "サンプル", "TailwindCSS"]
 categories: ["技術記事"]
+thumbnail: "/images/placeholder-content.png" # この記事のサムネイル (OGP画像にも使われる)
+description: "この記事では、サンプル記事のタイトルに関する詳細な情報を提供し、読者に有益な洞察を与えます。" # この記事固有のdescription
 prev_post_path: "/posts/sample-article-2/" # 存在する記事のパスを指定
 next_post_path: "/posts/sample-article-3/" # 存在する記事のパスを指定
 # hero: "/images/sample-article-hero.jpg" # 記事のメイン画像（オプション）

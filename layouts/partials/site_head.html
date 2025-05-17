@@ -1,7 +1,57 @@
 {{/* layouts/partials/site_head.html */}}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+{{ $title := .Title }}
+{{ $siteTitle := .Site.Title }}
+{{ $description := .Description | default (.Summary | plainify | truncate 120) | default .Site.Params.description | default "サイトの概要がここに表示されます。" }}
+{{ $pageURL := .Permalink }}
+{{ $imageURL := "" }} {{/* 変数名を $imageURL に変更 */}}
+
+{{/* OGP画像の決定ロジック */}}
+{{ if .Params.thumbnail }}
+    {{ $thumbPath := .Params.thumbnail }}
+    {{ $isStaticPath := strings.HasPrefix $thumbPath "/" }} {{/* /images/... のような静的パスかチェック */}}
+    {{ if $isStaticPath }}
+        {{ $imageURL = $thumbPath | absURL }}
+    {{ else }} {{/* assets内またはページバンドル内のリソースを想定 */}}
+        {{ with resources.Get $thumbPath }}
+            {{ $imageURL = .Permalink }}
+        {{ end }}
+    {{ end }}
+{{ else if .Params.hero }} {{/* 同様に hero パラメータも処理 */}}
+    {{ $heroPath := .Params.hero }}
+    {{ $isStaticPath := strings.HasPrefix $heroPath "/" }}
+    {{ if $isStaticPath }}
+        {{ $imageURL = $heroPath | absURL }}
+    {{ else }}
+        {{ with resources.Get $heroPath }}
+            {{ $imageURL = .Permalink }}
+        {{ end }}
+    {{ end }}
+{{ else if .Site.Params.og_image }}
+    {{ $imageURL = (.Site.Params.og_image | absURL) }}
+{{ end }}
+
+<title>{{ if .IsHome }}{{ $siteTitle }}{{ else }}{{ $title }} | {{ $siteTitle }}{{ end }}</title>
+
+<meta name="description" content="{{ $description }}">
+<link rel="canonical" href="{{ $pageURL }}">
+
+<meta property="og:title" content="{{ $title | default $siteTitle }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ $pageURL }}">
+<meta property="og:site_name" content="{{ $siteTitle }}">
+{{ if $imageURL }}<meta property="og:image" content="{{ $imageURL }}">{{ end }}
+{{ if .Site.LanguageCode }}<meta property="og:locale" content="{{ replace .Site.LanguageCode "-" "_" }}">{{ end }}
+
+<meta name="twitter:card" content="{{ if $imageURL }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:title" content="{{ $title | default $siteTitle }}">
+<meta name="twitter:description" content="{{ $description }}">
+{{ if $imageURL }}<meta name="twitter:image" content="{{ $imageURL }}">{{ end }}
+{{/* <meta name="twitter:site" content="@YourTwitterHandle"> */}}
+{{/* <meta name="twitter:creator" content="@ArticleAuthorTwitterHandle"> */}}
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -9,3 +59,12 @@
 
 {{ $styles := resources.Get "css/main.css" | css.PostCSS | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+
+{{- template "_internal/schema.html" . -}}
+{{/* OGPとTwitter Cardは上記で詳細設定しているので、Hugo組み込みはコメントアウトするか、どちらかに寄せる */}}
+{{/* {{- template "_internal/opengraph.html" . -}} */}}
+{{/* {{- template "_internal/twitter_cards.html" . -}} */}}
+
+{{/* FAVICON設定 (例) */}}
+{{/* <link rel="icon" href="/favicon.ico" sizes="any"> */}}
+{{/* ... */}}
