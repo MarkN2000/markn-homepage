@@ -82,3 +82,15 @@ H4はさらに細分化された内容に使います。
 次に、Hugoの `figure` ショートコードを使ってキャプション付きで表示します。
 
 {{< figure src="/images/placeholder-content.jpg" title="Figureショートコードを使ったキャプション" alt="Figureショートコードのサンプル画像" class="mx-auto" >}}
+
+### 便利なツールの紹介
+
+以下は、私がよく利用するツールの一つです。
+
+{{< link-card
+    href="https://www.mozilla.org/ja/firefox/new/"
+    title="史上最速の Firefox をダウンロード"
+    description="より高速なページ読み込み、メモリ使用量削減、機能満載の最新版 Firefox が登場しました。"
+    image="https://www.mozilla.org/media/img/firefox/new/hero-mr1.c078928509譙.png"
+    site="www.mozilla.org"
+>}}
