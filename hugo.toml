@@ -6,6 +6,9 @@ defaultContentLanguage = "ja"
 # hugo.toml
 buildStats = true
 
+[build]
+  writeStats = true
+
 [params]
   [params.author]
     name = "まーくん。(MarkN)のホームページ" # ヘッダーに表示するサイト名

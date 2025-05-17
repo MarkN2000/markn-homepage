@@ -1,41 +1,44 @@
 <header class="bg-header-background bg-cover bg-center py-6">
     <div class="container mx-auto px-4">
         <div class="flex items-center mb-6">
-            <img src="{{"/images/profile.png" | relURL }}" alt="プロフィール画像 まーくん。(MarkN)"
+            <img src="{{ " /images/profile.png" | relURL }}"
+                alt="プロフィール画像 {{ .Site.Params.Author.profileName | default " まーくん。(MarkN)" }}"
                 class="w-20 h-20 rounded-full mr-4 border-2 border-white shadow-md">
             <div>
-                <h1 class="text-2xl font-bold text-gray-800">{{ .Site.Params.Author.name | default "まーくん。(MarkN)のホームページ"
-                    }}</h1>
-                <p class="text-gray-700">{{ .Site.Params.Author.bio | default "Resoniteでプログラミングなどをしてツールやおもちゃを作っています" }}
-                </p>
+                <h1 class="text-2xl font-bold text-profile-name">{{ .Site.Params.Author.name | default
+                    "まーくん。(MarkN)のホームページ" }}</h1>
+                <p class="text-profile-bio">{{ .Site.Params.Author.bio | default "Resoniteでプログラミングなどをしてツールやおもちゃを作っています"
+                    }}</p>
             </div>
         </div>
 
-        <div class="mb-6 space-x-4">
+        <div class="mb-6 flex flex-wrap gap-3">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdl5UHhRc5Hq5Y_njMLCttSEqnHpWem_Ays6OpfYGGYOEIExg/viewform?usp=sharing&ouid=116153046693437475138"
-                class="text-custom-dark-blue hover:underline font-semibold">お問い合わせ</a>
-            <span class="inline-flex items-center">
-                <a href="https://www.youtube.com/@marknvr" target="_blank" rel="noopener noreferrer"
-                    class="text-custom-dark-blue hover:underline ml-1">YouTube</a>
-            </span>
-            <span class="inline-flex items-center">
-                <a href="https://x.com/markn_chansan" target="_blank" rel="noopener noreferrer"
-                    class="text-custom-dark-blue hover:underline ml-1">X (Twitter)</a>
-            </span>
-            <span class="inline-flex items-center">
-                <a href="https://markn.booth.pm/" target="_blank" rel="noopener noreferrer"
-                    class="text-custom-dark-blue hover:underline ml-1">BOOTH</a>
-            </span>
+                class="inline-flex items-center px-4 py-2 bg-button-contact-bg text-button-contact-text font-semibold rounded-full shadow-md hover:opacity-80 transition-opacity duration-150">
+                お問い合わせ
+            </a>
+            <a href="https://www.youtube.com/@marknvr" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center px-4 py-2 bg-button-youtube-bg text-button-youtube-text font-semibold rounded-full shadow-md hover:opacity-80 transition-opacity duration-150">
+                YouTube
+            </a>
+            <a href="https://x.com/markn_chansan" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center px-4 py-2 bg-button-x-bg text-button-x-text font-semibold rounded-full shadow-md hover:opacity-80 transition-opacity duration-150">
+                X (Twitter)
+            </a>
+            <a href="https://markn.booth.pm/" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center px-4 py-2 bg-button-booth-bg text-button-booth-text font-semibold rounded-full shadow-md hover:opacity-80 transition-opacity duration-150">
+                BOOTH
+            </a>
         </div>
 
         {{ $tags := .Site.Taxonomies.tags }}
         {{ if gt (len $tags) 0 }}
-        <div class="p-4 bg-white bg-opacity-80 rounded-lg shadow"> <span
-                class="font-semibold mr-2 text-gray-700">タグ:</span>
+        <div class="p-4 bg-white bg-opacity-80 rounded-lg shadow">
+            <span class="font-semibold mr-2 text-gray-700">タグ:</span>
             {{ range $name, $taxonomy := $tags }}
             {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
             <a href="{{ .Permalink }}"
-                class="inline-block bg-custom-light-blue hover:bg-blue-400 text-gray-800 font-semibold rounded-full px-3 py-1 text-sm mr-2 mb-2 transition-colors duration-150">{{
+                class="inline-block bg-tag-bg text-tag-text font-semibold rounded-full px-3 py-1 text-sm mr-2 mb-2 hover:opacity-80 transition-opacity duration-150">{{
                 .Title }} ({{ len $taxonomy.Pages }})</a>
             {{ end }}
             {{ end }}

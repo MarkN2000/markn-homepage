@@ -1,17 +1,93 @@
 /* assets/css/main.css */
+
+/* 1. Tailwind CSSのコア機能をインポート */
 @import "tailwindcss";
 
-/*
-  hugo_stats.json をTailwind CSSの入力として直接CSSファイル内で
-  参照する @source ディレクティブは、v4では挙動が異なるか、
-  または tailwind.config.js の content 設定に依存する形になっている可能性があります。
-  まずは上記の @import "tailwindcss"; のみで試してみてください。
-  hugo_stats.json のスキャンは tailwind.config.js の content 設定で行われます。
-*/
+/* 2. テーマのカスタマイズ (@themeディレクティブを使用) */
+@theme {
+  /* スクリーンの設定 (必要であれば) */
+  // screens: {
+  //   sm: '640px',
+  //   md: '768px',
+  //   lg: '1024px',
+  //   xl: '1280px',
+  // },
 
-/* もしカスタムCSSを追加したい場合は、この下に記述します */
+  /* 色の定義 (名刺の色やサイトのテーマカラー) */
+  colors: {
+    // Tailwindのデフォルトカラーを全て保持しつつ、カスタムカラーを追加・上書き
+    ...theme('colors'), // デフォルトカラーを継承
+    'custom-light-blue': '#ADD8E6', // 例: 明るい水色 (前回提案の値)
+    'custom-dark-blue': '#0077B6',  // 例: やや濃い水色 (前回提案の値)
+    'profile-name': '#333333', /* プロフィール名の色 (仮) */
+    'profile-bio': '#555555',   /* プロフィール説明文の色 (仮) */
+    'tag-bg': '#E0F2FE',        /* タグ背景色 (水色系) */
+    'tag-text': '#0F769E',      /* タグ文字色 (濃い水色) */
+    'button-contact-bg': '#F97316',    /* お問い合わせボタン背景 (オレンジ系) */
+    'button-contact-text': '#FFFFFF', /* お問い合わせボタン文字 */
+    'button-youtube-bg': '#FFCD38',    /* YouTubeボタン背景 (黄色系) */
+    'button-youtube-text': '#27272A',  /* YouTubeボタン文字 (濃いグレー) */
+    'button-x-bg': '#60A5FA',          /* Xボタン背景 (青系) */
+    'button-x-text': '#FFFFFF',        /* Xボタン文字 */
+    'button-booth-bg': '#F472B6',      /* BOOTHボタン背景 (ピンク系) */
+    'button-booth-text': '#FFFFFF',    /* BOOTHボタン文字 */
+  },
+
+  /* フォントファミリーの定義 (Noto Sans JP を優先) */
+  fontFamily: {
+    sans: ['"Noto Sans JP"', 'sans-serif'],
+    // serif: [...],
+  },
+
+  /* 背景画像の定義 (ここで header.jpg を設定) */
+  backgroundImage: {
+    // ...theme('backgroundImage'), // デフォルトのbackgroundImageを継承する場合
+    'header-background': "url('/images/header.jpg')",
+    'tartan-check': "url('/images/bg.png')",
+  },
+
+  /* その他のテーマ設定 (spacing, borderRadius などもここに追加可能) */
+  // spacing: {
+  //   ...theme('spacing'),
+  //   '72': '18rem',
+  // },
+  // borderRadius: {
+  //   ...theme('borderRadius'),
+  //  'xl': '0.75rem',
+  // }
+}
+
+/* 3. カスタムユーティリティ (必要であれば @utility を使用) */
 /* 例:
-body {
-  font-family: 'Your Custom Font', sans-serif;
+@utility .custom-utility {
+  property: value;
 }
 */
+
+/* 4. ベーススタイルの調整 (h1, p タグのデフォルトスタイルなど) */
+@layer base {
+  body {
+    @apply font-sans; /* デフォルトフォントを適用 */
+    @apply text-gray-800; /* 基本の文字色 (仮) */
+    /* 必要であれば全体の背景色などを設定 */
+    /* @apply bg-tartan-check; */ /* サイト全体の背景にタータンチェックを適用する場合 */
+  }
+  h1, h2, h3, h4, h5, h6 {
+    /* @apply font-bold; */ /* 見出しのデフォルトスタイルなど */
+  }
+  a {
+    /* @apply text-custom-dark-blue hover:underline; */ /* 基本のリンクスタイル */
+  }
+}
+
+/* 5. コンポーネントレイヤー (繰り返し使うUIパターンなど) */
+/* 例:
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors;
+  }
+}
+*/
+
+/* 6. ユーティリティレイヤーでTailwindがクラスを生成 (通常は触らない) */
+/* @import "tailwindcss/utilities"; */ /* これは @import "tailwindcss" に含まれる */
