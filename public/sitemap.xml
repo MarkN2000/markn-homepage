@@ -2,52 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/privacy-policy/</loc>
+    <loc>http://localhost:1313/privacy-policy/</loc>
     <lastmod>2025-05-17T20:00:00+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-05-17T20:00:00+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
     <lastmod>2025-05-17T15:00:00+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/hugo/</loc>
+    <loc>http://localhost:1313/tags/hugo/</loc>
     <lastmod>2025-05-17T15:00:00+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-05-17T15:00:00+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-05-17T15:00:00+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/tailwindcss/</loc>
+    <loc>http://localhost:1313/tags/tailwindcss/</loc>
     <lastmod>2025-05-17T15:00:00+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB/</loc>
+    <loc>http://localhost:1313/tags/%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB/</loc>
     <lastmod>2025-05-17T15:00:00+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/sample-article/</loc>
+    <loc>http://localhost:1313/posts/sample-article/</loc>
     <lastmod>2025-05-17T15:00:00+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/categories/%E6%8A%80%E8%A1%93%E8%A8%98%E4%BA%8B/</loc>
+    <loc>http://localhost:1313/categories/%E6%8A%80%E8%A1%93%E8%A8%98%E4%BA%8B/</loc>
     <lastmod>2025-05-17T15:00:00+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/sample-article-2/</loc>
+    <loc>http://localhost:1313/posts/sample-article-2/</loc>
     <lastmod>2025-05-17T10:00:00+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/tips/</loc>
+    <loc>http://localhost:1313/tags/tips/</loc>
     <lastmod>2025-05-17T10:00:00+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/resonite/</loc>
+    <loc>http://localhost:1313/tags/resonite/</loc>
     <lastmod>2025-05-17T10:00:00+09:01</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/sample-article-3/</loc>
+    <loc>http://localhost:1313/posts/sample-article-3/</loc>
     <lastmod>2025-05-17T10:00:00+09:01</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/%E3%82%A2%E3%83%90%E3%82%BF%E3%83%BC/</loc>
+    <loc>http://localhost:1313/tags/%E3%82%A2%E3%83%90%E3%82%BF%E3%83%BC/</loc>
     <lastmod>2025-05-17T10:00:00+09:01</lastmod>
   </url><url>
-    <loc>//localhost:1313/categories/%E8%B6%A3%E5%91%B3/</loc>
+    <loc>http://localhost:1313/categories/%E8%B6%A3%E5%91%B3/</loc>
     <lastmod>2025-05-17T10:00:00+09:01</lastmod>
   </url>
 </urlset>
