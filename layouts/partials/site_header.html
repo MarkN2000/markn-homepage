@@ -1,0 +1,24 @@
+{{/* layouts/partials/site_header.html */}}
+<header class="relative text-white py-8 md:py-12 bg-cover bg-center" style="background-image: url('{{ "/images/header.jpg" | relURL }}');">
+    <div class="absolute inset-0 bg-black opacity-30"></div> {{/* 背景画像の上に薄い黒のオーバーレイ（文字を見やすくするため） */}}
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="md:flex md:items-center">
+            {{/* プロフィール画像エリア */}}
+            <div class="mb-4 md:mb-0 md:mr-6 text-center md:text-left">
+                <img src="{{ "/images/profile.png" | relURL }}" alt="プロフィール画像" class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-white shadow-lg mx-auto md:mx-0">
+            </div>
+
+            {{/* サイト名と説明文エリア */}}
+            <div class="text-center md:text-left">
+                <h1 class="text-3xl md:text-4xl font-bold">{{ .Site.Title }}</h1>
+                <p class="mt-1 text-lg md:text-xl text-gray-200">{{ .Site.Params.description | default "サイトの簡単な説明" }}</p>
+
+                {{/* リンクボタンエリア (後で本格的に実装) */}}
+                <div class="mt-6 space-x-2">
+                    <a href="#" class="inline-block bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-4 rounded-lg text-sm transition duration-150">お問い合わせ(仮)</a>
+                    <a href="#" class="inline-block bg-secondary hover:opacity-80 text-white font-semibold py-2 px-4 rounded-lg text-sm transition duration-150">SNS(仮)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

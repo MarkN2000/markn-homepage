@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-    {{ $styles := resources.Get "css/main.css" | postcss | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+    {{ partial "site_head.html" . }}
 </head>
+<body class="flex flex-col min-h-screen bg-transparent"> {{/* bodyの背景はmain.cssで設定したタータンチェック */}}
+    {{ partial "site_header.html" . }}
 
-<body>
-    <header>
-    </header>
-    <main>
+    <main class="flex-grow container mx-auto px-4 py-8">
         {{ block "main" . }}{{ end }}
     </main>
-    <footer>
-    </footer>
-</body>
 
+    {{ partial "site_footer.html" . }}
+</body>
 </html>
