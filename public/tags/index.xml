@@ -29,5 +29,26 @@
       <guid>//localhost:1313/tags/%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB/</guid>
       <description></description>
     </item>
+    <item>
+      <title>Tips</title>
+      <link>//localhost:1313/tags/tips/</link>
+      <pubDate>Sat, 17 May 2025 10:00:00 +0900</pubDate>
+      <guid>//localhost:1313/tags/tips/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Resonite</title>
+      <link>//localhost:1313/tags/resonite/</link>
+      <pubDate>Sat, 17 May 2025 10:00:00 +0901</pubDate>
+      <guid>//localhost:1313/tags/resonite/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>アバター</title>
+      <link>//localhost:1313/tags/%E3%82%A2%E3%83%90%E3%82%BF%E3%83%BC/</link>
+      <pubDate>Sat, 17 May 2025 10:00:00 +0901</pubDate>
+      <guid>//localhost:1313/tags/%E3%82%A2%E3%83%90%E3%82%BF%E3%83%BC/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

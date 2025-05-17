@@ -4,6 +4,9 @@ title = "まーくん。(MarkN)のホームページ"
 
 [params]
   description = "Resoniteでプログラミングなどをしてツールやおもちゃを作っています"
+  mainSections = ["posts"]
+
+paginate = 5
 
 [markup]
   [markup.goldmark.renderer]

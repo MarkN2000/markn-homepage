@@ -1,0 +1,45 @@
+{{ define "main" }}
+<div class="flex-grow">
+
+    {{/* --- タグフィルターエリア --- */}}
+    <section class="bg-white shadow-md py-4 mb-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap gap-2 items-center">
+                <span class="text-sm font-medium text-gray-700 mr-2">フィルター:</span>
+
+                {{/* 「すべて」ボタン (このページでは非アクティブ) */}}
+                <a href="{{ site.Home.RelPermalink }}" class="inline-block bg-sky-100 hover:bg-sky-200 text-primary rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-150 ease-in-out">すべて</a>
+
+                {{/* 動的に生成されるタグボタン */}}
+                {{ $currentTerm := .Title }} {{/* 現在表示しているタグ名 (例: "Hugo") */}}
+                {{ $tags := .Site.Taxonomies.tags.ByCount }}
+                {{ range $tags }}
+                {{ $isActive := eq .Page.Title $currentTerm }}
+                <a href="{{ .Page.RelPermalink }}"
+                    class="inline-block rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-150 ease-in-out
+                            {{ if $isActive }}bg-primary text-white{{ else }}bg-sky-100 hover:bg-sky-200 text-primary{{ end }}">
+                    {{ .Page.Title }} ({{ .Count }})
+                </a>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+
+    {{/* --- 記事カード一覧エリア --- */}}
+    {{/* このページでは .Title (現在のタグ名) を表示しても良いが、ユーザーの要望でメインページから削除したのでこちらも合わせる */}}
+    {{/* <div class="container mx-auto px-4 mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">タグ: {{ .Title }} の記事一覧</h2>
+    </div> */}}
+
+    <section class="container mx-auto px-4 pb-8">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            {{ $paginator := .Paginate .Pages }} {{/* .Pages はこのタクソノミーページのコンテキスト内の記事 */}}
+            {{ range $paginator.Pages }}
+            {{ .Render "card" }}
+            {{ end }}
+        </div>
+        {{ template "_internal/pagination.html" . }}
+    </section>
+
+</div>
+{{ end }}
