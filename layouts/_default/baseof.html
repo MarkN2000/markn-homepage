@@ -6,9 +6,9 @@
 <body class="flex flex-col min-h-screen bg-transparent"> {{/* bodyの背景はmain.cssで設定したタータンチェック */}}
     {{ partial "site_header.html" . }}
 
-    <main class="flex-grow container mx-auto px-4 py-8">
-        {{ block "main" . }}{{ end }}
-    </main>
+<main class="flex-grow">
+    {{ block "main" . }}{{ end }}
+</main>
 
     {{ partial "site_footer.html" . }}
 </body>
