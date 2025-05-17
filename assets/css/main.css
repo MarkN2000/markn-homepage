@@ -10,6 +10,8 @@
   --color-accent-yellow: #facc15; /* 黄色系 (Tailwindのyellow-400相当) */
   --color-accent-orange: #f97316; /* オレンジ系 (Tailwindのorange-500相当) */
   --color-accent-white: #ffffff; /* 白 */
+  --color-button-contact-bg: #1e40af;      /* くらい紺色 (Tailwind blue-800) */
+  --color-button-contact-bg-hover: #1e3a8a; /* くらい紺色ホバー時 (Tailwind blue-900) */
   /* カスタムフォントファミリー */
   /* README.md の指示に基づき、Noto Sans JP を基本フォントとします */
   /* デフォルトのsans-serifフォールバックも念のため残しておきます */

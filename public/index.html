@@ -12,30 +12,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
 
-<link rel="stylesheet" href="/css/main.min.b57fcc3a37df26398606a1e92181fd737ea6f2ff055c230ee067c21b2bcdf578.css">
+<link rel="stylesheet" href="/css/main.min.3637a85e98478edb850a322f6d73e6676095dd142b47335ab3814b512f323b96.css">
 </head>
 <body class="flex flex-col min-h-screen bg-transparent"> 
     
 <header class="relative text-white py-8 md:py-12 bg-cover bg-center" style="background-image: url('/images/header.jpg');">
     <div class="absolute inset-0 bg-black opacity-30"></div> 
     <div class="container mx-auto px-4 relative z-10">
-        <div class="md:flex md:items-center">
+        
+        <a href="/" class="block md:flex md:items-center group focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded-lg">
             
             <div class="mb-4 md:mb-0 md:mr-6 text-center md:text-left">
-                <img src="/images/profile.png" alt="プロフィール画像" class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-white shadow-lg mx-auto md:mx-0">
+                <img src="/images/profile.png" alt="プロフィール画像" 
+                     class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-white shadow-lg mx-auto md:mx-0 
+                            group-hover:opacity-90 transition-opacity duration-150">
             </div>
 
             
             <div class="text-center md:text-left">
-                <h1 class="text-3xl md:text-4xl font-bold">まーくん。(MarkN)のホームページ</h1>
-                <p class="mt-1 text-lg md:text-xl text-gray-200">Resoniteでプログラミングなどをしてツールやおもちゃを作っています</p>
-
-                
-                <div class="mt-6 space-x-2">
-                    <a href="#" class="inline-block bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-4 rounded-lg text-sm transition duration-150">お問い合わせ(仮)</a>
-                    <a href="#" class="inline-block bg-secondary hover:opacity-80 text-white font-semibold py-2 px-4 rounded-lg text-sm transition duration-150">SNS(仮)</a>
-                </div>
+                <h1 class="text-3xl md:text-4xl font-bold group-hover:text-gray-100 transition-colors duration-150">まーくん。(MarkN)のホームページ</h1>
+                <p class="mt-1 text-lg md:text-xl text-gray-200 group-hover:text-gray-50 transition-colors duration-150">Resoniteでプログラミングなどをしてツールやおもちゃを作っています</p>
             </div>
+        </a>
+
+        
+        <div class="mt-6 text-center md:text-left space-y-2 md:space-y-0 md:space-x-2">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdl5UHhRc5Hq5Y_njMLCttSEqnHpWem_Ays6OpfYGGYOEIExg/viewform?usp=header" 
+               target="_blank" rel="noopener noreferrer"
+               class="inline-block bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-4 rounded-lg text-sm transition-colors duration-150 ease-in-out w-full sm:w-auto"> 
+               依頼・お問い合わせ等
+            </a>
+            <a href="https://x.com/markn_chansan" 
+               target="_blank" rel="noopener noreferrer"
+               class="inline-block bg-button-contact-bg hover:bg-button-contact-bg-hover text-white font-semibold py-2 px-4 rounded-lg text-sm transition-colors duration-150 ease-in-out w-full sm:w-auto"> 
+               Twitter(X)
+            </a>
         </div>
     </div>
 </header>
