@@ -45,15 +45,6 @@ H4はさらに細分化された内容に使います。
 > The quick brown fox jumps over the lazy dog.
 
 
-### 2.3. YouTube動画の埋め込みテスト
-
-以下はショートコードを使って埋め込んだYouTube動画です。
-
-{{</* youtube "lC3F1dn66FY" */>}}
-{{/* 有名なあの動画でテスト */}}
-
-この記事が、個別ページのスタイリングの第一歩となることを願っています。
-
 ### 2.1. コードブロック
 
 インラインの `code` スタイルも確認しましょう。
@@ -69,3 +60,23 @@ H4はさらに細分化された内容に使います。
     <h1>こんにちは</h1>
 </body>
 </html>
+```
+
+### 2.2. YouTube動画の埋め込みテスト
+
+以下はショートコードを使って埋め込んだYouTube動画です。
+
+{{< youtube "lC3F1dn66FY" >}}
+
+### 2.3. 画像の表示
+
+記事内の画像表示も重要です。
+
+まずは標準のMarkdown構文で画像を表示してみます。
+
+![標準Markdownでのサンプル画像](/images/placeholder-content.jpg "Markdown画像タイトル")
+*これは標準Markdown画像の下に手動で書いたキャプションです。*
+
+次に、Hugoの `figure` ショートコードを使ってキャプション付きで表示します。
+
+{{< figure src="/images/placeholder-content.jpg" title="Figureショートコードを使ったキャプション" alt="Figureショートコードのサンプル画像" class="mx-auto" >}}

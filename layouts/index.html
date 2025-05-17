@@ -6,43 +6,29 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap gap-2 items-center">
                 <span class="text-sm font-medium text-gray-700 mr-2">フィルター:</span>
-                <a href="#" class="inline-block bg-primary text-white rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-150 ease-in-out">すべて(仮)</a>
-                <a href="#" class="inline-block bg-sky-100 hover:bg-sky-200 text-primary rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-150 ease-in-out">Resonite(仮)</a>
-                <a href="#" class="inline-block bg-sky-100 hover:bg-sky-200 text-primary rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-150 ease-in-out">Hugo(仮)</a>
-                <a href="#" class="inline-block bg-sky-100 hover:bg-sky-200 text-primary rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-150 ease-in-out">Tool(仮)</a>
+                
+                {{/* 「すべて」ボタン (ホームページでは常にアクティブ) */}}
+                <a href="{{ "/" | relURL }}" class="inline-block bg-primary text-white rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-150 ease-in-out">すべて</a>
+
+                {{/* 動的に生成されるタグボタン */}}
+                {{ $tags := .Site.Taxonomies.tags.ByCount }} {{/* または .Alphabetical */}}
+                {{ range $tags }}
+                    <a href="{{ .Page.RelPermalink }}" class="inline-block bg-sky-100 hover:bg-sky-200 text-primary rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-150 ease-in-out">{{ .Page.Title }} ({{ .Count }})</a>
+                {{ end }}
             </div>
         </div>
     </section>
 
-    {{/* --- ページタイトル --- */}}
-    <div class="container mx-auto px-4 mb-8">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">記事一覧</h2>
-    </div>
-
     {{/* --- 記事カード一覧エリア --- */}}
     <section class="container mx-auto px-4 pb-8">
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {{/* --- 記事カード (ここから繰り返し) --- */}}
-            {{ range seq 8 }} {{/* 仮に8枚のカードを表示 */}}
-            <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-                {{/* サムネイル画像エリア 16:9 */}}
-                <div class="aspect-video bg-gray-200"> {{/* aspect-video はTailwindの標準クラス */}}
-                    <img src="https://via.placeholder.com/480x270.png?text=記事サムネイル{{ . }}" alt="記事サムネイル {{ . }}" class="w-full h-full object-cover">
-                </div>
-                {{/* カードコンテンツエリア */}}
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2 line-clamp-2">記事のタイトルがここに入ります {{ . }}</h3>
-                    <p class="text-sm text-gray-700 mb-3 line-clamp-3">ここに記事の短い説明文が数行入ります。読者の興味を引くような内容が良いでしょう。</p>
-                    {{/* タグ表示エリア */}}
-                    <div class="flex flex-wrap gap-1">
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">タグA</span>
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">タグB</span>
-                    </div>
-                </div>
-            </div>
+            {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections | default .Site.RegularPages }}
+            {{ $paginator := .Paginate $pages }}
+            {{ range $paginator.Pages }}
+                {{ .Render "card" }} {{/* layouts/_default/card.html を呼び出す (後で作成) */}}
             {{ end }}
-            {{/* --- 記事カード (ここまで繰り返し) --- */}}
         </div>
+        {{ template "_internal/pagination.html" . }} {{/* ページネーション (後でスタイル調整) */}}
     </section>
 
 </div>
