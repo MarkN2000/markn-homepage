@@ -1,6 +1,28 @@
 {
+  "name": "markn-homepage",
+  "version": "1.0.0",
+  "description": "このプロジェクトは、個人の作品、解説記事、プロフィールなどを発信するためのポートフォリオサイトです。静的サイトジェネレーター Hugo と **Tailwind CSS v4** を使用して構築します。Tailwind CSS v4では、設定をCSSファイル内に記述する「CSSファースト」のアプローチを採用します。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarkN2000/markn-homepage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MarkN2000/markn-homepage/issues"
+  },
+  "homepage": "https://github.com/MarkN2000/markn-homepage#readme",
   "devDependencies": {
-    "@tailwindcss/cli": "^4.1.7",
+    "@tailwindcss/postcss": "^4.1.7",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
     "tailwindcss": "^4.1.7"
   }
 }
