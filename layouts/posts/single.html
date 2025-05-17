@@ -58,12 +58,12 @@
                 {{ if $nextPath }}
                     {{ with site.GetPage $nextPath }}
                         <a href="{{ .RelPermalink }}" title="次の記事: {{ .Title }}"
-                           class="inline-flex items-center text-xs font-medium group 
-                                  bg-white hover:bg-gray-50 border border-gray-300 hover:border-gray-400 
-                                  text-gray-700 
-                                  px-2.5 py-1 rounded-lg shadow-sm 
-                                  transition-all duration-150 ease-in-out 
-                                  focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                            class="inline-flex items-center text-xs font-medium group 
+                                    bg-white hover:bg-gray-50 border border-gray-300 hover:border-gray-400 
+                                    text-gray-700 
+                                    px-2.5 py-1 rounded-lg shadow-sm 
+                                    transition-all duration-150 ease-in-out 
+                                    focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
                             次の記事
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 ml-1 text-primary group-hover:text-primary-hover">
                                 <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.168 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z" clip-rule="evenodd" />
@@ -95,10 +95,46 @@
             {{ end }}
         </div>
 
-        {{/* README.mdにはサムネイル画像と言及あり。記事のメイン画像として表示する場合の例 */}}
-        {{/* if .Params.hero */}}
-        {{/* <img src="{{ .Params.hero | relURL }}" alt="{{ .Title }}" class="w-full h-auto rounded-md mt-6 mb-4 object-cover max-h-96"> */}}
-        {{/* end */}}
+ {{/* --- 記事のタイトル画像 (サムネイルを使用) --- */}}
+            {{ $titleImageResource := "" }}
+            {{ $altText := .Title | plainify | default "記事のタイトル画像" }}
+
+            {{/* 1. フロントマターのthumbnailをページリソースとして探す */}}
+            {{ if .Params.thumbnail }}
+                {{ $titleImageResource = .Resources.GetMatch .Params.thumbnail }}
+            {{ end }}
+
+            {{/* 2. (オプション) thumbnailがなければ、heroをページリソースとして探す */}}
+            {{ if not $titleImageResource }}
+                {{ if .Params.hero }}
+                    {{ $titleImageResource = .Resources.GetMatch .Params.hero }}
+                {{ end }}
+            {{ end }}
+
+            {{ if $titleImageResource }}
+                {{/* ページリソースが見つかればHugoの画像処理を適用 */}}
+                {{/* 例: 幅800pxにリサイズ、アスペクト比維持、WebP形式、品質80 */}}
+                {{ $imageProcessed := $titleImageResource.Resize "800x webp q80" }}
+                <div class="mb-8 border-b border-gray-200 pb-8"> {{/* 画像の下にマージンと区切り線 */}}
+                    <img src="{{ $imageProcessed.RelPermalink }}" 
+                        width="{{ $imageProcessed.Width }}" 
+                        height="{{ $imageProcessed.Height }}" 
+                        alt="{{ $altText }}" 
+                         class="w-full h-auto rounded-lg shadow-md object-cover max-h-[30rem]"> {{/* max-h-[30rem]は約480px */}}
+                </div>
+            {{ else if .Params.thumbnail }} {{/* ページリソースではないがthumbnailパスが指定されている場合 (例: /images/static.png) */}}
+                {{ if strings.HasPrefix .Params.thumbnail "/" }}
+                <div class="mb-8 border-b border-gray-200 pb-8">
+                    <img src="{{ .Params.thumbnail | relURL }}" alt="{{ $altText }}" class="w-full h-auto rounded-lg shadow-md object-cover max-h-[30rem]">
+                </div>
+                {{ end }}
+            {{ else if .Params.hero }} {{/* ページリソースではないがheroパスが指定されている場合 */}}
+                {{ if strings.HasPrefix .Params.hero "/" }}
+                <div class="mb-8 border-b border-gray-200 pb-8">
+                    <img src="{{ .Params.hero | relURL }}" alt="{{ $altText }}" class="w-full h-auto rounded-lg shadow-md object-cover max-h-[30rem]">
+                </div>
+                {{ end }}
+            {{ end }}
     </header>
 
     {{/* 記事本文 - ここにMarkdownからのHTMLが展開される */}}
