@@ -24,4 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+    
+        const historyBackButton = document.getElementById('historyBackButton');
+
+    if (historyBackButton) {
+        historyBackButton.addEventListener('click', function() {
+            window.history.back();
+        });
+    }
 });

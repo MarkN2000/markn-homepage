@@ -1,5 +1,25 @@
 {{ define "main" }}
-<article class="bg-white shadow-lg rounded-lg p-6 md:p-10 max-w-4xl mx-auto my-8"> {{/* カードより少しリッチな影やパディング */}}
+
+<div class="max-w-4xl mx-auto px-4"> {{/* ← 記事コンテナと同じ幅の制約を追加 */}}
+        <div class="pt-3 pb-3 md:pt-4"> {{/* ← ボタンの上下の余白を調整 (特に下方向) */}}
+            <button id="historyBackButton" 
+                    class="inline-flex items-center text-sm font-medium group
+                        bg-white hover:bg-gray-50 border border-gray-300 hover:border-gray-400
+                        text-gray-700 {{/* ボタンテキストの色 */}}
+                        px-3 py-1.5 rounded-lg shadow-sm 
+                        transition-all duration-150 ease-in-out 
+                        focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" 
+                     class="w-5 h-5 mr-1.5 text-primary {{/* アイコンの色はプライマリーカラーのまま */}}
+                            transform transition-transform duration-150 ease-in-out group-hover:-translate-x-0.5">
+                    <path fill-rule="evenodd" d="M17 10a.75.75 0 0 1-.75.75H5.56l2.72 2.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 1 1 1.06 1.06L5.56 9.25H16.25A.75.75 0 0 1 17 10Z" clip-rule="evenodd" />
+                </svg>
+                戻る
+            </button>
+        </div>
+    </div>
+
+<article class="bg-white shadow-lg rounded-lg p-6 md:p-10 max-w-4xl mx-auto"> {{/* カードより少しリッチな影やパディング */}}
 
     {{/* 記事ヘッダー */}}
     <header class="mb-8 border-b pb-6">
