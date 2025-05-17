@@ -1,5 +1,23 @@
 {{/* layouts/partials/site_footer.html */}}
-<footer class="bg-gray-900 text-gray-300 text-center p-6">
-    <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All Rights Reserved.</p>
-    {{/* ここにプライバシーポリシーや他のSNSリンクなどを追加できます */}}
+<footer class="bg-gray-900 text-gray-400 py-8"> {{/* 背景色、文字色、上下パディング調整 */}}
+    <div class="container mx-auto px-4 text-center">
+        {{/* ナビゲーションリンク (プライバシーポリシーなど) */}}
+        <nav class="mb-4">
+            <a href="{{ "/privacy-policy/" | relURL }}" class="text-sm text-gray-400 hover:text-gray-200 transition-colors duration-150 mx-2">プライバシーポリシー(仮)</a>
+            {{/* 他にもフッターに置きたいリンクがあればここに追加 */}}
+        </nav>
+
+        {{/* SNSリンク (よりシンプルなテキストリンクの例) */}}
+        <div class="mb-4">
+            {{/* 将来的にはSVGアイコンなどに置き換えたい */}}
+            <a href="https://x.com/YourProfile" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-400 hover:text-gray-200 transition-colors duration-150 mx-2">X (Twitter)</a>
+            <a href="https://youtube.com/YourChannel" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-400 hover:text-gray-200 transition-colors duration-150 mx-2">YouTube</a>
+            {{/* 他のSNSリンク */}}
+        </div>
+
+        {{/* コピーライト表記 */}}
+        <p class="text-xs text-gray-500"> {{/* フォントサイズを小さめに */}}
+            &copy; {{ now.Format "2006" }} {{ .Site.Title }}. All Rights Reserved.
+        </p>
+    </div>
 </footer>
