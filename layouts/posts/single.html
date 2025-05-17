@@ -30,5 +30,58 @@
         {{ .Content }}
     </div>
 
+        {{ $prevPath := .Params.prev_post_path }}
+        {{ $nextPath := .Params.next_post_path }}
+
+        {{ if or $prevPath $nextPath }}
+        <nav class="mt-12 pt-8 border-t border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4 text-center sr-only">記事ナビゲーション</h3> {{/* スクリーンリーダー用 */}}
+            <div class="flex flex-col md:flex-row 
+                        {{ if and $prevPath $nextPath }}justify-between{{ else if $prevPath }}justify-start{{ else if $nextPath }}justify-end{{ end }} 
+                        gap-4">
+                
+                {{/* 前の記事へのリンク */}}
+                {{ if $prevPath }}
+                    {{ with site.GetPage $prevPath }}
+                        <a href="{{ .RelPermalink }}" 
+                            class="group block w-full md:w-[48%] bg-white hover:bg-gray-50 p-4 rounded-lg border border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md transition-all duration-200 ease-in-out">
+                            <div class="flex items-center text-left">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 mr-3 text-primary group-hover:text-primary-hover transition-colors flex-shrink-0">
+                                    <path fill-rule="evenodd" d="M17 10a.75.75 0 0 1-.75.75H5.56l2.72 2.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 1 1 1.06 1.06L5.56 9.25H16.25A.75.75 0 0 1 17 10Z" clip-rule="evenodd" />
+                                </svg>
+                                <div class="overflow-hidden">
+                                    <p class="text-xs text-gray-500 group-hover:text-gray-600 transition-colors">前の記事</p>
+                                    <h4 class="text-sm font-semibold text-gray-700 group-hover:text-primary transition-colors line-clamp-2">{{ .Title }}</h4>
+                                </div>
+                            </div>
+                        </a>
+                    {{ end }}
+                {{ else if $nextPath }} {{/* nextPathのみ存在する場合、prevのスペースを埋める（justifybetweenのため） */}}
+                    <div class="hidden md:block md:w-[48%]"></div>
+                {{ end }}
+
+                {{/* 次の記事へのリンク */}}
+                {{ if $nextPath }}
+                    {{ with site.GetPage $nextPath }}
+                        <a href="{{ .RelPermalink }}" 
+                            class="group block w-full md:w-[48%] bg-white hover:bg-gray-50 p-4 rounded-lg border border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md transition-all duration-200 ease-in-out">
+                            <div class="flex items-center text-right">
+                                <div class="overflow-hidden flex-grow text-right">
+                                    <p class="text-xs text-gray-500 group-hover:text-gray-600 transition-colors">次の記事</p>
+                                    <h4 class="text-sm font-semibold text-gray-700 group-hover:text-primary transition-colors line-clamp-2">{{ .Title }}</h4>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 ml-3 text-primary group-hover:text-primary-hover transition-colors flex-shrink-0">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.69l-2.72-2.72a.75.75 0 1 1 1.06-1.06l4.25 4.25a.75.75 0 0 1 0 1.06l4.25 4.25a.75.75 0 1 1-1.06-1.06L14.44 10.75H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </a>
+                    {{ end }}
+                {{ else if $prevPath }} {{/* prevPathのみ存在する場合、nextのスペースを埋める */}}
+                    <div class="hidden md:block md:w-[48%]"></div>
+                {{ end }}
+            </div>
+        </nav>
+        {{ end }}
+
 </article>
 {{ end }}

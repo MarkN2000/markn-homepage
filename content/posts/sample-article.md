@@ -4,6 +4,8 @@ date: 2025-05-17T15:00:00+09:00
 draft: false
 tags: ["Hugo", "サンプル", "TailwindCSS"]
 categories: ["技術記事"]
+prev_post_path: "/posts/sample-article-2/" # 存在する記事のパスを指定
+next_post_path: "/posts/sample-article-3/" # 存在する記事のパスを指定
 # hero: "/images/sample-article-hero.jpg" # 記事のメイン画像（オプション）
 ---
 
