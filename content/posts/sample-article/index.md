@@ -4,7 +4,7 @@ date: 2025-05-17T15:00:00+09:00
 draft: false
 tags: ["Hugo", "サンプル", "TailwindCSS"]
 categories: ["技術記事"]
-thumbnail: "/images/placeholder-content.png" # この記事のサムネイル (OGP画像にも使われる)
+thumbnail: "thumbnail.webp" # この記事のサムネイル (OGP画像にも使われる)
 description: "この記事では、サンプル記事のタイトルに関する詳細な情報を提供し、読者に有益な洞察を与えます。" # この記事固有のdescription
 prev_post_path: "/posts/sample-article-2/" # 存在する記事のパスを指定
 next_post_path: "/posts/sample-article-3/" # 存在する記事のパスを指定
@@ -78,12 +78,12 @@ H4はさらに細分化された内容に使います。
 
 まずは標準のMarkdown構文で画像を表示してみます。
 
-![標準Markdownでのサンプル画像](/images/placeholder-content.jpg "Markdown画像タイトル")
+![標準Markdownでのサンプル画像](placeholder-content.jpg "Markdown画像タイトル")
 *これは標準Markdown画像の下に手動で書いたキャプションです。*
 
 次に、Hugoの `figure` ショートコードを使ってキャプション付きで表示します。
 
-{{< figure src="/images/placeholder-content.jpg" title="Figureショートコードを使ったキャプション" alt="Figureショートコードのサンプル画像" class="mx-auto" >}}
+{{< figure src="placeholder-content.jpg" title="Figureショートコードを使ったキャプション" alt="Figureショートコードのサンプル画像" class="mx-auto" >}}
 
 ### 便利なツールの紹介
 
