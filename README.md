@@ -85,9 +85,7 @@ Tailwind CSS v4の「CSSファースト」な設定方法や新機能につい�
   - Zenn: [https://zenn.dev/miz_dev/articles/tailwind-css-v4](https://zenn.dev/miz_dev/articles/tailwind-css-v4)
   - あずきブログ: [https://azukiazusa.dev/blog/tailwind-css-v4-css-first-configurations/](https://azukiazusa.dev/blog/tailwind-css-v4-css-first-configurations/)
 
-## プロジェクトの進捗状況
-
-**凡例:** ☆:未着手, ✔:完了
+**凡例:** ☆:未着手, ✔:完了, 進行中:✍️
 
 ---
 
@@ -111,9 +109,9 @@ Tailwind CSS v4の「CSSファースト」な設定方法や新機能につい�
 ### フェーズ 3: 機能拡張とコンテンツ充実
 ✔ 基本的なショートコード作成 (YouTube埋め込み)
 ✔ 記事コンテンツの追加と画像の配置 (Markdown画像、figureショートコードの基本)
-☆ プロフィールページ作成
-☆ プライバシーポリシーページ作成 (基本レイアウトと仮コンテンツは作成済み、内容拡充)
-✔ タグ一覧ページ、個別タグページ、セクションページなどのレイアウト作成 (タグ別記事一覧ページ完了、セクションページは次に対応)
+☆ プロフィールページ作成 {{/* スキップ予定 */}}
+✍️ プライバシーポリシーページ作成 (内容拡充中)
+✔ タグ一覧ページ、個別タグページ、セクションページなどのレイアウト作成 (タグ別記事一覧ページ、汎用リストページ完了)
 
 ### フェーズ 4: 仕上げと公開
 ☆ SEO およびアクセシビリティの基本対策
