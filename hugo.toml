@@ -3,10 +3,22 @@ languageCode = "ja-jp"
 title = "まーくん。(MarkN)のホームページ"
 
 [params]
-  description = "Resoniteでプログラミングなどをしてツールやおもちゃを作っています" # この行
+  description = "Resoniteでプログラミングなどをしてツールやおもちゃを作っています"
 
-[markup.goldmark.renderer]
-  unsafe = true
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true # HTMLタグをMarkdown内で許可する場合
+  [markup.highlight]
+    # anchorLineNos = false
+    codeFences = true # ``` で囲むコードブロックをハイライト
+    # guessSyntax = false
+    # hl_Lines = ''
+    # lineAnchors = ''
+    lineNos = false # 行番号を表示するかどうか (true/false)
+    # lineNumbersInTable = true
+    noClasses = false # falseにするとChromaが生成するクラス名が付与される
+    style = "monokai" # ハイライトスタイル (例: "monokai", "native", "fruity"など多数)
+    # tabWidth = 4
 
 [build]
   [build.processing]
