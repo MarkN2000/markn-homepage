@@ -1,26 +1,14 @@
-baseURL = "/" #"https://markn2000.com/markn-homepage/"
+baseURL = "/"
 languageCode = "ja-jp"
-title = "MarkN's HomePage"
-defaultContentLanguage = "ja"
+title = "まーくん。(MarkN)のホームページ"
 
-# hugo.toml
-buildStats = true
+[markup.goldmark.renderer]
+  unsafe = true # HTMLタグをMarkdown内で許可する場合
 
+# PostCSS の設定 (Hugo 0.121.0 以降でより明示的な設定が可能)
 [build]
-  writeStats = true
-
-[params]
-  [params.author]
-    name = "まーくん。(MarkN)のホームページ" # ヘッダーに表示するサイト名
-    profileName = "まーくん。(MarkN)" # プロフィール画像横などに表示する名前
-    bio = "Resoniteでプログラミングなどをしてツールやおもちゃを作っています"
-
-# メニュー設定は後で行います
-# [menu]
-#   [[menu.main]]
-#     identifier = "about"
-#     name = "About"
-#     url = "/about/"
-#     weight = 1
-
-# 他のオプションは必要に応じて後から追加していきます
+  [build.processing]
+    [build.processing.css]
+      [build.processing.css.postcss]
+        # PostCSS の設定を Hugo に伝える (通常は postcss.config.js で十分)
+        # config = "./postcss.config.js" # 明示的に指定する場合
