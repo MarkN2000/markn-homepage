@@ -9,28 +9,26 @@
 {{ $imageURL := "" }} {{/* 変数名を $imageURL に変更 */}}
 
 {{/* OGP画像の決定ロジック */}}
-{{ if .Params.thumbnail }}
-    {{ $thumbPath := .Params.thumbnail }}
-    {{ $isStaticPath := strings.HasPrefix $thumbPath "/" }} {{/* /images/... のような静的パスかチェック */}}
-    {{ if $isStaticPath }}
-        {{ $imageURL = $thumbPath | absURL }}
-    {{ else }} {{/* assets内またはページバンドル内のリソースを想定 */}}
-        {{ with resources.Get $thumbPath }}
-            {{ $imageURL = .Permalink }}
+{{ $page_resource_image_path := "" }}
+{{ if .IsPage }} {{/* 記事ページや固定ページの場合 */}}
+    {{ $page_resource_image_path = .Params.thumbnail | default .Params.hero }}
+{{ end }}
+
+{{ if $page_resource_image_path }}
+    {{ with .Resources.GetMatch $page_resource_image_path }}
+        {{ $imageURL = .Permalink }}
+    {{ else }}{{/* リソースとして見つからない場合、静的パスかもしれない (フォールバック) */}}
+        {{ if strings.HasPrefix $page_resource_image_path "/" }}
+            {{ $imageURL = $page_resource_image_path | absURL }}
         {{ end }}
     {{ end }}
-{{ else if .Params.hero }} {{/* 同様に hero パラメータも処理 */}}
-    {{ $heroPath := .Params.hero }}
-    {{ $isStaticPath := strings.HasPrefix $heroPath "/" }}
-    {{ if $isStaticPath }}
-        {{ $imageURL = $heroPath | absURL }}
-    {{ else }}
-        {{ with resources.Get $heroPath }}
-            {{ $imageURL = .Permalink }}
-        {{ end }}
+{{ end }}
+
+{{/* 上記で見つからなければサイトデフォルトのOGP画像 */}}
+{{ if not $imageURL }}
+    {{ with .Site.Params.og_image }}
+        {{ $imageURL = (. | absURL) }}
     {{ end }}
-{{ else if .Site.Params.og_image }}
-    {{ $imageURL = (.Site.Params.og_image | absURL) }}
 {{ end }}
 
 <title>{{ if .IsHome }}{{ $siteTitle }}{{ else }}{{ $title }} | {{ $siteTitle }}{{ end }}</title>

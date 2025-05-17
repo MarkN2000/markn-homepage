@@ -1,20 +1,35 @@
 {{/* layouts/_default/card.html */}}
-<div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col"> {{/* flex flex-col を追加 */}}
-    {{/* サムネイル画像エリア 16:9 */}}
-    {{ $thumbnail := "" }}
-    {{/* フロントマターで 'thumbnail' が指定されていればそれを使う */}}
-    {{ if .Params.thumbnail }}
-        {{ $thumbnail = (.Resources.GetMatch .Params.thumbnail) | default (resources.Get .Params.thumbnail) }}
-    {{ end }}
-    {{/* 指定がなければ、記事バンドル内の最初の画像を探すか、デフォルト画像を使う (高度な例) */}}
-    {{/* ここでは単純化のため、Params.thumbnail のみ考慮。なければプレースホルダー */}}
-
+<div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col">
     <a href="{{ .RelPermalink }}" class="block">
         <div class="aspect-video bg-gray-200">
-            {{ if $thumbnail }}
-                {{ $image := $thumbnail.Fill "480x270 webp" }} {{/* Hugoの画像処理でリサイズ・webp変換 */}}
-                <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }} のサムネイル" class="w-full h-full object-cover">
+            {{ $cardImage := "" }}
+            {{ $imageProcessed := "" }}
+            {{/* 1. フロントマターのthumbnailをページリソースとして探す */}}
+            {{ if .Params.thumbnail }}
+                {{ with .Resources.GetMatch .Params.thumbnail }}
+                    {{ $cardImage = . }}
+                {{ end }}
+            {{ end }}
+
+            {{/* 2. (オプション) thumbnailがなければ、バンドル内の最初の一致する画像を探す (例: featured.* or cover.*) */}}
+            {{/* {{ if not $cardImage }}
+                {{ $cardImage = .Resources.GetMatch "{featured,cover}.*" }}
+            {{ end }} */}}
+
+            {{ if $cardImage }}
+                {{/* ページリソースが見つかればHugoの画像処理を適用 */}}
+                {{ $imageProcessed = $cardImage.Fill "480x270 webp" }}
+                <img src="{{ $imageProcessed.RelPermalink }}" width="{{ $imageProcessed.Width }}" height="{{ $imageProcessed.Height }}" alt="{{ .Title }} のサムネイル" class="w-full h-full object-cover">
+            {{ else if .Params.thumbnail }}
+                {{/* ページリソースではないがthumbnailパスが指定されている場合 (例: /images/static.png) */}}
+                {{ if strings.HasPrefix .Params.thumbnail "/" }}
+                    <img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }} のサムネイル" class="w-full h-full object-cover">
+                {{ else }}
+                    {{/* 相対パスだがリソースでない場合はプレースホルダー (またはエラー表示) */}}
+                    <img src="https://via.placeholder.com/480x270.png?text=Image+Not+Found" alt="{{ .Title }} のサムネイル" class="w-full h-full object-cover">
+                {{ end }}
             {{ else }}
+                {{/* サムネイル指定が全くない場合は汎用プレースホルダー */}}
                 <img src="https://via.placeholder.com/480x270.png?text={{ .Title | truncate 15 }}" alt="{{ .Title }} のサムネイル" class="w-full h-full object-cover">
             {{ end }}
         </div>
