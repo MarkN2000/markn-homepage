@@ -2,7 +2,7 @@
 title: "サンプル記事のタイトル"
 date: 2025-05-17T15:00:00+09:00
 draft: false
-tags: ["サンプル"]
+tags: ["サンプル", "Resonite"]
 thumbnail: "thumbnail.webp" # この記事のサムネイル (OGP画像にも使われる)
 description: "この記事では、サンプル記事のタイトルに関する詳細な情報を提供し、読者に有益な洞察を与えます。" # この記事固有のdescription
 prev_post_path: "/posts/sample-article-2/" # 存在する記事のパスを指定

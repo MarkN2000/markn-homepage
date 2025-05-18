@@ -4,7 +4,7 @@ date: 2025-05-17T10:00:00+09:01
 draft: false
 tags: ["Resonite", "アバター"]
 prev_post_path: "/posts/sample-article/" # 存在する記事のパスを指定
-thumbnail: "thumbnail.webp" # 適当なサムネイル
+thumbnail:
 ---
 これはサンプル記事の**リード文**（導入文）です。この記事では、個別記事ページの基本的なレイアウトとMarkdown要素のスタイリングについて説明します。読みやすく、魅力的な記事ページを目指しましょう。
 

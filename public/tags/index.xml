@@ -9,17 +9,17 @@
     <lastBuildDate>Sat, 17 May 2025 15:00:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Resonite</title>
+      <link>http://localhost:1313/tags/resonite/</link>
+      <pubDate>Sat, 17 May 2025 15:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/resonite/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>サンプル</title>
       <link>http://localhost:1313/tags/%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB/</link>
       <pubDate>Sat, 17 May 2025 15:00:00 +0900</pubDate>
       <guid>http://localhost:1313/tags/%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Resonite</title>
-      <link>http://localhost:1313/tags/resonite/</link>
-      <pubDate>Sat, 17 May 2025 10:00:00 +0901</pubDate>
-      <guid>http://localhost:1313/tags/resonite/</guid>
       <description></description>
     </item>
     <item>
