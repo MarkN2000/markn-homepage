@@ -6,22 +6,8 @@
     <description>Recent content in Tags on まーくん。(MarkN)のホームページ</description>
     <generator>Hugo</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 17 May 2025 15:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 17 May 2025 05:00:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Resonite</title>
-      <link>http://localhost:1313/tags/resonite/</link>
-      <pubDate>Sat, 17 May 2025 15:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/resonite/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>サンプル</title>
-      <link>http://localhost:1313/tags/%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB/</link>
-      <pubDate>Sat, 17 May 2025 15:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB/</guid>
-      <description></description>
-    </item>
     <item>
       <title>AI</title>
       <link>http://localhost:1313/tags/ai/</link>
@@ -44,16 +30,30 @@
       <description></description>
     </item>
     <item>
+      <title>Resonite</title>
+      <link>http://localhost:1313/tags/resonite/</link>
+      <pubDate>Sat, 18 Jan 2025 23:35:33 +0900</pubDate>
+      <guid>http://localhost:1313/tags/resonite/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>VR</title>
       <link>http://localhost:1313/tags/vr/</link>
-      <pubDate>Wed, 10 Apr 2024 23:35:33 +0900</pubDate>
+      <pubDate>Sat, 18 Jan 2025 23:35:33 +0900</pubDate>
       <guid>http://localhost:1313/tags/vr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>おすすめアイテム</title>
+      <link>http://localhost:1313/tags/%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0/</link>
+      <pubDate>Sat, 18 Jan 2025 23:35:33 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0/</guid>
       <description></description>
     </item>
     <item>
       <title>作ったもの</title>
       <link>http://localhost:1313/tags/%E4%BD%9C%E3%81%A3%E3%81%9F%E3%82%82%E3%81%AE/</link>
-      <pubDate>Wed, 10 Apr 2024 23:35:33 +0900</pubDate>
+      <pubDate>Sat, 18 Jan 2025 23:35:33 +0900</pubDate>
       <guid>http://localhost:1313/tags/%E4%BD%9C%E3%81%A3%E3%81%9F%E3%82%82%E3%81%AE/</guid>
       <description></description>
     </item>
@@ -62,13 +62,6 @@
       <link>http://localhost:1313/tags/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89/</link>
       <pubDate>Mon, 04 Mar 2024 23:35:35 +0900</pubDate>
       <guid>http://localhost:1313/tags/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>おすすめアイテム</title>
-      <link>http://localhost:1313/tags/%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0/</link>
-      <pubDate>Thu, 01 Feb 2024 07:20:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0/</guid>
       <description></description>
     </item>
   </channel>
