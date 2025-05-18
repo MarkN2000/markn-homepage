@@ -1,0 +1,27 @@
+{{ define "title" }}404 - ページが見つかりません{{ end }}
+
+{{ define "main" }}
+<article class="bg-white shadow-lg rounded-lg p-6 md:p-10 max-w-3xl mx-auto my-8 text-center">
+    <header class="mb-6">
+        <h1 class="text-5xl font-bold text-primary mb-3">404</h1>
+        <p class="text-2xl font-semibold text-gray-800">ページが見つかりません</p>
+    </header>
+    <div class="prose prose-lg max-w-none mx-auto text-gray-700">
+        <p>
+            お探しのページは、移動または削除されたか、URLが間違っている可能性があります。
+        </p>
+        <p>
+            お手数ですが、以下のリンクからホームページに戻るか、サイト内を検索してみてください。
+        </p>
+    </div>
+    <div class="mt-8">
+        <a href="{{ "/" | relURL }}"
+           class="inline-flex items-center bg-primary hover:bg-primary-hover text-white font-semibold py-3 px-6 rounded-lg text-base transition-colors duration-150 ease-in-out shadow hover:shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 mr-2">
+                <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 10.707V16.5a1.5 1.5 0 0 1-1.5 1.5h-2.5a1.5 1.5 0 0 1-1.5-1.5v-2.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v2.5a1.5 1.5 0 0 1-1.5 1.5H3.5A1.5 1.5 0 0 1 2 16.5v-5.793a1 1 0 0 1 .293-.707l7-7Z" clip-rule="evenodd" />
+            </svg>
+            ホームページに戻る
+        </a>
+    </div>
+</article>
+{{ end }}
