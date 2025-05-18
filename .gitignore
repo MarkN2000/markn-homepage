@@ -48,3 +48,7 @@ Thumbs.db
 # Log files
 logs
 *.log
+public/index.html
+public/index.xml
+public/sitemap.xml
+public/tags/index.xml
