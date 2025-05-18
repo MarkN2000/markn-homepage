@@ -79,21 +79,7 @@
 
     {{/* 記事ヘッダー */}}
     <header class="mb-8 border-b pb-6">
-        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{{ .Title }}</h1>
-        <div class="text-sm text-gray-600">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
-            {{ if .Params.categories }}
-                <span class="mx-1">&middot;</span>
-                <span>{{ delimit .Params.categories ", " }}</span>
-            {{ end }}
-            {{ if .Params.tags }}
-                <div class="mt-2">
-                    {{ range .Params.tags }}
-                        <a href="{{ "tags" | absURL }}/{{ . | urlize }}/" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs px-2 py-1 rounded-full mr-1 mb-1">{{ . }}</a>
-                    {{ end }}
-                </div>
-            {{ end }}
-        </div>
+
 
  {{/* --- 記事のタイトル画像 (サムネイルを使用) --- */}}
             {{ $titleImageResource := "" }}
@@ -135,6 +121,22 @@
                 </div>
                 {{ end }}
             {{ end }}
+
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{{ .Title }}</h1>
+        <div class="text-sm text-gray-600">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+            {{ if .Params.categories }}
+                <span class="mx-1">&middot;</span>
+                <span>{{ delimit .Params.categories ", " }}</span>
+            {{ end }}
+            {{ if .Params.tags }}
+                <div class="mt-2">
+                    {{ range .Params.tags }}
+                        <a href="{{ "tags" | absURL }}/{{ . | urlize }}/" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs px-2 py-1 rounded-full mr-1 mb-1">{{ . }}</a>
+                    {{ end }}
+                </div>
+            {{ end }}
+        </div>
     </header>
 
     {{/* 記事本文 - ここにMarkdownからのHTMLが展開される */}}
