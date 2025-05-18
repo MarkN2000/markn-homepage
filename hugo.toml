@@ -1,4 +1,4 @@
-baseURL = "http://example.org/" # 将来的に実際のドメインに変更
+baseURL = "https://markn2000.com/" # 将来的に実際のドメインに変更
 languageCode = "ja-jp"
 title = "まーくん。(MarkN)のホームページ"
 # copyright = "© 2025 MarkN. All Rights Reserved." # フッターで .Site.Copyright も使える
