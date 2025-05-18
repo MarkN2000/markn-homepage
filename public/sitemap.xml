@@ -23,12 +23,6 @@
     <loc>http://localhost:1313/posts/sample-article/</loc>
     <lastmod>2025-05-17T15:00:00+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/sample-article-3/</loc>
-    <lastmod>2025-05-17T10:00:00+09:01</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/%E3%82%A2%E3%83%90%E3%82%BF%E3%83%BC/</loc>
-    <lastmod>2025-05-17T10:00:00+09:01</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/ai/</loc>
     <lastmod>2025-05-17T05:00:00+09:00</lastmod>
   </url><url>
@@ -40,6 +34,54 @@
   </url><url>
     <loc>http://localhost:1313/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</loc>
     <lastmod>2025-05-17T05:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/vr/</loc>
+    <lastmod>2024-04-10T23:35:33+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024-04-10-yamato/</loc>
+    <lastmod>2024-04-10T23:35:33+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E4%BD%9C%E3%81%A3%E3%81%9F%E3%82%82%E3%81%AE/</loc>
+    <lastmod>2024-04-10T23:35:33+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024-04-01-ccsakura/</loc>
+    <lastmod>2024-04-01T23:35:33+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024-03-04-makingofspacecraftstation/</loc>
+    <lastmod>2024-03-04T23:35:35+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89/</loc>
+    <lastmod>2024-03-04T23:35:35+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024-02-22-starryskysimulator-copy-5/</loc>
+    <lastmod>2024-02-22T23:35:33+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024-02-22-starryskysimulator-copy-6/</loc>
+    <lastmod>2024-02-22T23:35:33+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024-02-22-starryskysimulator-copy-7/</loc>
+    <lastmod>2024-02-22T23:35:33+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024-02-22-starryskysimulator/</loc>
+    <lastmod>2024-02-22T23:35:33+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024-03-04-spacecraftstation/</loc>
+    <lastmod>2024-02-22T23:35:33+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024-02-01-waraiotoko/</loc>
+    <lastmod>2024-02-01T07:20:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0/</loc>
+    <lastmod>2024-02-01T07:20:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2023-09-15-ultraeye/</loc>
+    <lastmod>2024-01-13T23:35:33+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2023-10-09-avatorsetup/</loc>
+    <lastmod>2024-01-13T23:35:33+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024-01-13-hennshinnberuto/</loc>
+    <lastmod>2023-10-09T23:35:33+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url>

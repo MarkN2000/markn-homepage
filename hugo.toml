@@ -9,7 +9,7 @@ title = "まーくん。(MarkN)のホームページ"
   # author = "まーくん。(MarkN)"
   mainSections = ["posts"]
 
-paginate = 5
+paginate = 24
 
 [markup]
   [markup.goldmark.renderer]

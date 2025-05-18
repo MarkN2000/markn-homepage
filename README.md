@@ -122,3 +122,6 @@ Tailwind CSS v4の「CSSファースト」な設定方法や新機能につい�
 - **日本語での解説記事例:**
   - Zenn: [https://zenn.dev/miz_dev/articles/tailwind-css-v4](https://zenn.dev/miz_dev/articles/tailwind-css-v4)
   - あずきブログ: [https://azukiazusa.dev/blog/tailwind-css-v4-css-first-configurations/](https://azukiazusa.dev/blog/tailwind-css-v4-css-first-configurations/)
+
+- **コマンド**
+  - hugo server -D
