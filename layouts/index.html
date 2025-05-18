@@ -25,10 +25,10 @@
             {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections | default .Site.RegularPages }}
             {{ $paginator := .Paginate $pages }}
             {{ range $paginator.Pages }}
-                {{ .Render "card" }} {{/* layouts/_default/card.html を呼び出す (後で作成) */}}
+                {{ .Render "card" }}
             {{ end }}
         </div>
-        {{ template "_internal/pagination.html" . }} {{/* ページネーション (後でスタイル調整) */}}
+        {{ template "_internal/pagination.html" . }}
     </section>
 
 </div>

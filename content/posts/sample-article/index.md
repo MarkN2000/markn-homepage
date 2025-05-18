@@ -1,6 +1,6 @@
 ---
 title: "サンプル記事のタイトル"
-date: 2025-05-17T15:00:00+09:00
+date: 2100-05-17T15:00:00+09:00
 draft: false
 tags: ["サンプル", "Resonite"]
 thumbnail: "thumbnail.webp" # この記事のサムネイル (OGP画像にも使われる)
