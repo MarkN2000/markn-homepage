@@ -1,13 +1,18 @@
 ---
-title: "サンプル記事のタイトル"
-date: 2025-05-17T15:00:00+09:00
-draft: false
-tags: ["サンプル", "Resonite"]
-thumbnail: "thumbnail.webp" # この記事のサムネイル (OGP画像にも使われる)
-description: "この記事では、サンプル記事のタイトルに関する詳細な情報を提供し、読者に有益な洞察を与えます。" # この記事固有のdescription
-prev_post_path: "/posts/sample-article-2/" # 存在する記事のパスを指定
-next_post_path: "/posts/sample-article-3/" # 存在する記事のパスを指定
-# hero: "/images/sample-article-hero.jpg" # 記事のメイン画像（オプション）
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+draft: true
+tags:
+  - Resonite
+  - VR
+  - 作ったもの
+  - おすすめアイテム
+  - 協力
+thumbnail: "" # 例: thumbnail.webp (この記事のフォルダに画像を置いてファイル名を指定)
+thumbnail_alt: "" # サムネイルの代替テキスト (具体的に記述してください)
+description: "" # 記事の短い概要 (120字程度が目安、SEOにも影響します)
+prev_post_path: "" # 例: /posts/前の記事のフォルダ名/
+next_post_path: "" # 例: /posts/次の記事のフォルダ名/
 ---
 
 これはサンプル記事の**リード文**（導入文）です。この記事では、個別記事ページの基本的なレイアウトとMarkdown要素のスタイリングについて説明します。読みやすく、魅力的な記事ページを目指しましょう。
