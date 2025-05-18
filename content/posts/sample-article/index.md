@@ -3,7 +3,6 @@ title: "サンプル記事のタイトル"
 date: 2025-05-17T15:00:00+09:00
 draft: false
 tags: ["サンプル"]
-categories: ["技術記事"]
 thumbnail: "thumbnail.webp" # この記事のサムネイル (OGP画像にも使われる)
 description: "この記事では、サンプル記事のタイトルに関する詳細な情報を提供し、読者に有益な洞察を与えます。" # この記事固有のdescription
 prev_post_path: "/posts/sample-article-2/" # 存在する記事のパスを指定
@@ -85,7 +84,7 @@ H4はさらに細分化された内容に使います。
 
 {{< figure src="placeholder-content.jpg" title="Figureショートコードを使ったキャプション" alt="Figureショートコードのサンプル画像" class="mx-auto" >}}
 
-### 便利なツールの紹介
+### 2.3. リンク
 
 以下は、私がよく利用するツールの一つです。
 
@@ -93,6 +92,12 @@ H4はさらに細分化された内容に使います。
     href="https://www.mozilla.org/ja/firefox/new/"
     title="史上最速の Firefox をダウンロード"
     description="より高速なページ読み込み、メモリ使用量削減、機能満載の最新版 Firefox が登場しました。"
-    image="https://www.mozilla.org/media/img/firefox/new/hero-mr1.c078928509譙.png"
+    image="https://www.mozilla.org/media/img/firefox/new/hero-mr1.c078928509.png"
     site="www.mozilla.org"
 >}}
+
+### 2.5. ツイートの埋め込みテスト (新規追加)
+
+以下はショートコードを使って埋め込んだツイートの表示例です。
+
+{{< x user="markn_chansan" id="1922893687190598063" >}}

@@ -4,8 +4,8 @@ title = "まーくん。(MarkN)のホームページ"
 # copyright = "© 2025 MarkN. All Rights Reserved." # フッターで .Site.Copyright も使える
 
 [params]
-  description = "Resoniteでプログラミングなどをしてツールやおもちゃを作っています。技術的な知見やTipsも発信。" # サイト全体のデフォルトdescription
-  # og_image = "/images/profile.webp" # サイト全体のデフォルトOGP画像 (例: static/images/default-og-image.jpg を配置)
+  description = "Resoniteでプログラミングなどをしてツールやおもちゃを作っています。技術的な知見やTipsも発信。"
+  og_image = "/images/profile.webp"
   # author = "まーくん。(MarkN)"
   mainSections = ["posts"]
 

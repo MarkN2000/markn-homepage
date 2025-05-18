@@ -6,10 +6,10 @@
         <a href="{{ site.Home.RelPermalink }}" class="block md:flex md:items-center group focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded-lg">
             {{/* プロフィール画像エリア */}}
             <div class="mb-4 md:mb-0 md:mr-6 text-center md:text-left">
-                <img src="{{ "/images/profile.webp" | relURL }}" alt="プロフィール画像" 
-                     class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-white shadow-lg mx-auto md:mx-0 
-                            group-hover:opacity-90 transition-opacity duration-150">
-            </div>
+                    <img src="{{ "/images/profile.webp" | relURL }}" alt="プロフィール画像"
+                        class="block w-20 md:w-24 aspect-square object-cover rounded-full border-2 border-white shadow-lg mx-auto md:mx-0
+                                group-hover:opacity-90 transition-opacity duration-150">
+                </div>
 
             {{/* サイト名と説明文エリア */}}
             <div class="text-center md:text-left">
@@ -29,6 +29,11 @@
                target="_blank" rel="noopener noreferrer"
                class="inline-block bg-button-contact-bg hover:bg-button-contact-bg-hover text-white font-semibold py-2 px-4 rounded-lg text-sm transition-colors duration-150 ease-in-out w-full sm:w-auto"> {{/* ← bg-secondary から bg-button-contact-bg に変更 */}}
                Twitter(X)
+            </a>
+            <a href="https://www.youtube.com/@marknvr"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg text-sm transition-colors duration-150 ease-in-out w-full sm:w-auto">
+            YouTube
             </a>
         </div>
     </div>

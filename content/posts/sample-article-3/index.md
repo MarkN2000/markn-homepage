@@ -3,7 +3,6 @@ title: "Resoniteでのアバター制作入門"
 date: 2025-05-17T10:00:00+09:01
 draft: false
 tags: ["Resonite", "アバター"]
-categories: ["趣味"]
 prev_post_path: "/posts/sample-article/" # 存在する記事のパスを指定
 thumbnail: "thumbnail.webp" # 適当なサムネイル
 ---

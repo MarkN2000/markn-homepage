@@ -101,7 +101,7 @@
                 {{/* ページリソースが見つかればHugoの画像処理を適用 */}}
                 {{/* 例: 幅800pxにリサイズ、アスペクト比維持、WebP形式、品質80 */}}
                 {{ $imageProcessed := $titleImageResource.Resize "800x webp q80" }}
-                <div class="mb-8 border-b border-gray-200 pb-8"> {{/* 画像の下にマージンと区切り線 */}}
+                <div class="mb-4"> {{/* 画像の下にマージンと区切り線 */}}
                     <img src="{{ $imageProcessed.RelPermalink }}" 
                         width="{{ $imageProcessed.Width }}" 
                         height="{{ $imageProcessed.Height }}" 
@@ -110,13 +110,13 @@
                 </div>
             {{ else if .Params.thumbnail }} {{/* ページリソースではないがthumbnailパスが指定されている場合 (例: /images/static.png) */}}
                 {{ if strings.HasPrefix .Params.thumbnail "/" }}
-                <div class="mb-8 border-b border-gray-200 pb-8">
+                <div class="mb-4">
                     <img src="{{ .Params.thumbnail | relURL }}" alt="{{ $altText }}" class="w-full h-auto rounded-lg shadow-md object-cover max-h-[30rem]">
                 </div>
                 {{ end }}
             {{ else if .Params.hero }} {{/* ページリソースではないがheroパスが指定されている場合 */}}
                 {{ if strings.HasPrefix .Params.hero "/" }}
-                <div class="mb-8 border-b border-gray-200 pb-8">
+                <div class="mb-4">
                     <img src="{{ .Params.hero | relURL }}" alt="{{ $altText }}" class="w-full h-auto rounded-lg shadow-md object-cover max-h-[30rem]">
                 </div>
                 {{ end }}
@@ -125,16 +125,13 @@
                     <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{{ .Title }}</h1>
         <div class="text-sm text-gray-600">
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
-            {{ if .Params.categories }}
-                <span class="mx-1">&middot;</span>
-                <span>{{ delimit .Params.categories ", " }}</span>
-            {{ end }}
             {{ if .Params.tags }}
-                <div class="mt-2">
-                    {{ range .Params.tags }}
+                <span class="mx-1">&middot;</span>
+                <span class="inline-block mt-0">
+                    {{ range $index, $tag := .Params.tags }}
                         <a href="{{ "tags" | absURL }}/{{ . | urlize }}/" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs px-2 py-1 rounded-full mr-1 mb-1">{{ . }}</a>
                     {{ end }}
-                </div>
+                </span>
             {{ end }}
         </div>
     </header>
