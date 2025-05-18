@@ -42,8 +42,7 @@
                     <img src="https://via.placeholder.com/480x270.png?text=Image+Err" alt="{{ $imageAltText }}" class="w-full h-full object-cover" loading="lazy">
                 {{ end }}
             {{ else }}
-                {{/* サムネイル指定が全くない場合は汎用プレースホルダー */}}
-                <img src="https://via.placeholder.com/480x270.png?text={{ .Title | truncate 15 }}" alt="{{ $imageAltText }}" class="w-full h-full object-cover" loading="lazy">
+                <img src="{{ "/images/default_thumbnail.webp" | relURL }}" alt="{{ $imageAltText }}" class="w-full h-full object-cover" loading="lazy">
             {{ end }}
         </div>
     </a>
