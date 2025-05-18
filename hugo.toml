@@ -5,7 +5,7 @@ title = "まーくん。(MarkN)のホームページ"
 
 [params]
   description = "Resoniteでプログラミングなどをしてツールやおもちゃを作っています。技術的な知見やTipsも発信。"
-  og_image = "/images/profile.webp"
+  og_image = "/images/ogp_default.webp"
   # author = "まーくん。(MarkN)"
   mainSections = ["posts"]
 
