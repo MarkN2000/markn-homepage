@@ -13,12 +13,11 @@ backend:
   # 2. Cloudflare Pages側で環境変数としてClient IDやSecretを設定したり、
   #    Decap CMSのGitHub認証プロバイダーサービスを利用したりします。
   #
-  # auth_type: github_app # or "github" for OAuth with external provider
-  # app_id: YOUR_GITHUB_APP_ID_IF_USING_GITHUB_APP 
+  auth_type: github_app # or "github" for OAuth with external provider
+  app_id: Ov23libiHDH0Lfpwyj5n
   # base_url: https://YOUR_AUTH_SERVER_IF_NEEDED (例: Netlify Identityを使う場合など)
   # auth_endpoint: "api/auth" # 認証用APIエンドポイントのパス (外部プロバイダーを使う場合)
-
-local_backend: true # ローカルテスト用に true にしておくと、npx decap-server でテスト可能
+  # local_backend: true  ローカルテスト用に true にしておくと、npx decap-server でテスト可能
 
 media_folder: "static/images/uploads" # グローバルな画像アップロード先 (あまり使わないかも)
 public_folder: "/images/uploads"     # グローバルな画像の公開パス
