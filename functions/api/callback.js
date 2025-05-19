@@ -59,13 +59,9 @@ export async function onRequestGet(context) {
     // ★★★ Decap CMSが期待するメッセージ形式を確認・修正 ★★★
     // Decap CMSのドキュメントや他の動作例を参考に、正しい `type` やキー名を見つける
 const message = {
-  type: 'authorizing', // ★変更
+  type: 'authentication_success', // ★変更
   provider: 'github',
-  params: { // ★ネスト構造に戻す
-    token: accessToken,
-    provider: 'github' // Decap CMSの期待によっては不要な場合も
-    // scope: scope // scopeも必要に応じて
-  }
+  token: accessToken
 };
 
     console.log('Callback: Posting message to opener. Target Origin:', siteOrigin, 'Message:', JSON.stringify(message));
