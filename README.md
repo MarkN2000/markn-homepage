@@ -90,6 +90,10 @@
 
 上記を順に試し、Cloudflare Functionsのログ、ポップアップウィンドウのコンソール、親ウィンドウのコンソールを注意深く監視し、問題箇所を特定していく。
 
+https://github.com/i40west/netlify-cms-cloudflare-pages/tree/main
+
+https://github.com/decaporg/decap-cms/discussions/7466
+
 ## 開発環境
 
 - **静的サイトジェネレーター**: Hugo
