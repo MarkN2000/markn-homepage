@@ -9,8 +9,8 @@ tags:
   - おすすめアイテム
   - 協力
 thumbnail: "" # 例: thumbnail.webp (この記事のフォルダに画像を置いてファイル名を指定)
-thumbnail_alt: "" # サムネイルの代替テキスト (具体的に記述してください)
-description: "" # 記事の短い概要 (120字程度が目安、SEOにも影響します)
+thumbnail_alt: "" # サムネイルの代替テキスト (例: 「Resoniteの新しいアバター紹介」のように具体的に記述してください)
+description: "" # 記事の短い概要 (120字程度が目安です。検索結果やSNSでの表示に使われます)
 prev_post_path: "" # 例: /posts/前の記事のフォルダ名/
 next_post_path: "" # 例: /posts/次の記事のフォルダ名/
 ---
@@ -89,7 +89,7 @@ H4はさらに細分化された内容に使います。
 
 {{< figure src="placeholder-content.jpg" title="Figureショートコードを使ったキャプション" alt="Figureショートコードのサンプル画像" class="mx-auto" >}}
 
-### 2.3. リンク
+### 2.4. リンク
 
 以下は、外部サイトのサムネ付きリンクです
 
