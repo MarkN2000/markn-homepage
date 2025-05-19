@@ -13,10 +13,10 @@ backend:
   # 2. Cloudflare Pages側で環境変数としてClient IDやSecretを設定したり、
   #    Decap CMSのGitHub認証プロバイダーサービスを利用したりします。
   #
-  auth_type: github # or "github" for OAuth with external provider
-  base_url: https://api.decapcms.org
+  # auth_type: github # or "github" for OAuth with external provider
+  base_url: https://markn-homepage.pages.dev
   app_id: Ov23libiHDH0Lfpwyj5n
-  # auth_endpoint: "api/auth" # 認証用APIエンドポイントのパス (外部プロバイダーを使う場合)
+  auth_endpoint: api/auth # 認証用APIエンドポイントのパス (外部プロバイダーを使う場合)
   # local_backend: true  ローカルテスト用に true にしておくと、npx decap-server でテスト可能
 
 media_folder: "static/images/uploads" # グローバルな画像アップロード先 (あまり使わないかも)
