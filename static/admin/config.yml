@@ -4,7 +4,7 @@ backend:
   branch: main # GitHubリポジトリのメインブランチ名 (master の場合もあります)
   # === 認証設定 (重要！) ===
   # GitHub認証を設定します。いくつかの方法がありますが、
-  # 個人利用で手軽なのは GitHub App や OAuth (Netlify Identity経由など) です。
+  # 個人利用で手軽なのは GitHub App や OAuth (Netlify Identity経由など) です
   # ここでは GitHub App を使う場合のコメントアウト例を示しますが、
   # 詳細はDecap CMSのドキュメントで最新の推奨方法を確認してください。
   #
