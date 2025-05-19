@@ -15,7 +15,7 @@ export async function onRequestGet(context) {
     params: {            // トークンなどを params オブジェクト内にネスト
       token: accessToken,
       provider: 'github', // ネストされた provider も 'github'
-      // scope: scope       // scope も必要なら含める (サンプルでは含めている)
+      scope: scope       // scope も必要なら含める (サンプルでは含めている)
     }
   };
 
