@@ -125,3 +125,4 @@ Tailwind CSS v4の「CSSファースト」な設定方法や新機能につい�
 
 - **コマンド**
   - hugo server -D
+  - hugo --baseURL "https://markn2000.com/" --cleanDestinationDir --minify
