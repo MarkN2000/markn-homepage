@@ -1,4 +1,4 @@
-baseURL = "https://markn2000.com/"
+baseURL = "https://markn-homepage.pages.dev"
 languageCode = "ja-jp"
 title = "まーくん。(MarkN)のホームページ"
 # copyright = "© 2025 MarkN. All Rights Reserved." # フッターで .Site.Copyright も使える
