@@ -1,129 +1,87 @@
-# 私のポートフォリオサイト プロジェクト (Tailwind CSS v4版)
+# markn-homepage (Hugoサイト)
 
-このプロジェクトは、個人の作品、解説記事、プロフィールなどを発信するためのポートフォリオサイトです。静的サイトジェネレーター Hugo と **Tailwind CSS v4** を使用して構築します。Tailwind CSS v4では、設定をCSSファイル内に記述する「CSSファースト」のアプローチを採用します。
+これは、Hugoを使用して構築された個人ホームページのプロジェクトです。Tailwind CSS を使用してスタイリングを行っています。
+将来的には、コンテンツ管理を容易にするために Decap CMS (旧 Netlify CMS) を導入し、ホスティングを Cloudflare Pages に移行する予定です。
 
-将来的には、記事作成の効率化のため **Decap CMS (旧 Netlify CMS)** を導入し、コンテンツ更新をブラウザから行えるようにする予定です。デプロイは、GitHubリポジトリへのプッシュをトリガーとして **GitHub Actions** を利用し、契約中のレンタルサーバーへFTP/SFTP経由で自動的にアップロードする仕組みを目指します。
+## サイト情報
 
-## サイトの目的
+- **サイトURL (移行後予定):** `https://markn2000.com/`
+- **技術スタック (移行後予定):**
+    - 静的サイトジェネレーター: Hugo
+    - CSSフレームワーク: Tailwind CSS
+    - コンテンツ管理: Decap CMS
+    - ホスティング＆デプロイ: Cloudflare Pages
+    - バージョン管理: GitHub
 
-- 自身の制作物（Resonite 関連の作品など）を紹介する。
-- 技術的な知見や Tips などの解説記事を投稿する。
-- プロフィールや活動内容を発信する。
-- YouTube チャンネルや各種 SNS、オンラインショップなどへのハブとなる。
+## 最近の主な更新と変更点 (2025年5月時点)
 
-## 主な機能・デザイン要件 (基本的なデザインは完了)
+- **ページネーションの改良**:
+    - ページネーションボタンに背景色を追加。
+    - ページネーション全体を中央揃えに調整。
+    - これらの変更は `assets/css/main.css` に追記されたカスタムCSSによって実現されています。
+- **Decap CMS 導入準備とローカルテスト**:
+    - `static/admin/index.html` を作成し、Decap CMS のフロントエンドを読み込むように設定。
+        - スクリプトタグに `defer` 属性を追加し、CMSの初期化エラー (`Cannot read properties of null (reading 'appendChild')`) を解消。
+    - `static/admin/config.yml` を作成し、ローカルテスト (`local_backend: true`) およびGitHub連携のための基本的な設定（リポジトリ情報、記事コレクションの定義など）を記述。
+        - 記事コレクション (`posts`) は、Page Bundle 形式 (`content/posts/記事フォルダ/index.md`) を意識した設定 (`path: "{{slug}}/index"`) を導入。
+        - フロントマターのフィールド（`title`, `date`, `draft`, `tags`, `thumbnail`, `description`, `prev_post_path`, `next_post_path`, `body`）を定義。
+    - `npx decap-server` と `hugo server -D` を使用したローカルでのCMS動作確認を実施。
 
-- **全般的な雰囲気・カラースキーム:**
-  - 全体として、**水色とタータンチェック柄を基調とした、明るく親しみやすい雰囲気**。スッキリとした現代的なレイアウト。
-  - **メインカラー:** 水色系 (`#0ea5e9`)。
-  - **アクセントカラー:** 白、黄色、オレンジ、ピンクなど。
-  - **タータンチェック柄 (`/images/bg.png`):** サイト全体の背景として使用。コンテンツエリアでは可読性のため不透明な背景色（主に白）を重ねる。
-- **フォント:** Noto Sans JP (標準 400, 太字 700)。
-- **ヘッダー:**
-    - 左側にプロフィール画像とサイト名・説明文。その下に主要なアクションボタン（お問い合わせ、X, YouTube）。
-    - プロフィール画像 (`/images/profile.webp`): 円形。白枠と薄い影。常に正円で表示されるように修正済み。
-    - ヘッダー全体の背景: `/images/header.webp` を使用。
-    - ヘッダー下のタグフィルターエリア: 角丸ボタンスタイル。選択中と通常時でスタイルを区別。
-- **メインページ（ホームページ）:**
-    - タグフィルターで絞り込んだ場合のタイトル表示。
-    - 記事カード一覧: シンプルでクリーンなデザイン。サムネイル、タイトル、短い紹介文、タグ表示。
-        - カードレイアウト: スマートフォン2カラム、タブレット3カラム、PC4カラムのレスポンシブ対応。
-        - サムネイルがない記事には、サイト共通のデフォルト画像 (`/images/default_thumbnail.webp`) を表示するように設定済み。
-- **個別記事ページ:**
-    - タイトル画像、タイトル、日付、タグ表示。
-    - 本文エリアは `.prose` スタイルを適用。
-    - 記事下におすすめ記事（関連コンテンツ）をカード形式で表示するように追加済み。
-    - カテゴリー表示は廃止し、タグ表示に一本化済み。
-- **フッター:** コピーライト表記、プライバシーポリシーページへのリンクなど。
-- **レスポンシブデザイン:** Tailwind CSSのデフォルトブレークポイントを基本的に使用。
+## 今後の予定 (移行計画)
 
-## 技術スタック
+1.  **Decap CMS の GitHub 認証設定の完了**:
+    * `static/admin/config.yml` から `local_backend: true` を削除（またはコメントアウト）。
+    * Decap CMS のドキュメントに基づき、GitHub App または OAuth を利用した認証方法を設定。
+        * GitHub App の作成と認証情報の取得。
+        * `config.yml` の `backend` セクションに必要な認証情報を追記。
+        * 必要に応じて、Cloudflare Pages の環境変数に認証関連の機密情報を設定。
+    * CMS 管理画面 (`/admin/`) から GitHub リポジトリへの認証とアクセスが可能になることを確認。
 
-- **静的サイトジェネレーター:** Hugo (extended version)
-- **CSS フレームワーク/設計:** Tailwind CSS v4 (CSSファーストアプローチ)
-- **Node.js パッケージ管理:** npm
-- **PostCSS:** HugoのCSSパイプライン経由でTailwind CSSを処理。
-- **バージョン管理:** Git, GitHub
-- **記事作成・管理 (導入予定):** Decap CMS (旧 Netlify CMS)
-- **自動デプロイ (導入予定):** GitHub Actions (FTP/SFTP経由でレンタルサーバーへ)
-- **記事作成形式:** Markdown (Decap CMS経由)
+2.  **Cloudflare Pages へのデプロイ**:
+    * Hugo プロジェクト全体（`public` フォルダを除く）を GitHub リポジトリのメインブランチ (`main` または `master`) にプッシュ。
+    * Cloudflare Pages で新規プロジェクトを作成し、対象の GitHub リポジトリと連携。
+    * **ビルド設定**:
+        * フレームワークプリセット: `Hugo`
+        * ビルドコマンド: `hugo --gc --minify` (現在の `package.json` のビルドスクリプト)
+        * ビルド出力ディレクトリ: `/public`
+        * 環境変数:
+            * `HUGO_VERSION`: 使用する Hugo のバージョン (例: `0.125.7` など最新安定版を推奨)
+            * `HUGO_BASEURL`: `https://markn2000.com/` (Hugo 設定ファイルと合わせて確認)
+            * その他、Decap CMS の認証に必要な環境変数があれば設定。
+    * 最初のデプロイを実行し、`*.pages.dev` のURLでサイト表示と CMS の動作を確認。
 
-## 主な変更履歴と今後の予定
+3.  **カスタムドメインの設定**:
+    * Cloudflare Pages の設定画面から、カスタムドメイン `markn2000.com` を設定。
+    * DNS レコードを適切に設定し、ドメインが Cloudflare Pages に向くようにする。
 
-**凡例:** ☆:未着手, ✔:完了, ✍️:進行中, ➖:スキップ/変更, 📝:レビュー/確認事項
+4.  **CMS経由でのコンテンツ更新テストと本格運用**:
+    * カスタムドメイン下のCMS管理画面 (`https://markn2000.com/admin/`) から記事の作成・編集・保存を実行。
+    * GitHubへの自動コミット、Cloudflare Pagesでの自動ビルド＆デプロイ、公開サイトへの変更反映という一連のフローを確認。
+    * Page Bundle 構造における画像管理（CMSからのアップロードと `index.md` からの相対パス参照）が意図通りに動作するか詳細にテストし、必要であれば `config.yml` の `media_folder`, `public_folder` 設定やウィジェット設定を調整。
 
-### フェーズ 1: プロジェクト基盤構築 (Tailwind CSS v4 CSSファースト)
-✔ Hugo プロジェクト初期設定
-✔ Node.js環境設定、Tailwind CSS v4, PostCSS関連パッケージインストール
-✔ `postcss.config.js` 作成と設定
-✔ `assets/css/main.css` の初期設定 (`@theme` でカスタムプロパティ定義)
-✔ 基本HTMLテンプレート作成 (`baseof.html`, ヘッダー・フッターパーシャルなど)
-✔ サンプルコンテンツ作成と表示確認
+5.  **レンタルサーバーからの完全移行**:
+    * Cloudflare Pages でのサイト運用が安定していることを確認後、現在のレンタルサーバーの契約を見直し、DNS設定などを整理して移行を完了する。
 
-### フェーズ 2: スタイリングと基本デザイン (Tailwind CSS v4 `@theme` カスタマイズ)
-✔ ヘッダーデザイン実装 (プロフィール画像、サイト名、説明文、リンクボタン)
-    ✔ プロフィール画像の正円表示対応
-    ✔ ヘッダーリンクボタンにYouTube追加
-✔ ホームページ（記事カード一覧）デザイン実装
-    ✔ サムネイルなし記事のデフォルト画像表示設定
-✔ 個別記事ページデザイン実装
-    ➖ カテゴリー表示を廃止、タグ表示へ一本化
-    ✔ 記事下におすすめ記事表示機能追加
-✔ フッターデザイン実装
-✔ レスポンシブ対応の確認と調整
-✔ スクロールトップボタンの実装とアクセシビリティ対応（コントラスト改善）
+## 開発環境
 
-### フェーズ 3: 機能拡張とコンテンツ充実
-✔ 基本的なショートコード作成 (YouTube埋め込み, サムネイル付きリンクカード, figure)
-✔ 記事コンテンツの追加と画像の配置 (Markdown画像、figureショートコードの基本)
-➖ プロフィールページ作成 (スキップ)
-✔ プライバシーポリシーページ作成 (内容拡充完了)
-✔ タグ一覧ページ、個別タグページ、セクションページなどのレイアウト作成 (タグ別記事一覧ページ、汎用リストページ完了)
-✔ 個別記事ページのタイトル画像とタイトルテキスト間のマージン調整（線削除、マージン縮小）
+- **静的サイトジェネレーター**: Hugo
+- **CSSフレームワーク**: Tailwind CSS
+- **パッケージ管理**: npm (Node.js)
 
-### フェーズ 4: サイト仕上げとレビュー
-✔ 📝 ファビコン設定 (`site_head.html` 修正、画像ファイル配置、`site.webmanifest` 作成)
-✔ 📝 OGP画像設定 (`site_head.html` 確認、`hugo.toml` に `og_image` 追加、デフォルトOGP画像準備)
-✔ 📝 タータンチェック背景の可読性確認 (問題なし)
-➖ 📝 ダークモード対応 (スキップ)
-✔ 📝 エラーページ (404ページ) のデザイン (`layouts/404.html` 作成)
-➖ 📝 コンテンツの充実 (実際のコンテンツ作成は今後のタスク)
-➖ 📝 SEO強化 (構造化データ、キーワード戦略などは今後のタスク)
-✔ 📝 パフォーマンスと技術面
-    ✔ 画像最適化 (`card.html` でのHugo画像処理、遅延読み込み `loading="lazy"` 追加)
-    ✔ CSSとJavaScriptの最適化 (Hugoパイプラインによるminify、fingerprint等確認済み)
-✔ 📝 アクセシビリティ (a11y)
-    ✔ スクロールトップボタンの色コントラスト改善
-    ➖ altテキスト、キーボードナビゲーション、他箇所のコントラスト、ARIA属性などは今後のタスク
-➖ 📝 ブラウザ互換性の確認 (今後のタスク)
-➖ 📝 リンク切れのチェック (今後のタスク)
+### ローカル開発サーバー起動
 
-### フェーズ 5: 記事作成ワークフロー改善と自動デプロイ導入 (これからの予定)
-☆ **Decap CMS (旧 Netlify CMS) の導入準備**
-    ☆ プロジェクトをGitHubリポジトリで管理
-    ☆ `static/admin/index.html` 作成
-    ☆ `static/admin/config.yml` 作成・設定 (記事コレクション、メディア設定など)
-    ☆ ローカル環境でのDecap CMS動作確認
-☆ **GitHub Actions を利用した自動デプロイ設定**
-    ☆ レンタルサーバーへのFTP/SFTP接続情報の確認とGitHub Secretsへの登録
-    ☆ `deploy.yml` ワークフローファイルの作成 (Hugoビルド、FTP/SFTPアップロード)
-    ☆ 自動デプロイのテストと本番運用開始
-☆ **記事作成と画像管理の効率化**
-    ☆ Decap CMS を使った記事作成・編集フローの確立
-    ☆ 画像ドラッグアンドドロップ機能の活用
-    ☆ Hugoの画像処理 (WebP変換など) との連携確認
+```bash
+npm run dev
+# または
+hugo server -D --disableFastRender
 
-## Tailwind CSS v4 学習リソース
+```
+ブラウザで 
+http://localhost:1313/admin/
+にアクセス。
 
-Tailwind CSS v4の「CSSファースト」な設定方法や新機能については、以下の公式サイトや解説記事を参考にしてください。
-
-- **Tailwind CSS v4 公式ブログ記事:** [https://tailwindcss.com/blog/tailwindcss-v4-alpha](https://tailwindcss.com/blog/tailwindcss-v4-alpha)
-- **Tailwind CSS v4 ドキュメント:** (v4正式リリース後に公式サイトで提供されるドキュメントを参照)
-- **日本語での解説記事例:**
-  - Zenn: [https://zenn.dev/miz_dev/articles/tailwind-css-v4](https://zenn.dev/miz_dev/articles/tailwind-css-v4)
-  - あずきブログ: [https://azukiazusa.dev/blog/tailwind-css-v4-css-first-configurations/](https://azukiazusa.dev/blog/tailwind-css-v4-css-first-configurations/)
-
-- **コマンド**
-  - hugo server -D
-  - hugo --baseURL "https://markn2000.com/" --cleanDestinationDir --minify
-  - hugo new posts/新しい記事のフォルダ名/index.md
+```bash
+npm run build
+# または baseURL を明示的に指定する場合
+hugo --gc --minify --baseURL "[https://markn2000.com/](https://markn2000.com/)"
+```
