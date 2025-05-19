@@ -58,11 +58,11 @@ export async function onRequestGet(context) {
 
     // ★★★ Decap CMSが期待するメッセージ形式を確認・修正 ★★★
     // Decap CMSのドキュメントや他の動作例を参考に、正しい `type` やキー名を見つける
-        const message = {
-          type: 'authorization_response',
-          provider: 'github',
-          token: accessToken
-        };
+    const message = {
+        type: 'authentication_success', // 試行1
+        provider: 'github',
+        token: accessToken
+    };
 
     console.log('Callback: Posting message to opener. Target Origin:', siteOrigin, 'Message:', JSON.stringify(message));
 
@@ -75,7 +75,7 @@ export async function onRequestGet(context) {
         <script>
           try {
             const message = ${JSON.stringify(message)}; // Functionから渡されたメッセージオブジェクト
-            const targetOrigin = '${siteOrigin}';
+            const targetOrigin = 'https://markn-homepage.pages.dev';
             
             console.log('Popup: Attempting to post message:', message, 'to targetOrigin:', targetOrigin);
 
