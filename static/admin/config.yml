@@ -4,6 +4,7 @@ backend:
   branch: main # あなたのブランチ
   base_url: https://markn-homepage.pages.dev # Cloudflare PagesのURL (Functionsがこの配下で動作する場合)
   auth_endpoint: api/auth # 認証開始エンドポイントへのパス (例)
+  site_domain: markn-homepage.pages.dev
 
 # media_folder と public_folder は、ひとまずコメントアウトするか、
 # 非常にシンプルな固定パスを指定
