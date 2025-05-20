@@ -19,22 +19,36 @@
         </a>
 
         {{/* --- リンクボタンエリア --- */}}
-        <div class="mt-6 text-center md:text-left space-y-2 md:space-y-0 md:space-x-2">
+        <div class="mt-6 grid grid-cols-2 gap-2 md:flex md:flex-wrap md:justify-start md:space-x-2">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdl5UHhRc5Hq5Y_njMLCttSEqnHpWem_Ays6OpfYGGYOEIExg/viewform?usp=header" 
                target="_blank" rel="noopener noreferrer"
-               class="inline-block bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-4 rounded-lg text-sm transition-colors duration-150 ease-in-out w-full sm:w-auto"> {{/* ← bg-button-contact-bg から bg-primary に変更 */}}
+               {{/* ボタンのクラスを変更:
+                   - inline-block -> block (gridアイテムとして振る舞うため)
+                   - w-full sm:w-auto -> text-center (ボタン内でテキストを中央揃え)
+                   - md:inline-block md:w-auto -> md以上では元のスタイルに戻す
+               */}}
+               class="block text-center bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-4 rounded-lg text-sm transition-colors duration-150 ease-in-out md:inline-block md:w-auto">
                依頼・お問い合わせ等
             </a>
             <a href="https://x.com/markn_chansan" 
                target="_blank" rel="noopener noreferrer"
-               class="inline-block bg-button-contact-bg hover:bg-button-contact-bg-hover text-white font-semibold py-2 px-4 rounded-lg text-sm transition-colors duration-150 ease-in-out w-full sm:w-auto"> {{/* ← bg-secondary から bg-button-contact-bg に変更 */}}
+               class="block text-center bg-button-contact-bg hover:bg-button-contact-bg-hover text-white font-semibold py-2 px-4 rounded-lg text-sm transition-colors duration-150 ease-in-out md:inline-block md:w-auto">
                Twitter(X)
             </a>
             <a href="https://www.youtube.com/@marknvr"
-            target="_blank" rel="noopener noreferrer"
-            class="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg text-sm transition-colors duration-150 ease-in-out w-full sm:w-auto">
-            YouTube
+               target="_blank" rel="noopener noreferrer"
+               class="block text-center bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg text-sm transition-colors duration-150 ease-in-out md:inline-block md:w-auto">
+               YouTube
+            </a>
+            <a href="https://www.amazon.co.jp/hz/wishlist/ls/NG17ACULTUZT?ref_=wl_share"
+               target="_blank" rel="noopener noreferrer"
+               class="block text-center bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg text-sm transition-colors duration-150 ease-in-out md:inline-block md:w-auto">
+               欲しいもの
+            </a>
+            <a href="https://markn.booth.pm/"
+               target="_blank" rel="noopener noreferrer"
+               class="block text-center bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg text-sm transition-colors duration-150 ease-in-out md:inline-block md:w-auto">
+               BOOTH
             </a>
         </div>
-    </div>
 </header>
