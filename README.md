@@ -1,104 +1,72 @@
 # markn-homepage (Hugoサイト)
 
 これは、Hugoを使用して構築された個人ホームページのプロジェクトです。Tailwind CSS を使用してスタイリングを行っています。
-現在、コンテンツ管理の利便性向上と運用の効率化を目指し、Decap CMS と Cloudflare Pages、GitHub を利用したJamstack構成への移行作業中です。
+コンテンツ管理を容易にするために Decap CMS (旧 Netlify CMS) を導入し、ホスティングを Cloudflare Pages に移行する計画で作業を進めています。
 
-## サイト情報 (移行プロセス中)
+## サイト情報
 
 - **サイトURL (移行後予定):** `https://markn2000.com/`
-- **一時デプロイURL (Cloudflare Pages):** `https://markn-homepage.pages.dev/`
-- **CMS管理画面 (移行後予定):** `https://markn2000.com/admin/` (現在は `https://markn-homepage.pages.dev/admin/` でテスト中)
-- **技術スタック:**
+- **開発用デプロイURL:** `https://markn-homepage.pages.dev/`
+- **技術スタック (移行後予定):**
     - 静的サイトジェネレーター: Hugo
     - CSSフレームワーク: Tailwind CSS
-    - コンテンツ管理 (導入中): Decap CMS
-    - ホスティング＆デプロイ (移行中): Cloudflare Pages
+    - コンテンツ管理: Decap CMS (GitHub バックエンド、PKCE認証フロー)
+    - ホスティング＆デプロイ: Cloudflare Pages
     - バージョン管理: GitHub
-    - 認証 (導入中): 自己ホスト型 GitHub OAuth (Cloudflare Functions を利用)
 
-## 現在の移行状況 (2025年5月20日時点)
+## 最近の主な更新と変更点 (2025年5月20日時点)
 
-### 達成できたこと
+- **ページネーションの改良**:
+    - ページネーションボタンに背景色を追加。
+    - ページネーション全体を中央揃えに調整。
+    - (`assets/css/main.css` にて対応)
+- **Decap CMS 導入と認証フローの試行錯誤**:
+    - **外部OAuthプロバイダ (`api.decapcms.org`) の廃止/変更**: 当初検討していた `https://api.decapcms.org/auth` を利用した外部OAuthプロバイダによる認証が、同ドメインのDNS解決不可により利用できないことが判明。
+    - **Cloudflare Functions を利用した自己ホスト型認証の試行**: `i40west/netlify-cms-cloudflare-pages` のサンプルを参考に、認証用Function (`functions/api/auth.js`, `functions/api/callback.js`) を作成。アクセストークン取得までは成功するものの、ポップアップから親ウィンドウへの `postMessage` がCMS側で正しく処理されず、「Authentication successful. Please wait...」の画面で停止する問題が発生。
+    - **PKCE認証フローへの移行検討**: 上記の問題と、外部プロバイダの廃止を受け、よりシンプルで推奨されるPKCE (Proof Key for Code Exchange) フローに移行する方針に変更。
+        - Cloudflare Functions (`auth.js`, `callback.js`) はプロジェクトから削除。
+        - GitHub OAuth App を「Public client」として再設定し、コールバックURLをCMS管理画面 (`/admin/`) に指定。
+        - `static/admin/config.yml` の `backend` 設定をPKCEフロー用に変更 (`auth_type: pkce`, `app_id` を指定し、`base_url` や `auth_endpoint` を削除)。
+        - `static/admin/index.html` はDecap CMS (v3.6.3固定) をCDNから読み込むシンプルな構成 (`defer` 属性付き)。
+- **現状の課題 (重要)**:
+    - **ローカル環境 (`hugo server -D`)**: `/admin/` にアクセスし「Login with GitHub」ボタンを押すと、**期待通りにGitHubの認証ポップアップが表示される。** `static/admin/config.yml` のPKCE設定が正しく解釈されている模様。
+    - **Cloudflare Pagesデプロイ環境 (`https://markn-homepage.pages.dev/admin/`)**: ローカルと同様のPKCE設定が `config.yml` に反映されている (ブラウザから直接 `/admin/config.yml` を確認済み) にも関わらず、「Login with GitHub」ボタンを押すと、**依然として古いNetlifyの認証エンドポイント (`https://api.netlify.com/auth?...`) にリダイレクトされ、「Not Found」エラーとなる。**
 
-1.  **HugoプロジェクトのGitHub管理**:
-    * プロジェクト全体（`public` フォルダを除く）をGitHubリポジトリ (`MarkN2000/markn-homepage`) で管理開始。
-2.  **Decap CMS の基本設定**:
-    * `static/admin/index.html`: Decap CMS (v3.6.3) のフロントエンドをCDN経由で読み込み (`defer` 属性付き)。
-    * `static/admin/config.yml`:
-        * GitHubバックエンド (`name: github`) を指定。
-        * `repo: MarkN2000/markn-homepage` および `branch: main` を設定。
-        * `base_url: https://markn-homepage.pages.dev` (一時デプロイURL) および `auth_endpoint: api/auth` を設定。
-        * ローカルテスト用の `local_backend: true` はコメントアウト済み。
-        * テスト用のシンプルな記事コレクション (`test_posts`) を定義。
-3.  **GitHub OAuth App の作成**:
-    * Decap CMS認証用のGitHub OAuth Appを作成済み。
-    * Homepage URL: `https://markn-homepage.pages.dev` (一時URL)
-    * Authorization callback URL: `https://markn-homepage.pages.dev/api/callback` (Cloudflare Functionsのパスに合わせて設定済み)
-    * Client ID と Client Secret を取得済み。
-4.  **Cloudflare Functions の作成とデプロイ**:
-    * 認証処理のためのCloudflare Functions (`functions/api/auth.js` と `functions/api/callback.js`) を作成し、プロジェクトに配置。
-        * `i40west/netlify-cms-cloudflare-pages` のサンプルコードをベースに作成。
-    * Cloudflare Pagesの環境変数に `GITHUB_CLIENT_ID` と `GITHUB_CLIENT_SECRET` を設定済み。
-    * Cloudflare Pagesへのデプロイは成功しており、サイト (`https://markn-homepage.pages.dev`) およびFunctions (`/api/auth`, `/api/callback`) はアクセス可能な状態。
-5.  **認証フローの途中までは成功**:
-    * CMS管理画面 (`https://markn-homepage.pages.dev/admin/`) から「Login with GitHub」ボタンを押すと、`functions/api/auth.js` が実行され、GitHubの認証ページへ正しくリダイレクトされる。
-    * GitHubで認証後、`functions/api/callback.js` へ正しくコールバックされ、アクセストークンの取得にも成功していることをCloudflare Functionsのログで確認済み。
-    * ポップアップウィンドウに「Authentication successful. Please wait while you are redirected...」というメッセージと、Decap CMSのバージョン情報 (`decap-cms-app 3.6.3` など) が表示される。
-    * ポップアップ側のコンソールには「Popup: Attempting to post message: Object to targetOrigin: https://markn-homepage.pages.dev」というログが出力され、`postMessage` の試行は確認できている。
+## 今後の予定 (課題解決と移行完了に向けて)
 
-### 現在うまくいかない点・課題
+1.  **Cloudflare Pages 環境での `api.netlify.com/auth` へのリダイレクト問題の解決 (最優先)**:
+    * **原因の特定**:
+        * デプロイされた `static/admin/config.yml` が最新であることは確認済み。
+        * Cloudflare Pages のビルドキャッシュが影響している可能性を考慮し、もしあればキャッシュクリアを試す。
+        * Decap CMS のスクリプト (`decap-cms.js`) が、Cloudflare Pages環境でのみ何らかの理由で古いデフォルト認証エンドポイントを優先してしまうのか、あるいは `config.yml` のPKCE設定を正しく認識できていないのかを切り分ける。
+        * `markn-homepage.pages.dev` というホスト名自体が、Decap CMS内部で `site_id` として解釈され、特定のフォールバックロジックをトリガーしている可能性も探る。
+    * **試行する対策**:
+        * `config.yml` の `backend` セクションを、Decap CMS v3.6.3 の公式ドキュメントにあるPKCEフローの**最小限かつ正確な設定**に再度徹底的に合わせる。余計なキーは全て削除する。
+        * `static/admin/index.html` で読み込むDecap CMSのCDN URLを、unpkg以外のもの (例: jsDelivr) に変更してみる、またはバージョンを微調整してみる。
+        * `config.yml` に `site_url: https://markn-homepage.pages.dev` をトップレベルで追加し、挙動に変化があるか確認する。
+        * それでも解決しない場合、Decap CMSのGitHubリポジトリのIssueやDiscussionsで同様の事例がないか徹底的に調査し、必要であればIssueを立ててコミュニティに助けを求める。
 
-* **認証完了の最終ステップで止まる**:
-    * ポップアップウィンドウが「Authentication successful...」と表示されたまま進まず、自動的に閉じない。
-    * CMSの親ウィンドウ (`/admin/`) はログイン状態に遷移しない（リダイレクトされない）。
-    * **親ウィンドウ (`/admin/`) のブラウザ開発者コンソールには、現時点では `postMessage` 受信に関するログやエラーメッセージが表示されていない。**
+2.  **PKCE認証フローの完全な動作確認 (Cloudflare Pages環境)**:
+    * 上記問題解決後、Cloudflare Pagesデプロイ環境の `/admin/` からGitHub認証が成功し、CMS管理画面にログインできることを確認する。
+    * 記事の作成・編集・保存がGitHubリポジトリに反映され、Cloudflare Pagesで自動的にサイトが再ビルド・デプロイされる一連のフローを確認する。
 
-### 現状わかっていること・原因の推測
+3.  **カスタムドメインの設定**:
+    * Cloudflare Pages の設定画面から、カスタムドメイン `https://markn2000.com/` を設定。
+    * DNSレコードを適切に設定。
+    * カスタムドメイン下のCMSも正しく動作することを確認。
 
-* Cloudflare Functions (`auth.js`, `callback.js`) によるGitHubとのOAuth認証フロー（アクセストークン取得まで）は正常に動作している可能性が高い。
-* 問題は、`callback.js` 内のポップアップウィンドウからCMSの親ウィンドウへ `postMessage` でアクセストークン情報を渡す部分、または親ウィンドウがそのメッセージを受け取って処理する部分にあると推測される。
-* 具体的には、`postMessage` で送信されるメッセージオブジェクトの**形式 (`type` やデータ構造)** が、`static/admin/index.html` で読み込んでいるDecap CMS v3.6.3 (`decap-cms.js`) が期待するものと一致していない可能性が最も高い。
+4.  **コンテンツと設定の最終調整**:
+    * `static/admin/config.yml` の `media_folder`, `public_folder`, `collections` 設定を、テスト用から本番用に最終調整。
+    * Page Bundle構造における画像管理をCMSでテストし、必要に応じて設定や運用方法を調整。
 
-## 今後のトラブルシューティングと対応予定
-
-1.  **親ウィンドウの `message` イベントリスナーの確認 (再徹底)**:
-    * 親ウィンドウ (`/admin/`) の開発者ツールコンソールで、手動で `window.addEventListener('message', (event) => { console.log('Manual listener in parent:', event); });` を実行し、ポップアップからの `postMessage` が実際に親ウィンドウに届いているのか、届いているならその `event.data` と `event.origin` を詳細に確認する。
-
-2.  **`functions/api/callback.js` の `postMessage` 形式の試行錯誤**:
-    * **現在の `postMessage` 形式**:
-        ```javascript
-        const message = {
-          type: 'authorization_response',
-          provider: 'github',
-          token: accessToken
-        };
-        ```
-    * **試行する代替形式**:
-        * `type` を `'authentication_success'` に変更してみる。
-        * `type` を `i40west` のサンプルが使用していた `'authorizing'` に戻し、トークンを `params` オブジェクトでネストする形式 (`params: { token: accessToken, provider: 'github', scope: scope }`) も試してみる（この場合、`netlify-cms@^2.0.0` との互換性を意識した形式である可能性を考慮）。
-        * Decap CMSの公式ドキュメントやGitHub Issue、コミュニティで、v3.6.3が自己ホスト型GitHub OAuthで期待する正確な `postMessage` ペイロード構造の情報を検索し、それに合わせる。
-
-3.  **CSRF対策 (`state` パラメータ) の実装確認と一時的な切り分け**:
-    * `i40west` のサンプルを参考に、`auth.js` で `state` を生成してクッキーに保存し、`callback.js` でその `state` を検証するロジックがCloudflare Functions環境で正しく動作しているか確認する（`nanoid` や `cookie` パッケージの利用も検討）。
-    * 問題切り分けのため、一時的に `state` 検証を無効化して認証フローが通るか試す（解決後は必ず有効化する）。
-
-4.  **`static/admin/index.html` のDecap CMSバージョン固定**:
-    * 現在 `decap-cms@^3.0.0` となっているCDNのURLを、ログで確認された具体的なバージョン `decap-cms@3.6.3/dist/decap-cms.js` に固定して、意図しないバージョン差異の影響を排除する。
-
-5.  **`static/admin/config.yml` の `backend` 設定の見直し**:
-    * `auth_type` や `app_id` の要不要など、選択した認証フローと `postMessage` の形式に合わせて、Decap CMSのドキュメントに基づき `config.yml` の `backend` セクションが最適化されているか再確認する。
-
-上記を順に試し、Cloudflare Functionsのログ、ポップアップウィンドウのコンソール、親ウィンドウのコンソールを注意深く監視し、問題箇所を特定していく。
-
-https://github.com/i40west/netlify-cms-cloudflare-pages/tree/main
-
-https://github.com/decaporg/decap-cms/discussions/7466
+5.  **レンタルサーバーからの完全移行**:
+    * Cloudflare Pagesでのサイト運用が安定していることを確認後、現在のレンタルサーバーの契約を見直し、DNS設定などを整理して移行を完了する。
 
 ## 開発環境
 
-- **静的サイトジェネレーター**: Hugo
+- **静的サイトジェネレーター**: Hugo (バージョンはCloudflare Pages環境変数 `HUGO_VERSION` で指定)
 - **CSSフレームワーク**: Tailwind CSS
-- **パッケージ管理**: npm (Node.js)
+- **パッケージ管理**: npm (Node.js) (主にTailwind CSSビルドとローカル開発スクリプト用 `package.json` 参照)
 
 ### ローカル開発サーバー起動
 
