@@ -2,9 +2,8 @@ backend:
   name: github
   repo: MarkN2000/markn-homepage # あなたのリポジトリ
   branch: main # あなたのブランチ
-  auth_type: pkce
-  app_id: Ov23libiHDH0Lfpwyj5n # あなたのApp ID
-  cms_label_prefix: "content/posts/" # 任意: Decap CMSのUIでパスのプレフィックスを分かりやすくする場合
+  base_url: https://markn-homepage.pages.dev # Cloudflare PagesのURL (Functionsがこの配下で動作する場合)
+  auth_endpoint: api/auth # 認証開始エンドポイントへのパス (例)
 
 # media_folder と public_folder は、ひとまずコメントアウトするか、
 # 非常にシンプルな固定パスを指定
