@@ -4,8 +4,49 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" defer></script>
+  <script src="https://unpkg.com/decap-cms@3.6.3/dist/decap-cms.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
 </head>
 <body>
+  <div id="nc-root"></div>
+  <script>
+    window.CMS_MANUAL_INIT = true; // 自動初期化を無効化
+
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('config.yml') // adminディレクトリからの相対パス
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to fetch config.yml: ' + response.statusText);
+          }
+          return response.text();
+        })
+        .then(yamlText => {
+          const config = jsyaml.load(yamlText);
+          console.log("Manually loaded config for CMS.init():", JSON.parse(JSON.stringify(config))); // ログで見やすいようにJSONに変換
+
+          // Decap CMSを初期化
+          window.CMS.init({ config }); // configオブジェクトを渡す
+
+          // 初期化後、再度バックエンドの状態を確認するリスナーなどを設定しても良い
+          // ただし、CMS.init() が完了するタイミングは非同期かもしれないので注意
+          setTimeout(() => {
+            if (window.CMS) {
+                try {
+                    const backend = window.CMS.getBackend("github");
+                    console.log("GitHub Backend object (after manual init):", backend);
+                    if (backend && typeof backend.currentUser === 'function') {
+                         backend.currentUser().then(user => console.log("User (after manual init):", user));
+                    }
+                } catch(e) { console.error("Error checking backend after manual init", e); }
+            }
+          }, 2000); // 2秒後に確認 (タイミングは調整が必要)
+
+        })
+        .catch(error => {
+          console.error('Error during manual CMS initialization:', error);
+          document.getElementById('nc-root').innerHTML = 'Error loading or initializing CMS: ' + error.message;
+        });
+    });
+  </script>
 </body>
 </html>
