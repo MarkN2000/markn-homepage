@@ -3,11 +3,11 @@ export async function onRequest(context) {
   const { request, env } = context;
   const url = new URL(request.url);
 
-  // URLクエリパラメータから 'code' と 'state' を取得
+  // URLクエリパラメータから 'code' を取得
   const code = url.searchParams.get("code");
-  const state = url.searchParams.get("state"); // オプション: stateの検証を行う場合
+  // const state = url.searchParams.get("state"); // オプション: stateの検証
 
-  // 'code' が存在しない場合はエラーレスポンスを返す
+  // 'code' が存在しない場合はエラー
   if (!code) {
     console.error("Callback: No code received from GitHub.");
     return new Response("No code received from GitHub.", { status: 400 });
@@ -17,7 +17,7 @@ export async function onRequest(context) {
   const GITHUB_CLIENT_ID = env.GITHUB_CLIENT_ID;
   const GITHUB_CLIENT_SECRET = env.GITHUB_CLIENT_SECRET;
 
-  // 認証情報が設定されていない場合はエラーレスポンスを返す
+  // 認証情報が設定されていない場合はエラー
   if (!GITHUB_CLIENT_ID || !GITHUB_CLIENT_SECRET) {
     console.error("Callback: GitHub credentials not configured in environment variables.");
     return new Response("GitHub credentials not configured in environment. Please check Cloudflare Pages environment variables.", { status: 500 });
@@ -29,17 +29,16 @@ export async function onRequest(context) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json", // GitHubはJSON形式でのレスポンスを推奨
+        "Accept": "application/json",
       },
       body: JSON.stringify({
         client_id: GITHUB_CLIENT_ID,
         client_secret: GITHUB_CLIENT_SECRET,
         code: code,
-        // redirect_uri: `${url.origin}/api/callback`, // GitHub OAuth Appで設定したコールバックURLと一致させる必要がある場合。通常は不要。
       }),
     });
 
-    // トークン取得リクエストが失敗した場合の処理
+    // トークン取得リクエストが失敗した場合
     if (!tokenResponse.ok) {
       const errorText = await tokenResponse.text();
       console.error("Callback: GitHub token exchange error:", tokenResponse.status, errorText);
@@ -57,13 +56,16 @@ export async function onRequest(context) {
     }
 
     // Decap CMS (adminページ) のオリジンを決定
-    // 通常はCloudflare Functionのオリジンと同じ = サイトのオリジン
-    // 環境変数などで固定値を設定する方がより安全で確実な場合もあります。
     const decapCmsOrigin = url.origin; // 例: "https://markn-homepage.pages.dev"
+                                      // 必要に応じて固定値 "https://markn-homepage.pages.dev" に変更してください。
 
     // postMessageで送信するアクセストークンをJSON文字列としてエスケープ
-    // これにより、トークン内に特殊文字が含まれていてもJavaScriptの構文を壊さないようにする
+    // これにより、トークンが "gho_..." のような文字列の場合、escapedAccessToken は "\"gho_...\"" というJSON文字列になる
     const escapedAccessToken = JSON.stringify(accessToken);
+    // Cloudflare Functionのログで確認
+    console.log("Callback Server-side: Raw accessToken:", accessToken);
+    console.log("Callback Server-side: Escaped accessToken for JS (should be a JSON string like \"gho_...\"):", escapedAccessToken);
+
 
     // Decap CMSに渡すHTMLとJavaScriptを生成
     const htmlResponse = `
@@ -74,48 +76,64 @@ export async function onRequest(context) {
         <title>Authenticating...</title>
         <script>
           (function() {
-            // JSON.parseを使用して、エスケープされたJSON文字列をJavaScriptの文字列に戻す
-            const tokenValue = JSON.parse(${escapedAccessToken});
+            // escapedAccessToken はサーバーサイドで JSON.stringify() されたJSON文字列（例: "\"gho_abc123\""）
+            // これを JSON.parse() に渡すことで、元の文字列（例: "gho_abc123"）に戻す
+            // テンプレートリテラル内で ${escapedAccessToken} を展開すると、
+            // JSON.parse("\"gho_abc123\""); のように、有効なJavaScriptコードになる
+            let tokenValue;
+            let parseError = null;
+            try {
+              console.log('Callback popup: String to be parsed by JSON.parse():', ${escapedAccessToken});
+              tokenValue = JSON.parse(${escapedAccessToken});
+            } catch (e) {
+              parseError = e;
+              console.error('Callback popup: Error parsing token:', e);
+              console.error('Callback popup: The problematic string was:', ${escapedAccessToken});
+              // エラー発生時は、フォールバックとして生のトークン文字列を試みるか、エラー表示
+              // ここではエラーを明確にするため、tokenValueを未定義のままにするか、エラーを示す値を設定
+              tokenValue = "ERROR_PARSING_TOKEN"; 
+            }
             
             const data = {
-              token: tokenValue, // 実際のアクセストークン
-              provider: "github" // Decap CMSが期待するプロバイダー名
+              token: tokenValue, 
+              provider: "github"
             };
             const message = {
-              type: "authorization_response", // Decap CMSが期待するメッセージタイプ
+              type: "authorization_response",
               data: data
             };
 
-            // メインウィンドウのオリジンを正確に指定
             const targetOrigin = "${decapCmsOrigin}"; 
             
-            // デバッグ用のログ
-            console.log("Callback popup: Escaped Access Token for JS:", ${escapedAccessToken});
-            console.log("Callback popup: Parsed Token Value for JS:", tokenValue);
+            console.log("Callback popup: Parsed Token Value for data:", tokenValue);
             console.log("Callback popup: Sending message to opener", message, "with targetOrigin:", targetOrigin);
 
             if (window.opener) {
               window.opener.postMessage(message, targetOrigin);
-              // window.close(); // デバッグ中はコメントアウトしておき、動作確認後に有効化することを推奨
+              // window.close(); // デバッグ中はコメントアウト推奨
             } else {
-              console.error("Callback popup: window.opener is not available. This script should run in a popup window opened by Decap CMS.");
+              console.error("Callback popup: window.opener is not available.");
               document.body.innerHTML = "<h1>Authentication Error</h1><p>Could not communicate with the main window (opener not found). Please ensure popups are allowed and try logging in again.</p>";
             }
           })();
         </script>
       </head>
       <body>
-        Authentication successful. Please wait... If this window does not close automatically, you may need to close it manually after a few seconds.
+        Authentication successful. Please wait... If this window does not close automatically, or if you see an error, please check the browser console.
+        <script>
+          // エラーがあった場合にユーザーにフィードバックするための簡単なスクリプト
+          if (typeof parseError !== 'undefined' && parseError) {
+            document.body.innerHTML = '<h1>Authentication Error</h1><p>There was an issue processing the authentication token. Please check the console for details and try again. (' + parseError.message + ')</p>';
+          }
+        </script>
       </body>
       </html>
-    `; // バッククォートによるHTML文字列の終了
+    `;
 
-    // HTMLレスポンスを返す
     return new Response(htmlResponse, { headers: { 'Content-Type': 'text/html' } });
 
   } catch (error) {
-    // 予期せぬエラーが発生した場合の処理
-    console.error("Callback: Unexpected error during token exchange or HTML generation:", error);
+    console.error("Callback: Unexpected error:", error);
     return new Response(`An unexpected error occurred: ${error.message}`, { status: 500 });
   }
 }
