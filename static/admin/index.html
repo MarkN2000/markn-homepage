@@ -9,44 +9,58 @@
 </head>
 <body>
   <div id="nc-root"></div>
+
   <script>
-    window.CMS_MANUAL_INIT = true; // 自動初期化を無効化
+    // manual_init を true に設定
+    window.CMS_MANUAL_INIT = true;
 
-    document.addEventListener('DOMContentLoaded', function() {
-      fetch('config.yml') // adminディレクトリからの相対パス
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Failed to fetch config.yml: ' + response.statusText);
-          }
-          return response.text();
-        })
-        .then(yamlText => {
-          const config = jsyaml.load(yamlText);
-          console.log("Manually loaded config for CMS.init():", JSON.parse(JSON.stringify(config))); // ログで見やすいようにJSONに変換
-
-          // Decap CMSを初期化
-          window.CMS.init({ config }); // configオブジェクトを渡す
-
-          // 初期化後、再度バックエンドの状態を確認するリスナーなどを設定しても良い
-          // ただし、CMS.init() が完了するタイミングは非同期かもしれないので注意
-          setTimeout(() => {
-            if (window.CMS) {
-                try {
-                    const backend = window.CMS.getBackend("github");
-                    console.log("GitHub Backend object (after manual init):", backend);
-                    if (backend && typeof backend.currentUser === 'function') {
-                         backend.currentUser().then(user => console.log("User (after manual init):", user));
-                    }
-                } catch(e) { console.error("Error checking backend after manual init", e); }
+    function initializeCMS() {
+      if (window.CMS && typeof window.CMS.init === 'function' && window.jsyaml) {
+        console.log("CMS and jsyaml are ready. Fetching config...");
+        fetch('config.yml') // adminディレクトリからの相対パス
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Failed to fetch config.yml: ' + response.statusText);
             }
-          }, 2000); // 2秒後に確認 (タイミングは調整が必要)
+            return response.text();
+          })
+          .then(yamlText => {
+            const config = jsyaml.load(yamlText);
+            console.log("Manually loaded config for CMS.init():", JSON.parse(JSON.stringify(config)));
+            
+            // CMSを初期化
+            // この時点で nc-root 要素は存在しているはず
+            try {
+              window.CMS.init({ config });
+              console.log("CMS.init() called.");
 
-        })
-        .catch(error => {
-          console.error('Error during manual CMS initialization:', error);
-          document.getElementById('nc-root').innerHTML = 'Error loading or initializing CMS: ' + error.message;
-        });
-    });
+              // 初期化後、再度バックエンドの状態を確認するなどの処理はここに追加可能
+              // ただし、CMSの初期化完了や認証完了は非同期イベントで処理されることが多い
+            } catch (e) {
+              console.error("Error during CMS.init() call:", e);
+              document.getElementById('nc-root').innerHTML = 'Error calling CMS.init(): ' + e.message;
+            }
+          })
+          .catch(error => {
+            console.error('Error during manual CMS initialization (fetch/parse config):', error);
+            document.getElementById('nc-root').innerHTML = 'Error loading or parsing config.yml: ' + error.message;
+          });
+      } else {
+        // CMSオブジェクトまたはjsyamlがまだ準備できていなければ、少し待って再試行
+        console.log("CMS or jsyaml not ready yet, retrying in 100ms...");
+        setTimeout(initializeCMS, 100); // 100ミリ秒後に再試行
+      }
+    }
+
+    // DOMが完全に読み込まれた後、または直接初期化を開始
+    // decap-cms.js が defer なしで head にある場合、DOMContentLoaded より早く実行される可能性があるため、
+    // initializeCMS() の呼び出しは DOMContentLoaded の後、または script の最後に置くのが安全
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeCMS);
+    } else {
+        // DOMContentLoaded は既に発火済み
+        initializeCMS();
+    }
   </script>
 </body>
 </html>
