@@ -59,12 +59,13 @@ export async function onRequest(context) {
     const decapCmsOrigin = url.origin; // 例: "https://markn-homepage.pages.dev"
                                       // 必要に応じて固定値 "https://markn-homepage.pages.dev" に変更してください。
 
-    // postMessageで送信するアクセストークンをJSON文字列としてエスケープ
-    // これにより、トークンが "gho_..." のような文字列の場合、escapedAccessToken は "\"gho_...\"" というJSON文字列になる
-    const escapedAccessToken = JSON.stringify(accessToken);
+    // アクセストークンをJavaScript文字列リテラルとして安全に埋め込むためにJSON.stringifyを使用
+    // これにより、accessTokenが "gho_..." の場合、jsStringForToken は "\"gho_...\"" という文字列になる。
+    // この "\"gho_...\"" は、クライアントサイドJSで変数に代入されると、その変数は "gho_..." という文字列値を持つ。
+    const jsStringForToken = JSON.stringify(accessToken);
     // Cloudflare Functionのログで確認
     console.log("Callback Server-side: Raw accessToken:", accessToken);
-    console.log("Callback Server-side: Escaped accessToken for JS (should be a JSON string like \"gho_...\"):", escapedAccessToken);
+    console.log("Callback Server-side: jsStringForToken for client (should be a JS string literal like \"\\\"gho_...\\\"\"):", jsStringForToken);
 
 
     // Decap CMSに渡すHTMLとJavaScriptを生成
@@ -76,22 +77,19 @@ export async function onRequest(context) {
         <title>Authenticating...</title>
         <script>
           (function() {
-            // escapedAccessToken はサーバーサイドで JSON.stringify() されたJSON文字列（例: "\"gho_abc123\""）
-            // これを JSON.parse() に渡すことで、元の文字列（例: "gho_abc123"）に戻す
-            // テンプレートリテラル内で ${escapedAccessToken} を展開すると、
-            // JSON.parse("\"gho_abc123\""); のように、有効なJavaScriptコードになる
-            let tokenValue;
-            let parseError = null;
-            try {
-              console.log('Callback popup: String to be parsed by JSON.parse():', ${escapedAccessToken});
-              tokenValue = JSON.parse(${escapedAccessToken});
-            } catch (e) {
-              parseError = e;
-              console.error('Callback popup: Error parsing token:', e);
-              console.error('Callback popup: The problematic string was:', ${escapedAccessToken});
-              // エラー発生時は、フォールバックとして生のトークン文字列を試みるか、エラー表示
-              // ここではエラーを明確にするため、tokenValueを未定義のままにするか、エラーを示す値を設定
-              tokenValue = "ERROR_PARSING_TOKEN"; 
+            //サーバーサイドでJSON.stringify()されたトークン文字列を直接JavaScriptの変数に代入する
+            //例：jsStringForTokenが「"\"gho_abc123\""」という文字列の場合、
+            //下の行は「const tokenValue = "\"gho_abc123\"";」と展開され、
+            //結果としてtokenValueは「gho_abc123」という文字列になる。
+            let tokenValue = ${jsStringForToken};
+            let operationStatus = "Token assigned successfully.";
+            
+            // デバッグ用に代入された実際の値を確認
+            console.log('Callback popup: Assigned tokenValue:', tokenValue);
+            if (typeof tokenValue !== 'string') {
+                console.error('Callback popup: tokenValue is not a string! Type is ' + typeof tokenValue + '. Value:', tokenValue);
+                operationStatus = "Error: Token is not a string after assignment.";
+                tokenValue = "ERROR_ASSIGNING_TOKEN"; // エラーを示す値に
             }
             
             const data = {
@@ -105,7 +103,7 @@ export async function onRequest(context) {
 
             const targetOrigin = "${decapCmsOrigin}"; 
             
-            console.log("Callback popup: Parsed Token Value for data:", tokenValue);
+            console.log("Callback popup: Operation status:", operationStatus);
             console.log("Callback popup: Sending message to opener", message, "with targetOrigin:", targetOrigin);
 
             if (window.opener) {
@@ -122,8 +120,10 @@ export async function onRequest(context) {
         Authentication successful. Please wait... If this window does not close automatically, or if you see an error, please check the browser console.
         <script>
           // エラーがあった場合にユーザーにフィードバックするための簡単なスクリプト
-          if (typeof parseError !== 'undefined' && parseError) {
-            document.body.innerHTML = '<h1>Authentication Error</h1><p>There was an issue processing the authentication token. Please check the console for details and try again. (' + parseError.message + ')</p>';
+          // この部分は上記 try...catch がなくなったので、動作を少し変更
+          const bodyElement = document.body;
+          if (bodyElement.innerText.includes("ERROR_ASSIGNING_TOKEN")) { // 簡易的なエラーチェック
+            bodyElement.innerHTML = '<h1>Authentication Error</h1><p>There was an issue processing the authentication token. Please check the console for details and try again.</p>';
           }
         </script>
       </body>
