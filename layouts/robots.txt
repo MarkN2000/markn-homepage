@@ -1,5 +1,4 @@
 User-agent: *
 Disallow: /resonite/
-{{ end }}
 
 Sitemap: {{ "/sitemap.xml" | absURL }}
