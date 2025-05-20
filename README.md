@@ -1,7 +1,22 @@
-# markn-homepage (Hugoサイト)
+# markn-homepage
 
 これは、Hugoを使用して構築された個人ホームページのプロジェクトです。Tailwind CSS を使用してスタイリングを行っています。
 コンテンツはMarkdownファイルで直接管理し、GitHubにプッシュすることでCloudflare Pagesを通じてデプロイされます。
+
+## コード・コンテンツの二次利用について
+
+* **このサイトのコードの二次利用**
+
+セキュリティ上の問題等があっても責任はおえませんが、このサイトを改造して自分のサイトを作る分には問題ありません。
+ただし、画像（アイコンやチェック柄など）や記事のデータは使用しないようにしてください。
+このサイトを参考にした際には私の名前かリンクなどを表示していただけると嬉しいです。（強制ではありません）
+
+私の名前の表記：まーくん。(MarkN)
+サイトのリンク：https://markn2000.com/
+
+* **サイト内コンテンツの二次利用**
+
+記事の文章や画像、動画などを利用する際は必ずこのサイト(`https://markn2000.com/`)が出典であるとわかるように記載してください。
 
 ## サイト情報
 
@@ -31,15 +46,7 @@ VSCodeなどのテキストエディタで編集後、変更をGitでコミッ�
 hugo new content posts/新しい記事のフォルダ名/index.md
 
 ```
-
-または
-
-```
-hugo new posts/新しい記事のファイル名.md
-
-```
-
-(Page Bundle形式を推奨する場合は前者)
+(Page Bundle形式を推奨)
 
 ## 開発環境
 
@@ -56,7 +63,7 @@ hugo new posts/新しい記事のファイル名.md
 ```
 npm run dev
 # または
-hugo server -D --disableFastRender
+hugo server -D
 
 ```
 
@@ -68,16 +75,9 @@ hugo server -D --disableFastRender
 生成されたファイルは `public/` ディレクトリに出力されます。
 
 ```
-npm run build
-# または baseURL を明示的に指定する場合
-hugo --gc --minify --baseURL "[https://markn2000.com/](https://markn2000.com/)"
+
+hugo --gc --minify
 
 ```
 
-## 今後の予定 (例)
-
-* コンテンツの拡充
-
-* パフォーマンスの最適化
-
-* さらなるデザイン改善
+## 今後の予定
