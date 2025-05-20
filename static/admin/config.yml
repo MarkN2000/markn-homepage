@@ -1,90 +1,23 @@
 backend:
   name: github
-  repo: MarkN2000/markn-homepage
-  branch: main # GitHubリポジトリのメインブランチ名 (master の場合もあります)
-  # === 認証設定 (重要！) ===
-  # GitHub認証を設定します。いくつかの方法がありますが、
-  # 個人利用で手軽なのは GitHub App や OAuth (Netlify Identity経由など) です
-  # ここでは GitHub App を使う場合のコメントアウト例を示しますが、
-  # 詳細はDecap CMSのドキュメントで最新の推奨方法を確認してください。
-  #
-  # GitHub App を使う場合 (推奨されることが多い):
-  # 1. GitHubでOAuth AppまたはGitHub Appを作成し、認証情報を取得します。
-  # 2. Cloudflare Pages側で環境変数としてClient IDやSecretを設定したり、
-  #    Decap CMSのGitHub認証プロバイダーサービスを利用したりします。
-  #
-  site_url: https://markn-homepage.pages.dev
-  auth_type: pkce # or "github" for OAuth with external provider
-  app_id: Ov23libiHDH0Lfpwyj5n
-  # local_backend: true  ローカルテスト用に true にしておくと、npx decap-server でテスト可能
+  repo: MarkN2000/markn-homepage # あなたのリポジトリ
+  branch: main # あなたのブランチ
+  site_url: https://markn-homepage.pages.dev # あなたのサイトURL
+  auth_type: pkce
+  app_id: Ov23libiHDH0Lfpwyj5n # あなたのApp ID
+  cms_label_prefix: "content/posts/" # 任意: Decap CMSのUIでパスのプレフィックスを分かりやすくする場合
 
-media_folder: "static/images/uploads" # グローバルな画像アップロード先 (あまり使わないかも)
-public_folder: "/images/uploads"     # グローバルな画像の公開パス
+# media_folder と public_folder は、ひとまずコメントアウトするか、
+# 非常にシンプルな固定パスを指定
+media_folder: "static/images/uploads_test"
+public_folder: "/images/uploads_test"
 
+# collections は一旦空にするか、非常にシンプルなものを一つだけ定義
 collections:
-  - name: "posts"
-    label: "記事 (Posts)"
-    label_singular: "記事 (Post)" # 単数形のラベル (任意)
-    folder: "content/posts" # 各記事のフォルダがこの下に作成される
-    create: true # 新規作成を許可
-    # Page Bundle (各記事がフォルダ内に index.md と画像を持つ) の場合、
-    # Decap CMS でこれを直接的に「フォルダごと作成」する機能は標準では限定的です。
-    # 通常、slug はファイル名になり、folder で指定したディレクトリ直下にファイルが作られます。
-    #
-    # Page Bundle を意識した運用方法としては、以下のいずれかになります。
-    # 1. slug にフォルダ名を含めるようにし、ファイル名は常に index.md にする。
-    #    (例: slug: "{{year}}-{{month}}-{{day}}-{{slug}}/index")
-    #    ただし、これだと画像などのアセットをCMSから同じフォルダにアップロードするのが難しい場合があります。
-    # 2. 記事作成後に手動またはスクリプトでフォルダ構造を整える。
-    # 3. 記事ファイルは content/posts 直下に置き (例: my-post.md)、
-    #    画像は media_folder で指定した共通の場所にアップロードする（現在の thumbnail のように）。
-    #
-    # ご要望の「記事のフォルダの中にindex.mdファイルと記事用の画像が入る」を最大限CMSで扱う場合、
-    # 少し工夫が必要になります。
-    # Decap CMS の file collection で個々の記事を定義するか、
-    # folder collection で記事ごとのフォルダパスを明示的に指定するアプローチも考えられますが、
-    # まずは一般的な記事作成の形で設定し、画像の扱いは別途検討しましょう。
-
-    # ここでは、まず記事のMarkdownファイル (index.md) を作成することを主眼に置きます。
-    # フォルダ名は slug から自動生成される想定です。
-    # そして、ファイル名は固定で "index.md" とします。
-    # これにより content/posts/my-sample-post/index.md のような構造になります。
-    path: "{{slug}}/index" # slug をフォルダ名として利用し、ファイル名は index.md に固定
-    media_folder: "" # Page Bundle内の画像は記事からの相対パスで管理するため、コレクションレベルでは空に
-    public_folder: "" # 同上
-
-    # slug の設定。例えば日付とタイトルから生成する場合
-    slug: "{{year}}-{{month}}-{{day}}-{{title | slugify}}"
-
-    # フロントマターのフィールド定義
+  - name: "test_posts"
+    label: "Test Posts"
+    folder: "content/test_posts"
+    create: true
     fields:
-      - {label: "タイトル (Title)", name: "title", widget: "string"}
-      - {label: "公開日 (Date)", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ", date_format: "YYYY-MM-DD", time_format: "HH:mm:ss", picker_utc: false} # タイムゾーンを日本時間に合わせる場合は picker_utc: false
-      - {label: "下書き (Draft)", name: "draft", widget: "boolean", default: true}
-      - label: "タグ (Tags)"
-        name: "tags"
-        widget: "list"
-        summary: "{{fields.tag}}" # リスト表示時のサマリー (任意)
-        field: {label: Tag, name: tag, widget: string} # リスト内の各アイテムの定義 (任意)
-        allow_add: true
-        required: false
-      - label: "サムネイル (Thumbnail)" # Page Bundle 内の画像を指す
-        name: "thumbnail"
-        widget: "image" # CMSの画像ウィジェット
-        media_folder: "" # 空にすることで、この記事のフォルダからの相対パスで画像を扱えるように試みる (CMSの挙動によっては調整が必要)
-        public_folder: ""
-        choose_url: false # アップロードのみを許可するかどうか (任意)
-        required: false
-        hint: "例: thumbnail.webp (記事フォルダ内の画像ファイル名)"
-      - {label: "概要 (Description)", name: "description", widget: "text", required: false}
-      - label: "前の記事パス (Previous Post Path)"
-        name: "prev_post_path"
-        widget: "string"
-        required: false
-        hint: "例: /posts/sample-article-2/"
-      - label: "次の記事パス (Next Post Path)"
-        name: "next_post_path"
-        widget: "string"
-        required: false
-        hint: "例: /posts/sample-article-3/"
-      - {label: "本文 (Body)", name: "body", widget: "markdown"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
