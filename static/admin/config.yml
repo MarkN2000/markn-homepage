@@ -15,7 +15,7 @@ public_folder: "/images/uploads_test"
 # collections は一旦空にするか、非常にシンプルなものを一つだけ定義
 collections:
   - name: "test_posts"
-    label: "Test Posts"
+    label: "label"
     folder: "content/test_posts"
     create: true
     fields:
