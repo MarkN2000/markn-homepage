@@ -47,47 +47,31 @@ export async function onRequest(context) {
       return new Response("No access token found in GitHub response.", { status: 500 });
     }
 
-    const escapedAccessToken = JSON.stringify(accessToken); 
-    const decapCmsOrigin = url.origin; // または "https://markn-homepage.pages.dev";
+    const escapedAccessToken = JSON.stringify(accessToken);
+    const decapCmsOriginString = "https://markn-homepage.pages.dev"; // 固定文字列で指定する例
 
     const htmlResponse = `
     <!DOCTYPE html>
     <html>
     <head>
-        <meta charset="utf-8">
-        <title>Authenticating...</title>
         <script>
         (function() {
-            // エスケープされたJSON文字列をJavaScriptの文字列としてパースして使用
-            const tokenValue = JSON.parse(${escapedAccessToken}); // ここでJSON.parseする
-
+            const tokenValue = JSON.parse(${escapedAccessToken}); // JSON.parseで元の値に戻す
             const data = {
-            token: tokenValue, // パースしたトークン
-            provider: "github" 
+            token: tokenValue,
+            provider: "github"
             };
             const message = {
             type: "authorization_response",
             data: data
             };
-            const targetOrigin = "${decapCmsOrigin}"; 
+            const targetOrigin = "${decapCmsOriginString}"; // 正しいオリジン文字列が展開される
 
-            console.log("Callback popup: Escaped Access Token for JS:", ${escapedAccessToken});
-            console.log("Callback popup: Parsed Token Value for JS:", tokenValue);
-            console.log("Callback popup: Sending message to opener", message, "with targetOrigin:", targetOrigin);
-
-            if (window.opener) {
-            window.opener.postMessage(message, targetOrigin);
-            // window.close(); // デバッグ中はコメントアウト推奨
-            } else {
-            console.error("Callback popup: window.opener is not available.");
-            document.body.innerHTML = "<h1>Error</h1><p>Could not communicate with the main window. Please close this window and try again.</p>";
-            }
+            // ... postMessage処理 ...
         })();
         </script>
     </head>
-    <body>
-        Authentication successful. Please wait...
-    </body>
+    <body>...</body>
     </html>
     `;
     return new Response(htmlResponse, { headers: { 'Content-Type': 'text/html' } });
