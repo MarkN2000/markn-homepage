@@ -2,7 +2,6 @@ backend:
   name: github
   repo: MarkN2000/markn-homepage # あなたのリポジトリ
   branch: main # あなたのブランチ
-  site_url: https://markn-homepage.pages.dev # あなたのサイトURL
   auth_type: pkce
   app_id: Ov23libiHDH0Lfpwyj5n # あなたのApp ID
   cms_label_prefix: "content/posts/" # 任意: Decap CMSのUIでパスのプレフィックスを分かりやすくする場合
