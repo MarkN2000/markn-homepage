@@ -1,4 +1,4 @@
-baseURL = "https://markn-homepage.pages.dev"
+baseURL = "https://markn2000.com"
 languageCode = "ja-jp"
 title = "まーくん。(MarkN)のホームページ"
 # copyright = "© 2025 MarkN. All Rights Reserved." # フッターで .Site.Copyright も使える
@@ -9,7 +9,7 @@ title = "まーくん。(MarkN)のホームページ"
   # author = "まーくん。(MarkN)"
   mainSections = ["posts"]
 
-paginate = 24
+paginate = 12
 
 [markup]
   [markup.goldmark.renderer]
