@@ -47,51 +47,47 @@ export async function onRequest(context) {
       return new Response("No access token found in GitHub response.", { status: 500 });
     }
 
-    // Decap CMS に渡すHTMLとJavaScriptを生成
-    // request.headers.get('referer') や url.origin を使って動的にオリジンを決定する
-    // ただし、refererが常に存在し、かつ安全であるとは限らないため注意
-    // 確実なのは、環境変数などでDecap CMSのデプロイオリジンを固定で指定することです。
-    const decapCmsOrigin = url.origin; // 最も単純なのは現在のFunctionのオリジン = サイトのオリジン
-                                    // 厳密には Decap CMS admin ページのオリジン
+    const escapedAccessToken = JSON.stringify(accessToken); 
+    const decapCmsOrigin = url.origin; // または "https://markn-homepage.pages.dev";
 
     const htmlResponse = `
-      <!DOCTYPE html>
-      <html>
-      <head>
+    <!DOCTYPE html>
+    <html>
+    <head>
         <meta charset="utf-8">
         <title>Authenticating...</title>
         <script>
-          (function() {
+        (function() {
+            // エスケープされたJSON文字列をJavaScriptの文字列としてパースして使用
+            const tokenValue = JSON.parse(${escapedAccessToken}); // ここでJSON.parseする
+
             const data = {
-              token: "<span class="math-inline">\{accessToken\}",
-              provider: "github"
+            token: tokenValue, // パースしたトークン
+            provider: "github" 
             };
             const message = {
             type: "authorization_response",
             data: data
             };
-            const targetOrigin = "{decapCmsOrigin}";
+            const targetOrigin = "${decapCmsOrigin}"; 
+
+            console.log("Callback popup: Escaped Access Token for JS:", ${escapedAccessToken});
+            console.log("Callback popup: Parsed Token Value for JS:", tokenValue);
             console.log("Callback popup: Sending message to opener", message, "with targetOrigin:", targetOrigin);
 
             if (window.opener) {
-              window.opener.postMessage(message, targetOrigin);
-              // window.close(); // メッセージ送信後に閉じる
+            window.opener.postMessage(message, targetOrigin);
+            // window.close(); // デバッグ中はコメントアウト推奨
             } else {
-              console.error("Callback popup: window.opener is not available.");
-              document.body.innerHTML = "<h1>Error</h1><p>Could not communicate with the main window. Please close this window and try again. Ensure popups are allowed.</p>";
+            console.error("Callback popup: window.opener is not available.");
+            document.body.innerHTML = "<h1>Error</h1><p>Could not communicate with the main window. Please close this window and try again.</p>";
             }
-          })();
+        })();
         </script>
-      </head>
-      <body>
-        Authentication successful. Please wait... If this window does not close automatically, you may need to close it manually after a few seconds.
-      </body>
-      </html>
+    </head>
+    <body>
+        Authentication successful. Please wait...
+    </body>
+    </html>
     `;
     return new Response(htmlResponse, { headers: { 'Content-Type': 'text/html' } });
-
-  } catch (error) {
-    console.error("Callback error:", error);
-    return new Response(`An unexpected error occurred: ${error.message}`, { status: 500 });
-  }
-}
