@@ -194,6 +194,27 @@
         </nav>
         {{ end }}
 
+        <div id="share-buttons-container" class="mt-8 pt-8 border-t border-gray-200 text-center">
+        <h3 class="text-lg font-semibold text-gray-700 mb-4">この記事を共有する</h3>
+        <div class="flex justify-center items-center space-x-3">
+            {{/* X (Twitter) で共有ボタン */}}
+            <a id="share-X" href="https://X.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-sky-500 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-400 transition-colors duration-150">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
+                Xでポスト
+            </a>
+
+            {{/* リンクをコピーボタン */}}
+            <button id="copy-link-button"
+                    data-clipboard-text="{{ .Permalink }}"
+                    class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors duration-150">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8 2a1 1 0 00-1 1v1H5a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2h-2V3a1 1 0 10-2 0v1H8V3a1 1 0 00-1-1zm2 11h2a1 1 0 110 2H10a1 1 0 110-2z"></path><path d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"></path></svg>
+                リンクをコピー
+            </button>
+            <span id="copy-link-feedback" class="text-sm text-green-600 ml-2 hidden">コピーしました！</span>
+        </div>
+    </div>
+
         {{ $related := "" }}
         {{/* Hugo 0.112.0 以降では .Page.Store が利用可能で、より効率的な方法も取れるが、ここでは基本的な .Site.RegularPages.Related を使用 */}}
         {{ $related = .Site.RegularPages.Related . | first 6 }} {{/* 表示件数を3件に設定 (お好みで変更) */}}
