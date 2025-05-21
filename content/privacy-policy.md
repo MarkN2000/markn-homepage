@@ -1,7 +1,7 @@
 ---
 title: "プライバシーポリシー"
 date: 2025-05-17T20:00:00+09:00
-lastmod: 2025-05-17T20:00:00+09:00
+lastmod: 2025-05-21T20:00:00+09:00
 draft: false
 layout: "page"
 ---
@@ -16,11 +16,6 @@ layout: "page"
     ユーザーが当サイトを閲覧する際に、IPアドレス、ブラウザの種類、閲覧ページ、閲覧日時等のアクセスログを自動的に収集します。これらの情報は、サイトの利用状況の分析やサーバーの障害対応、セキュリティ維持のために利用します。これらの情報から個人を特定することは通常ありません。
 * **Cookie（クッキー）:**
     当サイトでは、利便性の向上や利用状況の分析のためにCookieを使用することがあります。Cookieは、ユーザーのブラウザに一時的に情報を保存する仕組みです。ユーザーはブラウザの設定によりCookieの受け入れを拒否することができますが、その場合、当サイトの一部の機能が利用できなくなることがあります。
-    * **Google Analytics:** 当サイトでは、サイトの利用状況を把握するためにGoogle社が提供する「Google Analytics」を利用しています。Google Analyticsは、Cookieを利用してユーザーの情報を収集しますが、収集される情報に個人を特定するものは含まれません。収集されたデータはGoogle社のプライバシーポリシーに基づいて管理されます。Google Analyticsの利用規約及びプライバシーポリシーについては、Google社のサイトでご確認ください。
-        * [Google Analytics利用規約](https://m.youtube.com/shorts/b463-msWo04)
-        * [Googleプライバシーポリシー](https://www.youtube.com/watch?v=sHnG8tIYMB43)
-        ユーザーは、Google Analyticsオプトアウトアドオンを利用して、Google Analyticsによるデータ収集を無効にすることができます。
-        * [Google Analyticsオプトアウトアドオン](https://tools.google.com/dlpage/gaoptout?hl=ja)
 * **お問い合わせフォーム:**
     (https://docs.google.com/forms/d/e/1FAIpQLSdl5UHhRc5Hq5Y_njMLCttSEqnHpWem_Ays6OpfYGGYOEIExg/viewform?usp=header)
 
@@ -52,4 +47,4 @@ layout: "page"
 
 ---
 制定日: {{ .Date.Format "2025年5月17日" }}
-最終改定日: {{ .Lastmod.Format "2025年5月17日" }}
+最終改定日: {{ .Lastmod.Format "2025年5月21日" }}
