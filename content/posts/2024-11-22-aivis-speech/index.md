@@ -2,7 +2,7 @@
 title: "最新合成音声ツール『AivisSpeech』を VOICEVOXと比較！"
 date: 2024-11-22T23:35:33+09:00
 draft: false
-tags: ["Resonite", "VR", "作ったもの", "おすすめアイテム"]
+tags: ["AI", "おすすめアイテム"]
 thumbnail: "thumbnail.webp"
 description: "最新合成音声ツール『AivisSpeech』を VOICEVOXと比較！"
 prev_post_path:
