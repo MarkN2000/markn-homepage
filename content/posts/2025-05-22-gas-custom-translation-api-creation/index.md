@@ -21,6 +21,8 @@ Google Apps Script (GAS) を使って、あなた専用の翻訳APIを作る手�
 
 ## 完成するAPIの概要
 
+{{< ogp-link-card href="https://uni-pocket.com/ja/items/3f063a9b-2968-448d-8146-b3d5795d480f" >}}
+
 まずは、今回作成するAPIがどんなものか、その概要を説明しますね。
 
 * **呼び出し方法:** HTTP GETリクエスト
