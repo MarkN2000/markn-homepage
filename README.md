@@ -35,6 +35,10 @@
 
   * バージョン管理: GitHub
 
+  * OGP取得API: Cloudflare Pages Functions (Node.jsランタイム)
+  
+  * クライアントサイドスクリプト: JavaScript (動的リンクカード生成)
+
 ## コンテンツ管理
 
 記事やその他のコンテンツは、`content/` ディレクトリ内のMarkdownファイル (`.md`) を直接編集します。
@@ -56,6 +60,8 @@ hugo new content posts/新しい記事のフォルダ名/index.md
 * **CSSフレームワーク**: Tailwind CSS
 
 * **パッケージ管理**: npm (Node.js) (主にTailwind CSSビルド用 `package.json` 参照)
+
+ローカルAPIテスト: Cloudflare Pages Functionsのローカル開発には wrangler CLI が利用できますが、現在の構成ではクライアントJavaScriptから /api/fetch-metadata を呼び出すため、Hugoサーバーと連携したテストが必要です。動的リンクカードの表示確認は、モックデータを使用するか（assets/js/main.js内のIS_LOCAL_DEBUGフラグとMOCK_METADATAを参照）、実際にCloudflare Pagesにデプロイして行います。
 
 ### ローカル開発サーバー起動
 

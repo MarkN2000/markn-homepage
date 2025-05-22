@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // デバッグ用のモックデータ
     const MOCK_METADATA = {
-        "https://uni-pocket.com/ja/items/3f063a9b-2968-448d-8146-b3d5795d480f": {
+        "https://uni-pocket.com/ja/items/3f063a9b-2968-448d-8146-b3d5795d480 f": {
             "title": "デバッグ用タイトル1 (画像あり)",
             "description": "これはデバッグ用の詳細説明です。画像が表示されるはずです。",
             "image": "https://uni-pocket.com/_next/image?url=https%3A%2F%2Fassets.resonite.com%2F6c76a879ea76fda334a0294df7f8074cc8e516d182785df45dd90a3d45ad74b8&w=384&q=75",
