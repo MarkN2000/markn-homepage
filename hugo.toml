@@ -8,6 +8,7 @@ title = "まーくん。(MarkN)のホームページ"
   og_image = "/images/ogp_default.webp"
   # author = "まーくん。(MarkN)"
   mainSections = ["posts"]
+  ogpApiUrl = "https://script.google.com/macros/s/AKfycbwm87iRorfifbyVnLSWxVO6VqtwEQyBFfhbbmobgR1j294XQB46TQK-t_z7QyxRAfhYHg/exec"
 
 paginate = 12
 
