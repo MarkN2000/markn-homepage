@@ -99,8 +99,8 @@
 
             {{ if $titleImageResource }}
                 {{/* ページリソースが見つかればHugoの画像処理を適用 */}}
-                {{/* 例: 幅800pxにリサイズ、アスペクト比維持、WebP形式、品質80 */}}
-                {{ $imageProcessed := $titleImageResource.Resize "800x webp q80" }}
+                {{/* 例: 幅800pxにリサイズ、アスペクト比維持、WebP形式、品質65 */}}
+                {{ $imageProcessed := $titleImageResource.Resize "800x webp q65" }}
                 <div class="mb-4"> {{/* 画像の下にマージンと区切り線 */}}
                     <img src="{{ $imageProcessed.RelPermalink }}" 
                         width="{{ $imageProcessed.Width }}" 
