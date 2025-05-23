@@ -144,12 +144,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const imageHeightClasses = "h-24 md:h-28";
         const imageWidthClasses = "w-24 md:w-28";
-        const imageHtml = image ? `
+const imageHtml = image ? `
             <div class="flex-shrink-0 ${imageWidthClasses} ${imageHeightClasses} bg-gray-200 rounded-l-lg">
                 <img src="${image}" alt="${title} サムネイル" class="w-full h-full object-cover rounded-l-lg">
             </div>` : `
             <div class="flex-shrink-0 ${imageWidthClasses} ${imageHeightClasses} bg-gray-200 rounded-l-lg flex items-center justify-center">
-                <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4M4 7s-.5 1 .5 3M20 7s.5 1-.5 3m-13 3c0 .924.728 2.06 2.5 2.06S12 13.924 12 13m0 0c0 .924-.728 2.06-2.5 2.06S7 13.924 7 13m5 0c0 .924.728 2.06 2.5 2.06S17 13.924 17 13"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 -960 960 960" fill="#d1d5db"><path d="M218-320q-42 0-75.5-27T100-416L71-550l-44 3-7-80q78-7 133.5-10t99.5-3q65 0 105 6t72 21q14 7 26.5 10t23.5 3q11 0 21.5-3t24.5-9q33-15 76-21.5t114-6.5q46 0 102 3t122 9l-7 79-43-3-30 137q-9 42-42 68.5T743-320h-89q-42 0-74-25.5T538-411l-27-107h-61l-27 107q-11 41-43 66t-73 25h-89Zm-40-112q3 14 14 23t25 9h89q14 0 25-8.5t14-21.5l31-121q-27-5-61-6.5t-62-1.5q-23 0-49.5.5T154-556l24 124Zm437 2q3 13 14 21.5t25 8.5h89q14 0 25-9t14-23l26-125q-20-1-46-1.5t-46-.5q-30 0-66.5 1.5T584-551l31 121Z"/></svg>
             </div>`;
         const textContainerDynamicLeftPadding = image ? 'pl-2 md:pl-3' : 'pl-2 md:pl-3';
         const textContainerBasePadding = 'p-2';

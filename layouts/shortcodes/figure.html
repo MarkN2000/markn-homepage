@@ -1,0 +1,50 @@
+{{/* layouts/shortcodes/figure.html */}}
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" | default (.Get "caption") | default (.Get "title") | default "" }}
+{{ $caption := .Get "caption" | default (.Get "title") }}
+{{ $class := .Get "class" }}
+{{ $title := .Get "title" }}
+
+{{ $image := "" }}
+{{ $isPageResource := false }}
+
+{{/* まずページリソースとして画像を探す */}}
+{{ $page := .Page }}
+{{ with $page.Resources.GetMatch $src }}
+    {{ $image = . }}
+    {{ $isPageResource = true }}
+{{ else }}
+    {{/* ページリソースで見つからなければ、assetsフォルダから探す (例: /images/配下など) */}}
+    {{ $assetPath := strings.TrimPrefix "/" $src }}
+    {{ with resources.Get $assetPath }}
+        {{ $image = . }}
+        {{ $isPageResource = true }} {{/* assetsもリソース処理が可能なのでtrue扱い */}}
+    {{ else }}
+        {{ $image = $src | $page.Permalink | printf "%s%s" | absURL }} {{/* 静的パスや外部リンク (念のため絶対URL化) */}}
+    {{ end }}
+{{ end }}
+
+<figure class="my-6 {{ $class }}"> {{/* figureタグにデフォルトで上下マージンを追加 */}}
+    {{ if $isPageResource }}
+        {{/* 画像処理: 幅700pxにリサイズ、WebP形式、品質75 (お好みで調整) */}}
+        {{/* 例えば、より大きな画像も許容したい場合は "1024x" など */}}
+        {{ $processedImage := $image.Resize "720x webp q65" }}
+        <img src="{{ $processedImage.RelPermalink }}"
+             width="{{ $processedImage.Width }}"
+             height="{{ $processedImage.Height }}"
+             alt="{{ $alt }}"
+             class="mx-auto rounded-lg shadow-md"> {{/* 中央寄せ、角丸、影などのスタイルを適用 */}}
+    {{ else }}
+        {{/* Hugoの画像処理ができない場合は元画像を表示 */}}
+        <img src="{{ $image }}"
+             alt="{{ $alt }}"
+             class="mx-auto rounded-lg shadow-md">
+    {{ end }}
+
+    {{ if $caption }}
+        <figcaption class="text-center text-sm text-gray-600 mt-2">{{ $caption | markdownify }}</figcaption>
+    {{ else if $title }}
+        {{/* titleが指定されていてcaptionがない場合、figcationにtitleを使う */}}
+        <figcaption class="text-center text-sm text-gray-600 mt-2">{{ $title | markdownify }}</figcaption>
+    {{ end }}
+</figure>
