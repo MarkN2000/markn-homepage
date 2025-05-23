@@ -32,7 +32,7 @@
                 {{/* サイズはカードが表示されるカラム数に応じて調整するとより良い */}}
                 {{/* 例: 4カラムなら (1200px / 4) * 1.5 = 450px 幅程度を想定 (Retina対応も考慮) */}}
                 {{/* ここではアスペクト比 16:9 を維持しつつ、幅480pxでWebPに変換 */}}
-                {{ $imageProcessed := $cardImageResource.Fill "480x270 Center webp q60" }}
+                {{ $imageProcessed := $cardImageResource.Fill "427x240 Center webp q50" }}
                 <img src="{{ $imageProcessed.RelPermalink }}" width="{{ $imageProcessed.Width }}" height="{{ $imageProcessed.Height }}" alt="{{ $imageAltText }}" class="w-full h-full object-cover" loading="lazy">
             {{ else if .Params.thumbnail }}
                 {{/* .Params.thumbnail は指定されているが、リソースとして取得できなかった場合 (上記ですでに静的パスとしてimgタグ出力済みのはず) */}}
