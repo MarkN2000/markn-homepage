@@ -79,9 +79,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const IS_LOCAL_DEBUG = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const backendApiUrl = '/api/fetch-metadata';
 
-    // デバッグ用のモックデータ
     const MOCK_METADATA = {
-        "https://uni-pocket.com/ja/items/3f063a9b-2968-448d-8146-b3d5795d480 f": {
+        "https://uni-pocket.com/ja/items/3f063a9b-2968-448d-8146-b3d5795d480f": {
             "title": "デバッグ用タイトル1 (画像あり)",
             "description": "これはデバッグ用の詳細説明です。画像が表示されるはずです。",
             "image": "https://uni-pocket.com/_next/image?url=https%3A%2F%2Fassets.resonite.com%2F6c76a879ea76fda334a0294df7f8074cc8e516d182785df45dd90a3d45ad74b8&w=384&q=75",
@@ -101,115 +100,165 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // この関数は processLinkCards の中で一度だけ定義されるべきヘルパー関数です。
-    // processLinkCards のスコープ内に移動するか、またはグローバルスコープで一度だけ定義します。
-    // ここでは processLinkCards の前に一度だけ定義します。
-function generateLinkCardHtml(href, metadata) {
-    const title = metadata.title || '（タイトルなし）';
-    const description = metadata.description || '';
-    const image = metadata.image || '';
-    
-    let hostName = '';
-    if (href) {
-        try {
-            const url = new URL(href);
-            hostName = url.hostname;
-        } catch (e) {
-            // URL解析失敗時のフォールバック
-        }
-    }
-    if (metadata.siteName && metadata.siteName.trim() !== '') {
-        hostName = metadata.siteName;
-    }
-
-    // サイズ定義 (PCでの高さを h-28 に少し戻し、スマホとの差を少なくする)
-    const imageHeightClasses = "h-24 md:h-28"; // スマホ:96px, PC:112px
-    const imageWidthClasses = "w-24 md:w-28";
-
-    const imageHtml = image ? `
-        <div class="flex-shrink-0 ${imageWidthClasses} ${imageHeightClasses} bg-gray-200 rounded-l-lg">
-            <img src="${image}" alt="${title} サムネイル"
-                 class="w-full h-full object-cover rounded-l-lg">
-        </div>` : `
-        <div class="flex-shrink-0 ${imageWidthClasses} ${imageHeightClasses} bg-gray-200 rounded-l-lg flex items-center justify-center">
-            <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4M4 7s-.5 1 .5 3M20 7s.5 1-.5 3m-13 3c0 .924.728 2.06 2.5 2.06S12 13.924 12 13m0 0c0 .924-.728 2.06-2.5 2.06S7 13.924 7 13m5 0c0 .924.728 2.06 2.5 2.06S17 13.924 17 13"></path></svg>
-        </div>`;
-
-    const textContainerDynamicLeftPadding = image ? 'pl-2 md:pl-3' : ''; // パディング微調整
-    const textContainerBasePadding = 'p-2'; // ベースパディング
-
-    // 説明文のクラス
-    // スマホ(md未満): 非表示
-    // PC (md以上): line-clamp-2 を試みる (md:h-28 の高さで調整)
-    const descriptionClasses = "text-xs text-gray-700 leading-tight hidden md:block md:line-clamp-2";
-
-    return `
-        <a href="${href}" target="_blank" rel="noopener noreferrer"
-            class="my-6 group block bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition-shadow duration-200 overflow-hidden">
-            <div class="flex items-stretch">
-                ${imageHtml}
-                <div class="flex flex-col flex-grow min-w-0 ${imageHeightClasses} ${textContainerBasePadding} ${textContainerDynamicLeftPadding} justify-start overflow-hidden">
-                    ${hostName ? `<p class="text-xs text-gray-500 line-clamp-1" style="font-size: 0.6rem; margin-bottom: 0; flex-shrink: 0;">${hostName}</p>` : ''}
-                    <h3 class="text-sm md:text-base font-semibold text-gray-900 group-hover:text-primary line-clamp-2" style="margin-top: 0.05rem; margin-bottom: 0.1rem; flex-shrink: 0;">${title}</h3>
-                    <div class="flex-grow overflow-y-hidden">
-                        ${description ? `<p class="${descriptionClasses}" style="font-size: 0.7rem;">${description}</p>` : ''}
+    function createSkeletonCardElement(originalHref) {
+        const skeletonAnchor = document.createElement('a');
+        skeletonAnchor.href = originalHref;
+        skeletonAnchor.target = "_blank";
+        skeletonAnchor.rel = "noopener noreferrer";
+        skeletonAnchor.className = "my-6 group block bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden";
+        skeletonAnchor.innerHTML = `
+            <div class="flex items-stretch animate-pulse">
+                <div class="flex-shrink-0 w-24 md:w-28 h-24 md:h-28 bg-gray-300 rounded-l-lg"></div>
+                <div class="flex flex-col flex-grow min-w-0 h-24 md:h-28 p-3 space-y-2 justify-center">
+                    <div class="h-3 bg-gray-300 rounded w-1/3"></div>
+                    <div class="h-5 bg-gray-300 rounded w-5/6"></div>
+                    <div class="hidden md:block space-y-1 flex-grow pt-1">
+                        <div class="h-3 bg-gray-300 rounded w-full"></div>
+                        <div class="h-3 bg-gray-300 rounded w-4/5"></div>
                     </div>
                 </div>
             </div>
-        </a>
-    `;
-}
-    // この関数は一度だけ定義します。
-    const processLinkCards = async () => {
-        const linkElements = document.querySelectorAll('a.dynamic-link-card');
+        `;
+        return skeletonAnchor;
+    }
 
-        for (const linkElement of linkElements) {
-            const targetUrl = linkElement.href;
-            linkElement.textContent = '読み込み中...';
-            let metadata;
+    function generateLinkCardHtml(href, metadata) {
+        const title = metadata.title || '（タイトルなし）'; // フォールバックタイトルは呼び出し側で設定する方針へ
+        const description = metadata.description || '';
+        const image = metadata.image || '';
+        
+        let hostName = '';
+        if (href) {
+            try {
+                const url = new URL(href);
+                hostName = url.hostname;
+            } catch (e) {}
+        }
+        // metadata.siteName が空文字列やnullの場合も考慮
+        if (metadata.siteName && metadata.siteName.trim() !== '') {
+            hostName = metadata.siteName;
+        } else if (!hostName && href) { // siteNameが無く、最初のhostname取得も失敗していた場合（ほぼないが念のため）
+             try { hostName = new URL(href).hostname; } catch(e) {}
+        }
 
-            if (IS_LOCAL_DEBUG && MOCK_METADATA[targetUrl]) {
-                console.log(`Using mock data for: ${targetUrl}`);
-                metadata = MOCK_METADATA[targetUrl];
-                if (metadata && metadata.title) {
-                    const cardHtml = generateLinkCardHtml(targetUrl, metadata);
-                    const cardFragment = document.createRange().createContextualFragment(cardHtml);
-                    linkElement.replaceWith(cardFragment);
-                } else {
-                    linkElement.textContent = targetUrl;
-                    linkElement.classList.remove('dynamic-link-card');
-                    console.warn('Mock metadata issue or no title for:', targetUrl, metadata);
-                }
-                continue;
-            }
-            
+
+        const imageHeightClasses = "h-24 md:h-28";
+        const imageWidthClasses = "w-24 md:w-28";
+        const imageHtml = image ? `
+            <div class="flex-shrink-0 ${imageWidthClasses} ${imageHeightClasses} bg-gray-200 rounded-l-lg">
+                <img src="${image}" alt="${title} サムネイル" class="w-full h-full object-cover rounded-l-lg">
+            </div>` : `
+            <div class="flex-shrink-0 ${imageWidthClasses} ${imageHeightClasses} bg-gray-200 rounded-l-lg flex items-center justify-center">
+                <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4M4 7s-.5 1 .5 3M20 7s.5 1-.5 3m-13 3c0 .924.728 2.06 2.5 2.06S12 13.924 12 13m0 0c0 .924-.728 2.06-2.5 2.06S7 13.924 7 13m5 0c0 .924.728 2.06 2.5 2.06S17 13.924 17 13"></path></svg>
+            </div>`;
+        const textContainerDynamicLeftPadding = image ? 'pl-2 md:pl-3' : 'pl-2 md:pl-3';
+        const textContainerBasePadding = 'p-2';
+        const descriptionClasses = "text-xs text-gray-700 leading-tight hidden md:block md:line-clamp-2";
+        return `
+            <a href="${href}" target="_blank" rel="noopener noreferrer"
+                class="my-6 group block bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition-shadow duration-200 overflow-hidden">
+                <div class="flex items-stretch">
+                    ${imageHtml}
+                    <div class="flex flex-col flex-grow min-w-0 ${imageHeightClasses} ${textContainerBasePadding} ${textContainerDynamicLeftPadding} justify-start overflow-hidden">
+                        ${hostName ? `<p class="text-xs text-gray-500 line-clamp-1" style="font-size: 0.6rem; margin-bottom: 0; flex-shrink: 0;">${hostName}</p>` : ''}
+                        <h3 class="text-sm md:text-base font-semibold text-gray-900 group-hover:text-primary line-clamp-2" style="margin-top: 0.05rem; margin-bottom: 0.1rem; flex-shrink: 0;">${title}</h3>
+                        <div class="flex-grow overflow-y-hidden">
+                            ${description ? `<p class="${descriptionClasses}" style="font-size: 0.7rem;">${description}</p>` : ''}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        `;
+    }
+
+    async function loadAndRenderCard(skeletonCardNode) {
+        const targetUrl = skeletonCardNode.href;
+        let metadata;
+        let hostnameForFallback = '';
+        try {
+            hostnameForFallback = new URL(targetUrl).hostname;
+        } catch (e) {
+            // targetUrlが不正な場合は、そのままエラー処理に進む
+            console.error('Invalid targetUrl for card:', targetUrl, e);
+        }
+
+        if (IS_LOCAL_DEBUG && MOCK_METADATA[targetUrl]) {
+            console.log(`Using mock data for: ${targetUrl}`);
+            metadata = MOCK_METADATA[targetUrl];
+            await new Promise(resolve => setTimeout(resolve, 500));
+        } else {
             try {
                 const response = await fetch(`${backendApiUrl}?url=${encodeURIComponent(targetUrl)}`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 metadata = await response.json();
-
-                if (metadata && metadata.title) {
-                    const cardHtml = generateLinkCardHtml(targetUrl, metadata);
-                    const cardFragment = document.createRange().createContextualFragment(cardHtml);
-                    linkElement.replaceWith(cardFragment);
-                } else {
-                    linkElement.textContent = targetUrl;
-                    linkElement.classList.remove('dynamic-link-card');
-                    console.warn('Metadata fetching failed or no title for:', targetUrl, metadata);
-                }
             } catch (error) {
                 console.error('Error fetching link card metadata for:', targetUrl, error);
-                linkElement.textContent = targetUrl;
-                linkElement.classList.remove('dynamic-link-card');
+                metadata = null; // APIエラー時はnullとして扱う
             }
         }
+
+        // metadataがnull(APIエラー)でも、最低限の情報でカードを生成する
+        const effectiveMetadata = {
+            title: metadata?.title || hostnameForFallback || '（タイトル取得失敗）', // function側でhostnameが入るが念のため
+            description: metadata?.description || '',
+            image: metadata?.image || '',
+            siteName: metadata?.siteName || hostnameForFallback || '' // function側でhostnameが入るが念のため
+        };
+        
+        // 常にカード形式で表示を試みる
+        const cardHtml = generateLinkCardHtml(targetUrl, effectiveMetadata);
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = cardHtml.trim();
+        const finalCardElement = tempDiv.firstChild;
+
+        if (finalCardElement) {
+            skeletonCardNode.replaceWith(finalCardElement);
+            if (!metadata || !metadata.title) { // APIエラーやタイトルが実質ない場合
+                 console.warn('Metadata incomplete or fetch failed for:', targetUrl, '. Rendered with defaults.');
+            }
+        } else {
+            // カードHTMLの生成自体に失敗するようなレアケース (通常は発生しづらい)
+            console.error('Card HTML generation failed for:', targetUrl);
+            const fallbackLink = document.createElement('a');
+            fallbackLink.href = targetUrl;
+            fallbackLink.textContent = targetUrl;
+            fallbackLink.className = 'text-primary hover:underline my-6 block';
+            skeletonCardNode.replaceWith(fallbackLink);
+        }
+    }
+    
+    function handleIntersection(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skeletonCardNode = entry.target;
+                loadAndRenderCard(skeletonCardNode);
+                observer.unobserve(skeletonCardNode);
+            }
+        });
+    }
+
+    const processLinkCards = () => {
+        const linkElements = document.querySelectorAll('a.dynamic-link-card');
+        if (linkElements.length === 0) {
+            return;
+        }
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        const observer = new IntersectionObserver(handleIntersection, observerOptions);
+        linkElements.forEach(linkElement => {
+            const targetUrl = linkElement.href;
+            const skeletonCardNode = createSkeletonCardElement(targetUrl);
+            linkElement.replaceWith(skeletonCardNode);
+            observer.observe(skeletonCardNode);
+        });
     };
 
-    // ページ内に dynamic-link-card クラスを持つ要素があれば処理を実行
     if (document.querySelector('a.dynamic-link-card')) {
         processLinkCards();
     }
-
-}); // DOMContentLoaded イベントリスナーの閉じ括弧
+});
