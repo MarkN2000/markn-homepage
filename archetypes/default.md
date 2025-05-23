@@ -8,18 +8,19 @@ tags:
   - 作ったもの
   - おすすめアイテム
   - 協力
-thumbnail: "" # 例: thumbnail.webp (この記事のフォルダに画像を置いてファイル名を指定)
-thumbnail_alt: "" # サムネイルの代替テキスト (例: 「Resoniteの新しいアバター紹介」のように具体的に記述してください)
-description: "" # 記事の短い概要 (120字程度が目安です。検索結果やSNSでの表示に使われます)
-prev_post_path: "" # 例: /posts/前の記事のフォルダ名/
-next_post_path: "" # 例: /posts/次の記事のフォルダ名/
+thumbnail: "thumbnail.webp" # この記事のサムネイル (OGP画像にも使われる)
+thumbnail_alt: "どのようなサムネイル画像かの説明"
+description: "この記事では、サンプル記事のタイトルに関する詳細な情報を提供し、読者に有益な洞察を与えます。" # この記事固有のdescription
+prev_post_path: "/posts/sample-article-2/" # 存在する記事のパスを指定
+next_post_path:
+# foldername：2024-11-06-mousepad
 ---
 
 これはサンプル記事の**リード文**（導入文）です。この記事では、個別記事ページの基本的なレイアウトとMarkdown要素のスタイリングについて説明します。読みやすく、魅力的な記事ページを目指しましょう。
 
-## 第1章: 見出しH2のスタイル
+## 見出しH2のスタイル
 
-ここからが本文の始まりです。段落は適度な長さで改行し、読みやすさを意識します。Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ここからが本文の始まりです。
 
 ### 1.1. 見出しH3のスタイル
 
@@ -29,7 +30,7 @@ next_post_path: "" # 例: /posts/次の記事のフォルダ名/
 
 H4はさらに細分化された内容に使います。
 
-通常のテキストに続いて、リスト表示の確認です。
+リスト表示
 
 * 箇条書きリストのアイテム1
     * ネストされたアイテムA
@@ -45,17 +46,13 @@ H4はさらに細分化された内容に使います。
 
 ---
 
-## 第2章: その他の要素
-
-次は引用ブロックの表示テストです。
+次は引用ブロックの表示
 
 > これは引用ブロックです。他の情報源からの引用や、特に強調したいメッセージなどに使用します。
 > The quick brown fox jumps over the lazy dog.
 
-
-### 2.1. コードブロック
-
-インラインの `code` スタイルも確認しましょう。
+インラインの `code` スタイル
+リストの外に出すようにしてください。
 
 ```html
 <!DOCTYPE html>
@@ -70,35 +67,24 @@ H4はさらに細分化された内容に使います。
 </html>
 ```
 
-### 2.2. YouTube動画の埋め込みテスト
 
 以下はショートコードを使って埋め込んだYouTube動画です。
 
 {{< youtube "lC3F1dn66FY" >}}
 
-### 2.3. 画像の表示
 
-記事内の画像表示も重要です。
+記事内の画像表示方法
 
-まずは標準のMarkdown構文で画像を表示してみます。
+{{< figure src="placeholder-content.jpg" title="画像のタイトル" alt="画像についての説明文">}}
 
-![標準Markdownでのサンプル画像](placeholder-content.jpg "Markdown画像タイトル")
-*これは標準Markdown画像の下に手動で書いたキャプションです。*
-
-次に、Hugoの `figure` ショートコードを使ってキャプション付きで表示します。
-
-{{< figure src="placeholder-content.jpg" title="Figureショートコードを使ったキャプション" alt="Figureショートコードのサンプル画像" class="mx-auto" >}}
-
-### 2.4. リンク
 
 以下は、外部サイトのサムネ付きリンクです
+できるだけリストの外に出すようしてください。
 
-<a href="https://resonite.com/" class="dynamic-link-card"></a>
+<a href="https://sample.com/" class="dynamic-link-card"></a>
 <noscript>
-  <p><a href="ここにリンク先のURL">ここにリンク先の簡単な説明文を手動で記述</a></p>
+  <p><a href="ここにリンク先のURL">ここにリンク先の簡単な説明文を記述</a></p>
 </noscript>
-
-### 2.5. ツイートの埋め込み
 
 以下はショートコードを使って埋め込んだツイートの表示例です。
 
