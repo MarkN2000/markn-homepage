@@ -25,7 +25,7 @@
             {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections | default .Site.RegularPages }}
             {{ $paginator := .Paginate $pages 12 }}
             {{ range $paginator.Pages }}
-                {{ .Render "card" }}
+                {{ partial "card.html" . }}
             {{ end }}
         </div>
         {{ template "_internal/pagination.html" . }}
