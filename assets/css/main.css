@@ -144,7 +144,7 @@ body {
 }
 
 /* 画像関連のスタイル */
-.prose img { /* .prose 内の全ての img 要素 */
+.prose img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -153,10 +153,9 @@ body {
   border-radius: var(--border-radius-md, 0.375rem);
 }
 
-.prose figure { /* .prose 内の全ての figure 要素の基本スタイル */
+.prose figure {
   margin-top: var(--spacing-8, 2rem);
   margin-bottom: var(--spacing-8, 2rem);
-  /* デフォルトではfigure自体は中央揃えにせず、中のimgが中央揃えされる */
 }
 
 .prose figcaption {
@@ -168,51 +167,20 @@ body {
 
 /* --- ▼▼▼ リスト内画像のインデント解除 & 中央揃え用スタイル ▼▼▼ --- */
 .prose figure.figure-unindented-center {
-  /* positionとtransformを使って中央揃えを試みる */
-  position: relative; /* leftプロパティを有効にするため */
+  position: relative;
   left: 50%;
   transform: translateX(-50%);
   width: fit-content; /* figureの幅を内容(img)に合わせる */
-  max-width: 100%; /* 親の.proseの幅を超えないように */
-  /* margin-left と margin-right は auto が transform と競合する可能性があるので削除または調整 */
-  margin-left: 0; /* transformで中央寄せするのでautoは不要 */
-  margin-right: 0; /* transformで中央寄せするのでautoは不要 */
+  max-width: 100%;    /* 親の.proseの幅を超えないように */
+  margin-left: 0;     /* transformで中央寄せするのでautoは不要 */
+  margin-right: 0;    /* transformで中央寄せするのでautoは不要 */
 }
-
 /* リストアイテム(li)内にある場合、liのpadding-leftを考慮してtransformを調整 */
 .prose ul > li > figure.figure-unindented-center,
 .prose ol > li > figure.figure-unindented-center {
-  /*
-    liのpadding-leftが1.5rem (var(--spacing-6))。
-    figureをliの左端基準で50%の位置に動かし、figure自体の幅の50%を戻すことで中央揃え。
-    この時、liのpadding-leftの影響をキャンセルする必要がある。
-    figureの描画基準がliのコンテンツエリアの左端なので、
-    そこから見て中央に来るように、liのpadding-left分を補正する。
-    left: 50% は親(li)のコンテンツエリアの中央。
-    transform: translateX(-50%) はfigure自体の幅の中央。
-    これだけだとliの中で中央になる。
-
-    liのpadding-left(1.5rem)を打ち消すには、figureを左に1.5rem動かす。
-    しかし、そうすると.proseコンテナに対して左に寄ってしまう。
-
-    目標：.proseコンテナに対して中央。
-    方法：figureの幅を.proseコンテナの幅の100%とし、中のimgを中央揃え。
-           ただし、これだと画像が大きくなりすぎる可能性がある。
-           画像のmax-widthは.proseの幅に制限しつつ、figure自体を.proseの中央に。
-
-    再考：figureに `width: 100%;` を設定し、その親の `<li>` のネガティブマージンで
-          `<li>` のパディングを打ち消す。
-          しかし、`<li>` にネガティブマージンは通常つけない。
-
-    今回の要望は「リストのインデントの影響を受けずに、プロースコンテナ（記事の主要なテキストが表示されるエリア）内で中央揃えにしたい」
-  */
   width: 100%; /* 親であるliの幅の100% */
   margin-left: calc(var(--spacing-6, 1.5rem) * -1); /* liのpadding-leftを打ち消す */
-  /* これでfigureはliのインデントが始まる位置から開始され、liの幅を持つ。
-     この状態で、figure内のimgは.prose imgのルールで中央揃えになる。
-     結果として、画像はliのインデント位置から始まる行の中で中央揃えになる。
-     「プロースコンテナ内で中央揃え」とは少し異なるが、インデントは無視できる。
-  */
+  /* このfigureの中でimgは中央揃えされる(.prose img のルールにより) */
 }
 /* --- ▲▲▲ リスト内画像のインデント解除 & 中央揃え用スタイル --- */
 
@@ -235,7 +203,6 @@ body {
 .pagination {
   @apply flex justify-center my-8;
 }
-/* ... (paginationの残りのスタイルは変更なし) ... */
 .page-item .page-link {
   @apply inline-block px-4 py-2 mx-1;
   @apply border border-gray-300 rounded-md;

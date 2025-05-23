@@ -43,6 +43,9 @@ Google Apps Script (GAS) を使って、あなた専用の翻訳APIを作る手�
 僕(MarkN)が公開している翻訳機
 
 <a href="https://uni-pocket.com/ja/items/b69511c5-ef91-4335-aa77-de22de431314" class="dynamic-link-card">二人で同時使用可能なシンプルな翻訳機です</a>
+    <noscript>
+        <p><a href="https://uni-pocket.com/ja/items/b69511c5-ef91-4335-aa77-de22de431314">説明文</a></p>
+    </noscript>
 
 ## 必要なもの
 
