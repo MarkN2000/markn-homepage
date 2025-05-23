@@ -2,10 +2,8 @@
 
 @theme {
   /* カスタムカラーパレット */
-  /* README.md の指示に基づき、水色系をメインカラーとします */
   --color-primary: #0ea5e9; /* 水色系 (Tailwindのsky-500相当) */
   --color-primary-hover: #0284c7; /* 水色系ホバー時 (Tailwindのsky-600相当) */
-  /* アクセントカラーの例 */
   --color-secondary: #ec4899; /* ピンク系 (Tailwindのpink-500相当) */
   --color-accent-yellow: #facc15; /* 黄色系 (Tailwindのyellow-400相当) */
   --color-accent-orange: #f97316; /* オレンジ系 (Tailwindのorange-500相当) */
@@ -13,9 +11,7 @@
   --color-button-contact-bg: #1e40af;      /* くらい紺色 (Tailwind blue-800) */
   --color-button-contact-bg-hover: #1e3a8a; /* くらい紺色ホバー時 (Tailwind blue-900) */
   /* カスタムフォントファミリー */
-  /* README.md の指示に基づき、Noto Sans JP を基本フォントとします */
-  /* デフォルトのsans-serifフォールバックも念のため残しておきます */
-    --font-family-sans: "Noto Sans JP", ui-sans-serif, system-ui, -apple-system,
+  --font-family-sans: "Noto Sans JP", ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji";
@@ -23,32 +19,26 @@
 
 /* 基本的なbodyのスタイリング */
 body {
-    font-family: theme(
-    "fontFamily.sans"
-  ); /* @themeで定義したsansフォントを適用 */
+    font-family: theme("fontFamily.sans");
     background-image: url("/images/bg.png");
     background-repeat: repeat;
-  color: theme("colors.gray.800"); /* 基本の文字色 (例: Tailwindのgray-800) */
+    color: theme("colors.gray.800");
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* 可読性のため、コンテンツのメインエリアには背景色を重ねることを想定したクラス(例) */
 .content-wrapper {
     background-color: theme("colors.white");
 }
 
 /* 個別記事ページ用の基本的なタイポグラフィスタイル */
-/* assets/css/main.css の末尾に追加した .prose スタイル群 */
-
-/* 個別記事ページ用の基本的なタイポグラフィスタイル */
 .prose {
-  color: var(--color-gray-700, #374151); /* フォールバックとしてデフォルト値を指定 */
+  color: var(--color-gray-700, #374151);
   line-height: 1.75;
 }
 
 .prose h2 {
-  font-size: var(--font-size-2xl, 1.5rem); /* 2xl */
+  font-size: var(--font-size-2xl, 1.5rem);
   font-weight: var(--font-weight-bold, 700);
   color: var(--color-gray-900, #111827);
   margin-top: var(--spacing-10, 2.5rem);
@@ -58,7 +48,7 @@ body {
 }
 
 .prose h3 {
-  font-size: var(--font-size-xl, 1.25rem); /* xl */
+  font-size: var(--font-size-xl, 1.25rem);
   font-weight: var(--font-weight-semibold, 600);
   color: var(--color-gray-800, #1f2937);
   margin-top: var(--spacing-8, 2rem);
@@ -66,7 +56,7 @@ body {
 }
 
 .prose h4 {
-  font-size: var(--font-size-lg, 1.125rem); /* lg */
+  font-size: var(--font-size-lg, 1.125rem);
   font-weight: var(--font-weight-semibold, 600);
   color: var(--color-gray-800, #1f2937);
   margin-top: var(--spacing-6, 1.5rem);
@@ -83,7 +73,7 @@ body {
 
 .prose ul,
 .prose ol {
-  padding-left: var(--spacing-6, 1.5rem);
+  padding-left: var(--spacing-6, 1.5rem); /* リストのインデント (1.5rem) */
 }
 .prose ul {
   list-style-type: disc;
@@ -98,13 +88,13 @@ body {
 }
 
 .prose a {
-  color: var(--color-primary); /* @themeで定義したカスタムプロパティ */
+  color: var(--color-primary);
   text-decoration: none;
   font-weight: var(--font-weight-medium, 500);
 }
 .prose a:hover {
   text-decoration: underline;
-  color: var(--color-primary-hover); /* @themeで定義したカスタムプロパティ */
+  color: var(--color-primary-hover);
 }
 
 .prose strong {
@@ -122,30 +112,30 @@ body {
 }
 
 .prose code { /* インラインコード */
-  font-size: var(--font-size-sm, 0.875rem); /* sm */
+  font-size: var(--font-size-sm, 0.875rem);
   background-color: var(--color-gray-100, #f3f4f6);
   color: var(--color-pink-600, #db2777);
-  padding: var(--spacing-1, 0.25rem) var(--spacing-1-5, 0.375rem); /* Spacing 1.5 is not standard, use values */
-  border-radius: var(--border-radius-md, 0.375rem); /* md */
+  padding: var(--spacing-1, 0.25rem) var(--spacing-1-5, 0.375rem);
+  border-radius: var(--border-radius-md, 0.375rem);
   font-weight: var(--font-weight-normal, 400);
 }
+
 .prose pre { /* コードブロックのコンテナ */
   background-color: var(--color-gray-800, #1f2937);
   color: var(--color-gray-100, #f3f4f6);
   padding: var(--spacing-4, 1rem);
-  border-radius: var(--border-radius-md, 0.375rem); /* md */
+  border-radius: var(--border-radius-md, 0.375rem);
   overflow-x: auto;
 }
-.prose pre code { /* コードブロック内のcodeタグは背景やパディングをリセット */
+.prose pre code { /* コードブロック内のcodeタグ */
   background-color: transparent;
   color: inherit;
   padding: 0;
   border-radius: 0;
-  font-size: var(--font-size-sm, 0.875rem); /* sm */
-  line-height: var(--line-height-relaxed, 1.625); /* relaxed */
+  font-size: var(--font-size-sm, 0.875rem);
+  line-height: var(--line-height-relaxed, 1.625);
 }
 
-/* .prose-sky (リンクなどに適用するテーマカラー) - これは var(--color-primary) を使っているので既にOK */
 .prose-sky a {
   color: var(--color-primary);
 }
@@ -153,30 +143,81 @@ body {
   color: var(--color-primary-hover);
 }
 
-/* 画像の最大幅とキャプション */
-.prose img {
-  max-width: 100%;
-  height: auto;
+/* 画像関連のスタイル */
+.prose img { /* .prose 内の全ての img 要素 */
+  display: block;
   margin-left: auto;
   margin-right: auto;
-  border-radius: var(--border-radius-md, 0.375rem); /* md */
-}
-.prose figure {
-    margin-top: var(--spacing-8, 2rem);
-    margin-bottom: var(--spacing-8, 2rem);
-}
-.prose figure img {
-    margin-left: 0;
-    margin-right: 0;
-}
-.prose figcaption {
-    font-size: var(--font-size-sm, 0.875rem); /* sm */
-    color: var(--color-gray-600, #4b5563);
-    text-align: center;
-    margin-top: var(--spacing-2, 0.5rem);
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-md, 0.375rem);
 }
 
-/* Line Clamp ユーティリティ (変更なし) */
+.prose figure { /* .prose 内の全ての figure 要素の基本スタイル */
+  margin-top: var(--spacing-8, 2rem);
+  margin-bottom: var(--spacing-8, 2rem);
+  /* デフォルトではfigure自体は中央揃えにせず、中のimgが中央揃えされる */
+}
+
+.prose figcaption {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--color-gray-600, #4b5563);
+  text-align: center;
+  margin-top: var(--spacing-2, 0.5rem);
+}
+
+/* --- ▼▼▼ リスト内画像のインデント解除 & 中央揃え用スタイル ▼▼▼ --- */
+.prose figure.figure-unindented-center {
+  /* positionとtransformを使って中央揃えを試みる */
+  position: relative; /* leftプロパティを有効にするため */
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content; /* figureの幅を内容(img)に合わせる */
+  max-width: 100%; /* 親の.proseの幅を超えないように */
+  /* margin-left と margin-right は auto が transform と競合する可能性があるので削除または調整 */
+  margin-left: 0; /* transformで中央寄せするのでautoは不要 */
+  margin-right: 0; /* transformで中央寄せするのでautoは不要 */
+}
+
+/* リストアイテム(li)内にある場合、liのpadding-leftを考慮してtransformを調整 */
+.prose ul > li > figure.figure-unindented-center,
+.prose ol > li > figure.figure-unindented-center {
+  /*
+    liのpadding-leftが1.5rem (var(--spacing-6))。
+    figureをliの左端基準で50%の位置に動かし、figure自体の幅の50%を戻すことで中央揃え。
+    この時、liのpadding-leftの影響をキャンセルする必要がある。
+    figureの描画基準がliのコンテンツエリアの左端なので、
+    そこから見て中央に来るように、liのpadding-left分を補正する。
+    left: 50% は親(li)のコンテンツエリアの中央。
+    transform: translateX(-50%) はfigure自体の幅の中央。
+    これだけだとliの中で中央になる。
+
+    liのpadding-left(1.5rem)を打ち消すには、figureを左に1.5rem動かす。
+    しかし、そうすると.proseコンテナに対して左に寄ってしまう。
+
+    目標：.proseコンテナに対して中央。
+    方法：figureの幅を.proseコンテナの幅の100%とし、中のimgを中央揃え。
+           ただし、これだと画像が大きくなりすぎる可能性がある。
+           画像のmax-widthは.proseの幅に制限しつつ、figure自体を.proseの中央に。
+
+    再考：figureに `width: 100%;` を設定し、その親の `<li>` のネガティブマージンで
+          `<li>` のパディングを打ち消す。
+          しかし、`<li>` にネガティブマージンは通常つけない。
+
+    今回の要望は「リストのインデントの影響を受けずに、プロースコンテナ（記事の主要なテキストが表示されるエリア）内で中央揃えにしたい」
+  */
+  width: 100%; /* 親であるliの幅の100% */
+  margin-left: calc(var(--spacing-6, 1.5rem) * -1); /* liのpadding-leftを打ち消す */
+  /* これでfigureはliのインデントが始まる位置から開始され、liの幅を持つ。
+     この状態で、figure内のimgは.prose imgのルールで中央揃えになる。
+     結果として、画像はliのインデント位置から始まる行の中で中央揃えになる。
+     「プロースコンテナ内で中央揃え」とは少し異なるが、インデントは無視できる。
+  */
+}
+/* --- ▲▲▲ リスト内画像のインデント解除 & 中央揃え用スタイル --- */
+
+
+/* Line Clamp ユーティリティ */
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
@@ -190,39 +231,32 @@ body {
   -webkit-line-clamp: 3;
 }
 
+/* Pagination スタイル */
 .pagination {
-  @apply flex justify-center my-8; /* flex を使用して中央揃えにし、上下にマージンを追加 */
+  @apply flex justify-center my-8;
 }
-
+/* ... (paginationの残りのスタイルは変更なし) ... */
 .page-item .page-link {
-  @apply inline-block px-4 py-2 mx-1; /* パディングと左右のマージン */
-  @apply border border-gray-300 rounded-md; /* 枠線と角丸 */
-  @apply bg-white text-gray-700; /* 背景色(白)と文字色 */
-  @apply transition-colors duration-150 ease-in-out; /* ホバー時のアニメーション準備 */
+  @apply inline-block px-4 py-2 mx-1;
+  @apply border border-gray-300 rounded-md;
+  @apply bg-white text-gray-700;
+  @apply transition-colors duration-150 ease-in-out;
 }
-
-/* ホバー時のスタイル (無効化されていないボタンのみ) */
 .page-item:not(.disabled) .page-link:hover {
-  @apply bg-sky-100 text-primary border-primary; /* 背景色、文字色、枠線の色を変更 */
+  @apply bg-sky-100 text-primary border-primary;
 }
-
-/* アクティブなページ (現在のページ) のスタイル */
 .page-item.active .page-link {
-  @apply bg-primary text-white border-primary; /* プライマリカラーを背景に、文字色を白に */
-  @apply font-semibold; /* 文字を太く */
-  @apply cursor-default; /* クリックできないことを示すカーソル (既にあれば不要) */
+  @apply bg-primary text-white border-primary;
+  @apply font-semibold;
+  @apply cursor-default;
 }
-
-/* 無効化されたボタン (例: 最初のページでの「前へ」) のスタイル */
 .page-item.disabled .page-link {
-  @apply bg-gray-100 text-gray-400 border-gray-200; /* 背景色、文字色、枠線の色を薄く */
-  @apply cursor-not-allowed; /* クリックできないことを示すカーソル */
+  @apply bg-gray-100 text-gray-400 border-gray-200;
+  @apply cursor-not-allowed;
 }
-
-/* 「前へ」「次へ」などのテキストを持つリンクのスタイル (もしあれば) */
 .page-item .page-link[aria-label="Previous"],
 .page-item .page-link[aria-label="Next"],
 .page-item .page-link[aria-label="First"],
 .page-item .page-link[aria-label="Last"] {
-  /* 必要に応じてアイコンフォントやSVGのスタイルをここに追加できます */
+  /* スタイル */
 }

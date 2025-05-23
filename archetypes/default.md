@@ -93,13 +93,10 @@ H4はさらに細分化された内容に使います。
 
 以下は、外部サイトのサムネ付きリンクです
 
-{{< link-card
-    href="https://www.mozilla.org/ja/firefox/new/"
-    title="史上最速の Firefox をダウンロード"
-    description="より高速なページ読み込み、メモリ使用量削減、機能満載の最新版 Firefox が登場しました。"
-    image="https://www.mozilla.org/media/img/firefox/new/hero-mr1.c078928509.png"
-    site="www.mozilla.org"
->}}
+<a href="https://resonite.com/" class="dynamic-link-card"></a>
+<noscript>
+  <p><a href="ここにリンク先のURL">ここにリンク先の簡単な説明文を手動で記述</a></p>
+</noscript>
 
 ### 2.5. ツイートの埋め込み
 
