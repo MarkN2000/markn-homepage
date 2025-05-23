@@ -21,8 +21,6 @@ Google Apps Script (GAS) を使って、あなた専用の翻訳APIを作る手�
 
 ## 完成するAPIの概要
 
-{{< figure src="スクリーンショット 2025-05-22 194758.png" title="Figureショートコードを使ったキャプション" alt="Figureショートコードのサンプル画像" class="figure-unindented-center" >}}
-
 まずは、今回作成するAPIがどんなものか、その概要を説明しますね。
 
 * **呼び出し方法:** HTTP GETリクエスト
@@ -42,9 +40,9 @@ Google Apps Script (GAS) を使って、あなた専用の翻訳APIを作る手�
 
 僕(MarkN)が公開している翻訳機
 
-<a href="https://uni-pocket.com/ja/items/b69511c5-ef91-4335-aa77-de22de431314" class="dynamic-link-card">二人で同時使用可能なシンプルな翻訳機です</a>
+<a href="https://uni-pocket.com/ja/items/3f063a9b-2968-448d-8146-b3d5795d480f " class="dynamic-link-card">二人で同時使用可能なシンプルな翻訳機です</a>
     <noscript>
-        <p><a href="https://uni-pocket.com/ja/items/b69511c5-ef91-4335-aa77-de22de431314">説明文</a></p>
+        <p><a href="https://uni-pocket.com/ja/items/3f063a9b-2968-448d-8146-b3d5795d480f ">説明文</a></p>
     </noscript>
 
 ## 必要なもの
