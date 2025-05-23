@@ -71,6 +71,19 @@ body {
   margin-bottom: var(--spacing-6, 1.5rem);
 }
 
+.prose p,
+.prose ul,
+.prose ol {
+  overflow-wrap: break-word; /* 長い単語やURLを適切な位置で改行します */
+}
+
+.prose a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium, 500);
+  overflow-wrap: break-word; /* 長いURLを適切な位置で改行します */
+}
+
 .prose ul,
 .prose ol {
   padding-left: var(--spacing-6, 1.5rem); /* リストのインデント (1.5rem) */
