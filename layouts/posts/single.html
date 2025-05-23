@@ -78,7 +78,7 @@
 <article class="bg-white shadow-lg rounded-lg p-6 md:p-10 max-w-4xl mx-auto">
 
     {{/* 記事ヘッダー */}}
-    <header class="mb-8 border-b pb-6">
+    <header class="mb-8">
 
 
  {{/* --- 記事のタイトル画像 (サムネイルを使用) --- */}}
@@ -122,8 +122,8 @@
                 {{ end }}
             {{ end }}
 
-                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{{ .Title }}</h1>
-        <div class="text-sm text-gray-600">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900">{{ .Title }}</h1>
+        <div class="text-sm text-gray-600 mt-2">
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
             {{ if .Params.tags }}
                 <span class="mx-1">&middot;</span>

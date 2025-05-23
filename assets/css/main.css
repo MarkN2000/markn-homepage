@@ -262,3 +262,23 @@ body {
 .page-item .page-link[aria-label="Last"] {
   /* スタイル */
 }
+
+main > article > header > h1 {
+  font-size: theme("fontSize.3xl"); /* Tailwindのtext-3xl相当 */
+  font-weight: theme("fontWeight.bold");
+  color: var(--color-gray-900, #111827);
+  
+  margin-bottom: var(--spacing-4, 1rem); /* H2のmargin-bottomと合わせるか、元のmb-3相当の var(--spacing-3) にする */
+  padding: var(--spacing-3, 0.75rem) var(--spacing-4, 1rem); /* 上下左右にパディングを追加 */
+  background-color: #e0f2fe; /* H2と同じ薄い水色 (Tailwindのsky-100相当) */
+  border-left: 5px solid var(--color-primary); /* 左側にテーマカラーの太いボーダー */
+  border-bottom: 1px solid var(--color-primary); /* H2と同様の下線 */
+  border-radius: var(--border-radius-md, 0.375rem); /* 少し角を丸める */
+}
+
+/* レスポンシブ対応 (中画面以上) */
+@media (min-width: theme("screens.md")) {
+  main > article > header > h1 {
+    font-size: theme("fontSize.4xl"); /* Tailwindのmd:text-4xl相当 */
+  }
+}
