@@ -3,14 +3,15 @@ languageCode = "ja-jp"
 title = "まーくん。(MarkN)のホームページ"
 # copyright = "© 2025 MarkN. All Rights Reserved." # フッターで .Site.Copyright も使える
 
+[pagination]
+  pagerSize = 12
+
 [params]
   description = "ResoniteでVRプログラミングなどをしてツールやおもちゃを作っています。技術的な知見やTipsも発信。"
   og_image = "/images/ogp_default.webp"
   # author = "まーくん。(MarkN)"
   mainSections = ["posts"]
   ogpApiUrl = "https://script.google.com/macros/s/AKfycbwm87iRorfifbyVnLSWxVO6VqtwEQyBFfhbbmobgR1j294XQB46TQK-t_z7QyxRAfhYHg/exec"
-
-paginate = 12
 
 [markup]
   [markup.goldmark.renderer]
