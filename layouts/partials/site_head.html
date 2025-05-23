@@ -8,6 +8,46 @@
 {{ $pageURL := .Permalink }}
 {{ $imageURL := "" }} {{/* 変数名を $imageURL に変更 */}}
 
+{{/* --- ▼▼▼ robotsメタタグ制御ロジック ▼▼▼ --- */}}
+{{ $noIndexPage := false }} {{/* デフォルトはインデックスさせる */}}
+
+{{/* 1. タクソノミーページ (タグ一覧など) は全て noindex */}}
+{{ if eq .Kind "taxonomy" }}
+    {{ $noIndexPage = true }}
+{{ end }}
+
+{{/* 2. ページネーションをサポートする可能性のあるページでのみ .Paginator を評価 */}}
+{{ if or (eq .Kind "home") (eq .Kind "section") (eq .Kind "taxonomyTerm") }} {{/* taxonomyTermもリストなのでPaginatorを持つ */}}
+    {{ with .Paginator }} {{/* .Paginator が存在する場合のみスコープ内に入る */}}
+        {{ if ne .PageNumber 1 }} {{/* 1ページ目でない場合 (2ページ目以降) */}}
+            {{ if not (eq $.Kind "taxonomy") }} {{/* タクソノミーページは既に上でnoIndexPage=trueになっているので、それ以外 */}}
+                {{ $noIndexPage = true }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+{{/* 3. 特定のページタイプを noindex から除外したい場合 (将来用) */}}
+{{/* 例: プロフィールページ (frontmatterで type: profile と指定する想定) */}}
+{{/* if eq .Type "profile" }}
+    {{ $noIndexPage = false }}
+{{ end */}}
+
+{{/* 4. 特定のパスを noindex から除外したい場合 (将来用) */}}
+{{/* 例: 全記事一覧ページが /all-posts/ の場合 */}}
+{{/* if eq .Path "/all-posts/" }}
+    {{ $noIndexPage = false }}
+{{ end */}}
+
+{{ if eq .Path "/privacy-policy/" }}
+    {{ $noIndexPage = true }}
+{{ end }}
+
+{{ if $noIndexPage }}
+<meta name="robots" content="noindex, follow">
+{{ end }}
+{{/* --- ▲▲▲ robotsメタタグ制御ロジック --- */}}
+
 {{/* OGP画像の決定ロジック */}}
 {{ $page_resource_image_path := "" }}
 {{ if .IsPage }} {{/* 記事ページや固定ページの場合 */}}
