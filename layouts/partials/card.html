@@ -1,73 +1,68 @@
-{{/* layouts/_default/card.html */}}
-<div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col">
-    <a href="{{ .RelPermalink }}" class="block">
-        <div class="aspect-video bg-gray-200">
-            {{ $cardImageResource := "" }}
-            {{ $imageAltText := .Params.thumbnail_alt | default (printf "%s のサムネイル" .Title) }}
+{{/* layouts/partials/card.html */}}
+<a href="{{ .RelPermalink }}" class="group block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+    {{/* サムネイル画像エリア */}}
+    <div class="aspect-video bg-gray-200 overflow-hidden">
+        {{ $cardImageResource := "" }}
+        {{ $imageAltText := .Params.thumbnail_alt | default (printf "%s のサムネイル" .Title) }}
 
-            {{/* 1. フロントマターのthumbnailをページリソースとして探す */}}
-            {{ if .Params.thumbnail }}
-                {{ $cardImageResource = .Resources.GetMatch .Params.thumbnail }}
-
-                {{/* もしページリソースとして見つからず、かつパスが `/` で始まる場合 (静的画像の可能性) */}}
-                {{ if (and (not $cardImageResource) (strings.HasPrefix .Params.thumbnail "/")) }}
-                    {{/* assets ディレクトリから画像リソースを取得しようと試みる (assets/images/thumbnail.webp のようなパスを想定) */}}
-                    {{ $assetPath := strings.TrimPrefix "/" .Params.thumbnail }}
-                    {{ with resources.Get $assetPath }}
-                        {{ $cardImageResource = . }}
-                    {{ else }}
-                        {{/* assets にも見つからない場合は、そのまま静的パスとして扱う (画像処理は不可) */}}
-                        <img src="{{ .Params.thumbnail | relURL }}" alt="{{ $imageAltText }}" class="w-full h-full object-cover" loading="lazy">
-                    {{ end }}
+        {{/* 1. フロントマターのthumbnailをページリソースとして探す */}}
+        {{ if .Params.thumbnail }}
+            {{ $cardImageResource = .Resources.GetMatch .Params.thumbnail }}
+            {{/* もしページリソースとして見つからず、かつパスが `/` で始まる場合 (静的画像の可能性) */}}
+            {{ if (and (not $cardImageResource) (strings.HasPrefix .Params.thumbnail "/")) }}
+                {{/* assets ディレクトリから画像リソースを取得しようと試みる (assets/images/thumbnail.webp のようなパスを想定) */}}
+                {{ $assetPath := strings.TrimPrefix "/" .Params.thumbnail }}
+                {{ with resources.Get $assetPath }}
+                    {{ $cardImageResource = . }}
+                {{ else }}
+                    {{/* assets にも見つからない場合は、そのまま静的パスとして扱う (画像処理は不可) */}}
+                    <img src="{{ .Params.thumbnail | relURL }}" alt="{{ $imageAltText }}" class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105" loading="lazy">
                 {{ end }}
             {{ end }}
+        {{ end }}
 
-            {{/* 2. (オプション) 上記で見つからなければ、バンドル内の "thumbnail.*" や "cover.*" を探す */}}
-            {{ if not $cardImageResource }}
-                {{ $cardImageResource = .Resources.GetMatch "{thumbnail.*,cover.*,featured.*}" }}
-            {{ end }}
+        {{/* 2. (オプション) 上記で見つからなければ、バンドル内の "thumbnail.*" や "cover.*" を探す */}}
+        {{ if not $cardImageResource }}
+            {{ $cardImageResource = .Resources.GetMatch "{thumbnail.*,cover.*,featured.*}" }}
+        {{ end }}
 
-            {{ if $cardImageResource }}
-                {{/* 画像リソースが見つかればHugoの画像処理を適用 */}}
-                {{/* サイズはカードが表示されるカラム数に応じて調整するとより良い */}}
-                {{/* 例: 4カラムなら (1200px / 4) * 1.5 = 450px 幅程度を想定 (Retina対応も考慮) */}}
-                {{/* ここではアスペクト比 16:9 を維持しつつ、幅480pxでWebPに変換 */}}
-                {{ $imageProcessed := $cardImageResource.Fill "427x240 Center webp q45" }}
-                <img src="{{ $imageProcessed.RelPermalink }}" width="{{ $imageProcessed.Width }}" height="{{ $imageProcessed.Height }}" alt="{{ $imageAltText }}" class="w-full h-full object-cover" loading="lazy">
-            {{ else if .Params.thumbnail }}
-                {{/* .Params.thumbnail は指定されているが、リソースとして取得できなかった場合 (上記ですでに静的パスとしてimgタグ出力済みのはず) */}}
-                {{/* このブロックは実質的に不要になるか、エラー表示用 */}}
-                {{ if not (strings.HasPrefix .Params.thumbnail "/") }}
-                    {{/* 相対パスだがリソースでない場合はプレースホルダー */}}
-                    <img src="https://via.placeholder.com/480x270.png?text=Image+Err" alt="{{ $imageAltText }}" class="w-full h-full object-cover" loading="lazy">
-                {{ end }}
-            {{ else }}
-                <img src="{{ "/images/default_thumbnail.webp" | relURL }}" alt="{{ $imageAltText }}" class="w-full h-full object-cover" loading="lazy">
+        {{ if $cardImageResource }}
+            {{ $imageProcessed := $cardImageResource.Fill "352x198 Center webp q40" }}
+            <img src="{{ $imageProcessed.RelPermalink }}" width="{{ $imageProcessed.Width }}" height="{{ $imageProcessed.Height }}" alt="{{ $imageAltText }}" class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105" loading="lazy">
+        {{ else if .Params.thumbnail }}
+            {{/* .Params.thumbnail は指定されているが、リソースとして取得できなかった場合 */}}
+            {{ if not (strings.HasPrefix .Params.thumbnail "/") }}
+                {{/* 相対パスだがリソースでない場合はプレースホルダー */}}
+                <img src="https://via.placeholder.com/352x198.png?text=Image+Err" alt="{{ $imageAltText }}" class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-103" loading="lazy">
+            {{ else if not $cardImageResource }} {{/* 静的パスで、かつ上記でまだimgタグが出力されていない場合 */}}
+                 <img src="{{ .Params.thumbnail | relURL }}" alt="{{ $imageAltText }}" class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105" loading="lazy">
             {{ end }}
-        </div>
-    </a>
+        {{ else }}
+            <img src="{{ "/images/default_thumbnail.webp" | relURL }}" alt="{{ $imageAltText }}" class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105" loading="lazy">
+        {{ end }}
+    </div>
     
     {{/* カードコンテンツエリア */}}
     <div class="p-4 flex flex-col flex-grow">
-        <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-2">
-            <a href="{{ .RelPermalink }}" class="hover:text-primary transition-colors duration-150" title="{{ .Title }}">
-                {{ .Title }}
-            </a>
+        {{/* タイトル */}}
+        <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-150" title="{{ .Title }}">
+            {{ .Title }}
         </h3>
-        <a href="{{ .RelPermalink }}" 
-            class="block text-sm text-gray-700 hover:text-primary mb-3 line-clamp-3 flex-grow transition-colors duration-150"
-            aria-label="記事「{{ .Title }}」の概要を読む">
+        {{/* 説明文 */}}
+        <p class="block text-sm text-gray-700 group-hover:text-primary mb-3 line-clamp-3 flex-grow transition-colors duration-150"
+           aria-label="記事「{{ .Title }}」の概要を読む">
             {{ .Summary | plainify | truncate 100 }}
-        </a>
+        </p>
         
         {{ if .Params.tags }}
         <div class="mt-auto pt-2 border-t border-gray-100">
             <div class="flex flex-wrap gap-1">
+            {{/* タグ */}}
             {{ range .Params.tags }}
-                <a href="{{ "tags" | absURL }}/{{ . | urlize }}/" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-600 px-2 py-0.5 rounded transition-colors">{{ . }}</a>
+                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded transition-colors">{{ . }}</span>
             {{ end }}
             </div>
         </div>
         {{ end }}
     </div>
-</div>
+</a>
