@@ -317,3 +317,13 @@ main > article > header > h1 {
     font-size: theme("fontSize.4xl"); /* Tailwindのmd:text-4xl相当 */
   }
 }
+
+.site-header {
+  background-image: url('/images/header-mobile.webp'); /* スマートフォン用の画像をデフォルトに */
+}
+
+@media (min-width: theme('screens.md')) { /* mdブレークポイント以上 (Tailwindのデフォルトは768px) */
+  .site-header {
+    background-image: url('/images/header.webp'); /* PC用の画像に切り替え */
+  }
+}
