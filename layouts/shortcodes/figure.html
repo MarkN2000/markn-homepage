@@ -24,18 +24,15 @@
     {{ end }}
 {{ end }}
 
-<figure class="my-6 {{ $class }}"> {{/* figureタグにデフォルトで上下マージンを追加 */}}
+<figure class="my-6 {{ $class }}">
     {{ if $isPageResource }}
-        {{/* 画像処理: 幅700pxにリサイズ、WebP形式、品質75 (お好みで調整) */}}
-        {{/* 例えば、より大きな画像も許容したい場合は "1024x" など */}}
-        {{ $processedImage := $image.Resize "720x webp q65" }}
+        {{ $processedImage := $image.Resize "700x webp q75" }}
         <img src="{{ $processedImage.RelPermalink }}"
              width="{{ $processedImage.Width }}"
              height="{{ $processedImage.Height }}"
              alt="{{ $alt }}"
-             class="mx-auto rounded-lg shadow-md"> {{/* 中央寄せ、角丸、影などのスタイルを適用 */}}
+             class="mx-auto rounded-lg shadow-md">
     {{ else }}
-        {{/* Hugoの画像処理ができない場合は元画像を表示 */}}
         <img src="{{ $image }}"
              alt="{{ $alt }}"
              class="mx-auto rounded-lg shadow-md">
@@ -44,7 +41,6 @@
     {{ if $caption }}
         <figcaption class="text-center text-sm text-gray-600 mt-2">{{ $caption | markdownify }}</figcaption>
     {{ else if $title }}
-        {{/* titleが指定されていてcaptionがない場合、figcationにtitleを使う */}}
         <figcaption class="text-center text-sm text-gray-600 mt-2">{{ $title | markdownify }}</figcaption>
     {{ end }}
 </figure>

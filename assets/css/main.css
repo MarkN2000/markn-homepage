@@ -35,6 +35,7 @@ body {
 .prose {
   color: var(--color-gray-700, #374151);
   line-height: 1.75;
+  --max-prose-width: 65ch;
 }
 
 /* H2: フル幅の薄い背景色、左アクセントボーダー、下線はテーマカラー */
@@ -201,21 +202,55 @@ body {
 }
 
 /* --- ▼▼▼ リスト内画像のインデント解除 & 中央揃え用スタイル ▼▼▼ --- */
-.prose figure.figure-unindented-center {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: fit-content; /* figureの幅を内容(img)に合わせる */
-  max-width: 100%;    /* 親の.proseの幅を超えないように */
-  margin-left: 0;     /* transformで中央寄せするのでautoは不要 */
-  margin-right: 0;    /* transformで中央寄せするのでautoは不要 */
-}
-/* リストアイテム(li)内にある場合、liのpadding-leftを考慮してtransformを調整 */
 .prose ul > li > figure.figure-unindented-center,
 .prose ol > li > figure.figure-unindented-center {
-  width: 100%; /* 親であるliの幅の100% */
-  margin-left: calc(var(--spacing-6, 1.5rem) * -1); /* liのpadding-leftを打ち消す */
-  /* このfigureの中でimgは中央揃えされる(.prose img のルールにより) */
+  /* li の padding-left を打ち消すためにネガティブマージンを設定 */
+  margin-left: calc(var(--spacing-6, 1.5rem) * -1);
+  /*
+    figure の幅を、li の幅 + li の左パディング分に設定する。
+    li の幅は .prose の幅から自身の padding-left を引いたものなので、
+    結果的に .prose のコンテンツエリア幅と同じになることを目指す。
+    ただし、.prose自体にmax-widthが設定されているので、
+    単純な % 指定だと期待通りにいかない場合がある。
+    img の max-width で制御する方が確実。
+  */
+  width: auto; /* figure自体の幅は自動とし、中のimgの幅で制御 */
+}
+.prose ul ul > li > figure.figure-unindented-center,
+.prose ul ol > li > figure.figure-unindented-center,
+.prose ol ul > li > figure.figure-unindented-center,
+.prose ol ol > li > figure.figure-unindented-center {
+  /* 2階層分のネガティブマージン (1.5rem * 2 = 3rem) */
+  margin-left: calc(var(--spacing-6, 1.5rem) * -2);
+}
+
+
+.prose figure.figure-unindented-center img {
+  /*
+    画像の最大幅を .prose のコンテンツ幅に合わせる。
+    .prose はデフォルトで max-width: 65ch が Tailwind Typography によって設定されるが、
+    single.html では .prose.max-w-none が使われ、その親の article が max-w-4xl。
+    なので、画像の最大幅は theme("maxWidth.4xl") に近い値か、
+    それ以下の任意の値にする。
+    ここでは layouts/shortcodes/figure.html でのリサイズ幅 (700px) を尊重する形とする。
+  */
+  max-width: 700px; /* figure.html の Resize 幅と合わせるか、それ以下に */
+  width: 100%; /* 親の figure の幅に対して100% */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: var(--border-radius-md, 0.375rem); /* 既存のスタイルを適用 */
+  box-shadow: theme("boxShadow.md"); /* 既存のスタイルを適用 */
+}
+
+/* .prose 直下の figure (リスト外) の画像も同様の最大幅と中央揃えを基本とする */
+/* ただし、figure.html 側で mx-auto が img についているので、ここでは max-width の統一が主目的 */
+.prose > figure > img,
+.prose > figure > a > img { /* 画像がリンクで囲まれている場合も考慮 */
+  max-width: 700px; /* figure.html の Resize 幅と合わせるか、それ以下に */
+  /* width: 100%; */ /* こちらは figure.html の mx-auto と競合する可能性があるので注意 */
+  /* margin-left: auto; */ /* figure.html側で対応 */
+  /* margin-right: auto; */ /* figure.html側で対応 */
 }
 /* --- ▲▲▲ リスト内画像のインデント解除 & 中央揃え用スタイル --- */
 
