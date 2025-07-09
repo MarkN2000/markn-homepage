@@ -15,7 +15,6 @@ RKB毎日放送のテレビ番組「エンタテ！区～テレビが知らな�
 
 {{< x user="rkbeeeee" id="1808689988940485104" >}}
 
-
-{{< figure src="image.png" title="撮影の様子" alt="出演" >}}
+{{< figure src="image.png" title="撮影の様子" alt="出演" class="figure-unindented-center" >}}
 
 とても貴重な経験になりました。
