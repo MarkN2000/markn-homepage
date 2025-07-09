@@ -75,7 +75,7 @@ H4はさらに細分化された内容に使います。
 
 記事内の画像表示方法
 
-{{< figure src="placeholder-content.jpg" title="画像のタイトル" alt="画像についての説明文">}}
+{{< figure src="placeholder-content.jpg" title="画像のタイトル" alt="画像についての説明文" class="figure-unindented-center">}}
 
 
 以下は、外部サイトのサムネ付きリンクです
