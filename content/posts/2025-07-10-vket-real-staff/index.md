@@ -1,7 +1,7 @@
 ---
 title: "「Vket Real 2024 Summer」イマーシブストアのスタッフとして参加しました"
 date: 2024-12-13
-draft: true
+draft: false
 tags: ["Resonite", "VR", "ポートフォリオ"]
 thumbnail: "thumbnail.webp"
 thumbnail_alt: "Vket Real 2024 Summerのロゴ"

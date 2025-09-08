@@ -1,7 +1,7 @@
 ---
 title: "MarkNが使っているResoniteのMod一覧"
 date: 2025-09-08
-draft: true
+draft: false
 tags: ["Resonite", "Mod"]
 thumbnail: "thumbnail.webp"
 thumbnail_alt: "Resonite Mods"
