@@ -34,6 +34,9 @@ title = "まーくん。(MarkN)のホームページ"
       [build.processing.css.postcss]
         # config = "./postcss.config.js"
 
+# ファイルの更新日時を自動的にlastmodとして設定
+enableGitInfo = true
+
 [related]
   threshold = 40 # 関連性の閾値 (0-100)
   includeNewer = true

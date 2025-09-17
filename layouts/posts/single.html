@@ -124,6 +124,12 @@
                     <h1 class="text-3xl md:text-4xl font-bold text-gray-900">{{ .Title }}</h1>
         <div class="text-sm text-gray-600 mt-2">
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+            {{ if .Lastmod }}
+                {{ if ne .Lastmod .Date }}
+                    <span class="mx-1">&middot;</span>
+                    <time datetime="{{ .Lastmod.Format "2006-01-02" }}">更新: {{ .Lastmod.Format "2006年1月2日" }}</time>
+                {{ end }}
+            {{ end }}
             {{ if .Params.tags }}
                 <span class="mx-1">&middot;</span>
                 <span class="inline-block mt-0">
