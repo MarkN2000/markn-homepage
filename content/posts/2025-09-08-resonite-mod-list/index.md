@@ -1,6 +1,7 @@
 ---
 title: "MarkNが使っているResoniteのMod一覧"
 date: 2025-09-08
+lastmod: 2025-09-18
 draft: false
 tags: ["Resonite", "Mod"]
 thumbnail: "thumbnail.webp"
@@ -30,25 +31,26 @@ description: "MarkNが現在使用しているResoniteのMod一覧。各ModのGi
 ## MarkNが入れているMod一覧
 
 ### 必須
-- [BoundedUIX](https://github.com/lill-la/BoundedUIX): UIXの要素をdevツールで選択・選択範囲の表示ができるようになります。
-- [CherryPick](https://cyro.blue/cyro/CherryPick): コンポーネントやFluxを検索できるようになります。
+- [BoundedUIX](https://github.com/lill-la/BoundedUIX): UIXの要素をdevツールで選択・選択範囲の表示ができるようにします。
+- [CherryPick](https://cyro.blue/cyro/CherryPick): コンポーネントプラウザやFluxノードプラウザに検索欄を追加します。
 - [InspectorScroll](https://github.com/art0007i/InspectorScroll/): ジョイスティックでのスクロール機能を追加します。
 - [ResoniteModSettings](https://github.com/badhaloninja/ResoniteModSettings): ゲーム内から各Modの設定を一元管理できます。
+- [NoHeadMenuDash](https://github.com/art0007i/NoHeadMenuDash/): 手を頭に近づけるとコンテキストメニューボタンがダッシュメニューボタンになる謎仕様を消します。
 
 ### おすすめ
 - [BetterInventoryBrowser](https://github.com/hantabaru1014/BetterInventoryBrowser): インベントリのブックマーク・履歴などが使えるようになります。
 - [DefaultToolOverride](https://github.com/art0007i/DefaultToolOverride/): デスクトップモードで数字キーから出せるツールを変更できます。
-- [NoHeadMenuDash](https://github.com/art0007i/NoHeadMenuDash/): 手を頭に近づけるとコンテキストメニューボタンがダッシュメニューボタンになる謎仕様を変更します。
 - [ResoniteMetricsCounter](https://github.com/esnya/ResoniteMetricsCounter): ワールド内のコンポーネントとFluxの実行時間を計測できます。
 - [Reso-SaveToWhere](https://github.com/rassi0429/Reso-SaveToWhere): 保存先の指定をわかりやすくし、意図した場所へ確実に保存できます。
 - [SpeedyURLs](https://github.com/dfgHiatus/SpeedyURLs/): URLを開くまでの待機時間をスキップします。
 
 ### 個人的に便利で使っている
 - [CustomLegacyUI](https://github.com/HamoCorp/CustomLegacyUI/): 新規作成から出せるレガシーUIの見た目をカスタマイズします。
-- [LegacyInventoryFix](https://github.com/rassi0429/LegacyInventoryFix): レガシーインベントリを横長にします。（あまり使っている人いないと思うけど）
+- [LegacyInventoryFix](https://github.com/rassi0429/LegacyInventoryFix): レガシーインベントリを横長にします。
 - [ResoniteScreenshotExtensions](https://github.com/hantabaru1014/ResoniteScreenshotExtensions): スクリーンショットの画質設定やメタデータを追加します。
 - [ScalableMaterialOrbs](https://github.com/AlexW-578/ScalableMaterialOrbs/): マテリアルオーブのサイズをスケーラブルにします。
 - [ScalableWorldOrbs](https://github.com/XDelta/ScalableWorldOrbs): ワールドオーブのサイズをスケーラブルにします。
+- [ShowDelegates](https://github.com/art0007i/ShowDelegates): インスペクタパネルでデリゲート一覧を折りたたみにし、隠しデリゲートを使えるようにします。
 - [SimpleScalableMeshOrbs](https://github.com/AwesomeTornado/SimpleScalableMeshOrbs/): メッシュオーブのサイズをスケーラブルにします。
-- [SlotInspectorHighlighter](https://github.com/sjsanjsrh/SlotInspectorHighlighter): インスペクタで選択中のスロットを視覚的に強調表示します。
-- [TypePicker](https://github.com/TheJebForge/TypePicker/): 型選択UIを改良し、検索性と選択速度を向上させます。
+- [SlotInspectorHighlighter](https://github.com/sjsanjsrh/SlotInspectorHighlighter): インスペクタで選択中のスロットに色をつけて強調表示します。
+- [TypePicker](https://github.com/TheJebForge/TypePicker/): 型選択UIを改良し、検索性を向上させます。
