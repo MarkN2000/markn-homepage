@@ -9,7 +9,7 @@ _build:
   render: true
 ---
 
-当サイト「{{ .Site.Title }}」（以下「当サイト」といいます）は、訪問者様（以下「ユーザー」といいます）の個人情報保護の重要性について認識し、個人情報の保護に関する法律（以下「個人情報保護法」といいます）を遵守するとともに、以下のプライバシーポリシー（以下「本ポリシー」といいます）に従い、適切な取扱い及び保護に努めます。
+当サイト「MarkN Homepage」（以下「当サイト」といいます）は、訪問者様（以下「ユーザー」といいます）の個人情報保護の重要性について認識し、個人情報の保護に関する法律（以下「個人情報保護法」といいます）を遵守するとともに、以下のプライバシーポリシー（以下「本ポリシー」といいます）に従い、適切な取扱い及び保護に努めます。
 
 ## 1. 収集する情報とその利用目的
 
@@ -20,7 +20,7 @@ _build:
 * **Cookie（クッキー）:**
     当サイトでは、利便性の向上や利用状況の分析のためにCookieを使用することがあります。Cookieは、ユーザーのブラウザに一時的に情報を保存する仕組みです。ユーザーはブラウザの設定によりCookieの受け入れを拒否することができますが、その場合、当サイトの一部の機能が利用できなくなることがあります。
 * **お問い合わせフォーム:**
-    (https://docs.google.com/forms/d/e/1FAIpQLSdl5UHhRc5Hq5Y_njMLCttSEqnHpWem_Ays6OpfYGGYOEIExg/viewform?usp=header)
+    [お問い合わせフォーム](https://docs.google.com/forms/d/e/1FAIpQLSdl5UHhRc5Hq5Y_njMLCttSEqnHpWem_Ays6OpfYGGYOEIExg/viewform?usp=header){:target="_blank"}
 
 ## 2. 情報の管理
 
@@ -46,8 +46,8 @@ _build:
 ## 6. お問い合わせ
 
 本ポリシーに関するお問い合わせは、以下の連絡先までお願いいたします。
-(https://docs.google.com/forms/d/e/1FAIpQLSdl5UHhRc5Hq5Y_njMLCttSEqnHpWem_Ays6OpfYGGYOEIExg/viewform?usp=header)
+[お問い合わせフォーム](https://docs.google.com/forms/d/e/1FAIpQLSdl5UHhRc5Hq5Y_njMLCttSEqnHpWem_Ays6OpfYGGYOEIExg/viewform?usp=header){:target="_blank"}
 
 ---
-制定日: {{ .Date.Format "2025年5月17日" }}
-最終改定日: {{ .Lastmod.Format "2025年5月21日" }}
+制定日: 2025年5月17日
+最終改定日: 2025年9月18日
