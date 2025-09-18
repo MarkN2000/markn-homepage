@@ -60,7 +60,7 @@ next_post_path:
 - 杖にはアンカーが入っているので、レーザーを当ててトリガーで乗ることができます
 - 左右のジョイスティックで空を自由に飛べます
 
-{{< figure src="image.png" title="フライのカードのデモ" alt="フライのカードで杖に羽が生えて飛行している様子のスクリーンショット" class="figure-unindented-center" >}}
+{{< figure src="image.png" title="フライモードになった封印の杖" alt="フライのカードで杖に羽が生えて飛行している様子のスクリーンショット" class="figure-unindented-center" >}}
 
 ## ⑥ 杖を鍵に戻して保存
 - コンテキストメニューの「鍵モード」で杖→鍵に戻す
