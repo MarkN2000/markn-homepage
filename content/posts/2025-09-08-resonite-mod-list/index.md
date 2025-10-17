@@ -30,7 +30,7 @@ description: "MarkNが現在使用しているResoniteのMod一覧。各ModのGi
 
 ## MarkNが入れているMod一覧
 
-### 必須
+### 必須級
 - <a href="https://github.com/lill-la/BoundedUIX" target="_blank" rel="noopener noreferrer">BoundedUIX</a>: UIXの要素をdevツールで選択・選択範囲の表示ができるようにします。
 - <a href="https://cyro.blue/cyro/CherryPick" target="_blank" rel="noopener noreferrer">CherryPick</a>: コンポーネントプラウザやFluxノードプラウザに検索欄を追加します。
 - <a href="https://github.com/art0007i/InspectorScroll/" target="_blank" rel="noopener noreferrer">InspectorScroll</a>: ジョイスティックでのスクロール機能を追加します。
