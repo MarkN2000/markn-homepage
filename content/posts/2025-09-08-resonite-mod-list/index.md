@@ -43,6 +43,7 @@ description: "MarkNが現在使用しているResoniteのMod一覧。各ModのGi
 - <a href="https://github.com/esnya/ResoniteMetricsCounter" target="_blank" rel="noopener noreferrer">ResoniteMetricsCounter</a>: ワールド内のコンポーネントとFluxの実行時間を計測できます。
 - <a href="https://github.com/rassi0429/Reso-SaveToWhere" target="_blank" rel="noopener noreferrer">Reso-SaveToWhere</a>: 保存先の指定をわかりやすくし、意図した場所へ確実に保存できます。
 - <a href="https://github.com/dfgHiatus/SpeedyURLs/" target="_blank" rel="noopener noreferrer">SpeedyURLs</a>: URLを開くまでの待機時間をスキップします。
+- <a href="https://github.com/badhaloninja/EnumDropdown" target="_blank" rel="noopener noreferrer">EnumDropdown</a>: Enum(選択肢)タイプで選択するための専用UIが追加されます。矢印ボタンを押しまくる必要がなくなります。
 
 ### 個人的に便利で使っている
 - <a href="https://github.com/HamoCorp/CustomLegacyUI/" target="_blank" rel="noopener noreferrer">CustomLegacyUI</a>: 新規作成から出せるレガシーUIの見た目をカスタマイズします。
