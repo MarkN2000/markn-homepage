@@ -48,3 +48,6 @@ Thumbs.db
 # Log files
 logs
 *.log
+
+# Sub-repositories
+static/koerec/.git
