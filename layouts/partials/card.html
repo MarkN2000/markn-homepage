@@ -1,5 +1,5 @@
 {{/* layouts/partials/card.html */}}
-<a href="{{ .RelPermalink }}" class="group block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col focus:outline-none focus:ring-4 focus:ring-black focus:ring-opacity-100 focus:ring-offset-2 focus:ring-offset-primary">
+<a href="{{ with .Params.externalUrl }}{{ . | relURL }}{{ else }}{{ .RelPermalink }}{{ end }}" class="group block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col focus:outline-none focus:ring-4 focus:ring-black focus:ring-opacity-100 focus:ring-offset-2 focus:ring-offset-primary">
     {{/* サムネイル画像エリア */}}
     <div class="aspect-video bg-gray-200 overflow-hidden">
         {{ $cardImageResource := "" }}
