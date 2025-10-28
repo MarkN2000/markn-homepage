@@ -4,7 +4,7 @@ date: 2025-10-23T12:00:00+09:00
 description: "合成音声制作のための音声コーパス作成を効率化するWebアプリケーションです。大量の文章を読み上げて録音し、文章と音声ファイルを対応付けたデータセットを簡単に作成できます。"
 tags: ["作ったもの", "プログラミング", "AI"]
 categories: ["ポートフォリオ"]
-thumbnail: "images/default_thumbnail.webp"
+thumbnail: "thumbnail.webp"
 externalUrl: "https://koerec.markn2000.com"
 ---
 
