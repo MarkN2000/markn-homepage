@@ -15,9 +15,9 @@ description: "Style-Bert-VITS2 JP-Extraのシンプルな導入手順と音声�
 - Nvidia製GPUが必要(RTXシリーズなど)
 - 保存先は日本語が含まれないパス（例: `C:\app\StyleBertVITS2`）
 
-## 最短手順（これだけ）
+## インストール手順
 1. ダウンロード
-   - [GitHubのページ](https://github.com/litagin02/Style-Bert-VITS2/releases)で最新の `sbv2.zip` をダウンロードしてください。
+   - [GitHubの配布ページ](https://github.com/litagin02/Style-Bert-VITS2/releases)で最新の `sbv2.zip` をダウンロードしてください。
 2. 解凍
    - ダウンロードした `sbv2.zip` を短い英数字のパスへ解凍（例: `C:\app\StyleBertVITS2`）。
 3. インストール
@@ -25,8 +25,15 @@ description: "Style-Bert-VITS2 JP-Extraのシンプルな導入手順と音声�
 4. 起動
    - フォルダ内の `App.bat` をダブルクリックして、ブラウザのWebUIが開けば準備OK
 
-## 次のステップ
-
+## 音声モデルの準備
+- 録音からデータ一式の生成まで、以下の専用ツールを使うと最短です。
+  - Koerec（高速音声コーパス作成ツール）: [https://koerec.markn2000.com/](https://koerec.markn2000.com/)
+    - サイトを開き、台本を選んで録音 → すべて完了後に「ダウンロード」を押してZIPを取得します。
+- ZIPの解凍前に、次の手順でセキュリティを許可してください（Windowsのブロック対策）。
+  - ZIPを右クリック → 「プロパティ」 → 「全般」タブ下部の「セキュリティ」欄で「許可する」にチェック
+- 解凍後の配置先:
+  - `StyleBertVITS2` フォルダの中にある `data` フォルダへ、ダウンロードZIPを解凍してできたフォルダを「丸ごと」入れてください。
+  - フォルダ名はボイスモデル名にするのがおすすめです（例: `StyleBertVITS2/data/MarkN`）。
 
 ## 参考リンク
 - 公式リポジトリ: [Style-Bert-VITS2](https://github.com/litagin02/Style-Bert-VITS2)
