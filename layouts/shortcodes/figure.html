@@ -8,19 +8,26 @@
 {{ $image := "" }}
 {{ $isPageResource := false }}
 
-{{/* まずページリソースとして画像を探す */}}
-{{ $page := .Page }}
-{{ with $page.Resources.GetMatch $src }}
-    {{ $image = . }}
-    {{ $isPageResource = true }}
+{{/* 外部URL（http:// または https://）の場合は直接使用 */}}
+{{ $isExternalURL := or (hasPrefix $src "http://") (hasPrefix $src "https://") }}
+
+{{ if $isExternalURL }}
+    {{ $image = $src }}
 {{ else }}
-    {{/* ページリソースで見つからなければ、assetsフォルダから探す (例: /images/配下など) */}}
-    {{ $assetPath := strings.TrimPrefix "/" $src }}
-    {{ with resources.Get $assetPath }}
+    {{/* まずページリソースとして画像を探す */}}
+    {{ $page := .Page }}
+    {{ with $page.Resources.GetMatch $src }}
         {{ $image = . }}
-        {{ $isPageResource = true }} {{/* assetsもリソース処理が可能なのでtrue扱い */}}
+        {{ $isPageResource = true }}
     {{ else }}
-        {{ $image = $src | $page.Permalink | printf "%s%s" | absURL }} {{/* 静的パスや外部リンク (念のため絶対URL化) */}}
+        {{/* ページリソースで見つからなければ、assetsフォルダから探す (例: /images/配下など) */}}
+        {{ $assetPath := strings.TrimPrefix "/" $src }}
+        {{ with resources.Get $assetPath }}
+            {{ $image = . }}
+            {{ $isPageResource = true }} {{/* assetsもリソース処理が可能なのでtrue扱い */}}
+        {{ else }}
+            {{ $image = $src | $page.Permalink | printf "%s%s" | absURL }} {{/* 静的パスや外部リンク (念のため絶対URL化) */}}
+        {{ end }}
     {{ end }}
 {{ end }}
 

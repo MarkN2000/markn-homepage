@@ -68,8 +68,7 @@ hugo new content posts/新しい記事のフォルダ名/index.md
 以下のコマンドでローカル開発サーバーを起動し、変更をリアルタイムでプレビューできます。
 
 ```
-npm run dev
-# または
+
 hugo server -D
 
 ```
