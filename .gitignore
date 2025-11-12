@@ -51,3 +51,6 @@ logs
 
 # Sub-repositories
 static/koerec/.git
+
+# User specified
+static/koerec/
