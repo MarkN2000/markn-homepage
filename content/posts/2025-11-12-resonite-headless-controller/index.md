@@ -30,7 +30,7 @@ Resoniteのヘッドレスサーバー、便利ですよね。常設ワールド
 「難しそう…」と思った方もご安心ください。インストールはとてもシンプルです。(ヘッドレスは使えるようにしておいてください)
 
 1.  まず、以下のGitHubリポジトリにアクセスします。
-    <a href="hhttps://github.com/MarkN2000/MarkNResoniteHeadlessController" class="dynamic-link-card"></a>
+    <a href="https://github.com/MarkN2000/MarkNResoniteHeadlessController" class="dynamic-link-card"></a>
 2.  リポジトリの「Releases」ページから、最新版のzipファイルをダウンロードして解凍します。
 3.  解凍したフォルダの中にある `start.bat` をダブルクリックして実行します。
 
