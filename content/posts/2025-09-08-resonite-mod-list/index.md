@@ -45,7 +45,6 @@ description: "MarkNが現在使用しているResoniteのMod一覧。各ModのGi
 - <a href="https://github.com/dfgHiatus/SpeedyURLs/" target="_blank" rel="noopener noreferrer">SpeedyURLs</a>: URLを開くまでの待機時間をスキップします。
 
 ### 個人的に便利で使っている
-- <a href="https://github.com/HamoCorp/CustomLegacyUI/" target="_blank" rel="noopener noreferrer">CustomLegacyUI</a>: 新規作成から出せるレガシーUIの見た目をカスタマイズします。
 - <a href="https://github.com/rassi0429/LegacyInventoryFix" target="_blank" rel="noopener noreferrer">LegacyInventoryFix</a>: レガシーインベントリを横長にします。
 - <a href="https://github.com/hantabaru1014/ResoniteScreenshotExtensions" target="_blank" rel="noopener noreferrer">ResoniteScreenshotExtensions</a>: スクリーンショットの画質設定やメタデータを追加します。
 - <a href="https://github.com/AlexW-578/ScalableMaterialOrbs/" target="_blank" rel="noopener noreferrer">ScalableMaterialOrbs</a>: マテリアルオーブのサイズをスケーラブルにします。
@@ -54,3 +53,6 @@ description: "MarkNが現在使用しているResoniteのMod一覧。各ModのGi
 - <a href="https://github.com/AwesomeTornado/SimpleScalableMeshOrbs/" target="_blank" rel="noopener noreferrer">SimpleScalableMeshOrbs</a>: メッシュオーブのサイズをスケーラブルにします。
 - <a href="https://github.com/sjsanjsrh/SlotInspectorHighlighter" target="_blank" rel="noopener noreferrer">SlotInspectorHighlighter</a>: インスペクタで選択中のスロットに色をつけて強調表示します。
 - <a href="https://github.com/TheJebForge/TypePicker/" target="_blank" rel="noopener noreferrer">TypePicker</a>: 型選択UIを改良し、検索性を向上させます。
+
+### 使えなくなっちゃった
+- <a href="https://github.com/HamoCorp/CustomLegacyUI/" target="_blank" rel="noopener noreferrer">CustomLegacyUI</a>: 新規作成から出せるレガシーUIの見た目を懐かしい見た目にカスタマイズできます。
