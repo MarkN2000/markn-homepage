@@ -229,10 +229,18 @@ DynamicBoneChainコンポーネントの `IsGrabbable` にチェックをつけ�
 掴めないと際は `VisualizeColliders` にチェックをつけてコライダーの球体が小さすぎないか確かめてください。コライダーの半径を設定する項目もちゃんとあります
 ![alt text](<2025-11-24 18.00.47.webp>)
 
-## fps距離
+## FPSと距離に応じて軽量化
 
-（ここに内容を書きます）
+`DynamicBone`はそこそこ計算負荷があるうえに、PFSが低くなると荒ぶります<br>
+（大人数の集合写真などでスカートや髪が痙攣したようにブルブルするやつ）
 
+また、数十メートルも離れたアバターのボーンの揺れなどはそもそも見えません（望遠鏡などで見なければ）
+
+ですので、`ValueGradientDriver<bool>`と`ValueMultiDriver<bool>`を組み合わせて一定以下のFPSになったら`DynamicBoneChain`コンポーネントのEnableが切れるようにしましょう
+
+余裕があればEnableが頻繁に切り替わってかえって負荷が増えないようにヒステリシス制御（20fpsまで下がったらoff、25fpsまで上がったらonというように行き帰りで切り替え地点を変える制御）を導入しましょう<br>
+`booleanValueDriver<float>`で`ValueGradientDriver<bool>`のPositionをドライブして、`booleanValueDriver<float>`のstateを`ValueMultiDriver<bool>`でドライブしましょう
+![alt text](<2025-11-26 17.13.40.webp>)
 ## 落下時やアバターを持ったときに足が頭の上まで上がるのを防ぐ
 
 FeetHoverHeightを `0` に<br>
