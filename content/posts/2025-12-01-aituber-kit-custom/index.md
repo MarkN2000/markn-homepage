@@ -35,6 +35,3 @@ next_post_path:
 
 フォーク元（オリジナル）
 <a href="https://github.com/tegnike/aituber-kit" class="dynamic-link-card"></a>
-
-## licence
-
