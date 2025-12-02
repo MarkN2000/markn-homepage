@@ -231,29 +231,64 @@ DynamicBoneChainコンポーネントの `IsGrabbable` にチェックをつけ�
 
 ## FPSと距離に応じて軽量化
 
-`DynamicBone`はそこそこ計算負荷があるうえに、PFSが低くなると荒ぶります<br>
+`DynamicBone`はそこそこ計算負荷があるうえに、fpsが低くなると荒ぶります<br>
 （大人数の集合写真などでスカートや髪が痙攣したようにブルブルするやつ）
 
-また、数十メートルも離れたアバターのボーンの揺れなどはそもそも見えません（望遠鏡などで見なければ）
-
-ですので、`ValueGradientDriver<bool>`と`ValueMultiDriver<bool>`を組み合わせて一定以下のFPSになったら`DynamicBoneChain`コンポーネントのEnableが切れるようにしましょう
+ですので、`ValueGradientDriver<bool>`と`ValueMultiDriver<bool>`を組み合わせて一定以下のfpsになったら`DynamicBoneChain`コンポーネントのEnableが切れるようにしましょう
 
 余裕があればEnableが頻繁に切り替わってかえって負荷が増えないようにヒステリシス制御（20fpsまで下がったらoff、25fpsまで上がったらonというように行き帰りで切り替え地点を変える制御）を導入しましょう<br>
-`booleanValueDriver<float>`で`ValueGradientDriver<bool>`のPositionをドライブして、`booleanValueDriver<float>`のstateを`ValueMultiDriver<bool>`でドライブしましょう
+`booleanValueDriver<float>`で`ValueGradientDriver<bool>`のPositionをドライブして、`booleanValueDriver<float>`のstateを`ValueMultiDriver<bool>`でドライブしてください
+
+距離でのon/offも実装したい場合はさらに複雑になるので、参考アバター（つみれちゃん）を分解して確認するかMarkNに聞いてください。
 ![alt text](<2025-11-26 17.13.40.webp>)
+
 ## 落下時やアバターを持ったときに足が頭の上まで上がるのを防ぐ
 
 FeetHoverHeightを `0` に<br>
 MaxFeetVelocityOffsetを `0.05` ~ `0.00` くらいにする (画像だと `0.03`)
 ![alt text](<2025-11-26 17.19.45.webp>)
 
+## LOD
+
+画面に対して表示しているメッシュのバウンディングボックスの大きさの割合が一定以下になったら表示しなくする機能です
+
+アバターが画面の3ピクセルにしか映っていないのに時計や指輪などを律儀に描画するのは計算資源の無駄ですし、チラチラ点滅してしまいます<br>
+ある程度小さくなったら見えなくなるようにしましょう
+
+`LODGroup`コンポーネントをつけて、以下のような感じで設定しましょう<br>
+LODs(list)でAddを押してRenderers(list)に制御したいレンダラーを入れて、`ScreenRelativeTransitionHight`の値をレンダラーを消したい値（画面の高さ？の1%以下になった時に消したければ0.01）に設定しましょう<br>
+詳細はこちらの記事を参考
+<a href="https://wikiwiki.jp/resonaito/Rendering/LODGroup" class="dynamic-link-card"></a>
+
+## バウンディングボックス
+
+バウンディングボックスはLODの計算や、そのメッシュが視界に入っているかどうかの計算に使用されています
+ボーン一つ一つの動きをリアルタイムに計算したりすると負荷が高くなるので、できるだけ数を少なく、計算する回数も少なくしましょう
+スキンドメッシュが変形する範囲よりも大きくしてしまうと目に映っていないのに描画をすることになるので、大きくしすぎないようにしましょう
+
+ただ、現在（2025年12月4日時点）スキンドメッシュレンダラーのバウンディングボックスの計算にバグがあるらしく、設定が正しく動作していません<br>
+デフォルト設定では正しく動作していそうなのですが、いくつかの設定がおかしくなっています。<br>
+まだissue書いていないので誰か書ける人書いてください
+<a href="https://github.com/Yellow-Dog-Man/Resonite-Issues" class="dynamic-link-card"></a>
+
+そのため、現在は`BoundsComputeMethod`の手動設定は行わずにデフォルトの`static`の設定のままにしましょう。`Proxy`や`Explicit`などに設定して最適化することが本来は望ましいのですが、バグが直るまでは`static`のままにしましょう
+
+
 ## あいとら
 
-（ここに内容を書きます）
+目が既にキョロキョロ動いているのなら特に難しい設定はなく動きます
+
+瞬きは両目同時に閉じるシェイプキーを使うと片目閉じができないので、左右に分かれているものを使いましょう<br>
+両目閉じしかなくてもResonite内でシェイプキーを左右に分割することも可能です
+
+
+
 
 ## フェイシャル
 
-（ここに内容を書きます）
+アバタークリエイターでフェイシャルを設定にチェックを付けていればaiueoに関しては自動で設定されます
+
+チェックし忘れていた場合は`a`コンポーネントを付けてreferenceにを入れましょう
 
 ## 表情切り替えコンポーネント
 
@@ -274,6 +309,8 @@ MaxFeetVelocityOffsetを `0.05` ~ `0.00` くらいにする (画像だと `0.03`
 ## テクスチャ
 
 （ここに内容を書きます）
+
+## マテリアル
 
 ## ロコモーション
 
