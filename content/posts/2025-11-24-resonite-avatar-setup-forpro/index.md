@@ -1,7 +1,7 @@
 ---
 title: "Resonite玄人向けアバターセットアップ方法"
 date: 2025-12-04T23:00:00+09:00
-draft: true
+draft: false
 thumbnail: "thumbnail.webp"
 thumbnail_alt: "Resoniteアバターセットアップ"
 tags: ["Resonite", "解説", "アバター"]
