@@ -10,6 +10,10 @@ description: "Resonite玄人向けのMarkN流アバターセットアップ方�
 
 こんにちは、「まーくん。(MarkN)」です
 
+この記事は <a href="https://adventar.org/calendars/12050" target="_blank" rel="noopener noreferrer">Resonite Advent Calendar 2025</a> の4日目の記事です
+
+<a href="https://adventar.org/calendars/12050" class="dynamic-link-card"></a>
+
 この記事では、Resoniteの玄人向けにMarkN流のアバターセットアップ方法を紹介します
 
 ## 目次
