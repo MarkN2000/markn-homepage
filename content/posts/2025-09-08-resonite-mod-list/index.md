@@ -1,7 +1,7 @@
 ---
 title: "MarkNが使っているResoniteのMod一覧"
 date: 2025-09-08
-lastmod: 2025-09-18
+lastmod: 2025-12-04
 draft: false
 tags: ["Resonite", "Mod"]
 thumbnail: "thumbnail.webp"
@@ -27,6 +27,12 @@ description: "MarkNが現在使用しているResoniteのMod一覧。各ModのGi
 5. ゲームを起動し、`Logs` フォルダ内のログで RML が読み込まれているか確認します（`C:\Program Files (x86)\Steam\steamapps\common\Resonite\Logs`）。
 
 出典: <a href="https://github.com/resonite-modding-group/ResoniteModLoader" target="_blank" rel="noopener noreferrer">ResoniteModLoader README の Installation</a>
+
+### アップデート手順（Resoniteのアップデート時など）
+1. githubから最新版をダウンロードして展開します
+2. `Libraries` フォルダの`ResoniteModLoader.dll`を上書きします。
+3. `rml_libs` フォルダの`0Harmony.dll` を上書きします
+4. Mod自体に更新があれば`rml_mods`フォルダにあるmodの`~.dll`を上書きします。
 
 ## MarkNが入れているMod一覧
 
