@@ -1,5 +1,5 @@
 ---
-title: "Resonite玄人向けアバターセットアップ方法"
+title: "Resonite玄人向けMarkN流アバターセットアップ"
 date: 2025-12-04T23:00:00+09:00
 draft: false
 thumbnail: "thumbnail.webp"
@@ -14,7 +14,7 @@ description: "Resonite玄人向けのMarkN流アバターセットアップ方�
 
 <a href="https://adventar.org/calendars/12050" class="dynamic-link-card"></a>
 
-この記事では、Resoniteの玄人向けにMarkN流のアバターセットアップ方法を紹介します
+この記事では、Resoniteの玄人向けにMarkN流の軽量なアバターセットアップ方法を紹介します
 
 ## 目次
 - [はじめに](#はじめに)
