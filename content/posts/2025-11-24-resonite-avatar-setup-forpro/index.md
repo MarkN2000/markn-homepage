@@ -90,7 +90,7 @@ hipsとspineの距離を元にhipsコライダーを生成するため、足元�
 
 ボーンがResoniteの推奨する構造・命名になっていない場合は、Blender等で修正しましょう。
 
-`UpperChest` 等があると `hips` の位置を誤認してしまいます。
+`UpperChest` や `HipsConstraint` 等があると `hips` の位置を誤認してしまいます。
 不必要なボーンがある場合は、ボーンの名前に `<NoIK>` とつけることで無視させることができます。
 
 *   例：`UpperChest<NoIK>` `UpperChest<NOIK>` `<noik>UpperChest`
