@@ -2,7 +2,7 @@
 title: "竹に穴を開けるアイテムを作った「竹あかり」"
 date: 2025-12-01T00:00:00+09:00
 draft: false
-tags: ["作ったもの", "プログラミング","Resonite","VR"]
+tags: ["作ったもの", "プログラミング","Resonite","おすすめアイテム","イベント"]
 thumbnail: "thumbnail.webp"
 thumbnail_alt: "竹あかりを作るアイテム"
 description: "竹を丸鋸で切って、好きに穴をあけて、竹あかりを作れるアイテムの制作をしました"

@@ -2,7 +2,7 @@
 title: "夕日に沈むヤマトinVR #宇宙戦艦ヤマト 50周年"
 date: 2024-10-06T23:35:33+09:00
 draft: false
-tags: ["Resonite", "VR", "作ったもの", "おすすめアイテム"]
+tags: ["Resonite", "作ったもの", "ワールド"]
 thumbnail: "thumbnail.webp"
 description: "夕日に沈むヤマトinVR #宇宙戦艦ヤマト 50周年"
 prev_post_path:

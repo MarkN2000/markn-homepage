@@ -2,7 +2,7 @@
 title: "AItuberKitを改造してわんコメ連携や最新モデル対応を追加しました"
 date: 2025-12-01T1:00:00+09:00
 draft: false
-tags: ["プログラミング", "AI", "AItuber"]
+tags: ["プログラミング", "AI", "作ったもの"]
 thumbnail: "thumbnail.webp"
 thumbnail_alt: "AItuberKit Custom"
 description: "AItuberKitをフォークして、わんコメ連携やGemini 2.5対応などの機能追加を行いました"

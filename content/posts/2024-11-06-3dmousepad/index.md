@@ -2,7 +2,7 @@
 title: "アバターのおっぱいマウスパッドを作れるワールド 3Dマウスパッドショップ【VR】【Resonite】"
 date: 2024-11-06T23:35:33+09:00
 draft: false
-tags: ["Resonite", "VR", "作ったもの", "おすすめアイテム"]
+tags: ["Resonite", "ワールド", "作ったもの", "おすすめアイテム"]
 thumbnail: "thumbnail.webp"
 description: "アバターのおっぱいマウスパッドを作れるワールド 3Dマウスパッドショップ【VR】【Resonite】"
 prev_post_path:

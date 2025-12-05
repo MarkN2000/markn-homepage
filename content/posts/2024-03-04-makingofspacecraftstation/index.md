@@ -2,7 +2,7 @@
  title: "メイキング動画 [MMC24] SMM SPACE CRAFT STATION【Resonite】"
  date: 2024-03-04T23:35:35+09:00
  draft: false
- tags: ["Resonite", "VR", "作ったもの", "ワールド"]
+ tags: ["Resonite", "作ったもの", "ワールド","イベント"]
  thumbnail: "thumbnail.webp"
  description: "メイキング動画 [MMC24] SMM SPACE CRAFT STATION【Resonite】"
  prev_post_path: "/posts/2024-03-04-spacecraftstation/"

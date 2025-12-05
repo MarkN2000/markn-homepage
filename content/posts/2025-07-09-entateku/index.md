@@ -2,8 +2,8 @@
 title: "「エンタテ！区～テレビが知らないe世界～」にバーチャル大道具さんとして出演しました"
 date: 2025-07-09
 draft: false
-tags: ["ポートフォリオ", "Resonite", "VR", "出演"]
-thumbnail: "thumbnail.webp" # この記事のサムネイル (OGP画像にも使われる)
+tags: ["Resonite","イベント"]
+thumbnail: "thumbnail.webp"
 thumbnail_alt: "番組ロゴと作成したワールドの一部"
 description: "RKB毎日放送のテレビ番組「エンタテ！区～テレビが知らないe世界～」に、Resoniteでワールドを制作する「バーチャル大道具さん」として出演させていただきました。"
 ---

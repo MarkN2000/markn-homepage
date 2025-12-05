@@ -4,7 +4,7 @@ date: 2025-10-28
 lastmod: 2025-10-28
 draft: false
 thumbnail: "thumbnail.webp"
-tags: ["AI", "解説"]
+tags: ["AI", "解説", "プログラミング"]
 description: "Style-Bert-VITS2 JP-Extraのシンプルな導入手順と音声データセットの作り方と合成音声モデルの制作手順を紹介します"
 ---
 

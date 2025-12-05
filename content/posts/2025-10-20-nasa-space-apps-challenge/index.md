@@ -4,7 +4,7 @@ date: 2025-10-20
 lastmod: 2025-10-20
 draft: false
 thumbnail: "thumbnail.webp"
-tags: ["イベント", "Resonite", "VR", "NASA"]
+tags: ["Resonite","イベント"]
 description: "NASA Space Apps Challenge 2025の山口県宇部会場で、私たちのチーム「UniSpace」が開発したVRツール「Planetary Defense Lab」が最優秀賞を受賞しました。"
 ---
 

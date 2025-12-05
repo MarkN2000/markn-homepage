@@ -2,7 +2,7 @@
 title: "【Resonite】アバターインポート＆セットアップ実演解説！"
 date: 2023-10-09T23:35:33+09:00
 draft: false
-tags: ["Resonite", "VR", "作ったもの"]
+tags: ["Resonite", "解説", "アバター"]
 thumbnail: "thumbnail.webp"
 description: "【Resonite】アバターインポート＆セットアップ実演解説！"
 prev_post_path:
