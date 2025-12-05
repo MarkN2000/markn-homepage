@@ -85,5 +85,3 @@ hugo server -D
 hugo --gc --minify
 
 ```
-
-## 今後の予定
