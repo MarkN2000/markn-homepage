@@ -1,6 +1,6 @@
 ---
 title: "合成音声Style-Bert-VITS2の学習方法"
-date: 2025-10-28
+date: 2025-10-28T12:00:00+09:00
 lastmod: 2025-10-28
 draft: false
 thumbnail: "thumbnail.webp"

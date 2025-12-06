@@ -1,6 +1,6 @@
 ---
 title: "AItuberKitを改造してわんコメ連携や最新モデル対応を追加しました"
-date: 2025-12-01
+date: 2025-12-01T23:10:00+09:00
 lastmod:
 draft: false
 tags: ["プログラミング", "AI", "作ったもの"]

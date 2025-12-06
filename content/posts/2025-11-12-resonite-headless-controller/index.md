@@ -1,6 +1,6 @@
 ---
 title: "Resoniteヘッドレスサーバーをブラウザで簡単管理！「MarkN Resonite Headless Controller」を公開しました"
-date: 2025-11-12
+date: 2025-11-12T12:00:00+09:00
 lastmod:
 draft: false
 thumbnail: "thumbnail.webp"

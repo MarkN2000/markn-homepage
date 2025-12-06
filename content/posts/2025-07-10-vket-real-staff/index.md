@@ -1,6 +1,6 @@
 ---
 title: "「Vket Real 2024 Summer」イマーシブストアのスタッフとして参加しました"
-date: 2024-12-13
+date: 2024-12-13T12:00:00+09:00
 lastmod:
 draft: false
 tags: ["Resonite","イベント"]

@@ -1,6 +1,6 @@
 ---
 title: "NASA Space Apps Challenge 2025で最優秀賞を受賞しました！"
-date: 2025-10-20
+date: 2025-10-20T12:00:00+09:00
 lastmod: 2025-10-20
 draft: false
 thumbnail: "thumbnail.webp"

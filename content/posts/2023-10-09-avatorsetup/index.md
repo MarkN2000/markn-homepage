@@ -1,7 +1,7 @@
 ---
 title: "【Resonite】アバターインポート＆セットアップ実演解説！"
 date: 2023-10-09T23:35:33+09:00
-lastmod:
+lastmod: 2025-12-06T22:15:00+09:00
 draft: false
 tags: ["Resonite", "解説", "アバター"]
 thumbnail: "thumbnail.webp"
@@ -15,17 +15,22 @@ VRMアバターのインポートとアバターのセットアップを、実�
 
 なお、Resoniteでは複数人で一緒に作業できます。動画を一人で観て進めるよりも、メンターバッジ（緑の電球）が付いている方などにアバターセットアップを任せてしまうのもおすすめです。遠慮なく声をかけてみてください！
 
-補足情報:
-- {{< ogp-link-card href="https://github.com/kazu0617/vrmtoglb_autoconvert" title="VRM to GLB for Neos (vrmtoglb_autoconvert)" description="VRMをNeos/Resonite向けに自動変換するツール（MIT）。Blender3系推奨。" >}}
-- シャドーランプを取り出す際に使用した「JP Tutorial Goods」フォルダは「JP チュートリアルワールド Resonite」で入手可能です
-- アバターセットアップは「JP チュートリアルワールド Resonite」へ行って操作を覚えてから行うことをおすすめします
-- ここで紹介する方法が最適というわけではありません。より簡単・綺麗・低負荷・便利な設定を各自で探してみてください
-
-* **【Resonite】アバターインポート＆セットアップ実演解説！**
+## **【Resonite】アバターインポート＆セットアップ実演解説動画**
 
 {{< youtube "CUtWeOFeD14" >}}
 
-* **以下切り抜き**
+もしコンポーネントやFluxに慣れていてもっと詳しく知りたい場合はこちらを見てみてください **初心者厳禁!!**
+<a href="https://markn2000.com/posts/2025-11-24-resonite-avatar-setup-forpro/" class="dynamic-link-card"></a>
+
+### 補足情報
+
+- シャドーランプを取り出す際に使用した「JP Tutorial Goods」フォルダは「JP チュートリアルワールド Resonite」で入手可能です
+- アバターセットアップは「JP チュートリアルワールド Resonite」へ行って操作を覚えてから行うことをおすすめします
+- ここで紹介する方法が最適というわけではありません。より簡単・綺麗・低負荷・便利な設定を各自で探してみてください
+- 以下がvrmをglbファイルに変換するコードです
+<a href="https://github.com/kazu0617/vrmtoglb_autoconvert" class="dynamic-link-card"></a>
+
+### **以下切り抜き**
 
 {{< youtube "a15qBTapuZs" >}}
 
