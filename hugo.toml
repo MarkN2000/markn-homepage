@@ -37,6 +37,11 @@ title = "まーくん。(MarkN)のホームページ"
 # ファイルの更新日時を自動的にlastmodとして設定
 enableGitInfo = true
 
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
 [related]
   threshold = 40 # 関連性の閾値 (0-100)
   includeNewer = true
