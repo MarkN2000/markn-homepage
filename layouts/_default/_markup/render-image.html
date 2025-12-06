@@ -38,13 +38,12 @@
 {{- if $isPageResource -}}
   {{/* ページリソース or assets の場合は WebP + リサイズ（figure と揃えて 700px / q75） */}}
   {{- $processedImage := $image.Resize "700x webp q75" -}}
+  {{- $isPortrait := gt $processedImage.Height $processedImage.Width -}}
   <figure class="my-6">
     <img
       src="{{ $processedImage.RelPermalink }}"
-      width="{{ $processedImage.Width }}"
-      height="{{ $processedImage.Height }}"
       alt="{{ $alt }}"
-      class="mx-auto rounded-lg shadow-md">
+      class="mx-auto rounded-lg shadow-md max-w-full h-auto object-contain {{ if $isPortrait }}max-h-[60rem]{{ end }}">
     {{- if $title }}
       <figcaption class="text-center text-sm text-gray-600 mt-2">
         {{ $title | markdownify }}
@@ -57,7 +56,7 @@
     <img
       src="{{ $image }}"
       alt="{{ $alt }}"
-      class="mx-auto rounded-lg shadow-md">
+      class="mx-auto rounded-lg shadow-md max-w-full h-auto object-contain">
     {{- if $title }}
       <figcaption class="text-center text-sm text-gray-600 mt-2">
         {{ $title | markdownify }}
@@ -65,5 +64,4 @@
     {{- end }}
   </figure>
 {{- end -}}
-
 

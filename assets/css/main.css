@@ -247,10 +247,9 @@ body {
 /* ただし、figure.html 側で mx-auto が img についているので、ここでは max-width の統一が主目的 */
 .prose > figure > img,
 .prose > figure > a > img { /* 画像がリンクで囲まれている場合も考慮 */
-  max-width: 700px; /* figure.html の Resize 幅と合わせるか、それ以下に */
-  /* width: 100%; */ /* こちらは figure.html の mx-auto と競合する可能性があるので注意 */
-  /* margin-left: auto; */ /* figure.html側で対応 */
-  /* margin-right: auto; */ /* figure.html側で対応 */
+  /* figure やショートコード側で幅を制御しているため、ここでは
+     ビューポートをはみ出さないように max-width: 100% のみを保証する */
+  max-width: 100%;
 }
 /* --- ▲▲▲ リスト内画像のインデント解除 & 中央揃え用スタイル --- */
 
