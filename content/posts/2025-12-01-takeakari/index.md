@@ -1,6 +1,6 @@
 ---
 title: "竹に穴を開けるアイテムを作った「竹あかり」"
-date: 2025-12-01T00:00:00+09:00
+date: 2025-12-01
 draft: false
 tags: ["作ったもの", "プログラミング","Resonite","おすすめアイテム","イベント"]
 thumbnail: "thumbnail.webp"
