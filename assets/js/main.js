@@ -97,6 +97,13 @@ document.addEventListener('DOMContentLoaded', function() {
             "description": "Resonite is a highly flexible and customizable social VR platform. Create, explore, and connect in a universe built by its users.",
             "image": "https://resonite.com/assets/Resonite_sosial_media_image.jpg",
             "siteName": "Resonite Official"
+        },
+        // 開発環境用：一時的に手動で画像URLを設定
+        "https://github.com/Yellow-Dog-Man/Resonite-Issues": {
+            "title": "Resonite Issues - Yellow-Dog-Man",
+            "description": "Resonite関連のIssuesリポジトリ",
+            "image": "https://opengraph.githubassets.com/Yellow-Dog-Man/Resonite-Issues", // ここに画像URLを手動で設定してください
+            "siteName": "GitHub"
         }
     };
 
