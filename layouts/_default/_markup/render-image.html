@@ -1,0 +1,69 @@
+{{/* layouts/_default/_markup/render-image.html
+     Markdown の画像記法 ![alt](path) に対して、
+     - ページリソース or assets の画像は Hugo の画像処理を通して WebP + リサイズ
+     - それ以外（静的パス・外部URL）はそのまま出力
+*/}}
+
+{{- $src := .Destination -}}
+{{- $alt := .Text | default "" -}}
+{{- $title := .Title -}}
+{{- $page := .Page -}}
+
+{{- $image := "" -}}
+{{- $isPageResource := false -}}
+
+{{/* 外部URL（http/https）の場合は画像処理せずそのまま */}}
+{{- $isExternalURL := or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+
+{{- if $isExternalURL -}}
+  {{- $image = $src -}}
+{{- else -}}
+  {{/* 1. まずページリソースとして探す（記事フォルダ内の画像など） */}}
+  {{- with $page.Resources.GetMatch $src -}}
+    {{- $image = . -}}
+    {{- $isPageResource = true -}}
+  {{- else -}}
+    {{/* 2. ページリソースで見つからなければ assets/ から取得を試みる */}}
+    {{- $assetPath := strings.TrimPrefix "/" $src -}}
+    {{- with resources.Get $assetPath -}}
+      {{- $image = . -}}
+      {{- $isPageResource = true -}}
+    {{- else -}}
+      {{/* 3. それでも見つからなければ、そのままのパスで出力（static やCDNなど） */}}
+      {{- $image = $src -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $isPageResource -}}
+  {{/* ページリソース or assets の場合は WebP + リサイズ（figure と揃えて 700px / q75） */}}
+  {{- $processedImage := $image.Resize "700x webp q75" -}}
+  <figure class="my-6">
+    <img
+      src="{{ $processedImage.RelPermalink }}"
+      width="{{ $processedImage.Width }}"
+      height="{{ $processedImage.Height }}"
+      alt="{{ $alt }}"
+      class="mx-auto rounded-lg shadow-md">
+    {{- if $title }}
+      <figcaption class="text-center text-sm text-gray-600 mt-2">
+        {{ $title | markdownify }}
+      </figcaption>
+    {{- end }}
+  </figure>
+{{- else -}}
+  {{/* リソース処理できない画像（static 直指定や外部URLなど）はそのまま出力 */}}
+  <figure class="my-6">
+    <img
+      src="{{ $image }}"
+      alt="{{ $alt }}"
+      class="mx-auto rounded-lg shadow-md">
+    {{- if $title }}
+      <figcaption class="text-center text-sm text-gray-600 mt-2">
+        {{ $title | markdownify }}
+      </figcaption>
+    {{- end }}
+  </figure>
+{{- end -}}
+
+
