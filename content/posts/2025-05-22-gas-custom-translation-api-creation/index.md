@@ -1,6 +1,7 @@
 ---
 title: "超簡単！GASで作る無料翻訳APIの作り方"
 date: "2025-05-22T19:17:03+09:00"
+lastmod:
 draft: false
 tags: ["作ったもの", "Resonite", "解説", "プログラミング"]
 thumbnail: "thumbnail.webp"

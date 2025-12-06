@@ -1,6 +1,7 @@
 ---
 title: "誰でも本当に変身できる変身ベルト作ってみた！"
 date: 2024-01-13T23:35:33+09:00
+lastmod:
 draft: false
 tags: ["Resonite", "作ったもの", "おすすめアイテム"]
 thumbnail: "thumbnail.webp"

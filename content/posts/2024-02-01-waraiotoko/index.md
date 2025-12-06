@@ -1,6 +1,7 @@
 ---
 title: "VRで「笑い男」になるツール Resonite 攻殻機動隊SAC"
 date: 2024-02-01T07:20:00+09:00
+lastmod:
 draft: false
 tags: ["Resonite", "作ったもの", "おすすめアイテム"]
 thumbnail: "thumbnail.webp"

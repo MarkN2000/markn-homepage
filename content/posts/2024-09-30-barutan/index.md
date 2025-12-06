@@ -1,6 +1,7 @@
 ---
 title: "バルタン星人のハサミ【Resonite】"
 date: 2024-09-30T23:35:33+09:00
+lastmod:
 draft: false
 tags: ["Resonite", "作ったもの", "おすすめアイテム"]
 thumbnail: "thumbnail.webp"

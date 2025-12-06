@@ -1,6 +1,7 @@
 ---
 title: "「エンタテ！区～テレビが知らないe世界～」にバーチャル大道具さんとして出演しました"
 date: 2025-07-09
+lastmod:
 draft: false
 tags: ["Resonite","イベント"]
 thumbnail: "thumbnail.webp"

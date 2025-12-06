@@ -1,6 +1,7 @@
 ---
 title: "最新合成音声ツール『AivisSpeech』を VOICEVOXと比較！"
 date: 2024-11-22T23:35:33+09:00
+lastmod:
 draft: false
 tags: ["AI", "解説"]
 thumbnail: "thumbnail.webp"

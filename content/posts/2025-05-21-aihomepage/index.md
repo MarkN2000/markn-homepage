@@ -1,6 +1,7 @@
 ---
 title: "AIと一緒にホームページを作ってみた！"
 date: 2025-05-17T05:00:00+09:00
+lastmod:
 draft: false
 tags: ["AI", "プログラミング"]
 thumbnail: "thumbnail.webp"

@@ -1,6 +1,7 @@
 ---
 title: "「Vket Real 2024 Winter」イマーシブストアのスタッフとして参加しました"
 date: 2024-12-13
+lastmod:
 draft: true
 tags: ["Resonite","イベント"]
 thumbnail: "thumbnail.webp"

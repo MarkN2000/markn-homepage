@@ -1,6 +1,7 @@
 ---
 title: "【カードキャプターさくら】VRでレリーズ!!できる封印の杖作ってみた【無料配布】"
 date: 2024-04-01T23:35:33+09:00
+lastmod:
 draft: false
 tags: ["Resonite", "おすすめアイテム", "作ったもの"]
 thumbnail: "thumbnail.webp"

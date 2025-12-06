@@ -1,6 +1,7 @@
 ---
 title: "ResoniteでVRCみたいなマイクアイコンを表示！"
 date: 2024-05-21T23:35:33+09:00
+lastmod:
 draft: false
 tags: ["Resonite", "作ったもの", "おすすめアイテム"]
 thumbnail: "thumbnail.webp"

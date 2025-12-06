@@ -1,6 +1,7 @@
 ---
 title: "自分だけの宇宙ステーションが作れるワールド [MMC24] SMM SPACE CRAFT STATION 【Resonite】"
 date: 2024-03-04T23:35:33+09:00
+lastmod:
 draft: false
 tags: ["Resonite", "作ったもの", "ワールド","イベント"]
 thumbnail: "thumbnail.webp"
