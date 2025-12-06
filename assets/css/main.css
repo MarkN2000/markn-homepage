@@ -189,6 +189,15 @@ body {
   border-radius: var(--border-radius-md, 0.375rem);
 }
 
+/* 動的リンクカード用サムネイル画像
+   - .prose img の height:auto を上書きして、親コンテナいっぱいに表示する */
+.prose a.dynamic-link-card img,
+.dynamic-link-card-thumb {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill;
+}
+
 .prose figure {
   margin-top: var(--spacing-8, 2rem);
   margin-bottom: var(--spacing-8, 2rem);
