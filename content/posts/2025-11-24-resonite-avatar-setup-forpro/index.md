@@ -1,7 +1,7 @@
 ---
-title: "MarkN流アバターセットアップ[Resonite玄人向け]"
+title: "MarkN流アバターセットアップ【Resonite玄人向け】"
 date: 2025-12-04T23:10:00+09:00
-lastmod: 2025-12-15T11:10:00+09:00
+lastmod: 2025-12-16T11:10:00+09:00
 draft: false
 thumbnail: "thumbnail.webp"
 thumbnail_alt: "Resoniteアバターセットアップ"
