@@ -1,12 +1,12 @@
 ---
 title: "AItuberKitを改造してわんコメ連携や最新モデル対応を追加しました"
 date: 2025-12-01T23:10:00+09:00
-lastmod: 2025-12-07T17:30:00+09:00
+lastmod: 2025-12-18T12:30:00+09:00
 draft: false
 tags: ["プログラミング", "AI", "作ったもの"]
 thumbnail: "thumbnail.webp"
 thumbnail_alt: "AItuberKit Custom"
-description: "AItuberKitをフォークして、わんコメ連携やGemini 2.5対応などの機能追加を行いました"
+description: "AItuberKitをフォークして、わんコメ連携や最新AIモデルへの対応などの機能追加を行いました"
 prev_post_path:
 next_post_path:
 # FolderName：2025-12-01-aituber-kit-custom
@@ -29,7 +29,7 @@ next_post_path:
     *   時間の認識をJST（日本標準時）など好きなタイムゾーンの時刻の選択に対応させました。AIが日本の現在時刻を正しく認識しやすくなります。（UTCのみだと時刻の計算を間違えやすい）
 
 3.  **最新AIモデル対応**
-    *   Gemini 2.5などの最新モデルに対応し、検索機能などを含めた高度な応答が可能になりました。（デフォルトだと最新モデルで検索が使えない）
+    *   Gemini 3 flashやGPT5.2などの最新モデルに対応し、検索機能などを含めた高度な応答が可能になりました。（デフォルトだと最新モデルで検索が使えない）
 
 ## リポジトリ
 
