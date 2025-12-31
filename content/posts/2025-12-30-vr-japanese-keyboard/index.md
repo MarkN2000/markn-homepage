@@ -3,7 +3,7 @@ title: "高機能VR日本語キーボード「MarkNキーボード」導入・�
 date: 2025-12-31T1:00:00+09:00
 lastmod: 2025-12-31T15:00:00+09:00
 draft: false
-tags: ["Resonite", "VR", "おすすめアイテム", "解説"]
+tags: ["Resonite", "おすすめアイテム", "解説"]
 thumbnail: "thumbnail.webp"
 thumbnail_alt: "Resoniteで使える高機能日本語キーボード「MarkNキーボード」"
 description: "ResoniteのVRモードで日本語入力したい人向けに、高機能日本語キーボード「MarkNキーボード」の導入・使い方・注意点をまとめます。"
