@@ -1,7 +1,7 @@
 ---
 title: "高機能VR日本語キーボード「MarkNキーボード」導入・使い方【Resonite】"
 date: 2025-12-31T1:00:00+09:00
-lastmod: 2025-12-31T1:00:00+09:00
+lastmod: 2025-12-31T15:00:00+09:00
 draft: false
 tags: ["Resonite", "VR", "おすすめアイテム", "解説"]
 thumbnail: "thumbnail.webp"
@@ -92,7 +92,7 @@ MarkNキーボードは **Resoniteで使える高機能日本語キーボード*
 左下の **「Fn」** キーを押すと **100%のフルキーボード** に切り替わります。
 
 - ファンクションキー(F8など)
-- winキー / Home / ScrLock など
+- winキー / Home / Alt など
 
 …といった、VRで重要度の低いものも含めて全部のキーが使えるようになります。
 
