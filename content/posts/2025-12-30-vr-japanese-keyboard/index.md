@@ -205,3 +205,11 @@ MarkNキーボードは、以下で配布しています。
 
 JPチュートリアルワールドResoniteで配布されている「JP Public」フォルダの中の「個人Individual」→「MarkNPublic（まーくん。）」→「ツールtool」→「MarkNキーボード」の
 中にキーボードが入っています
+
+## 参考にしたもの・使用している技術
+- 日本語変換基本機能：ResoniteJPKeybord あまぐり さん
+- カラーピッカー：sindy さん
+- テンプレート入力のアイデア：esnya さん
+- Google CGI API for Japanese Input
+- suggestqueries.google.com
+- Google Translate API
