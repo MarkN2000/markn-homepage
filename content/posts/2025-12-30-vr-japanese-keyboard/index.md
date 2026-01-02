@@ -1,9 +1,9 @@
 ---
 title: "高機能VR日本語キーボード「MarkNキーボード」導入・使い方【Resonite】"
 date: 2025-12-31T1:00:00+09:00
-lastmod: 2025-12-31T15:00:00+09:00
+lastmod: 2026-01-02T15:00:00+09:00
 draft: false
-tags: ["Resonite", "おすすめアイテム", "解説"]
+tags: ["Resonite", "おすすめアイテム", "作ったもの"]
 thumbnail: "thumbnail.webp"
 thumbnail_alt: "Resoniteで使える高機能日本語キーボード「MarkNキーボード」"
 description: "ResoniteのVRモードで日本語入力したい人向けに、高機能日本語キーボード「MarkNキーボード」の導入・使い方・注意点をまとめます。"
@@ -30,7 +30,7 @@ Resoniteでは**VRキーボードを好きなものに変更できる**って知
 
 ## キーボードを設定
 
-ResoniteのVRキーボードは「キーボードに設定」したアイテムを使います。  
+Resoniteでは「キーボードに設定」したアイテムがキーボードとして使用されます。  
 なので、まずは自分のインベントリに保存してから設定します。
 
 **手順**:
