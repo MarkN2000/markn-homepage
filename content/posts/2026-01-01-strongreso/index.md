@@ -1,5 +1,5 @@
 ---
-title: "飲むとキラキラを吐く！？缶チューハイ「ストレゾ（StrongReso）」を制作しました【Resonite】"
+title: "飲むとキラキラを吐く缶チューハイを作った【Resonite】"
 date: 2026-01-01T00:40:00+09:00
 lastmod: 2026-01-02T15:40:00+09:00
 draft: false
