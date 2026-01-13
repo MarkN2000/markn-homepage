@@ -1,7 +1,7 @@
 ---
 title: "プライバシーポリシー"
 date: 2025-05-17T20:00:00+09:00
-lastmod: 2025-05-21T20:00:00+09:00
+lastmod: 2026-01-13T11:10:00+09:00
 draft: false
 layout: "page"
 _build:
@@ -20,7 +20,7 @@ _build:
 * **Cookie（クッキー）:**
     当サイトでは、利便性の向上や利用状況の分析のためにCookieを使用することがあります。Cookieは、ユーザーのブラウザに一時的に情報を保存する仕組みです。ユーザーはブラウザの設定によりCookieの受け入れを拒否することができますが、その場合、当サイトの一部の機能が利用できなくなることがあります。
 * **お問い合わせフォーム:**
-    [お問い合わせフォーム](https://docs.google.com/forms/d/e/1FAIpQLSdl5UHhRc5Hq5Y_njMLCttSEqnHpWem_Ays6OpfYGGYOEIExg/viewform?usp=header){:target="_blank"}
+    [お問い合わせフォーム](https://docs.google.com/forms/d/e/1FAIpQLSdl5UHhRc5Hq5Y_njMLCttSEqnHpWem_Ays6OpfYGGYOEIExg/viewform?usp=header)
 
 ## 2. 情報の管理
 
@@ -46,8 +46,18 @@ _build:
 ## 6. お問い合わせ
 
 本ポリシーに関するお問い合わせは、以下の連絡先までお願いいたします。
-[お問い合わせフォーム](https://docs.google.com/forms/d/e/1FAIpQLSdl5UHhRc5Hq5Y_njMLCttSEqnHpWem_Ays6OpfYGGYOEIExg/viewform?usp=header){:target="_blank"}
+[お問い合わせフォーム](https://docs.google.com/forms/d/e/1FAIpQLSdl5UHhRc5Hq5Y_njMLCttSEqnHpWem_Ays6OpfYGGYOEIExg/viewform?usp=header)
+
+## 7. 著作権・コンテンツの二次利用について
+
+当サイトに掲載されているコンテンツ（文章、画像、動画等）の著作権は、外部リンクになっているものを除き、当サイト運営者に帰属します。
+
+当サイトは、教育、研究、情報の共有などの目的において、当サイトのコンテンツの二次利用を歓迎します。以下の条件を満たす場合に限り、事前の承諾なく自由に転載、加工、二次利用を行うことができます。
+
+* **出典の明記:** 利用する際は、当サイトが出典であるとわかるように記載してください。（書き方はお任せします。わかればなんでもOKです）
+  * 表記例：出典：MarkN（まーくん。）のホームページ や markn2000.com など
+  * 運営者名：MarkN または MarkN(まーくん。) 
 
 ---
 制定日: 2025年5月17日
-最終改定日: 2025年9月18日
+最終改定日: 2026年1月13日
