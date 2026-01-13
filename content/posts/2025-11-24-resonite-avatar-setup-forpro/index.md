@@ -1,55 +1,27 @@
 ---
 title: "MarkN流アバターセットアップ【Resonite玄人向け】"
 date: 2025-12-04T23:10:00+09:00
-lastmod: 2025-12-16T11:10:00+09:00
+lastmod: 2026-01-13T11:48:00+09:00
 draft: false
 thumbnail: "thumbnail.webp"
 thumbnail_alt: "Resoniteアバターセットアップ"
 tags: ["Resonite", "解説", "アバター"]
-description: "Resonite玄人向けのMarkN流アバターセットアップ方法について紹介します。意図しない動作をさせない・他人のFPSを低下させない（軽量化）ことを重視しています"
+description: "Resonite玄人向けのMarkN流アバターセットアップ方法や豆知識を紹介します。意図しない動作をさせない・他人のFPSを低下させない（軽量化）ことを重視しています"
 ---
 
-こんにちは、「まーくん。(MarkN)」です
-
+こんにちは、「まーくん。(MarkN)」です<br>
 この記事は <a href="https://adventar.org/calendars/12050" target="_blank" rel="noopener noreferrer">Resonite Advent Calendar 2025</a> の4日目の記事です
 
 <a href="https://adventar.org/calendars/12050" class="dynamic-link-card"></a>
 
-この記事では、Resoniteの玄人向けにMarkN流の軽量なアバターセットアップ方法を紹介します
-
-## はじめに
-
-私の理解に誤りがある可能性もあるため、この記事を**盲信しないでください**。<br>
-Resoniteのアップデートで記事の情報が古くなる可能性があります。
-
-この記事のセットアップは主に **意図しない動作をさせない・他人のFPSを低下させない** ことを重視しています。
-
-この記事の内容に従う必要はありません。私と重視する内容が似ているなら参考にしてください。
-
-具体的な実装方法までは解説しきれていない部分も多いため、以下の私がセットアップしたアバターを分解しながら読むことをおすすめします。（改変可能にするために一部最適とは言えない部分も残っています）
-<a href="https://uni-pocket.com/ja/items/cd78af9f-3f05-4da8-b499-a477111c2f8f " class="dynamic-link-card"></a>
-
-また、Resoniteで作業する際はこまめにインベントリにバックアップを保存するようにしましょう。
-
-以下のサイトも参考になるので、ぜひ目を通してみてください。
-<a href="https://wikiwiki.jp/resonaito/%E9%80%B8%E8%88%AC%E4%BA%BA%E5%90%91%E3%81%91%E3%82%A2%E3%83%90%E3%82%BF%E3%83%BC%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97" class="dynamic-link-card"></a>
-<a href="https://wikiwiki.jp/resonaito/%E3%82%A2%E3%83%90%E3%82%BF%E3%83%BC%E6%9C%80%E9%81%A9%E5%8C%96Tips" class="dynamic-link-card"></a>
-<a href="https://lillill.notion.site/by-lill-21ba5946cdd841339366b93913a52407" class="dynamic-link-card"></a>
-
-
-### 初心者さんへ
-
-<b>初心者の方はこの記事は無視</b>して、まずは簡単なところから楽しく気楽にセットアップを楽しみましょう。<br>
-Resoniteは中で一緒に作業ができるプラットフォームなので、JPチュートリアルでHelpボタンを押すなどしてメンターなどに手伝ってもらうか、<br>
-日本の<a href="https://discord.gg/resonite-japan" target="_blank" rel="noopener noreferrer">ResoniteDiscordサーバー</a>で「アバター設定依頼」をしてみてください。
-
-どうしても一人でやりたい方は、Resoniteの操作をある程度覚えてから、以下のサイトなどを参考にしてみてください。(これら以外にも色々あるので検索してみて)
-
-<a href="https://note.com/your0409/n/ndc08db097ee5" class="dynamic-link-card"></a>
-
-<a href="https://dinosaur-fossil.hatenablog.com/entry/2024/09/11/215603" class="dynamic-link-card"></a>
+Resonite玄人向けにMarkN流の軽量なアバターセットアップ方法や豆知識を紹介します<br>
+目次から気になった項目のみ確認するのもおすすめです
 
 ## 目次
+
+### はじめに
+- [はじめに](#はじめに)
+- [初心者さんへ](#初心者さんへ)
 
 ### インポート系
 - [Hips位置の誤認](#hips位置の誤認)
@@ -84,6 +56,38 @@ Resoniteは中で一緒に作業ができるプラットフォームなので、
 
 ### 更新履歴等
 - [更新履歴](#更新履歴)
+
+## はじめに
+
+私の理解に誤りがある可能性もあるため、この記事を**盲信しないでください**。<br>
+Resoniteのアップデートで記事の情報が古くなる可能性があります。
+
+この記事のセットアップは主に **意図しない動作をさせない・他人のFPSを低下させない** ことを重視しています。
+
+この記事の内容に従う必要はありません。私と重視する内容が似ているなら参考にしてください。
+
+具体的な実装方法までは解説しきれていない部分も多いため、以下の私がセットアップしたアバターを分解しながら読むことをおすすめします。（改変可能にするために一部最適とは言えない部分も残っています）
+<a href="https://uni-pocket.com/ja/items/cd78af9f-3f05-4da8-b499-a477111c2f8f " class="dynamic-link-card"></a>
+
+また、Resoniteで作業する際はこまめにインベントリにバックアップを保存するようにしましょう。
+
+以下のサイトも参考になるので、ぜひ目を通してみてください。
+<a href="https://wikiwiki.jp/resonaito/%E9%80%B8%E8%88%AC%E4%BA%BA%E5%90%91%E3%81%91%E3%82%A2%E3%83%90%E3%82%BF%E3%83%BC%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97" class="dynamic-link-card"></a>
+<a href="https://wikiwiki.jp/resonaito/%E3%82%A2%E3%83%90%E3%82%BF%E3%83%BC%E6%9C%80%E9%81%A9%E5%8C%96Tips" class="dynamic-link-card"></a>
+<a href="https://lillill.notion.site/by-lill-21ba5946cdd841339366b93913a52407" class="dynamic-link-card"></a>
+
+
+### 初心者さんへ
+
+<b>初心者の方はこの記事は無視</b>して、まずは簡単なところから楽しく気楽にセットアップを楽しみましょう。<br>
+Resoniteは中で一緒に作業ができるプラットフォームなので、JPチュートリアルでHelpボタンを押すなどしてメンターなどに手伝ってもらうか、<br>
+日本の<a href="https://discord.gg/resonite-japan" target="_blank" rel="noopener noreferrer">ResoniteDiscordサーバー</a>で「アバター設定依頼」をしてみてください。
+
+どうしても一人でやりたい方は、Resoniteの操作をある程度覚えてから、以下のサイトなどを参考にしてみてください。(これら以外にも色々あるので検索してみて)
+
+<a href="https://note.com/your0409/n/ndc08db097ee5" class="dynamic-link-card"></a>
+
+<a href="https://dinosaur-fossil.hatenablog.com/entry/2024/09/11/215603" class="dynamic-link-card"></a>
 
 ## Hips位置の誤認
 
@@ -554,7 +558,6 @@ Fluxとコンポーネントでこれだけ差があるのはバグの可能性�
 | 60m視界外 | **45** fps | → | **212** fps |
 
 ![FPS比較グラフ](unnamed.jpg)
-nanobananaにグラフ作ってもらった
 
 ### 最適化前スクショ
 
@@ -575,3 +578,4 @@ nanobananaにグラフ作ってもらった
 - 2025年12月5日 タイトル変更・項目順序変更・微修正多数
 - 2025年12月5日20:00 Blenderからglbでエクスポートした際の解説追加・おすすめ記事追加
 - 2025年12月6日 fps比較追加・画像まわりの処理を修正（内部の話）・その他微修正
+- 2026年1月13日 目次の場所変更 
