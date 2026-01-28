@@ -1,7 +1,7 @@
 ---
 title: "MarkN流アバターセットアップ【Resonite玄人向け】"
 date: 2025-12-04T23:10:00+09:00
-lastmod: 2026-01-13T11:48:00+09:00
+lastmod: 2026-01-28T19:00:00+09:00
 draft: false
 thumbnail: "thumbnail.webp"
 thumbnail_alt: "Resoniteアバターセットアップ"
@@ -43,7 +43,6 @@ Resonite玄人向けにMarkN流の軽量なアバターセットアップ方法�
 - [フェイシャルトラッキング](#フェイシャルトラッキング)
 
 ### 軽量化
-- [FPSと距離に応じて軽量化](#fpsと距離に応じて軽量化)
 - [LOD](#lod)
 - [バウンディングボックス](#バウンディングボックス)
 - [表情切り替え](#表情切り替え)
@@ -51,6 +50,7 @@ Resonite玄人向けにMarkN流の軽量なアバターセットアップ方法�
 - [メッシュベイク](#メッシュベイク)
 - [マテリアル](#マテリアル)
 - [テクスチャ](#テクスチャ)
+- [FPSと距離に応じて軽量化](#fpsと距離に応じて軽量化)
 - [最適化前とFPS比較](#最適化前とfps比較)
 
 ### 更新履歴等
@@ -82,11 +82,14 @@ Resoniteのアップデートで記事の情報が古くなる可能性があり
 Resoniteは中で一緒に作業ができるプラットフォームなので、JPチュートリアルでHelpボタンを押すなどしてメンターなどに手伝ってもらうか、<br>
 日本の<a href="https://discord.gg/resonite-japan" target="_blank" rel="noopener noreferrer">ResoniteDiscordサーバー</a>で「アバター設定依頼」をしてみてください。
 
-どうしても一人でやりたい方は、Resoniteの操作をある程度覚えてから、以下のサイトなどを参考にしてみてください。(これら以外にも色々あるので検索してみて)
+どうしても一人でやりたい方は、Resoniteの操作をある程度覚えてから、以下のサイトなどを参考にしてみてください。(最近はモジュラーアバター使っている人が多いかも)
 
 <a href="https://note.com/your0409/n/ndc08db097ee5" class="dynamic-link-card"></a>
 
 <a href="https://dinosaur-fossil.hatenablog.com/entry/2024/09/11/215603" class="dynamic-link-card"></a>
+
+<a href='https://berne.fanbox.cc/posts/11215400' class="dynamic-link-card">
+</a>
 
 ## Hips位置の誤認
 
@@ -390,22 +393,6 @@ Resoniteで貫通対策を完璧に行うのは大変なので、比較的簡単
 以下が解説ワールドです<br>（Resonite起動中にリンク先の`Open World`クリックでワールドが開く）
 <a href="https://go.resonite.com/world/U-1ab6590e-9cac-43c3-a23f-147579e0f277/R-72f1c4dc-33be-4565-9635-ada5785df81b" class="dynamic-link-card"></a>
 
-## FPSと距離に応じて軽量化
-
-`DynamicBone` は計算負荷があり、FPSが低くなると荒ぶることがあります（大人数の集合写真などでスカートや髪が痙攣したように震える現象）。
-
-そのため、`ValueGradientDriver<bool>` と `ValueMultiDriver<bool>` を組み合わせて、**一定以下のFPSになったら `DynamicBoneChain` コンポーネントのEnableが切れる** ように設定しましょう。
-
-余裕があれば、Enableが頻繁に切り替わって負荷が増えないように **ヒステリシス制御**（例：20fpsまで下がったらOFF、25fpsまで上がったらONというように、行き帰りで切り替え地点を変える制御）を導入しましょう。
-`BooleanValueDriver<float>` で `ValueGradientDriver<bool>` のPositionをドライブして、`BooleanValueDriver<float>` のstateを `ValueMultiDriver<bool>` でドライブすることで実装できます。
-
-**動作例**: 見ているユーザーのFPSによってDynamicBoneのON/OFFが変化します。
-![DynamicBoneのON状態](<2025-11-26 15.11.13.webp>)
-![DynamicBoneのOFF状態](<2025-11-26 15.11.23.webp>)
-
-距離でのON/OFFも実装したい場合はさらに複雑になるので、参考アバター（つみれちゃん）を分解して確認するかMarkNに聞いてください。
-![FPSと距離に応じた軽量化設定](<2025-11-26 17.13.40.webp>)
-
 ## LOD
 
 画面に対して表示しているメッシュのバウンディングボックスの大きさの割合が一定以下になったら、表示を消す機能です。
@@ -542,6 +529,22 @@ Fluxとコンポーネントでこれだけ差があるのはバグの可能性�
 *   アルファ除去後: 10.67MB（圧縮形式がBC1）
     ![アルファ除去後のテクスチャ](<2025-11-26 16.39.58.webp>)
 
+## FPSと距離に応じて軽量化
+
+`DynamicBone` は計算負荷があり、FPSが低くなると荒ぶることがあります（大人数の集合写真などでスカートや髪が痙攣したように震える現象）。
+
+そのため、`ValueGradientDriver<bool>` と `ValueMultiDriver<bool>` を組み合わせて、**一定以下のFPSになったら `DynamicBoneChain` コンポーネントのEnableが切れる** ように設定しましょう。
+
+余裕があれば、Enableが頻繁に切り替わって負荷が増えないように **ヒステリシス制御**（例：20fpsまで下がったらOFF、25fpsまで上がったらONというように、行き帰りで切り替え地点を変える制御）を導入しましょう。
+`BooleanValueDriver<float>` で `ValueGradientDriver<bool>` のPositionをドライブして、`BooleanValueDriver<float>` のstateを `ValueMultiDriver<bool>` でドライブすることで実装できます。
+
+**動作例**: 見ているユーザーのFPSによってDynamicBoneのON/OFFが変化します。
+![DynamicBoneのON状態](<2025-11-26 15.11.13.webp>)
+![DynamicBoneのOFF状態](<2025-11-26 15.11.23.webp>)
+
+距離でのON/OFFも実装したい場合はさらに複雑になるので、参考アバター（つみれちゃん）を分解して確認するかMarkNに聞いてください。
+![FPSと距離に応じた軽量化設定](<2025-11-26 17.13.40.webp>)
+
 ## 最適化前とFPS比較
 
 普通にインポートして、MaterialとDynamicBoneと表情設定を行ったアバターと<br>
@@ -552,8 +555,8 @@ Fluxとコンポーネントでこれだけ差があるのはバグの可能性�
 | 条件 | 最適化前 | → | 最適化後 |
 | :--- | :---: | :---: | :---: |
 | 近距離視界内 | **31** fps | → | **79** fps |
-| 近距離視界外 | **46** fps | → | **91** fps |
 | 60m視界内 | **32** fps | → | **103** fps |
+| 近距離視界外 | **46** fps | → | **91** fps |
 | 60m視界外 | **45** fps | → | **212** fps |
 
 ![FPS比較グラフ](unnamed.jpg)
@@ -577,4 +580,5 @@ Fluxとコンポーネントでこれだけ差があるのはバグの可能性�
 - 2025年12月5日 タイトル変更・項目順序変更・微修正多数
 - 2025年12月5日20:00 Blenderからglbでエクスポートした際の解説追加・おすすめ記事追加
 - 2025年12月6日 fps比較追加・画像まわりの処理を修正（内部の話）・その他微修正
-- 2026年1月13日 目次の場所変更 
+- 2026年1月13日 目次の場所変更
+- 2026年1月28日 順番並べ替え・アバターセットアップ術のリンク追加
