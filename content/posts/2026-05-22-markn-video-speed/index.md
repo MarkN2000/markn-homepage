@@ -3,7 +3,7 @@ title: "3キーで動画速度を操る Chrome / Firefox 拡張「MarkN Video Sp
 date: 2026-05-22T20:00:00+09:00
 lastmod:
 draft: false
-tags: ["作ったもの", "プログラミング", "Chrome拡張", "ブラウザ拡張"]
+tags: ["作ったもの", "プログラミング", "ブラウザ拡張"]
 thumbnail: "thumbnail.webp"
 thumbnail_alt: "Chrome拡張「MarkN Video Speed」のアイコンと、動画プレイヤー上に「1.50x」のHUDが一瞬だけ表示されているイメージ"
 description: "動画やポッドキャストの再生速度を、3つのキーだけで操れるブラウザ拡張機能を公開しました。既存の拡張機能の認知負荷の高さやUIの邪魔さに不満を感じていたので、本当に必要な操作だけに絞って自作しました。Chrome と Firefox の両方に対応しています。"
@@ -12,7 +12,7 @@ next_post_path:
 # foldername：2026-05-22-markn-video-speed
 ---
 
-動画の再生速度を、3つのキーだけで操れるブラウザ拡張機能「**MarkN Video Speed**」を公開しました。
+動画の再生速度を、3つのキーだけで操れるブラウザ拡張機能「<a href="https://chromewebstore.google.com/detail/markn-video-speed/eoijhkigmimphpiiljficdbelmgohndd">**MarkN Video Speed**</a>」を公開しました。
 Chrome / Edge などの Chromium 系ブラウザと、Firefox に対応しています。
 
 ## なぜ作ったのか

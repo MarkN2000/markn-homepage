@@ -49,6 +49,9 @@ Thumbs.db
 logs
 *.log
 
+# Cygwin / MSYS / Git Bash crash dumps
+*.stackdump
+
 # Sub-repositories
 static/koerec/.git
 
