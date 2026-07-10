@@ -57,3 +57,6 @@ static/koerec/.git
 
 # User specified
 static/koerec/
+
+# Hugo binary (ローカル用、バージョンは README 参照)
+bin/
