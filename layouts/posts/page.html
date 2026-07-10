@@ -1,0 +1,93 @@
+{{ define "main" }}
+{{- $hasToc := .Fragments.Headings -}}
+<main>
+  <div class="article-wrap">
+    <article class="article-main">
+
+      {{- /* タイトルカード */ -}}
+      <div class="article-surface head-card">
+        <header class="article-head">
+          {{- with .Params.thumbnail -}}
+            {{- with $.Resources.GetMatch . -}}
+              {{- $w := cond (gt .Width 1600) 1600 .Width -}}
+              {{- $img := .Resize (printf "%dx webp q80" $w) -}}
+              <img class="cover-img" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $.Title }}">
+            {{- end -}}
+          {{- end -}}
+          <h1>{{ .Title }}</h1>
+          <div class="article-meta">
+            <span>{{ .Date.Format "2006年1月2日" }}</span>
+            {{ if and .Lastmod (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}<span>·</span><span>更新: {{ .Lastmod.Format "2006年1月2日" }}</span>{{ end }}
+            {{ range .Params.tags }}<a class="tag" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a>{{ end }}
+          </div>
+        </header>
+      </div>
+
+      {{- /* 折りたたみ目次 (1024px 未満) */ -}}
+      {{- with $hasToc -}}
+      <details class="toc-mobile">
+        <summary>目次</summary>
+        {{ $.TableOfContents }}
+      </details>
+      {{- end -}}
+
+      {{- /* 本文カード */ -}}
+      <div class="article-surface body-card">
+        <div class="prose">
+          {{ .Content }}
+        </div>
+
+        {{- /* シェア行 */ -}}
+        <div class="share-row">
+          <a href="https://x.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" target="_blank" rel="noopener noreferrer">{{ partial "icon.html" "x" }}ポストする</a>
+          <button type="button" class="copy-link" data-url="{{ .Permalink }}">{{ partial "icon.html" "link" }}リンクをコピー</button>
+        </div>
+
+        {{- /* シリーズナビ (同一 series を日付昇順で前後接続) */ -}}
+        {{- with .Params.series -}}
+          {{- $series := . -}}
+          {{- $siblings := sort (where (where site.RegularPages "Type" "posts") "Params.series" $series) "Date" "asc" -}}
+          {{- $prev := false -}}{{- $next := false -}}{{- $found := false -}}
+          {{- range $siblings -}}
+            {{- if $found -}}
+              {{- if not $next -}}{{- $next = . -}}{{- end -}}
+            {{- else if eq .Permalink $.Permalink -}}
+              {{- $found = true -}}
+            {{- else -}}
+              {{- $prev = . -}}
+            {{- end -}}
+          {{- end -}}
+          {{- if or $prev $next -}}
+          <nav class="series-nav">
+            <div class="label">シリーズ: {{ $series }}</div>
+            <div class="pair">
+              {{ if $prev }}<a href="{{ $prev.RelPermalink }}"><span class="dir">← 前の記事</span><div class="t">{{ $prev.Title }}</div></a>{{ else }}<span></span>{{ end }}
+              {{ if $next }}<a href="{{ $next.RelPermalink }}" class="next"><span class="dir">次の記事 →</span><div class="t">{{ $next.Title }}</div></a>{{ else }}<span></span>{{ end }}
+            </div>
+          </nav>
+          {{- end -}}
+        {{- end -}}
+      </div>
+
+      {{- /* 関連記事 */ -}}
+      {{- $related := first 6 (site.RegularPages.Related .) -}}
+      {{- with $related -}}
+      <section class="container" style="padding:0">
+        <div class="section-head"><h2>関連記事</h2></div>
+        <div class="card-grid">
+          {{ range . }}{{ partial "card.html" . }}{{ end }}
+        </div>
+      </section>
+      {{- end -}}
+    </article>
+
+    {{- /* 追従目次 (デスクトップ) */ -}}
+    {{- with $hasToc -}}
+    <aside class="toc" aria-label="目次">
+      <div class="label">目次</div>
+      {{ $.TableOfContents }}
+    </aside>
+    {{- end -}}
+  </div>
+</main>
+{{ end }}

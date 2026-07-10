@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{- $paginator := .Paginate .Pages -}}
+<main>
+  <div class="container">
+    <div class="list-tools">
+      <h1>{{ .Title }}</h1>
+      {{ partial "tag-filter.html" (dict "current" .Title) }}
+    </div>
+
+    <div class="card-grid">
+      {{ range $paginator.Pages }}{{ partial "card.html" . }}{{ end }}
+    </div>
+
+    {{- $p := $paginator -}}
+    {{- if gt $p.TotalPages 1 -}}
+    <nav class="pagination" aria-label="ページ送り">
+      {{ if $p.HasPrev }}<a href="{{ $p.Prev.URL }}" aria-label="前のページ">←</a>{{ end }}
+      {{ range $p.Pagers }}
+        {{ if eq . $p }}<span class="on">{{ .PageNumber }}</span>{{ else }}<a href="{{ .URL }}">{{ .PageNumber }}</a>{{ end }}
+      {{ end }}
+      {{ if $p.HasNext }}<a href="{{ $p.Next.URL }}" aria-label="次のページ">→</a>{{ end }}
+    </nav>
+    {{- end -}}
+  </div>
+</main>
+{{ end }}

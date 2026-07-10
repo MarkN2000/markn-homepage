@@ -4,7 +4,7 @@ date: 2025-05-17T20:00:00+09:00
 lastmod: 2026-01-13T11:10:00+09:00
 draft: false
 layout: "page"
-_build:
+build:
   list: never
   render: true
 ---

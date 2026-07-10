@@ -1,0 +1,35 @@
+{{ define "main" }}
+{{- $posts := where site.RegularPages "Type" "posts" -}}
+{{- $paginator := .Paginate $posts -}}
+<main>
+  <div class="container">
+    <div class="list-tools">
+      <h1>記事一覧</h1>
+      <label class="search">
+        {{ partial "icon.html" "search" }}
+        <input id="post-search" type="search" placeholder="タイトル・タグ・説明文で検索" autocomplete="off" aria-label="記事を検索">
+      </label>
+      {{ partial "tag-filter.html" (dict "current" "") }}
+    </div>
+
+    <div class="card-grid" id="post-grid">
+      {{ range $paginator.Pages }}{{ partial "card.html" . }}{{ end }}
+    </div>
+
+    {{- $p := $paginator -}}
+    {{- if gt $p.TotalPages 1 -}}
+    <nav class="pagination" id="post-pagination" aria-label="ページ送り">
+      {{ if $p.HasPrev }}<a href="{{ $p.Prev.URL }}" aria-label="前のページ">←</a>{{ end }}
+      {{ range $p.Pagers }}
+        {{ if eq . $p }}<span class="on">{{ .PageNumber }}</span>{{ else }}<a href="{{ .URL }}">{{ .PageNumber }}</a>{{ end }}
+      {{ end }}
+      {{ if $p.HasNext }}<a href="{{ $p.Next.URL }}" aria-label="次のページ">→</a>{{ end }}
+    </nav>
+    {{- end -}}
+
+    {{- /* 検索結果 (site.js が描画。デフォルトは非表示) */ -}}
+    <div class="card-grid" id="search-results" hidden></div>
+    <p class="search-empty" id="search-empty" hidden>該当する記事が見つかりませんでした。</p>
+  </div>
+</main>
+{{ end }}

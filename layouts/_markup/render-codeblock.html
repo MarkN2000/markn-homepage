@@ -1,0 +1,7 @@
+{{- /* コードブロックを .code-wrap で包み、右上にコピーボタンを付ける。
+       ハイライトは Chroma (noClasses=false)。配色は 40-syntax.css。 */ -}}
+{{- $result := transform.HighlightCodeBlock . -}}
+<div class="code-wrap">
+  <button class="copy" type="button">コピー</button>
+  {{ $result.Wrapped }}
+</div>

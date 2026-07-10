@@ -1,0 +1,18 @@
+{{ define "main" }}
+<main>
+  <div class="article-wrap">
+    <article class="article-main">
+      <div class="article-surface head-card">
+        <header class="article-head">
+          <h1>{{ .Title }}</h1>
+        </header>
+      </div>
+      <div class="article-surface body-card">
+        <div class="prose">
+          {{ .Content }}
+        </div>
+      </div>
+    </article>
+  </div>
+</main>
+{{ end }}

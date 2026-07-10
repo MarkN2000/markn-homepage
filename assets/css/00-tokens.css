@@ -1,0 +1,46 @@
+/* ============================================================
+   デザイントークン (docs/redesign-spec.md §4 が正)
+   色・余白・角丸・影はすべてここに集約し、コンポーネントは
+   生の色コードを持たない。
+   ============================================================ */
+:root{
+  --ground:#EDF4F8;
+  --surface:#FFFFFF;
+  --ink:#243642;
+  --muted:#63798A;
+  --accent:#2AA3D4;
+  --accent-deep:#1479AC;
+  --accent-soft:#E3F2FA;
+  --border:#DAE6ED;
+  --code-bg:#1C2B35;
+
+  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Code",Consolas,Menlo,monospace;
+
+  --text-body:17px;
+  --leading-body:1.9;
+  --content-width:860px;
+  --site-width:1080px;
+
+  --radius-s:8px;
+  --radius-m:12px;
+  --shadow-card:0 1px 2px rgba(36,54,66,.06);
+  --shadow-hover:0 6px 20px rgba(20,121,172,.14);
+
+  color-scheme:light; /* 固定ライトテーマ(仕様決定) */
+}
+
+/* ------------------------------------------------------------
+   ダークモード準備スロット（現状は未対応）。
+   トークンをここで再定義するだけで追加できる構造にしておく。
+   ------------------------------------------------------------ */
+/*
+:root[data-theme="dark"]{
+  --ground:#0F1B22;
+  --surface:#16242D;
+  --ink:#E7F0F5;
+  --muted:#9DB2BF;
+  --border:#28404E;
+  --accent-soft:#173241;
+}
+*/

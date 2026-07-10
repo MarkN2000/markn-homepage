@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+{{ if not .IsHome }}{{ partial "header.html" . }}{{ end }}
+
+{{ block "main" . }}{{ end }}
+
+{{ partial "footer.html" . }}
+
+<button class="back-to-top" type="button" aria-label="ページトップに戻る" title="ページトップに戻る">
+  {{ partial "icon.html" "up" }}
+</button>
+
+{{ $js := resources.Get "js/site.js" | js.Build (dict "minify" true) | fingerprint }}
+<script src="{{ $js.RelPermalink }}" defer></script>
+</body>
+</html>

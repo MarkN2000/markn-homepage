@@ -1,0 +1,22 @@
+/* ============================================================
+   記事ページのシェル (タイトルカード / 本文カードを分離)
+   ============================================================ */
+.article-wrap{display:flex;gap:36px;align-items:flex-start;max-width:1180px;margin:0 auto;padding:0 20px}
+.article-main{max-width:var(--content-width);min-width:0;flex:1;margin:0 auto}
+.article-surface{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-m);
+  padding:30px 36px;margin-top:20px;
+}
+.article-surface.head-card{margin-top:28px;padding-bottom:26px}
+.article-surface.body-card{padding-bottom:40px}
+@media (max-width:600px){
+  .article-wrap{padding:0 12px}
+  .article-surface{padding:24px 18px;margin-top:14px}
+  .article-surface.head-card{margin-top:14px}
+  .article-surface.body-card{padding-bottom:32px}
+}
+
+.article-head h1{font-size:1.7rem;line-height:1.5;margin:0 0 14px;text-align:center}
+@media (max-width:600px){ .article-head h1{font-size:1.4rem} }
+.article-meta{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.85rem;margin-bottom:6px}
+.article-head .cover-img{border-radius:var(--radius-s);margin:0 0 20px;display:block;width:100%;height:auto}

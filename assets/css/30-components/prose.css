@@ -1,0 +1,55 @@
+/* ============================================================
+   本文タイポグラフィ (可読性の本丸)
+   ============================================================ */
+.prose{margin-top:18px}
+.prose > *:first-child{margin-top:0}
+.prose p{margin:1.4em 0}
+.prose a{text-decoration:underline;text-underline-offset:2px}
+/* 章見出しは記事タイトルと同じ文字サイズ */
+.prose h2{
+  font-size:1.7rem;line-height:1.5;margin:2.2em 0 .8em;
+  padding-bottom:.4em;border-bottom:1px solid var(--border);
+  scroll-margin-top:20px;
+}
+@media (max-width:600px){ .prose h2{font-size:1.4rem} }
+.prose h3{font-size:1.12rem;line-height:1.55;margin:2em 0 .8em;scroll-margin-top:20px}
+.prose h4{font-size:1rem;line-height:1.55;margin:1.8em 0 .7em;scroll-margin-top:20px}
+.prose ul,.prose ol{margin:1.4em 0;padding-left:1.6em}
+.prose li{margin:.35em 0}
+.prose strong{color:var(--ink)}
+.prose blockquote{
+  margin:1.6em 0;padding:.2em 1.2em;color:var(--muted);
+  border-left:3px solid var(--accent);background:var(--accent-soft);
+  border-radius:0 var(--radius-s) var(--radius-s) 0;
+}
+.prose blockquote p{margin:.8em 0}
+.prose code:not(pre code){
+  font-family:var(--font-mono);font-size:.85em;
+  background:var(--accent-soft);color:var(--accent-deep);
+  padding:.15em .45em;border-radius:5px;
+}
+.prose img{border-radius:var(--radius-s)}
+.prose figure{margin:1.8em 0;text-align:center}
+.prose figure img,.prose figure svg{border-radius:var(--radius-s)}
+.prose figcaption{font-size:.83rem;color:var(--muted);margin-top:.6em;line-height:1.6}
+.prose hr{border:0;border-top:1px solid var(--border);margin:2.4em 0}
+.prose table{width:100%;border-collapse:collapse;margin:1.6em 0;font-size:.92em}
+.prose th,.prose td{border:1px solid var(--border);padding:.5em .8em;text-align:left}
+.prose th{background:var(--accent-soft)}
+
+/* コードブロック (render-codeblock フックが .code-wrap で包む) */
+.prose .code-wrap{position:relative;margin:1.6em 0}
+.prose pre{
+  background:var(--code-bg);color:#DCE8EF;border-radius:var(--radius-s);
+  padding:16px 18px;overflow-x:auto;margin:0;
+  font-family:var(--font-mono);font-size:.85rem;line-height:1.7;
+}
+.prose pre code{font-family:inherit;background:none;color:inherit;padding:0}
+/* Hugo/Chroma のラッパ .highlight は余白を潰す */
+.prose .highlight{margin:0}
+.code-wrap .copy{
+  position:absolute;top:8px;right:8px;font:inherit;font-size:.72rem;font-weight:600;
+  color:#B8CAD6;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);
+  border-radius:6px;padding:3px 10px;cursor:pointer;z-index:1;
+}
+.code-wrap .copy:hover{background:rgba(255,255,255,.18);color:#fff}

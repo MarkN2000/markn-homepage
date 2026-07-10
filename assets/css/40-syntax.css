@@ -1,0 +1,41 @@
+/* ============================================================
+   シンタックスハイライト (Chroma, noClasses=false)
+   モックのコードブロック配色に合わせて主要トークンを定義。
+   地色 #1C2B35 は .prose pre 側で指定。
+   ============================================================ */
+.chroma{background:transparent;color:#DCE8EF}
+.chroma .err{color:#F2777A}
+.chroma .hl{background:rgba(255,255,255,.06);display:block}
+.chroma .ln,.chroma .lnt{color:#4C6473;margin-right:.6em}
+
+/* コメント */
+.chroma .c,.chroma .ch,.chroma .cm,.chroma .c1,.chroma .cs,.chroma .cp,.chroma .cpf{color:#6C8798;font-style:italic}
+
+/* キーワード */
+.chroma .k,.chroma .kc,.chroma .kd,.chroma .kn,.chroma .kp,.chroma .kr,.chroma .kt{color:#7FC5E8}
+
+/* 名前系 */
+.chroma .n{color:#DCE8EF}
+.chroma .nf,.chroma .fm{color:#F0C674}
+.chroma .nb,.chroma .bp{color:#7FC5E8}
+.chroma .nc,.chroma .nn,.chroma .no{color:#8FD3C4}
+.chroma .na,.chroma .nl{color:#B7D97F}
+.chroma .nt{color:#7FC5E8}
+.chroma .nv,.chroma .vc,.chroma .vg,.chroma .vi{color:#DCE8EF}
+
+/* 文字列 */
+.chroma .s,.chroma .sa,.chroma .sb,.chroma .sc,.chroma .dl,.chroma .sd,.chroma .s2,.chroma .se,.chroma .sh,.chroma .si,.chroma .sx,.chroma .sr,.chroma .s1,.chroma .ss{color:#A8D8A0}
+
+/* 数値 */
+.chroma .m,.chroma .mb,.chroma .mf,.chroma .mh,.chroma .mi,.chroma .il,.chroma .mo{color:#E0A883}
+
+/* 演算子・区切り */
+.chroma .o,.chroma .ow{color:#9FC4D8}
+.chroma .p{color:#B8CAD6}
+
+/* その他 */
+.chroma .gd{color:#F2777A}
+.chroma .gi{color:#A8D8A0}
+.chroma .gh,.chroma .gu{color:#7FC5E8;font-weight:700}
+.chroma .ge{font-style:italic}
+.chroma .gs{font-weight:700}

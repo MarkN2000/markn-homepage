@@ -1,0 +1,18 @@
+{{- $onList := or (eq .Section "posts") (eq .Kind "term") (eq .Kind "taxonomy") -}}
+<header class="site-header">
+  <div class="bar">
+    <a class="logo" href="{{ site.Home.RelPermalink }}">
+      <img class="mark-img" src="{{ site.Params.profile.avatar | relURL }}" alt="" width="30" height="30">
+      <span class="t"><span class="t-main">{{ site.Params.profile.nameShort }}</span><span class="t-sub">{{ replace site.Params.profile.name site.Params.profile.nameShort "" }}</span></span>
+    </a>
+    <nav class="nav">
+      <a href="{{ site.Home.RelPermalink }}"{{ if .IsHome }} aria-current="page"{{ end }}>ホーム</a>
+      <a href="{{ "/posts/" | relURL }}"{{ if $onList }} aria-current="page"{{ end }}>記事一覧</a>
+    </nav>
+    <div class="header-sns">
+      {{- range where site.Params.sns "main" true -}}
+      <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }}" title="{{ .name }}">{{ partial "icon.html" .icon }}</a>
+      {{- end -}}
+    </div>
+  </div>
+</header>

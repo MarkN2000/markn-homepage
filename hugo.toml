@@ -1,41 +1,83 @@
 baseURL = "https://markn2000.com"
-languageCode = "ja-jp"
-title = "MarkN(まーくん。)のホームページ"
-# copyright = "© 2025 MarkN. All Rights Reserved." # フッターで .Site.Copyright も使える
+locale = "ja-jp"
+defaultContentLanguage = "ja"
+title = "MarkN(まーくん)のホームページ"
+
+enableGitInfo = true
+enableRobotsTXT = true
 
 [pagination]
   pagerSize = 12
 
+[taxonomies]
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "JSON"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+  page = ["HTML"]
+
 [params]
   description = "Resonite（レゾナイト）でVRプログラミングなどをしてツールやおもちゃを作っています。技術的な知見やTipsも発信。"
   og_image = "/images/ogp_default.webp"
-  # author = "MarkN(まーくん。)"
   mainSections = ["posts"]
-  ogpApiUrl = "https://script.google.com/macros/s/AKfycbwm87iRorfifbyVnLSWxVO6VqtwEQyBFfhbbmobgR1j294XQB46TQK-t_z7QyxRAfhYHg/exec"
+  themeColor = "#2AA3D4"
+
+  # プロフィール（ヒーロー・ヘッダーで使用）
+  [params.profile]
+    name = "MarkN(まーくん)"
+    nameShort = "MarkN"
+    intro = "Resonite(レゾナイト)でVRプログラミングなどをしてツールやおもちゃを作っています。技術的な知見やTipsも発信。"
+    avatar = "/images/profile.webp"
+
+  # SNS・外部リンク一覧（ヒーローに全種、ヘッダーは main=true の3つに絞る）
+  [[params.sns]]
+    name = "Twitter(X)"
+    url = "https://x.com/markn_chansan"
+    icon = "x"
+    main = true
+  [[params.sns]]
+    name = "YouTube"
+    url = "https://www.youtube.com/@marknvr"
+    icon = "youtube"
+    main = true
+  [[params.sns]]
+    name = "BOOTH"
+    url = "https://markn.booth.pm/"
+    icon = "booth"
+  [[params.sns]]
+    name = "ほしい物リスト"
+    url = "https://www.amazon.co.jp/hz/wishlist/ls/NG17ACULTUZT?ref_=wl_share"
+    icon = "gift"
+  [[params.sns]]
+    name = "依頼/お問い合わせ"
+    url = "https://docs.google.com/forms/d/e/1FAIpQLSdl5UHhRc5Hq5Y_njMLCttSEqnHpWem_Ays6OpfYGGYOEIExg/viewform?usp=header"
+    icon = "mail"
+    main = true
+
+  # トップページ構成
+  [params.home]
+    pickupCount = 6
+    latestCount = 6
+    # タグ棚（配列で増減・入替できる）
+    [[params.home.shelves]]
+      tag = "作ったもの"
+      count = 3
 
 [markup]
   [markup.goldmark.renderer]
-    unsafe = true # HTMLタグをMarkdown内で許可する場合
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = true
   [markup.highlight]
-    # anchorLineNos = false
-    codeFences = true # ``` で囲むコードブロックをハイライト
-    # guessSyntax = false
-    # hl_Lines = ''
-    # lineAnchors = ''
-    lineNos = false # 行番号を表示するかどうか (true/false)
-    # lineNumbersInTable = true
-    noClasses = false # falseにするとChromaが生成するクラス名が付与される
-    style = "monokai" # ハイライトスタイル (例: "monokai", "native", "fruity"など多数)
-    # tabWidth = 4
-
-[build]
-  [build.processing]
-    [build.processing.css]
-      [build.processing.css.postcss]
-        # config = "./postcss.config.js"
-
-# ファイルの更新日時を自動的にlastmodとして設定
-enableGitInfo = true
+    codeFences = true
+    lineNos = false
+    noClasses = false
+    style = "monokai"
 
 [sitemap]
   changefreq = "weekly"
@@ -43,7 +85,7 @@ enableGitInfo = true
   filename = "sitemap.xml"
 
 [related]
-  threshold = 40 # 関連性の閾値 (0-100)
+  threshold = 40
   includeNewer = true
   toLower = false
 
@@ -53,4 +95,4 @@ enableGitInfo = true
   [[related.indices]]
     name = "date"
     weight = 10
-    pattern = "2006" # 年が同じ記事を少し関連付けるなど
+    pattern = "2006"

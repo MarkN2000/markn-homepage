@@ -1,0 +1,11 @@
+/* ============================================================
+   横スワイプ棚 (ピックアップ / タグ棚: モバイルのみ)
+   ============================================================ */
+@media (max-width:600px){
+  .shelf-scroll{
+    display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:76%;
+    overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-left:16px;
+    gap:12px;margin:0 -16px;padding:2px 16px 10px;
+  }
+  .shelf-scroll .card{scroll-snap-align:start}
+}

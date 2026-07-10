@@ -1,0 +1,7 @@
+{{- /* ヒーローの SNS チップ列。全 SNS を表示する。
+      呼び出し: {{ partial "sns.html" . }} (. は Page) */ -}}
+<div class="sns-row">
+  {{- range site.Params.sns -}}
+  <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ partial "icon.html" .icon }}{{ .name }}</a>
+  {{- end -}}
+</div>

@@ -1,0 +1,17 @@
+{{- /* YouTube ファサード方式。クリックで site.js が本物のプレイヤーへ差し替える。
+       既存記事が使うため維持 (Phase D で単独行URL方式へ移行予定)。 */ -}}
+{{- $id := "" -}}
+{{- if .IsNamedParams -}}
+  {{- $id = .Get "id" | default (.Get 0) -}}
+{{- else -}}
+  {{- $id = .Get 0 -}}
+{{- end -}}
+{{- if $id -}}
+<button class="yt-facade" type="button" data-id="{{ $id }}" aria-label="YouTube動画を再生">
+  {{- /* TODO(Phase C): サムネイルをビルド時取得に置換 */ -}}
+  <img class="yt-thumb" src="https://i.ytimg.com/vi/{{ $id }}/hqdefault.jpg" alt="" loading="lazy">
+  <span class="play">{{ partial "icon.html" "play" }}</span>
+</button>
+{{- else -}}
+<p class="search-empty">YouTube動画IDが指定されていません。</p>
+{{- end -}}

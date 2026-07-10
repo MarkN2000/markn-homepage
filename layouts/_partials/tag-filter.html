@@ -1,0 +1,9 @@
+{{- /* タグ絞り込みチップ。呼び出し: partial "tag-filter.html" (dict "current" <タグ名 or "">) */ -}}
+{{- $current := .current -}}
+{{- $total := len (where site.RegularPages "Type" "posts") -}}
+<div class="filter">
+  <a href="{{ "/posts/" | relURL }}"{{ if eq $current "" }} class="on"{{ end }}>すべて {{ $total }}</a>
+  {{- range site.Taxonomies.tags.ByCount -}}
+  <a href="{{ .Page.RelPermalink }}"{{ if eq .Page.Title $current }} class="on"{{ end }}>{{ .Page.Title }} {{ .Count }}</a>
+  {{- end -}}
+</div>

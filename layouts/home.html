@@ -1,0 +1,59 @@
+{{ define "main" }}
+{{- $posts := where site.RegularPages "Type" "posts" -}}
+<main>
+  <section class="hero-banner">
+    <div class="hero container">
+      <img class="avatar" src="{{ site.Params.profile.avatar | relURL }}" alt="{{ site.Params.profile.name }}のアイコン" width="76" height="76">
+      <div class="who">
+        <h1>{{ site.Params.profile.name }}</h1>
+        <p>{{ site.Params.profile.intro }}</p>
+      </div>
+      {{ partial "sns.html" . }}
+    </div>
+  </section>
+
+  <div class="container">
+    {{- /* ピックアップ */ -}}
+    {{- $pickup := first site.Params.home.pickupCount (where $posts "Params.pickup" true) -}}
+    {{- with $pickup -}}
+    <section>
+      <div class="section-head">
+        <h2>ピックアップ</h2>
+        <a class="more" href="{{ "/posts/" | relURL }}">記事一覧へ →</a>
+      </div>
+      <div class="card-grid shelf-scroll">
+        {{ range . }}{{ partial "card.html" . }}{{ end }}
+      </div>
+    </section>
+    {{- end -}}
+
+    {{- /* タグ棚 (hugo.toml の params.home.shelves を range。棚は増減可能) */ -}}
+    {{- range site.Params.home.shelves -}}
+      {{- $count := .count -}}
+      {{- with index site.Taxonomies.tags .tag -}}
+        {{- $term := .Page -}}
+        <section>
+          <div class="section-head">
+            <h2>{{ $term.Title }}</h2><span class="count">{{ len .Pages }}件</span>
+            <a class="more" href="{{ $term.RelPermalink }}">もっと見る →</a>
+          </div>
+          <div class="card-grid shelf-scroll">
+            {{ range first $count .Pages }}{{ partial "card.html" . }}{{ end }}
+          </div>
+        </section>
+      {{- end -}}
+    {{- end -}}
+
+    {{- /* 最新記事 */ -}}
+    <section>
+      <div class="section-head">
+        <h2>最新記事</h2>
+        <a class="more" href="{{ "/posts/" | relURL }}">記事一覧へ →</a>
+      </div>
+      <div class="card-grid">
+        {{ range first site.Params.home.latestCount $posts }}{{ partial "card.html" . }}{{ end }}
+      </div>
+    </section>
+  </div>
+</main>
+{{ end }}

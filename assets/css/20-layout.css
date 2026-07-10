@@ -1,0 +1,73 @@
+/* ============================================================
+   共通レイアウト (header / footer / container / back-to-top)
+   ============================================================ */
+.container{max-width:var(--site-width);margin:0 auto;padding:0 20px}
+@media (max-width:600px){ .container{padding:0 16px} }
+main{padding-bottom:56px}
+
+/* --- サイトヘッダー (トップページ以外で表示) --- */
+.site-header{background:var(--surface);border-bottom:1px solid var(--border)}
+.site-header .bar{
+  max-width:var(--site-width);margin:0 auto;padding:10px 20px;
+  display:flex;align-items:center;gap:18px;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:700;font-size:1.05rem;min-width:0}
+.logo .t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.logo .mark-img{width:30px;height:30px;border-radius:50%;flex:none;object-fit:cover}
+@media (max-width:600px){ .logo .t-sub{display:none} } /* モバイルは「MarkN」に短縮 */
+
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{
+  text-decoration:none;color:var(--muted);font-size:.92rem;font-weight:600;
+  padding:6px 12px;border-radius:999px;white-space:nowrap;
+}
+.nav a:hover{background:var(--accent-soft);color:var(--accent-deep)}
+.nav a[aria-current="page"]{color:var(--accent-deep)}
+.header-sns{display:flex;gap:2px}
+.header-sns a{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;color:var(--muted)}
+.header-sns a:hover{background:var(--accent-soft);color:var(--accent-deep)}
+.header-sns svg{width:17px;height:17px;fill:currentColor}
+@media (max-width:600px){
+  .site-header .bar{padding:10px 14px;gap:10px}
+  .logo{font-size:.95rem}
+  .nav a{padding:6px 8px;font-size:.88rem}
+  .header-sns a{width:30px;height:30px}
+}
+
+/* --- セクション見出し (柄背景の上でも読めるよう白いバーに載せる) --- */
+.section-head{
+  display:flex;align-items:baseline;gap:12px;margin:40px 0 14px;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-m);
+  padding:10px 18px;box-shadow:var(--shadow-card);
+}
+.section-head h2{font-size:1.3rem;margin:0;line-height:1.4}
+.section-head .more{margin-left:auto;font-size:.88rem;text-decoration:none;font-weight:600;white-space:nowrap}
+.section-head .more:hover{text-decoration:underline}
+.section-head .count{color:var(--muted);font-size:.85rem}
+
+/* --- フッター --- */
+.site-footer{background:var(--surface);border-top:1px solid var(--border);margin-top:64px}
+.site-footer .in{
+  max-width:var(--site-width);margin:0 auto;padding:26px 20px;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  font-size:.85rem;color:var(--muted);
+}
+.site-footer a{color:var(--muted);text-decoration:none}
+.site-footer a:hover{color:var(--accent-deep)}
+.site-footer .c{margin-left:auto}
+
+/* --- トップへ戻るボタン (スクロール 600px 超で出現) --- */
+.back-to-top{
+  position:fixed;right:22px;bottom:22px;z-index:50;
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--border);
+  background:var(--accent-deep);color:#fff;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-hover);
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity .2s ease, transform .2s ease, visibility .2s ease, background .15s ease;
+}
+.back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+.back-to-top:hover{background:var(--accent)}
+.back-to-top svg{width:20px;height:20px;fill:currentColor}
+@media (prefers-reduced-motion:reduce){ .back-to-top{transition:opacity .2s ease, visibility .2s ease} }
+@media (max-width:600px){ .back-to-top{right:16px;bottom:16px;width:42px;height:42px} }

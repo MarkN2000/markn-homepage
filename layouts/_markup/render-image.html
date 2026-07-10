@@ -1,0 +1,40 @@
+{{- /* Markdown 画像 ![alt](src "title") を処理:
+       ページリソース / assets → リサイズ + WebP、title があれば figure+figcaption。
+       外部URL・static 直指定はそのまま出力。 */ -}}
+{{- $src := .Destination -}}
+{{- $alt := .Text | default "" -}}
+{{- $title := .Title -}}
+{{- $page := .Page -}}
+
+{{- $image := "" -}}
+{{- $isResource := false -}}
+{{- $isExternal := or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+
+{{- if $isExternal -}}
+  {{- $image = $src -}}
+{{- else -}}
+  {{- with $page.Resources.GetMatch $src -}}
+    {{- $image = . -}}{{- $isResource = true -}}
+  {{- else -}}
+    {{- with resources.Get (strings.TrimPrefix "/" $src) -}}
+      {{- $image = . -}}{{- $isResource = true -}}
+    {{- else -}}
+      {{- $image = $src -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $imgTag := "" -}}
+{{- if $isResource -}}
+  {{- $w := cond (gt $image.Width 860) 860 $image.Width -}}
+  {{- $p := $image.Resize (printf "%dx webp q80" $w) -}}
+  {{- $imgTag = printf `<img src="%s" width="%d" height="%d" alt="%s" loading="lazy">` $p.RelPermalink $p.Width $p.Height $alt -}}
+{{- else -}}
+  {{- $imgTag = printf `<img src="%s" alt="%s" loading="lazy">` $image $alt -}}
+{{- end -}}
+
+{{- if $title -}}
+<figure>{{ $imgTag | safeHTML }}<figcaption>{{ $title | markdownify }}</figcaption></figure>
+{{- else -}}
+{{ $imgTag | safeHTML }}
+{{- end -}}

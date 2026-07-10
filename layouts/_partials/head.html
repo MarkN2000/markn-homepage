@@ -1,0 +1,82 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{{- $siteTitle := .Site.Title -}}
+{{- $title := .Title | default $siteTitle -}}
+{{- $description := .Description | default (.Summary | plainify | truncate 120) | default .Site.Params.description -}}
+{{- $pageURL := .Permalink -}}
+
+{{- /* OGP画像: thumbnail(ページリソース) → サイトデフォルト og_image の優先順 */ -}}
+{{- $imageURL := "" -}}
+{{- if .IsPage -}}
+  {{- with .Params.thumbnail -}}
+    {{- with $.Resources.GetMatch . -}}
+      {{- $imageURL = .Permalink -}}
+    {{- else -}}
+      {{- if hasPrefix . "/" -}}{{- $imageURL = (. | absURL) -}}{{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $imageURL -}}
+  {{- with .Site.Params.og_image -}}{{- $imageURL = (. | absURL) -}}{{- end -}}
+{{- end -}}
+
+{{- /* タクソノミー系ページは noindex, follow */ -}}
+{{- if or (eq .Kind "taxonomy") (eq .Kind "term") -}}
+<meta name="robots" content="noindex, follow">
+{{- end }}
+
+<title>{{ if .IsHome }}{{ $siteTitle }}{{ else }}{{ .Title }} | {{ $siteTitle }}{{ end }}</title>
+<meta name="description" content="{{ $description }}">
+<link rel="canonical" href="{{ $pageURL }}">
+
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ $pageURL }}">
+<meta property="og:site_name" content="{{ $siteTitle }}">
+{{ if $imageURL }}<meta property="og:image" content="{{ $imageURL }}">{{ end }}
+{{ with .Site.Language.Locale }}<meta property="og:locale" content="{{ replace . "-" "_" }}">{{ end }}
+
+<meta name="twitter:card" content="{{ if $imageURL }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+{{ if $imageURL }}<meta name="twitter:image" content="{{ $imageURL }}">{{ end }}
+
+{{- /* schema.org JSON-LD (script タグごと safeHTML で出力し二重エスケープを防ぐ) */ -}}
+{{- if .IsPage -}}
+  {{- $ld := dict
+    "@context" "https://schema.org"
+    "@type" "Article"
+    "headline" .Title
+    "description" $description
+    "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+    "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+    "mainEntityOfPage" $pageURL
+    "author" (dict "@type" "Person" "name" "MarkN")
+    "publisher" (dict "@type" "Person" "name" "MarkN")
+    "image" (cond (ne $imageURL "") (slice $imageURL) nil) -}}
+  {{- printf `<script type="application/ld+json">%s</script>` ($ld | jsonify) | safeHTML }}
+{{- else -}}
+  {{- $ld := dict "@context" "https://schema.org" "@type" "WebSite" "name" $siteTitle "url" .Site.BaseURL "description" .Site.Params.description -}}
+  {{- printf `<script type="application/ld+json">%s</script>` ($ld | jsonify) | safeHTML }}
+{{- end }}
+
+{{- /* RSS */ -}}
+{{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $siteTitle }}">{{ end }}
+{{ with site.Home.OutputFormats.Get "RSS" }}{{ if not $.IsHome }}<link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $siteTitle }}">{{ end }}{{ end }}
+
+{{- /* favicon 一式 (既存流用) */ -}}
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "/images/icons/apple-touch-icon.png" | relURL }}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ "/images/icons/favicon-96x96.png" | relURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "/images/icons/favicon-32x32.png" | relURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "/images/icons/favicon-16x16.png" | relURL }}">
+<link rel="manifest" href="{{ "/site.webmanifest" | relURL }}">
+<link rel="shortcut icon" href="{{ "/images/icons/favicon.ico" | relURL }}">
+<meta name="theme-color" content="{{ .Site.Params.themeColor | default "#2AA3D4" }}">
+
+{{- /* CSS: assets/css 配下を番号順に結合・圧縮・fingerprint */ -}}
+{{- $css := union (resources.Match "css/*.css") (resources.Match "css/**/*.css") -}}
+{{- $css = sort $css "Name" -}}
+{{- $bundle := $css | resources.Concat "css/site.css" | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $bundle.RelPermalink }}">

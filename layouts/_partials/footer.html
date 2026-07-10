@@ -1,0 +1,7 @@
+<footer class="site-footer">
+  <div class="in">
+    <a href="{{ "/privacy-policy/" | relURL }}">プライバシーポリシー</a>
+    {{ with site.Home.OutputFormats.Get "RSS" }}<a href="{{ .RelPermalink }}">RSS</a>{{ end }}
+    <span class="c">© {{ now.Format "2006" }} MarkN</span>
+  </div>
+</footer>

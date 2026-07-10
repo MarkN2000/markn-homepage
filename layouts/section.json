@@ -1,0 +1,21 @@
+{{- /* 記事検索インデックス (/posts/index.json)。site.js が /posts/ でのみ読み込む */ -}}
+{{- $list := slice -}}
+{{- range where site.RegularPages "Type" "posts" -}}
+  {{- $thumb := "" -}}
+  {{- with .Params.thumbnail -}}
+    {{- with $.Resources.GetMatch . -}}
+      {{- $thumb = (.Fill "352x198 Center webp q60").RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $list = $list | append (dict
+      "title" .Title
+      "description" (.Description | default (.Summary | plainify | truncate 120))
+      "tags" (.Params.tags | default (slice))
+      "date" (.Date.Format "2006年1月2日")
+      "permalink" .RelPermalink
+      "emoji" (.Params.emoji | default "")
+      "external" (.Params.externalUrl | default "")
+      "thumbnail" (cond (ne $thumb "") $thumb "")
+  ) -}}
+{{- end -}}
+{{- $list | jsonify -}}
