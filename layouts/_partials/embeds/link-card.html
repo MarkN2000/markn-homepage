@@ -1,0 +1,61 @@
+{{- /* OGP リンクカード。引数: URL 文字列。partialCached で URL キャッシュ推奨。
+       リンク先HTMLをビルド時取得しOGメタを抽出、og:image と favicon を自サイト配信。
+       どんな失敗でもビルドを止めず (try でエラー捕捉)、フォールバックカードを出す。 */ -}}
+{{- $url := . -}}
+{{- $ua := "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" -}}
+{{- $opts := dict "headers" (dict "User-Agent" $ua) -}}
+{{- $u := urls.Parse $url -}}
+{{- $host := $u.Host -}}
+{{- $scheme := $u.Scheme | default "https" -}}
+{{- $domain := strings.TrimPrefix "www." $host -}}
+{{- $title := "" -}}
+{{- $desc := "" -}}
+{{- $ogimg := "" -}}
+{{- /* --- リンク先HTMLを取得してメタ抽出 --- */ -}}
+{{- $res := try (resources.GetRemote $url $opts) -}}
+{{- if $res.Err -}}
+  {{- warnf "link-card: 取得失敗 %s: %s" $url $res.Err -}}
+{{- else -}}{{- with $res.Value -}}
+  {{- if not (eq .MediaType.MainType "text") -}}
+    {{- warnf "link-card: 非HTML応答 %s (%s)" $url .MediaType.Type -}}
+  {{- else -}}
+    {{- $html := .Content -}}
+    {{- $title = partial "embeds/meta.html" (dict "html" $html "names" (slice "og:title" "twitter:title")) -}}
+    {{- if not $title -}}
+      {{- with (findRESubmatch `(?is)<title[^>]*>(.*?)</title>` $html) -}}{{- $title = (index (index . 0) 1) | htmlUnescape -}}{{- end -}}
+    {{- end -}}
+    {{- $desc = partial "embeds/meta.html" (dict "html" $html "names" (slice "og:description" "twitter:description" "description")) -}}
+    {{- $ogimg = partial "embeds/meta.html" (dict "html" $html "names" (slice "og:image" "twitter:image" "twitter:image:src")) -}}
+  {{- end -}}
+{{- end -}}{{- end -}}
+{{- /* --- タイトルの健全性チェック (空・文字化け疑い→フォールバック) --- */ -}}
+{{- $title = trim $title " \n\t\r" -}}
+{{- $ok := and (ne $title "") (not (strings.Contains $title "�")) -}}
+{{- /* --- og:image を絶対URL化しビルド時にリサイズ+WebP化 --- */ -}}
+{{- $img := "" -}}
+{{- if and $ok $ogimg -}}
+  {{- $abs := $ogimg -}}
+  {{- if strings.HasPrefix $ogimg "//" -}}{{- $abs = printf "%s:%s" $scheme $ogimg -}}
+  {{- else if strings.HasPrefix $ogimg "/" -}}{{- $abs = printf "%s://%s%s" $scheme $host $ogimg -}}
+  {{- else if not (strings.HasPrefix $ogimg "http") -}}{{- $abs = printf "%s://%s/%s" $scheme $host $ogimg -}}
+  {{- end -}}
+  {{- $ir := try (resources.GetRemote $abs $opts) -}}
+  {{- if $ir.Err -}}
+    {{- warnf "link-card: og:image 取得失敗 %s: %s" $abs $ir.Err -}}
+  {{- else -}}{{- with $ir.Value -}}
+    {{- if eq .MediaType.MainType "image" -}}{{- $img = .Fill "224x224 Smart webp q75" -}}{{- end -}}
+  {{- end -}}{{- end -}}
+{{- end -}}
+{{- /* --- favicon を自サイト配信 (失敗時はCSSの色四角) --- */ -}}
+{{- $fav := "" -}}
+{{- $fr := try (resources.GetRemote (printf "https://www.google.com/s2/favicons?domain=%s&sz=32" $host)) -}}
+{{- if not $fr.Err -}}{{- with $fr.Value -}}{{- if eq .MediaType.MainType "image" -}}{{- $fav = . -}}{{- end -}}{{- end -}}{{- end -}}
+{{- /* --- 出力 (成功・フォールバック共通レイアウト) --- */ -}}
+<a class="link-card" href="{{ $url }}" target="_blank" rel="noopener noreferrer">
+<div class="txt">
+<span class="t">{{ if $ok }}{{ $title }}{{ else }}{{ $url }}{{ end }}</span>
+{{ if and $ok $desc }}<span class="d">{{ $desc }}</span>{{ end }}
+<span class="site">{{ with $fav }}<img class="favicon" src="{{ .RelPermalink }}" width="14" height="14" alt="" loading="lazy">{{ else }}<span class="favicon"></span>{{ end }}{{ $domain }}</span>
+</div>
+{{ with $img }}<div class="img"><img src="{{ .RelPermalink }}" width="112" height="112" alt="" loading="lazy"></div>{{ else }}<div class="img ph">🔗</div>{{ end }}
+</a>

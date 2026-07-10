@@ -1,0 +1,22 @@
+{{- /* HTML 文字列から meta 値を1つ抽出する。
+       引数: dict "html" <HTML文字列> "names" <スラッシュ区切りでない slice> 。
+       property/name の属性順・クォート差異 (" ') の双方に頑健。
+       最初にヒットした値を返す。 */ -}}
+{{- $html := .html -}}
+{{- $val := "" -}}
+{{- range .names -}}
+  {{- $n := . -}}
+  {{- if not $val -}}
+    {{- /* content が後 */ -}}
+    {{- with (findRESubmatch (printf `<meta[^>]+(?:property|name)=["']%s["'][^>]*content=["']([^"']*)["']` $n) $html) -}}
+      {{- $val = index (index . 0) 1 -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if not $val -}}
+    {{- /* content が先 */ -}}
+    {{- with (findRESubmatch (printf `<meta[^>]+content=["']([^"']*)["'][^>]*(?:property|name)=["']%s["']` $n) $html) -}}
+      {{- $val = index (index . 0) 1 -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $val | htmlUnescape -}}

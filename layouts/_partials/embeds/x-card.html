@@ -1,0 +1,57 @@
+{{- /* X (旧Twitter) 静的引用カード。引数: ポストURL。partialCached 推奨。
+       publish.twitter.com の oEmbed をビルド時取得し JSON から本文・著者・日付を抽出。
+       取得失敗・非JSON (削除済みポスト等) は「Xでポストを見る」シンプルカードにフォールバック。 */ -}}
+{{- $url := . -}}
+{{- $ua := "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" -}}
+{{- $endpoint := printf "https://publish.twitter.com/oembed?url=%s&omit_script=1&dnt=1&hide_thread=1" $url -}}
+{{- $ok := false -}}
+{{- $author := "" -}}
+{{- $handle := "" -}}
+{{- $text := "" -}}
+{{- $date := "" -}}
+{{- $res := try (resources.GetRemote $endpoint (dict "headers" (dict "User-Agent" $ua))) -}}
+{{- if $res.Err -}}
+  {{- warnf "x-card: oEmbed 取得失敗 %s: %s" $url $res.Err -}}
+{{- else -}}{{- with $res.Value -}}
+  {{- if not (strings.HasPrefix (trim .Content " \n\t\r") "{") -}}
+    {{- warnf "x-card: oEmbed が非JSON (削除済み等) %s" $url -}}
+  {{- else -}}
+    {{- $jt := try (transform.Unmarshal .Content) -}}
+    {{- $j := $jt.Value -}}
+    {{- if and (not $jt.Err) $j (isset $j "html") (isset $j "author_name") -}}
+      {{- $author = $j.author_name -}}
+      {{- $handle = path.Base (trim (index $j "author_url") "/") -}}
+      {{- $h := $j.html -}}
+      {{- with (findRESubmatch `(?is)<p[^>]*>(.*?)</p>` $h) -}}
+        {{- $raw := index (index . 0) 1 -}}
+        {{- $text = $raw | replaceRE `<[^>]*>` "" | htmlUnescape -}}
+      {{- end -}}
+      {{- with (findRESubmatch `>([^<]+)</a></blockquote>` $h) -}}
+        {{- $date = index (index . 0) 1 | htmlUnescape -}}
+      {{- end -}}
+      {{- $ok = true -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}{{- end -}}
+{{- $initial := "𝕏" -}}
+{{- if $author -}}{{- $initial = upper (substr $author 0 1) -}}{{- end -}}
+{{- if $ok -}}
+<div class="x-card">
+<div class="head">
+<span class="x-avatar" style="background:linear-gradient(135deg,var(--accent),var(--accent-deep))">{{ $initial }}</span>
+<div><div class="name">{{ $author }}</div>{{ with $handle }}<div class="id">@{{ . }}</div>{{ end }}</div>
+<span class="x-logo">𝕏</span>
+</div>
+{{ with $text }}<p class="text">{{ . }}</p>{{ end }}
+<div class="foot">{{ with $date }}<span>{{ . }}</span>{{ end }}<a href="{{ $url }}" target="_blank" rel="noopener noreferrer">Xでポストを見る →</a></div>
+</div>
+{{- else -}}
+<div class="x-card">
+<div class="head">
+<span class="x-avatar" style="background:linear-gradient(135deg,var(--accent),var(--accent-deep))">𝕏</span>
+<div><div class="name">Xのポスト</div></div>
+<span class="x-logo">𝕏</span>
+</div>
+<div class="foot"><a href="{{ $url }}" target="_blank" rel="noopener noreferrer">Xでポストを見る →</a></div>
+</div>
+{{- end -}}

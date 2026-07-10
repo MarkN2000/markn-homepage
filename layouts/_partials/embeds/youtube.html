@@ -1,0 +1,23 @@
+{{- /* YouTube ファサード埋め込み。引数: 動画ID (文字列)。
+       ショートコード youtube.html と content-embeds.html の両方から呼ぶ (DRY)。
+       サムネイルはビルド時に i.ytimg から取得 (maxres→hq フォールバック) し
+       WebP 化して自サイト配信。取得失敗時はグラデーション背景のみで動作する。
+       クリック→iframe 差替は assets/js/site.js が担う。 */ -}}
+{{- $id := . -}}
+{{- $thumb := "" -}}
+{{- range (slice "maxresdefault" "hqdefault") -}}
+  {{- if not $thumb -}}
+    {{- $res := try (resources.GetRemote (printf "https://i.ytimg.com/vi/%s/%s.jpg" $id .)) -}}
+    {{- if not $res.Err -}}
+      {{- with $res.Value -}}
+        {{- if and (eq .MediaType.MainType "image") (ge .Width 200) -}}
+          {{- $thumb = .Resize "640x webp q80" -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<button class="yt-facade" type="button" data-id="{{ $id }}" aria-label="YouTube動画を再生">
+{{- with $thumb }}<img class="yt-thumb" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="" loading="lazy">{{ end -}}
+<span class="play">{{ partial "icon.html" "play" }}</span>
+</button>

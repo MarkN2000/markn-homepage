@@ -1,0 +1,29 @@
+{{- /* 単独段落URLの自動変換。引数: Page。
+       goldmark autolink により「前後に空行のある単独行URL」は
+       正確に <p><a href="URL">URL</a></p> になる。その形の段落だけを
+       検出し、href と表示テキストが一致する場合のみ埋め込みへ置換する。
+       文中URL・[テキスト](URL) は形が異なるため誤変換されない。 */ -}}
+{{- $content := .Content -}}
+{{- $re := `<p>\s*<a href="([^"]+)"[^>]*>([^<]+)</a>\s*</p>` -}}
+{{- range findRESubmatch $re $content -}}
+  {{- $full := index . 0 -}}
+  {{- $href := index . 1 -}}
+  {{- $text := index . 2 -}}
+  {{- if eq $href $text -}}
+    {{- $u := htmlUnescape $href -}}
+    {{- $embed := "" -}}
+    {{- if findRE `(?:youtube\.com/watch\?[^"]*v=|youtu\.be/|youtube\.com/shorts/)` $u -}}
+      {{- with (findRESubmatch `(?:[?&]v=|youtu\.be/|shorts/)([A-Za-z0-9_-]{6,})` $u) -}}
+        {{- $embed = partialCached "embeds/youtube.html" (index (index . 0) 1) (index (index . 0) 1) -}}
+      {{- end -}}
+    {{- else if findRE `^https?://(?:x|twitter)\.com/[^/]+/status/\d+` $u -}}
+      {{- $embed = partialCached "embeds/x-card.html" $u $u -}}
+    {{- else if findRE `^https?://` $u -}}
+      {{- $embed = partialCached "embeds/link-card.html" $u $u -}}
+    {{- end -}}
+    {{- if $embed -}}
+      {{- $content = replace $content $full (printf "%s" $embed) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $content | safeHTML -}}

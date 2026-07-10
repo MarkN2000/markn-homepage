@@ -34,7 +34,7 @@
       {{- /* 本文カード */ -}}
       <div class="article-surface body-card">
         <div class="prose">
-          {{ .Content }}
+          {{ partial "content-embeds.html" . }}
         </div>
 
         {{- /* シェア行 */ -}}
