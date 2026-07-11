@@ -28,7 +28,9 @@
   background:var(--accent-soft);color:var(--accent-deep);
   padding:.15em .45em;border-radius:5px;
 }
-.prose img{border-radius:var(--radius-s);display:block;margin-left:auto;margin-right:auto}
+.prose img{border-radius:var(--radius-s)}
+/* 本文の画像(段落直下)のみ中央揃え。埋め込みカード内のfavicon等には効かせない */
+.prose p > img{display:block;margin-left:auto;margin-right:auto}
 .prose figure{margin:1.8em 0;text-align:center}
 .prose figure img,.prose figure svg{border-radius:var(--radius-s)}
 .prose figcaption{font-size:.83rem;color:var(--muted);margin-top:.6em;line-height:1.6}
