@@ -9,11 +9,11 @@
 .prose h2{
   font-size:1.7rem;line-height:1.5;margin:2.2em 0 .8em;
   padding-bottom:.4em;border-bottom:1px solid var(--border);
-  scroll-margin-top:20px;
+  scroll-margin-top:calc(var(--header-h) + 16px);
 }
 @media (max-width:600px){ .prose h2{font-size:1.4rem} }
-.prose h3{font-size:1.12rem;line-height:1.55;margin:2em 0 .8em;scroll-margin-top:20px}
-.prose h4{font-size:1rem;line-height:1.55;margin:1.8em 0 .7em;scroll-margin-top:20px}
+.prose h3{font-size:1.12rem;line-height:1.55;margin:2em 0 .8em;scroll-margin-top:calc(var(--header-h) + 16px)}
+.prose h4{font-size:1rem;line-height:1.55;margin:1.8em 0 .7em;scroll-margin-top:calc(var(--header-h) + 16px)}
 .prose ul,.prose ol{margin:1.4em 0;padding-left:1.6em}
 .prose li{margin:.35em 0}
 .prose strong{color:var(--ink)}

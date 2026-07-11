@@ -1,7 +1,27 @@
 // site.js — 依存ゼロの vanilla JS。
-// トップへ戻る / コードコピー / リンクコピー / 検索 / YouTubeファサード / TOC scrollspy。
+// トップへ戻る / auto-hideヘッダー / コードコピー / リンクコピー / 検索 / YouTubeファサード / TOC scrollspy。
 (function () {
   "use strict";
+
+  // --- auto-hideヘッダー (下スクロールで隠す、上スクロールで再表示) ---
+  var header = document.querySelector(".site-header");
+  if (header) {
+    var anchorY = window.scrollY;
+    var onHeaderScroll = function () {
+      var y = window.scrollY;
+      if (y < 80) {
+        header.classList.remove("is-hidden");
+        anchorY = y;
+        return;
+      }
+      var diff = y - anchorY;
+      if (Math.abs(diff) < 8) return;
+      if (diff > 0) header.classList.add("is-hidden");
+      else header.classList.remove("is-hidden");
+      anchorY = y;
+    };
+    window.addEventListener("scroll", onHeaderScroll, { passive: true });
+  }
 
   // --- トップへ戻るボタン (スクロール 600px 超で出現) ---
   var toTop = document.querySelector(".back-to-top");

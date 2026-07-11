@@ -5,7 +5,7 @@
 
 /* --- 追従目次 (デスクトップのみ) --- */
 .toc{
-  flex:none;width:240px;position:sticky;top:24px;margin-top:28px;
+  flex:none;width:240px;position:sticky;top:calc(var(--header-h) + 16px);margin-top:28px;
   background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-m);
   padding:16px 18px;font-size:.85rem;
 }

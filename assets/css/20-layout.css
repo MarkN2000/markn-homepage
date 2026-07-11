@@ -6,7 +6,13 @@
 main{padding-bottom:56px}
 
 /* --- サイトヘッダー (トップページ以外で表示) --- */
-.site-header{background:var(--surface);border-bottom:1px solid var(--border)}
+/* auto-hide: 下スクロールで隠す、上スクロールで再表示 (site.js) */
+.site-header{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:40;transition:transform .25s ease;
+}
+.site-header.is-hidden{transform:translateY(-100%)}
+@media (prefers-reduced-motion:reduce){ .site-header{transition:none} }
 .site-header .bar{
   max-width:var(--site-width);margin:0 auto;padding:10px 20px;
   display:flex;align-items:center;gap:18px;
