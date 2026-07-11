@@ -27,7 +27,8 @@
 
 {{- if $title -}}<figure>{{- end -}}
 {{- if $isResource -}}
-  {{- $w := cond (gt $image.Width 860) 860 $image.Width -}}
+  {{- /* 788 = 本文カラム幅 860px − 本文カード左右パディング 36px×2 (article.css) */ -}}
+  {{- $w := cond (gt $image.Width 788) 788 $image.Width -}}
   {{- $p := $image.Resize (printf "%dx webp q75" $w) -}}
   <img src="{{ $p.RelPermalink }}" width="{{ $p.Width }}" height="{{ $p.Height }}" alt="{{ $alt }}" loading="lazy">
 {{- else -}}

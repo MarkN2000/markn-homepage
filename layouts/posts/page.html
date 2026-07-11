@@ -9,7 +9,8 @@
         <header class="article-head">
           {{- with .Params.thumbnail -}}
             {{- with $.Resources.GetMatch . -}}
-              {{- $w := cond (gt .Width 860) 860 .Width -}}
+              {{- /* 788 = 本文カラム幅 860px − カード左右パディング 36px×2 (article.css) */ -}}
+              {{- $w := cond (gt .Width 788) 788 .Width -}}
               {{- $img := .Resize (printf "%dx webp q75" $w) -}}
               <img class="cover-img" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $.Title }}" fetchpriority="high">
             {{- end -}}

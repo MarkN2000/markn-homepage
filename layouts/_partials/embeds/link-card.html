@@ -43,7 +43,7 @@
   {{- if $ir.Err -}}
     {{- warnf "link-card: og:image 取得失敗 %s: %s" $abs $ir.Err -}}
   {{- else -}}{{- with $ir.Value -}}
-    {{- if eq .MediaType.MainType "image" -}}{{- $img = .Fill "224x224 Smart webp q75" -}}{{- end -}}
+    {{- if eq .MediaType.MainType "image" -}}{{- $img = .Fill "224x224 Smart webp q60" -}}{{- end -}}
   {{- end -}}{{- end -}}
 {{- end -}}
 {{- /* --- 出力 (成功・フォールバック共通レイアウト) --- */ -}}
