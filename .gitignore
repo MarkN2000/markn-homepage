@@ -57,3 +57,4 @@ static/koerec/.git
 
 # User specified
 static/koerec/
+bin/hugo.exe
