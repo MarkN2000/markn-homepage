@@ -5,6 +5,7 @@ lastmod: 2026-02-09T11:50:00+09:00
 draft: false
 thumbnail: "thumbnail.webp"
 tags: ["Resonite", "解説", "アバター"]
+pickup: true
 description: "Resonite玄人向けのMarkN流アバターセットアップ方法や豆知識を紹介します。意図しない動作をさせない・他人のFPSを低下させない（軽量化）ことを重視しています"
 ---
 

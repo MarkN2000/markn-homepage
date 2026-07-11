@@ -1,23 +1,36 @@
 /* ============================================================
-   横スワイプ棚 (ピックアップ / タグ棚: モバイルのみ)
+   棚 (ピックアップ / タグ棚)
+   PC: カード横並び+右端に「もっと見る」レール
+   モバイル: 横スワイプ+末尾に同レール
    ============================================================ */
+.shelf-row{display:flex;gap:18px}
+.shelf-row .card{flex:1 1 0;min-width:0}
+
+/* 縦型「もっと見る」レール (PC/モバイル共通) */
+.more-rail{
+  flex:none;width:76px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  background:var(--accent-soft);border:1px solid var(--border);border-radius:var(--radius-m);
+  text-decoration:none;padding:14px 8px;box-shadow:var(--shadow-card);
+  transition:background .15s ease;
+}
+.more-rail:hover{background:var(--tag-hover)}
+.more-rail .arrow{
+  width:34px;height:34px;border-radius:50%;flex:none;
+  background:var(--accent-deep);color:var(--white);
+  display:flex;align-items:center;justify-content:center;font-size:1.05rem;font-weight:700;
+}
+.more-rail .label{
+  writing-mode:vertical-rl;color:var(--accent-deep);
+  font-weight:700;font-size:.9rem;letter-spacing:.12em;
+}
+.more-rail .count{color:var(--muted);font-size:.72rem;white-space:nowrap}
+
 @media (max-width:600px){
-  .shelf-scroll{
-    display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:76%;
+  .shelf-row{
     overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-left:16px;
     gap:12px;margin:0 -16px;padding:2px 16px 10px;
   }
-  .shelf-scroll .card{scroll-snap-align:start}
-
-  /* 棚末尾の「もっと見る」ゴーストカード */
-  .shelf-scroll .ghost-card{
-    scroll-snap-align:start;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
-    background:var(--accent-soft);border:1px solid var(--border);border-radius:var(--radius-m);
-    text-decoration:none;box-shadow:var(--shadow-card);
-  }
-  .ghost-card .g-label{color:var(--accent-deep);font-weight:700;font-size:1rem}
-  .ghost-card .g-count{color:var(--muted);font-size:.85rem}
+  .shelf-row .card{flex:0 0 76%;scroll-snap-align:start}
+  .shelf-row .more-rail{width:96px;scroll-snap-align:start}
 }
-/* PC(グリッド表示)にはゴーストカードを出さない */
-@media (min-width:601px){ .ghost-card{display:none} }

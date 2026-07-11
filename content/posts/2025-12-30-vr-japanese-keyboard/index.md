@@ -5,6 +5,7 @@ lastmod: 2026-01-02T15:00:00+09:00
 draft: false
 tags: ["Resonite", "おすすめアイテム", "作ったもの"]
 thumbnail: "thumbnail.webp"
+pickup: true
 description: "ResoniteのVRモードで日本語入力したい人向けに、高機能日本語キーボード「MarkNキーボード」の導入・使い方・注意点をまとめます。"
 # FolderName：2025-12-30-vr-japanese-keyboard
 ---
