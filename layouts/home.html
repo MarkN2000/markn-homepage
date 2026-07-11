@@ -24,7 +24,7 @@
       <div class="shelf-row">
         {{ range . }}{{ partial "card.html" . }}{{ end }}
         <a class="more-rail" href="{{ "/posts/" | relURL }}" aria-label="記事一覧へ">
-          <span class="arrow">→</span>
+          <span class="arrow">{{ partial "icon.html" "arrow-right" }}</span>
           <span class="count">全{{ len $posts }}件</span>
         </a>
       </div>
@@ -44,7 +44,7 @@
           <div class="shelf-row">
             {{ range first $count .Pages }}{{ partial "card.html" . }}{{ end }}
             <a class="more-rail" href="{{ $term.RelPermalink }}" aria-label="{{ $term.Title }}の記事一覧へ">
-              <span class="arrow">→</span>
+              <span class="arrow">{{ partial "icon.html" "arrow-right" }}</span>
               <span class="count">全{{ len .Pages }}件</span>
             </a>
           </div>
