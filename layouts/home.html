@@ -23,6 +23,10 @@
       </div>
       <div class="card-grid shelf-scroll">
         {{ range . }}{{ partial "card.html" . }}{{ end }}
+        <a class="ghost-card" href="{{ "/posts/" | relURL }}">
+          <span class="g-label">記事一覧へ →</span>
+          <span class="g-count">全{{ len $posts }}件</span>
+        </a>
       </div>
     </section>
     {{- end -}}
@@ -39,6 +43,10 @@
           </div>
           <div class="card-grid shelf-scroll">
             {{ range first $count .Pages }}{{ partial "card.html" . }}{{ end }}
+            <a class="ghost-card" href="{{ $term.RelPermalink }}">
+              <span class="g-label">もっと見る →</span>
+              <span class="g-count">全{{ len .Pages }}件</span>
+            </a>
           </div>
         </section>
       {{- end -}}

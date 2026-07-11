@@ -8,4 +8,16 @@
     gap:12px;margin:0 -16px;padding:2px 16px 10px;
   }
   .shelf-scroll .card{scroll-snap-align:start}
+
+  /* 棚末尾の「もっと見る」ゴーストカード */
+  .shelf-scroll .ghost-card{
+    scroll-snap-align:start;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+    background:var(--accent-soft);border:1px solid var(--border);border-radius:var(--radius-m);
+    text-decoration:none;box-shadow:var(--shadow-card);
+  }
+  .ghost-card .g-label{color:var(--accent-deep);font-weight:700;font-size:1rem}
+  .ghost-card .g-count{color:var(--muted);font-size:.85rem}
 }
+/* PC(グリッド表示)にはゴーストカードを出さない */
+@media (min-width:601px){ .ghost-card{display:none} }

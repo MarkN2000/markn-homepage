@@ -26,7 +26,7 @@
 /* --- OGP リンクカード --- */
 .link-card{
   display:flex;text-decoration:none;color:var(--ink);margin:1.8em 0;
-  border:1px solid var(--border);border-radius:var(--radius-m);overflow:hidden;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius-m);overflow:hidden;background:var(--surface-tint);
   transition:box-shadow .15s ease;
 }
 .link-card:hover{box-shadow:var(--shadow-hover)}

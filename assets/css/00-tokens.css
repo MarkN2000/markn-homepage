@@ -29,6 +29,7 @@
   --cover-g4a:#FDF0DC; --cover-g4b:#F8DFC8;
 
   --tag-hover:#D2EAF7;          /* タグチップ hover 背景 */
+  --surface-tint:#F1F8FC;       /* 本文(白)の上に載るカード類の背景 (少し明るい水色) */
 
   /* ヒーローの暗幕オーバーレイ・文字 */
   --hero-overlay-top:rgba(18,42,58,.30);
