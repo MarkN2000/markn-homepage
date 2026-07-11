@@ -62,7 +62,7 @@ enableRobotsTXT = true
     latestCount = 8
     # タグ棚（配列で増減・入替できる）
     [[params.home.shelves]]
-      tag = "作ったもの"
+      tag = "制作物"
       count = 4
 
 [markup]

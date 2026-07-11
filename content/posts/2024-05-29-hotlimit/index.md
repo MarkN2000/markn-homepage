@@ -3,7 +3,7 @@ title: "【メタバースでMV撮影】MIMIJIMA Revolution『HOT LIMIT』【Res
 date: 2024-05-29T23:35:33+09:00
 lastmod:
 draft: false
-tags: ["Resonite", "作ったもの"]
+tags: ["Resonite", "制作物"]
 thumbnail: "thumbnail.webp"
 description: "【メタバースでMV撮影】MIMIJIMA Revolution『HOT LIMIT』【Resonite】"
 # FolderName：2024-05-29-hotlimit

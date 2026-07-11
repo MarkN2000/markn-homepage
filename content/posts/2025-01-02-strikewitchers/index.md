@@ -3,7 +3,7 @@ title: "VRでストライカーユニット装着！#ストライクウィッチ
 date: 2025-01-02T23:35:33+09:00
 lastmod:
 draft: false
-tags: ["Resonite", "作ったもの", "おすすめアイテム"]
+tags: ["Resonite", "制作物"]
 thumbnail: "thumbnail.webp"
 description: "VRでストライカーユニット装着！#ストライクウィッチーズ #Resionite"
 # FolderName：2025-01-02-strikewitchers

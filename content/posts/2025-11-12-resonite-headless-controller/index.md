@@ -4,7 +4,7 @@ date: 2025-11-12T12:00:00+09:00
 lastmod: 2026-06-10T12:00:00+09:00
 draft: false
 thumbnail: "thumbnail.webp"
-tags: ["Resonite", "作ったもの", "プログラミング", "解説"]
+tags: ["Resonite", "制作物", "解説"]
 description: "ResoniteのヘッドレスサーバーをLAN内のWebブラウザから操作・管理できるツール「MarkN Resonite Headless Controller（MRHC）」を紹介します。ランタイム不要の単一バイナリで動き、Resonite本体の自動ダウンロードからセッション運営・自動再起動まで対応。事前準備・インストール方法・主な機能を解説します。"
 ---
 

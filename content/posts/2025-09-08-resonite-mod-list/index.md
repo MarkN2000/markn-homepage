@@ -3,7 +3,7 @@ title: "MarkNが使っているResoniteのMod一覧"
 date: 2025-09-08T12:00:00+09:00
 lastmod: 2025-12-04T12:00:00+09:00
 draft: false
-tags: ["Resonite", "Mod"]
+tags: ["Resonite"]
 thumbnail: "thumbnail.webp"
 description: "MarkNが現在使用しているResoniteのMod一覧。各ModのGitHubリンクと簡単な説明をまとめます。"
 ---

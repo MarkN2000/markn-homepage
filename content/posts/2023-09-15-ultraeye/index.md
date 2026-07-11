@@ -3,7 +3,7 @@ title: "誰でもウルトラセブンに変身できる「ウルトラアイ」
 date: 2023-09-15T00:00:00+09:00
 lastmod:
 draft: false
-tags: ["Resonite", "作ったもの", "おすすめアイテム"]
+tags: ["Resonite", "制作物"]
 thumbnail: "thumbnail.webp"
 description: "顔にかけるだけでウルトラセブンに変身。必殺技も使える無料アイテムです【Resonite】"
 # FolderName：2023-09-15-ultraeye

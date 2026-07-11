@@ -3,7 +3,7 @@
  date: 2024-03-04T23:35:35+09:00
  lastmod:
  draft: false
- tags: ["Resonite", "作ったもの", "ワールド","イベント"]
+ tags: ["Resonite", "制作物", "イベント"]
  thumbnail: "thumbnail.webp"
  description: "メイキング動画 [MMC24] SMM SPACE CRAFT STATION【Resonite】"
  series: "SPACE CRAFT STATION"

@@ -3,7 +3,7 @@ title: "竹に穴を開けるアイテムを作った「竹あかり」"
 date: 2025-12-01T23:10:00+09:00
 lastmod:
 draft: false
-tags: ["作ったもの", "プログラミング","Resonite","おすすめアイテム","イベント"]
+tags: ["Resonite", "制作物", "イベント"]
 thumbnail: "thumbnail.webp"
 description: "竹を丸鋸で切って、好きに穴をあけて、竹あかりを作れるアイテムの制作をしました"
 # FolderName：2025-12-01-takeakari-item

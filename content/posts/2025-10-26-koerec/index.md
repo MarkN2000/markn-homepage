@@ -3,7 +3,7 @@ title: "Koerec - 高速音声コーパス作成ツール"
 date: 2025-10-23T12:00:00+09:00
 lastmod:
 description: "合成音声制作のための音声コーパス作成を効率化するWebアプリケーションです。大量の文章を読み上げて録音し、文章と音声ファイルを対応付けたデータセットを簡単に作成できます。"
-tags: ["作ったもの", "プログラミング", "AI"]
+tags: ["制作物", "webアプリ"]
 thumbnail: "thumbnail.webp"
 externalUrl: "https://koerec.markn2000.com"
 ---

@@ -3,7 +3,7 @@ title: "超簡単！GASで作る無料翻訳APIの作り方"
 date: "2025-05-22T19:17:03+09:00"
 lastmod:
 draft: false
-tags: ["作ったもの", "Resonite", "解説", "プログラミング"]
+tags: ["Resonite", "制作物", "解説"]
 thumbnail: "thumbnail.webp"
 description: "Google Apps Script(GAS)を使えば、プログラミング初心者でも無料で簡単に自分だけの翻訳APIが作れます！この記事では、その作成手順をステップバイステップで分かりやすく解説。Resonite等での活用にもおすすめです！"
 # foldername：2025-05-22-gas-custom-translation-api-creation

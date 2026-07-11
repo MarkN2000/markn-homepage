@@ -3,7 +3,7 @@ title: "3キーで動画速度を操る Chrome / Firefox 拡張「MarkN Video Sp
 date: 2026-05-22T20:00:00+09:00
 lastmod:
 draft: false
-tags: ["作ったもの", "プログラミング", "ブラウザ拡張"]
+tags: ["制作物"]
 thumbnail: "thumbnail.webp"
 description: "動画やポッドキャストの再生速度を、3つのキーだけで操れるブラウザ拡張機能を公開しました。既存の拡張機能の認知負荷の高さやUIの邪魔さに不満を感じていたので、本当に必要な操作だけに絞って自作しました。Chrome と Firefox の両方に対応しています。"
 # foldername：2026-05-22-markn-video-speed

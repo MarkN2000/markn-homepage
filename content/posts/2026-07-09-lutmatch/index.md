@@ -3,7 +3,7 @@ title: "LUT Match - 画像2枚からLUTを自動生成するツール"
 date: 2026-07-09T12:00:00+09:00
 lastmod:
 description: "元画像と参考画像の2枚から、色合いを再現する3D LUT(.cube)を自動生成するWebアプリケーションです。処理はすべてブラウザ内で完結し、生成したLUTはDaVinci ResolveやPremiere Pro、OBSなどで使用できます。"
-tags: ["作ったもの", "プログラミング"]
+tags: ["制作物", "webアプリ"]
 thumbnail: "thumbnail.webp"
 externalUrl: "https://lutmatch.markn2000.com"
 ---

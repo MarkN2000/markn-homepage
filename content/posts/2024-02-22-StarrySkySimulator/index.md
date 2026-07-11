@@ -3,7 +3,7 @@ title: "星空シミュレーター Starry Sky Simulator 【Resonite】"
 date: 2024-02-22T23:35:33+09:00
 lastmod:
 draft: false
-tags: ["Resonite", "作ったもの", "ワールド","イベント"]
+tags: ["Resonite", "制作物", "イベント"]
 thumbnail: "thumbnail.webp"
 description: "星空シミュレーター Starry Sky Simulator 【Resonite】"
 # FolderName：2024-02-22-StarrySkySimulator 
