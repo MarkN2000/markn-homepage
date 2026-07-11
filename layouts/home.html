@@ -22,7 +22,7 @@
         <a class="more" href="{{ "/posts/" | relURL }}">記事一覧へ →</a>
       </div>
       <div class="shelf-row">
-        {{ range . }}{{ partial "card.html" . }}{{ end }}
+        {{ range . }}{{ partial "card.html" (dict "page" .) }}{{ end }}
         <a class="more-rail" href="{{ "/posts/" | relURL }}" aria-label="記事一覧へ">
           <span class="arrow">{{ partial "icon.html" "arrow-right" }}</span>
           <span class="count">全{{ len $posts }}件</span>
@@ -42,7 +42,7 @@
             <a class="more" href="{{ $term.RelPermalink }}">もっと見る →</a>
           </div>
           <div class="shelf-row">
-            {{ range first $count .Pages }}{{ partial "card.html" . }}{{ end }}
+            {{ range first $count .Pages }}{{ partial "card.html" (dict "page" .) }}{{ end }}
             <a class="more-rail" href="{{ $term.RelPermalink }}" aria-label="{{ $term.Title }}の記事一覧へ">
               <span class="arrow">{{ partial "icon.html" "arrow-right" }}</span>
               <span class="count">全{{ len .Pages }}件</span>
@@ -59,7 +59,7 @@
         <a class="more" href="{{ "/posts/" | relURL }}">記事一覧へ →</a>
       </div>
       <div class="card-grid">
-        {{ range first site.Params.home.latestCount $posts }}{{ partial "card.html" . }}{{ end }}
+        {{ range first site.Params.home.latestCount $posts }}{{ partial "card.html" (dict "page" .) }}{{ end }}
       </div>
       <div class="section-cta">
         <a href="{{ "/posts/" | relURL }}">記事一覧へ (全{{ len $posts }}件) {{ partial "icon.html" "arrow-right" }}</a>

@@ -1,22 +1,24 @@
-{{- /* 記事カード。. は記事ページ */ -}}
-{{- $ext := .Params.externalUrl -}}
-{{- $href := cond (ne (string $ext) "") (string $ext) .RelPermalink -}}
+{{- /* 記事カード。引数は dict: .page (記事 Page, 必須) / .eager (bool, 省略時 false) */ -}}
+{{- $page := .page -}}
+{{- $eager := .eager -}}
+{{- $ext := $page.Params.externalUrl -}}
+{{- $href := cond (ne (string $ext) "") (string $ext) $page.RelPermalink -}}
 {{- $thumb := "" -}}
-{{- with .Params.thumbnail -}}{{- $thumb = $.Resources.GetMatch . -}}{{- end -}}
+{{- with $page.Params.thumbnail -}}{{- $thumb = $page.Resources.GetMatch . -}}{{- end -}}
 <a class="card" href="{{ $href }}"{{ if $ext }} target="_blank" rel="noopener noreferrer"{{ end }}>
   {{- if $thumb -}}
     {{- $img := $thumb.Fill "704x396 Center webp q60" -}}
-    <div class="cover"><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ .Title }}" loading="lazy"></div>
+    <div class="cover"><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $page.Title }}"{{ if not $eager }} loading="lazy"{{ end }}></div>
   {{- else -}}
-    {{- $g := add 1 (mod (hash.FNV32a .Title) 4) -}}
-    <div class="cover g{{ $g }}">{{ .Params.emoji | default "📝" }}</div>
+    {{- $g := add 1 (mod (hash.FNV32a $page.Title) 4) -}}
+    <div class="cover g{{ $g }}">{{ $page.Params.emoji | default "📝" }}</div>
   {{- end -}}
   <div class="body">
-    <h3>{{ .Title }}</h3>
+    <h3>{{ $page.Title }}</h3>
     <div class="meta">
-      <span>{{ .Date.Format "2006年1月2日" }}</span>
+      <span>{{ $page.Date.Format "2006年1月2日" }}</span>
       {{ if $ext }}<span class="ext">外部リンク ↗</span>{{ end }}
-      {{ range first 2 .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
+      {{ range first 2 $page.Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
     </div>
   </div>
 </a>

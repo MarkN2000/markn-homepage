@@ -13,7 +13,7 @@
     </div>
 
     <div class="card-grid" id="post-grid">
-      {{ range $paginator.Pages }}{{ partial "card.html" . }}{{ end }}
+      {{ range $i, $p := $paginator.Pages }}{{ partial "card.html" (dict "page" $p "eager" (lt $i 4)) }}{{ end }}
     </div>
 
     {{ partial "pagination.html" (dict "paginator" $paginator "id" "post-pagination") }}

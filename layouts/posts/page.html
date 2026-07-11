@@ -11,7 +11,7 @@
             {{- with $.Resources.GetMatch . -}}
               {{- $w := cond (gt .Width 860) 860 .Width -}}
               {{- $img := .Resize (printf "%dx webp q75" $w) -}}
-              <img class="cover-img" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $.Title }}">
+              <img class="cover-img" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $.Title }}" fetchpriority="high">
             {{- end -}}
           {{- end -}}
           <h1>{{ .Title }}</h1>
@@ -76,7 +76,7 @@
       <section class="container" style="padding:0">
         <div class="section-head"><h2>関連記事</h2></div>
         <div class="card-grid">
-          {{ range . }}{{ partial "card.html" . }}{{ end }}
+          {{ range . }}{{ partial "card.html" (dict "page" .) }}{{ end }}
         </div>
       </section>
       {{- end -}}
