@@ -77,6 +77,12 @@
 <link rel="shortcut icon" href="{{ "/images/icons/favicon.ico" | relURL }}">
 <meta name="theme-color" content="{{ .Site.Params.themeColor | default "#2AA3D4" }}">
 
+{{- /* トップのみ: LCP のヒーロー背景画像を先読み (CSS background は検出が遅れるため) */ -}}
+{{- if .IsHome }}
+<link rel="preload" as="image" href="{{ "/images/header.webp" | relURL }}" media="(min-width: 601px)" fetchpriority="high">
+<link rel="preload" as="image" href="{{ "/images/header-mobile.webp" | relURL }}" media="(max-width: 600px)" fetchpriority="high">
+{{- end }}
+
 {{- /* CSS: assets/css 配下を番号順に結合・圧縮・fingerprint */ -}}
 {{- $css := union (resources.Match "css/*.css") (resources.Match "css/**/*.css") -}}
 {{- $css = sort $css "Name" -}}
