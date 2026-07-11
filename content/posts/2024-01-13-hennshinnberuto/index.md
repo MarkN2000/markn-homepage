@@ -6,8 +6,6 @@ draft: false
 tags: ["Resonite", "作ったもの", "おすすめアイテム"]
 thumbnail: "thumbnail.webp"
 description: "誰でも本当に変身できる変身ベルト作ってみた！しかも無料！！【Resonite】"
-prev_post_path:
-next_post_path:
 # FolderName：2024-01-13-hennshinnberuto
 ---
 
@@ -17,13 +15,10 @@ next_post_path:
 
 ## 配布リンク
 
-<a href="https://uni-pocket.com/ja/items/ec88ebe0-2f1d-4063-9764-630a4b771d46" class="dynamic-link-card"></a>
-    <noscript>
-        <p><a href="https://uni-pocket.com/ja/items/ec88ebe0-2f1d-4063-9764-630a4b771d46">誰でも本当に変身できる変身ベルト（配布ページ）</a></p>
-    </noscript>
+https://uni-pocket.com/ja/items/ec88ebe0-2f1d-4063-9764-630a4b771d46
 
 参考リンク:
 - Resoniteのはじめかた: https://note.com/sirojake/n/n849febb76f26
 - アイデアの着想元（@nemchan_nel）: https://x.com/nemchan_nel/status/1744564192441675984?s=20 / https://x.com/nemchan_nel/status/1745490936514404586?s=20
 
-{{< youtube "KZEsJ3a1rOw" >}}
+https://www.youtube.com/watch?v=KZEsJ3a1rOw

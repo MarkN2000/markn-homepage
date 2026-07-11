@@ -6,8 +6,6 @@ draft: false
 tags: ["Resonite", "作ったもの"]
 thumbnail: "thumbnail.webp"
 description: "【メタバースでMV撮影】MIMIJIMA Revolution『HOT LIMIT』【Resonite】"
-prev_post_path:
-next_post_path:
 # FolderName：2024-05-29-hotlimit
 ---
 
@@ -17,10 +15,7 @@ next_post_path:
 
 mimijimaさん（クラゲになって踊ってる人）が書いた記事
 
-<a href="https://www.resonitemagazine.com/8504/" class="dynamic-link-card"></a>
-    <noscript>
-        <p><a href="https://www.resonitemagazine.com/8504/">レゾマガ: ミミジマ的にもオールオーケーだったカオスな夜</a></p>
-    </noscript>
+https://www.resonitemagazine.com/8504/
 
 ## 撮影の流れ（当日の実際）
 - 雑談ワールドで脈絡なく「HOT LIMIT」の動画が出される
@@ -40,4 +35,4 @@ mimijimaさん（クラゲになって踊ってる人）が書いた記事
 - ステージ設営: ここにいた全員（MarkN・mimijima・Sinduy・neko3・OGURI・Ikaryuga・etc...）
 - ワールド: のけもの広場（Resonite内で普段開いている雑談ワールド）
 
-{{< youtube "c588jSMIH0g" >}}
+https://www.youtube.com/watch?v=c588jSMIH0g

@@ -6,8 +6,7 @@
  tags: ["Resonite", "作ったもの", "ワールド","イベント"]
  thumbnail: "thumbnail.webp"
  description: "メイキング動画 [MMC24] SMM SPACE CRAFT STATION【Resonite】"
- prev_post_path: "/posts/2024-03-04-spacecraftstation/"
- next_post_path:
+ series: "SPACE CRAFT STATION"
  # FolderName：2024-03-04-makingofspacecraftstation
 ---
 
@@ -31,4 +30,4 @@
 
 システムが狙いどおり動作し、ステーションをパッキング／アンパックして持ち帰れるところまで到達した様子もご覧いただけます。
 
-{{< youtube "vYy2kFwWvKw" >}}
+https://www.youtube.com/watch?v=vYy2kFwWvKw

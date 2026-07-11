@@ -5,10 +5,7 @@ lastmod: 2026-01-02T15:00:00+09:00
 draft: false
 tags: ["Resonite", "おすすめアイテム", "作ったもの"]
 thumbnail: "thumbnail.webp"
-thumbnail_alt: "Resoniteで使える高機能日本語キーボード「MarkNキーボード」"
 description: "ResoniteのVRモードで日本語入力したい人向けに、高機能日本語キーボード「MarkNキーボード」の導入・使い方・注意点をまとめます。"
-prev_post_path:
-next_post_path:
 # FolderName：2025-12-30-vr-japanese-keyboard
 ---
 
@@ -20,14 +17,6 @@ Resoniteでは**VRキーボードを好きなものに変更できる**って知
 
 この記事では、Resoniteで使える高機能日本語キーボード **「MarkNキーボード」** の導入・使い方・機能をまとめています。
 
-## 目次
-
-- [キーボードを設定](#キーボードを設定)
-- [主な機能（できること一覧）](#主な機能できること一覧)
-- [使い方（機能別の詳細）](#使い方機能別の詳細)
-- [カスタマイズと注意点（保存前にやること）](#カスタマイズと注意点保存前にやること)
-- [配布場所](#配布場所)
-
 ## キーボードを設定
 
 Resoniteでは「キーボードに設定」したアイテムがキーボードとして使用されます。  
@@ -35,7 +24,7 @@ Resoniteでは「キーボードに設定」したアイテムがキーボード
 
 **手順**:
 
-1. MarkNキーボードを取り出す（<a href="https://uni-pocket.com/ja/items/7bbead22-32d7-4ee3-88c9-7beaa78c1c13" target="_blank" rel="noopener noreferrer">配布場所</a>から無料で入手）
+1. MarkNキーボードを取り出す（[配布場所](https://uni-pocket.com/ja/items/7bbead22-32d7-4ee3-88c9-7beaa78c1c13)から無料で入手）
 2. **インベントリに保存**する
 3. **同期が完了するまで待つ**（ダッシュメニューの上に「同期中」や「同期完了」という表示があるはずです）
 4. 保存したキーボードを選択して **「キーボードに設定」** を押す
@@ -98,7 +87,6 @@ MarkNキーボードは **Resoniteで使える高機能日本語キーボード*
 
 ![Fnでフルキーボードへ切り替え](<2025-12-31 01.20.58.webp>)
 ![Fnでフルキーボードへ切り替え](<2025-12-31 01.20.52.webp>)
-
 
 ### 日本語入力（変換候補と確定）
 
@@ -196,10 +184,7 @@ MarkNキーボードは、以下で配布しています。
 
 - ユニポケット
 
-<a href="https://uni-pocket.com/ja/items/7bbead22-32d7-4ee3-88c9-7beaa78c1c13" class="dynamic-link-card"></a>
-<noscript>
-  <p><a href="https://uni-pocket.com/ja/items/7bbead22-32d7-4ee3-88c9-7beaa78c1c13">ユニポケット: MarkNキーボード</a></p>
-</noscript>
+https://uni-pocket.com/ja/items/7bbead22-32d7-4ee3-88c9-7beaa78c1c13
 
 - MarkNのパブリックフォルダ（Resonite内）
 

@@ -6,8 +6,7 @@ draft: false
 tags: ["Resonite", "作ったもの", "ワールド","イベント"]
 thumbnail: "thumbnail.webp"
 description: "自分だけの宇宙ステーションが作れるワールド [MMC24] SMM SPACE CRAFT STATION 【Resonite】"
-prev_post_path:
-next_post_path: "/posts/2024-03-04-makingofspacecraftstation/"
+series: "SPACE CRAFT STATION"
 # FolderName：2024-03-04-spacecraftstation
 ---
 
@@ -34,10 +33,7 @@ next_post_path: "/posts/2024-03-04-makingofspacecraftstation/"
 
 ## ワールドリンク
 
-<a href="https://go.resonite.com/record/U-MarkN/R-a8daa67f-d8c2-4610-a80a-b8e97a7f050c" class="dynamic-link-card"></a>
-    <noscript>
-        <p><a href="https://go.resonite.com/record/U-MarkN/R-a8daa67f-d8c2-4610-a80a-b8e97a7f050c">[MMC24] SMM SPACE CRAFT STATION（公式レコード）</a></p>
-    </noscript>
+https://go.resonite.com/record/U-MarkN/R-a8daa67f-d8c2-4610-a80a-b8e97a7f050c
 
 このワールドはワールド制作コンテスト「MMC24」にエントリーし、佳作を受賞しました。ぜひ参加して、あなたの宇宙開発を始めてみてください！
 
@@ -46,4 +42,4 @@ next_post_path: "/posts/2024-03-04-makingofspacecraftstation/"
 - システム: まーくん(MarkN) https://twitter.com/markn_chansan
 - 家具モデリング・PV動画: 広葉樹マキ https://twitter.com/maki_kouyouju
 
-{{< youtube "iocjRBCZckk" >}}
+https://www.youtube.com/watch?v=iocjRBCZckk

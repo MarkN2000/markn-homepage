@@ -5,10 +5,7 @@ lastmod:
 draft: false
 tags: ["作ったもの", "プログラミング","Resonite","おすすめアイテム","イベント"]
 thumbnail: "thumbnail.webp"
-thumbnail_alt: "竹あかりを作るアイテム"
 description: "竹を丸鋸で切って、好きに穴をあけて、竹あかりを作れるアイテムの制作をしました"
-prev_post_path:
-next_post_path:
 # FolderName：2025-12-01-takeakari-item
 ---
 
@@ -28,4 +25,4 @@ next_post_path:
 
 イベントの様子はこちらのレポート記事で紹介されています。
 
-<a href="https://note.com/sumu802/n/na169a2f21914" class="dynamic-link-card"></a>
+https://note.com/sumu802/n/na169a2f21914

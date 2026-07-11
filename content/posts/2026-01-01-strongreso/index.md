@@ -5,10 +5,7 @@ lastmod: 2026-01-02T15:40:00+09:00
 draft: false
 tags: ["Resonite", "作ったもの", "おすすめアイテム"]
 thumbnail: "thumbnail.webp"
-thumbnail_alt: "飲むと虹やキラキラを吐き出す缶チューハイ「ストレゾ」"
 description: "VRで「飲むと吐く」缶チューハイ「ストレゾ（StrongReso）」のアイテムを制作しました。虹やキラキラを吐きます。飲んだ缶を潰して、投げて捨てることもできます。"
-prev_post_path:
-next_post_path:
 # FolderName：2026-01-01-strongreso
 ---
 
@@ -20,7 +17,7 @@ GearBellさん達が作った飲むと虹を吐く缶を参考にしています
 
 ## 紹介動画
 
-{{< youtube "pZc-5AVyWek" >}}
+https://www.youtube.com/watch?v=pZc-5AVyWek
 
 ## 主な機能と遊び方
 
@@ -67,10 +64,7 @@ Resoniteの銃ギミックで一般的な「当たった場所にスロットを
 
 ### ユニポケット
 
-<a href="https://uni-pocket.com/ja/items/23c876df-2371-464d-b351-c12ce5be5197" class="dynamic-link-card"></a>
-<noscript>
-  <p><a href="https://uni-pocket.com/ja/items/23c876df-2371-464d-b351-c12ce5be5197">ユニポケット: ストレゾ (StrongReso)</a></p>
-</noscript>
+https://uni-pocket.com/ja/items/23c876df-2371-464d-b351-c12ce5be5197
 
 ### Resoniteパブリックフォルダ
 MarkNのパブリックフォルダ内でも配布しています。

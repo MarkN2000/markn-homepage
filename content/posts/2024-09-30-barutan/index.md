@@ -6,8 +6,6 @@ draft: false
 tags: ["Resonite", "作ったもの", "おすすめアイテム"]
 thumbnail: "thumbnail.webp"
 description: "バルタン星人のハサミ【Resonite】"
-prev_post_path:
-next_post_path:
 # FolderName：2024-09-30-barutan
 ---
 
@@ -17,9 +15,6 @@ next_post_path:
 
 ## 配布リンク
 
-<a href="https://uni-pocket.com/ja/items/034bc8d3-499e-4249-83d7-71cfd20d8410" class="dynamic-link-card"></a>
-    <noscript>
-        <p><a href="https://uni-pocket.com/ja/items/034bc8d3-499e-4249-83d7-71cfd20d8410">バルタン星人のハサミ（配布ページ）</a></p>
-    </noscript>
+https://uni-pocket.com/ja/items/034bc8d3-499e-4249-83d7-71cfd20d8410
 
-{{< youtube "0fO8ufU2pb4" >}}
+https://www.youtube.com/watch?v=0fO8ufU2pb4

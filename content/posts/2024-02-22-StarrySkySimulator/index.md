@@ -6,8 +6,6 @@ draft: false
 tags: ["Resonite", "作ったもの", "ワールド","イベント"]
 thumbnail: "thumbnail.webp"
 description: "星空シミュレーター Starry Sky Simulator 【Resonite】"
-prev_post_path:
-next_post_path:
 # FolderName：2024-02-22-StarrySkySimulator 
 ---
 
@@ -17,11 +15,8 @@ next_post_path:
 
 ワールドリンク:
 
-<a href="https://go.resonite.com/world/U-MarkN/R-5649f089-8af3-4d7b-a802-cd3ee5f82bb1" class="dynamic-link-card"></a>
-    <noscript>
-        <p><a href="https://go.resonite.com/world/U-MarkN/R-5649f089-8af3-4d7b-a802-cd3ee5f82bb1">星空シミュレーター Starry Sky Simulator（公式ワールドページ）</a></p>
-    </noscript>
+https://go.resonite.com/world/U-MarkN/R-5649f089-8af3-4d7b-a802-cd3ee5f82bb1
 
 この作品は、Resoniteのイベント「mmc24」の esd（教育）カテゴリーにエントリーしています。
 
-{{< youtube "f_IGcijzxXQ" >}}
+https://www.youtube.com/watch?v=f_IGcijzxXQ

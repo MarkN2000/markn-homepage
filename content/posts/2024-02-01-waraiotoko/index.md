@@ -6,8 +6,6 @@ draft: false
 tags: ["Resonite", "作ったもの", "おすすめアイテム"]
 thumbnail: "thumbnail.webp"
 description: "VRで「笑い男」になるツール Resonite 攻殻機動隊SAC"
-prev_post_path:
-next_post_path:
 # FolderName：2024-02-01-waraiotoko
 ---
 
@@ -22,9 +20,6 @@ VRで「笑い男」になるツール Resonite 攻殻機動隊SAC
 
 ## 配布リンク
 
-<a href="https://uni-pocket.com/ja/items/0f63f215-514e-47a7-907c-8d457c487e15" class="dynamic-link-card"></a>
-    <noscript>
-        <p><a href="https://uni-pocket.com/ja/items/0f63f215-514e-47a7-907c-8d457c487e15">笑い男ツール（配布ページ）</a></p>
-    </noscript>
+https://uni-pocket.com/ja/items/0f63f215-514e-47a7-907c-8d457c487e15
 
-{{< youtube "Sh6Crd4_X_4" >}}
+https://www.youtube.com/watch?v=Sh6Crd4_X_4

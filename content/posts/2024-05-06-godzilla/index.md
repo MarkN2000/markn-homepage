@@ -6,8 +6,6 @@ draft: false
 tags: ["Resonite", "作ったもの", "おすすめアイテム"]
 thumbnail: "thumbnail.webp"
 description: "【ゴジラ】オキシジェン・デストロイヤーVRで作ってみた【Resonite】"
-prev_post_path:
-next_post_path:
 # FolderName：2024-05-06-godzilla
 ---
 
@@ -20,4 +18,4 @@ next_post_path:
 - 必ずワールドにいる全員から許可を得てから使用してください
 - 公開セッションでは使用しないでください（プライベート専用）
 
-{{< youtube "jQIXJESTBVI" >}}
+https://www.youtube.com/watch?v=jQIXJESTBVI

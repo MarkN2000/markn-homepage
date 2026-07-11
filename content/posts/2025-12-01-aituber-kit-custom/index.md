@@ -5,10 +5,7 @@ lastmod: 2026-02-04T18:05:00+09:00
 draft: false
 tags: ["プログラミング", "AI", "作ったもの"]
 thumbnail: "thumbnail.webp"
-thumbnail_alt: "AItuberKit Custom"
 description: "AItuberKitをフォークして、わんコメ連携や最新AIモデルへの対応などの機能追加を行いました"
-prev_post_path:
-next_post_path:
 # FolderName：2025-12-01-aituber-kit-custom
 ---
 
@@ -37,7 +34,9 @@ next_post_path:
 ## リポジトリ
 
 ソースコードはGitHubで公開しています。（現在は開発終了）
-<a href="https://github.com/MarkN2000/aituber-kit" class="dynamic-link-card"></a>
+
+https://github.com/MarkN2000/aituber-kit
 
 フォーク元（本家）
-<a href="https://github.com/tegnike/aituber-kit" class="dynamic-link-card"></a>
+
+https://github.com/tegnike/aituber-kit

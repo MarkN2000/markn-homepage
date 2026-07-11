@@ -6,24 +6,19 @@ draft: false
 tags: ["Resonite", "おすすめアイテム", "作ったもの"]
 thumbnail: "thumbnail.webp"
 description: "【カードキャプターさくら】VRでレリーズ!!できる封印の杖作ってみた。本当にユーザーをカードに封印できるよ"
-prev_post_path:
-next_post_path:
 ---
 
 【カードキャプターさくら 二次創作】VRでレリーズ!!できる封印の杖作ってみた
 
 VR空間で“レリーズ!!”できる封印の杖を作りました。入手から基本操作、封印・召喚、保存までの流れをまとめます。相手への配慮と許可を得た上でお楽しみください。
 
-{{< youtube "lC3F1dn66FY" >}}
+https://www.youtube.com/watch?v=lC3F1dn66FY
 
 ## 入手方法（無料）
 
 ### ユニポケットから入手
 
-<a href="https://uni-pocket.com/ja/items/5bb56b3c-b7b5-44d9-9f57-c8139712781a" class="dynamic-link-card"></a>
-    <noscript>
-        <p><a href="https://uni-pocket.com/ja/items/5bb56b3c-b7b5-44d9-9f57-c8139712781a">封印の杖（配布ページ）</a></p>
-    </noscript>
+https://uni-pocket.com/ja/items/5bb56b3c-b7b5-44d9-9f57-c8139712781a
 
 ### パブリックフォルダから入手
 - 「JP Public」→「MarkN(まーくん。)public」を入手
