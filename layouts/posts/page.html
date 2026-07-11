@@ -10,7 +10,7 @@
           {{- with .Params.thumbnail -}}
             {{- with $.Resources.GetMatch . -}}
               {{- $w := cond (gt .Width 1600) 1600 .Width -}}
-              {{- $img := .Resize (printf "%dx webp q80" $w) -}}
+              {{- $img := .Resize (printf "%dx webp q75" $w) -}}
               <img class="cover-img" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $.Title }}">
             {{- end -}}
           {{- end -}}

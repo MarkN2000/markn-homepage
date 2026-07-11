@@ -11,7 +11,7 @@
     {{- if not $res.Err -}}
       {{- with $res.Value -}}
         {{- if and (eq .MediaType.MainType "image") (ge .Width 200) -}}
-          {{- $thumb = .Resize "640x webp q80" -}}
+          {{- $thumb = .Resize "640x webp q75" -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}

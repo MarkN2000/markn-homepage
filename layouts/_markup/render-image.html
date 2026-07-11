@@ -28,7 +28,7 @@
 {{- if $title -}}<figure>{{- end -}}
 {{- if $isResource -}}
   {{- $w := cond (gt $image.Width 860) 860 $image.Width -}}
-  {{- $p := $image.Resize (printf "%dx webp q80" $w) -}}
+  {{- $p := $image.Resize (printf "%dx webp q75" $w) -}}
   <img src="{{ $p.RelPermalink }}" width="{{ $p.Width }}" height="{{ $p.Height }}" alt="{{ $alt }}" loading="lazy">
 {{- else -}}
   <img src="{{ $image }}" alt="{{ $alt }}" loading="lazy">

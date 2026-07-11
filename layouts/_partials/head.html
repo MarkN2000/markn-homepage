@@ -13,7 +13,7 @@
     {{- with $.Resources.GetMatch . -}}
       {{- /* og:image は幅1200pxを上限にリサイズ (小さい画像は拡大しない) */ -}}
       {{- $w := cond (gt .Width 1200) 1200 .Width -}}
-      {{- $imageURL = (.Resize (printf "%dx webp q80" $w)).Permalink -}}
+      {{- $imageURL = (.Resize (printf "%dx webp q75" $w)).Permalink -}}
     {{- else -}}
       {{- if hasPrefix . "/" -}}{{- $imageURL = (. | absURL) -}}{{- end -}}
     {{- end -}}
