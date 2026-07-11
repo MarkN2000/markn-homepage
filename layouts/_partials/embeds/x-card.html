@@ -33,6 +33,18 @@
     {{- end -}}
   {{- end -}}
 {{- end -}}{{- end -}}
+{{- /* oEmbed 由来の英語日付 (例: July 4, 2024) を日本語表記へ。パース失敗時は元文字列のまま */ -}}
+{{- $m := findRESubmatch `^([A-Za-z]+)\s+([0-9]{1,2}),\s+([0-9]{4})$` (trim $date " \n\t\r") -}}
+{{- if $m -}}
+  {{- $g := index $m 0 -}}
+  {{- $months := dict "January" "01" "February" "02" "March" "03" "April" "04" "May" "05" "June" "06" "July" "07" "August" "08" "September" "09" "October" "10" "November" "11" "December" "12" -}}
+  {{- $mo := index $months (index $g 1) -}}
+  {{- if $mo -}}
+    {{- $iso := printf "%s-%s-%02d" (index $g 3) $mo (int (index $g 2)) -}}
+    {{- $t := try (time.AsTime $iso) -}}
+    {{- if not $t.Err -}}{{- $date = $t.Value.Format "2006年1月2日" -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
 {{- $initial := "𝕏" -}}
 {{- if $author -}}{{- $initial = upper (substr $author 0 1) -}}{{- end -}}
 {{- if $ok -}}

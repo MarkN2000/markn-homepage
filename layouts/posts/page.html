@@ -46,7 +46,8 @@
         {{- /* シリーズナビ (同一 series を日付昇順で前後接続) */ -}}
         {{- with .Params.series -}}
           {{- $series := . -}}
-          {{- $siblings := sort (where (where site.RegularPages "Type" "posts") "Params.series" $series) "Date" "asc" -}}
+          {{- /* 日付昇順。同日付はタイトル昇順で順序を確定 (sort は安定ソート) */ -}}
+          {{- $siblings := sort (sort (where (where site.RegularPages "Type" "posts") "Params.series" $series) "Title" "asc") "Date" "asc" -}}
           {{- $prev := false -}}{{- $next := false -}}{{- $found := false -}}
           {{- range $siblings -}}
             {{- if $found -}}

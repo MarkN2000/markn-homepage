@@ -60,7 +60,7 @@ main{padding-bottom:56px}
 .back-to-top{
   position:fixed;right:22px;bottom:22px;z-index:50;
   width:46px;height:46px;border-radius:50%;border:1px solid var(--border);
-  background:var(--accent-deep);color:#fff;cursor:pointer;
+  background:var(--accent-deep);color:var(--white);cursor:pointer;
   display:flex;align-items:center;justify-content:center;
   box-shadow:var(--shadow-hover);
   opacity:0;visibility:hidden;transform:translateY(8px);

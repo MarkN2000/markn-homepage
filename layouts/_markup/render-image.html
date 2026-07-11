@@ -1,6 +1,7 @@
 {{- /* Markdown 画像 ![alt](src "title") を処理:
        ページリソース / assets → リサイズ + WebP、title があれば figure+figcaption。
-       外部URL・static 直指定はそのまま出力。 */ -}}
+       外部URL・static 直指定はそのまま出力。
+       alt/title はテンプレート出力に任せて自動エスケープする (safeHTML で生組み立てしない)。 */ -}}
 {{- $src := .Destination -}}
 {{- $alt := .Text | default "" -}}
 {{- $title := .Title -}}
@@ -24,17 +25,12 @@
   {{- end -}}
 {{- end -}}
 
-{{- $imgTag := "" -}}
+{{- if $title -}}<figure>{{- end -}}
 {{- if $isResource -}}
   {{- $w := cond (gt $image.Width 860) 860 $image.Width -}}
   {{- $p := $image.Resize (printf "%dx webp q80" $w) -}}
-  {{- $imgTag = printf `<img src="%s" width="%d" height="%d" alt="%s" loading="lazy">` $p.RelPermalink $p.Width $p.Height $alt -}}
+  <img src="{{ $p.RelPermalink }}" width="{{ $p.Width }}" height="{{ $p.Height }}" alt="{{ $alt }}" loading="lazy">
 {{- else -}}
-  {{- $imgTag = printf `<img src="%s" alt="%s" loading="lazy">` $image $alt -}}
+  <img src="{{ $image }}" alt="{{ $alt }}" loading="lazy">
 {{- end -}}
-
-{{- if $title -}}
-<figure>{{ $imgTag | safeHTML }}<figcaption>{{ $title | markdownify }}</figcaption></figure>
-{{- else -}}
-{{ $imgTag | safeHTML }}
-{{- end -}}
+{{- if $title -}}<figcaption>{{ $title | markdownify }}</figcaption></figure>{{- end -}}

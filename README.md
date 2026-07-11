@@ -36,7 +36,7 @@
   * ホスティング＆デプロイ: Cloudflare Pages（GitHub連携の自動ビルド）
   * バージョン管理: GitHub
 
-* **設計ドキュメント:** リニューアルの確定仕様は `docs/redesign-spec.md`、承認済みデザインは `docs/design-mock.html` を参照。
+* **設計ドキュメント:** リニューアルの確定仕様は `docs/redesign-spec.md`、デザイン設計の経緯も `docs/redesign-spec.md` を参照。
 
 ## コンテンツ管理
 

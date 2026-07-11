@@ -1,0 +1,13 @@
+{{- /* ページネーション共通マークアップ。
+       引数: dict "paginator" <Paginator> "id" <省略可: nav 要素の id 属性> */ -}}
+{{- $p := .paginator -}}
+{{- $id := .id -}}
+{{- if gt $p.TotalPages 1 -}}
+<nav class="pagination"{{ with $id }} id="{{ . }}"{{ end }} aria-label="ページ送り">
+  {{ if $p.HasPrev }}<a href="{{ $p.Prev.URL }}" aria-label="前のページ">←</a>{{ end }}
+  {{ range $p.Pagers }}
+    {{ if eq . $p }}<span class="on">{{ .PageNumber }}</span>{{ else }}<a href="{{ .URL }}">{{ .PageNumber }}</a>{{ end }}
+  {{ end }}
+  {{ if $p.HasNext }}<a href="{{ $p.Next.URL }}" aria-label="次のページ">→</a>{{ end }}
+</nav>
+{{- end -}}

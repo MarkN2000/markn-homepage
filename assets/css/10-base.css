@@ -17,9 +17,3 @@ body{
 a{color:var(--accent-deep)}
 img,svg{max-width:100%}
 img{height:auto}
-
-/* スクリーンリーダー専用 */
-.visually-hidden{
-  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
-  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
-}

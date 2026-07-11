@@ -7,7 +7,7 @@
 }
 .hero-banner::before{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg, rgba(18,42,58,.30), rgba(18,42,58,.58));
+  background:linear-gradient(180deg, var(--hero-overlay-top), var(--hero-overlay-bottom));
 }
 @media (max-width:600px){
   .hero-banner{background-image:url(/images/header-mobile.webp)}
@@ -23,8 +23,8 @@
   border:3px solid var(--surface);box-shadow:var(--shadow-card);
 }
 .hero .who{min-width:0}
-.hero .who h1{margin:0;font-size:1.45rem;line-height:1.4;text-wrap:balance;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.35)}
-.hero .who p{margin:4px 0 0;color:rgba(255,255,255,.94);font-size:.95rem;line-height:1.7;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.hero .who h1{margin:0;font-size:1.45rem;line-height:1.4;text-wrap:balance;color:var(--white);text-shadow:var(--text-shadow-hero)}
+.hero .who p{margin:4px 0 0;color:var(--hero-ink-sub);font-size:.95rem;line-height:1.7;text-shadow:var(--text-shadow-hero)}
 .sns-row{display:flex;gap:8px;flex-wrap:wrap;width:100%;margin-top:2px}
 .sns-row a{
   display:inline-flex;align-items:center;gap:6px;text-decoration:none;

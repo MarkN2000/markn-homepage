@@ -4,7 +4,8 @@
   {{- $thumb := "" -}}
   {{- with .Params.thumbnail -}}
     {{- with $.Resources.GetMatch . -}}
-      {{- $thumb = (.Fill "352x198 Center webp q60").RelPermalink -}}
+      {{- /* カード (card.html) と同じ 704x396 派生を共用し二重生成を避ける */ -}}
+      {{- $thumb = (.Fill "704x396 Center webp q60").RelPermalink -}}
     {{- end -}}
   {{- end -}}
   {{- $list = $list | append (dict

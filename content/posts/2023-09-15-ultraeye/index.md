@@ -6,7 +6,7 @@ draft: false
 tags: ["Resonite", "作ったもの", "おすすめアイテム"]
 thumbnail: "thumbnail.webp"
 description: "誰でも本当に変身できる変身ベルト作ってみた！しかも無料！！【Resonite】"
-# FolderName：2024-01-13-hennshinnberuto
+# FolderName：2023-09-15-ultraeye
 ---
 
 誰でも本当に変身できる変身ベルト作ってみた！しかも無料！！【Resonite】

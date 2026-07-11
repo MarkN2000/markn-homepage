@@ -22,7 +22,6 @@ enableRobotsTXT = true
 [params]
   description = "Resonite（レゾナイト）でVRプログラミングなどをしてツールやおもちゃを作っています。技術的な知見やTipsも発信。"
   og_image = "/images/ogp_default.webp"
-  mainSections = ["posts"]
   themeColor = "#2AA3D4"
 
   # プロフィール（ヒーロー・ヘッダーで使用）
@@ -77,7 +76,6 @@ enableRobotsTXT = true
     codeFences = true
     lineNos = false
     noClasses = false
-    style = "monokai"
 
 [sitemap]
   changefreq = "weekly"

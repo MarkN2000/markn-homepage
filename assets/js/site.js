@@ -22,12 +22,14 @@
     b.addEventListener("click", function () {
       var pre = b.parentElement.querySelector("pre");
       if (!pre) return;
-      var done = function () {
-        b.textContent = "コピーしました";
-        setTimeout(function () { b.textContent = "コピー"; }, 1600);
-      };
-      if (navigator.clipboard) navigator.clipboard.writeText(pre.innerText).then(done, done);
-      else done();
+      var reset = function () { setTimeout(function () { b.textContent = "コピー"; }, 1600); };
+      var done = function () { b.textContent = "コピーしました"; reset(); };
+      var fail = function () { b.textContent = "コピーできませんでした"; reset(); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pre.innerText).then(done, fail);
+      } else {
+        fail();
+      }
     });
   });
 
@@ -99,7 +101,17 @@
         return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
       });
     };
-    var hash = function (s) { var h = 0, i; for (i = 0; i < s.length; i++) { h = (h * 31 + s.charCodeAt(i)) >>> 0; } return h; };
+    // Hugo 側 card.html の `hash.FNV32a` と同一結果になる FNV-1a 32bit。
+    // 入力は .Title の UTF-8 バイト列 (グリッドと検索結果でグラデ色を一致させる)。
+    var hash = function (s) {
+      var bytes = unescape(encodeURIComponent(String(s == null ? "" : s)));
+      var h = 0x811c9dc5, i;
+      for (i = 0; i < bytes.length; i++) {
+        h ^= bytes.charCodeAt(i);
+        h = Math.imul(h, 0x01000193);
+      }
+      return h >>> 0;
+    };
     var cardHTML = function (p) {
       var href = p.external ? p.external : p.permalink;
       var ext = p.external ? ' target="_blank" rel="noopener noreferrer"' : "";

@@ -1,0 +1,8 @@
+{{- /* リンクカードの favicon を自サイト配信。引数: ホスト名文字列。
+       partialCached でホスト単位にキャッシュし、同一ドメイン複数リンクの重複取得を防ぐ。
+       取得失敗時は CSS の色四角 (span) にフォールバック。 */ -}}
+{{- $host := . -}}
+{{- $fav := "" -}}
+{{- $fr := try (resources.GetRemote (printf "https://www.google.com/s2/favicons?domain=%s&sz=32" $host)) -}}
+{{- if not $fr.Err -}}{{- with $fr.Value -}}{{- if eq .MediaType.MainType "image" -}}{{- $fav = . -}}{{- end -}}{{- end -}}{{- end -}}
+{{- with $fav -}}<img class="favicon" src="{{ .RelPermalink }}" width="14" height="14" alt="" loading="lazy">{{- else -}}<span class="favicon"></span>{{- end -}}

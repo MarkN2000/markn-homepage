@@ -46,16 +46,12 @@
     {{- if eq .MediaType.MainType "image" -}}{{- $img = .Fill "224x224 Smart webp q75" -}}{{- end -}}
   {{- end -}}{{- end -}}
 {{- end -}}
-{{- /* --- favicon を自サイト配信 (失敗時はCSSの色四角) --- */ -}}
-{{- $fav := "" -}}
-{{- $fr := try (resources.GetRemote (printf "https://www.google.com/s2/favicons?domain=%s&sz=32" $host)) -}}
-{{- if not $fr.Err -}}{{- with $fr.Value -}}{{- if eq .MediaType.MainType "image" -}}{{- $fav = . -}}{{- end -}}{{- end -}}{{- end -}}
 {{- /* --- 出力 (成功・フォールバック共通レイアウト) --- */ -}}
 <a class="link-card" href="{{ $url }}" target="_blank" rel="noopener noreferrer">
 <div class="txt">
 <span class="t">{{ if $ok }}{{ $title }}{{ else }}{{ $url }}{{ end }}</span>
 {{ if and $ok $desc }}<span class="d">{{ $desc }}</span>{{ end }}
-<span class="site">{{ with $fav }}<img class="favicon" src="{{ .RelPermalink }}" width="14" height="14" alt="" loading="lazy">{{ else }}<span class="favicon"></span>{{ end }}{{ $domain }}</span>
+<span class="site">{{ partialCached "embeds/favicon.html" $host $host }}{{ $domain }}</span>
 </div>
 {{ with $img }}<div class="img"><img src="{{ .RelPermalink }}" width="112" height="112" alt="" loading="lazy"></div>{{ else }}<div class="img ph">🔗</div>{{ end }}
 </a>

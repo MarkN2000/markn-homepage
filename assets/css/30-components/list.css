@@ -36,7 +36,6 @@
 }
 .pagination .on{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
 .pagination a:hover{border-color:var(--accent)}
-.pagination .disabled{opacity:.4;pointer-events:none}
 
 /* 検索結果が空のときのメッセージ */
 .search-empty{margin:30px 0;color:var(--muted);font-size:.95rem}

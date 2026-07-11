@@ -13,7 +13,32 @@
   --accent-soft:#E3F2FA;
   --border:#DAE6ED;
   --code-bg:#1C2B35;
+  --code-ink:#DCE8EF;           /* コードブロック本文の文字色 */
+  --code-muted:#B8CAD6;         /* コードブロック コピーボタンの文字色 */
+  --code-btn-bg:rgba(255,255,255,.09);      /* 同 ボタン背景 */
+  --code-btn-border:rgba(255,255,255,.2);   /* 同 ボタン枠線 */
+  --code-btn-bg-hover:rgba(255,255,255,.18);/* 同 ボタン hover 背景 */
   --brand-youtube:#FF0000;      /* YouTube再生ボタン用ブランド色 */
+
+  --white:#fff;                 /* 色付き背景上に載る白文字・アイコン */
+
+  /* 絵文字カバー用グラデ (card.css の .cover / link-card プレースホルダ) */
+  --cover-g1a:#DDF0FA; --cover-g1b:#BFE3F5;
+  --cover-g2a:#E3F2FA; --cover-g2b:#CDE9DE;
+  --cover-g3a:#E8EFFA; --cover-g3b:#D5D9F2;
+  --cover-g4a:#FDF0DC; --cover-g4b:#F8DFC8;
+
+  --tag-hover:#D2EAF7;          /* タグチップ hover 背景 */
+
+  /* ヒーローの暗幕オーバーレイ・文字 */
+  --hero-overlay-top:rgba(18,42,58,.30);
+  --hero-overlay-bottom:rgba(18,42,58,.58);
+  --hero-ink-sub:rgba(255,255,255,.94);     /* ヒーロー説明文 */
+  --text-shadow-hero:0 1px 8px rgba(0,0,0,.35);
+
+  /* YouTube ファサードのプレースホルダ配色 */
+  --yt-ph-top:#31576E; --yt-ph-bottom:#1C2B35;
+  --yt-ph-ink:#9FC4D8;
 
   --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
   --font-mono:ui-monospace,"Cascadia Code",Consolas,Menlo,monospace;
