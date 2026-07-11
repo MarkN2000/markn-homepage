@@ -18,7 +18,7 @@ externalUrl: "https://lutmatch.markn2000.com"
 *   **3つのマッチモード**: ナチュラル(MKL)、忠実(ヒストグラムマッチング)、バランス(複合処理)から選択可能
 *   **強度調整**: マッチングの適用強度を調整しながらリアルタイムでプレビュー
 *   **柔軟な出力**: 17/33/65サイズの`.cube`ファイルとしてダウンロード
-*   **幅広い対応ソフト**: DaVinci Resolve、Premiere Pro、Photoshop、OBSなど多数のソフトで使用可能
+*   **幅広い対応ソフト**: DaVinci Resolve、Premiere Pro、Photoshop、OBS、Resoniteなど多数のソフトで使用可能
 *   **プライバシー保護**: すべての処理はブラウザ内で完結し、画像がサーバーに送信されることはありません
 
 ## 使い方
