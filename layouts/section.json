@@ -1,9 +1,10 @@
 {{- /* 記事検索インデックス (/posts/index.json)。site.js が /posts/ でのみ読み込む */ -}}
 {{- $list := slice -}}
 {{- range where site.RegularPages "Type" "posts" -}}
+  {{- $post := . -}}
   {{- $thumb := "" -}}
   {{- with .Params.thumbnail -}}
-    {{- with $.Resources.GetMatch . -}}
+    {{- with $post.Resources.GetMatch . -}}
       {{- /* カード (card.html) と同じ 704x396 派生を共用し二重生成を避ける */ -}}
       {{- $thumb = (.Fill "704x396 Center webp q60").RelPermalink -}}
     {{- end -}}

@@ -17,3 +17,5 @@ body{
 a{color:var(--accent-deep)}
 img,svg{max-width:100%}
 img{height:auto}
+/* display 指定を持つ要素 (.card-grid 等) でも hidden 属性を必ず効かせる */
+[hidden]{display:none !important}
