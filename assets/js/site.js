@@ -120,7 +120,9 @@
         : '<div class="cover g' + (1 + (hash(p.title) % 4)) + '">' + esc(p.emoji || "📝") + "</div>";
       var meta = "<span>" + esc(p.date) + "</span>";
       if (p.external) meta += '<span class="ext">外部リンク ↗</span>';
-      (p.tags || []).slice(0, 2).forEach(function (t) { meta += '<span class="tag">' + esc(t) + "</span>"; });
+      var tags = p.tags || [];
+      tags.slice(0, 3).forEach(function (t) { meta += '<span class="tag">' + esc(t) + "</span>"; });
+      if (tags.length > 3) meta += '<span class="tag tag-more">+' + (tags.length - 3) + "</span>";
       return '<a class="card" href="' + esc(href) + '"' + ext + ">" + cover +
         '<div class="body"><h3>' + esc(p.title) + '</h3><div class="meta">' + meta + "</div></div></a>";
     };

@@ -18,7 +18,10 @@
     <div class="meta">
       <span>{{ $page.Date.Format "2006年1月2日" }}</span>
       {{ if $ext }}<span class="ext">外部リンク ↗</span>{{ end }}
-      {{ range first 2 $page.Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
+      {{- with $page.Params.tags -}}
+        {{ range first 3 . }}<span class="tag">{{ . }}</span>{{ end }}
+        {{- if gt (len .) 3 }}<span class="tag tag-more">+{{ sub (len .) 3 }}</span>{{ end -}}
+      {{- end }}
     </div>
   </div>
 </a>

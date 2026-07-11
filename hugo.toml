@@ -5,6 +5,8 @@ title = "MarkN(まーくん)のホームページ"
 
 enableGitInfo = true
 enableRobotsTXT = true
+# タグ名を書いたまま表示する ("webアプリ" が "Webアプリ" になるのを防ぐ)
+capitalizeListTitles = false
 
 [pagination]
   pagerSize = 12

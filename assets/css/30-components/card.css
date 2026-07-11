@@ -33,3 +33,6 @@
   padding:1px 9px;font-size:.75rem;font-weight:600;text-decoration:none;white-space:nowrap;
 }
 .tag:hover{background:var(--tag-hover)}
+/* 表示上限を超えたタグの残数チップ (+N) */
+.tag-more{background:transparent;color:var(--muted);border:1px solid var(--border);padding:0 8px}
+.tag-more:hover{background:transparent}
