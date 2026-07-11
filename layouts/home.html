@@ -25,7 +25,6 @@
         {{ range . }}{{ partial "card.html" . }}{{ end }}
         <a class="more-rail" href="{{ "/posts/" | relURL }}" aria-label="記事一覧へ">
           <span class="arrow">→</span>
-          <span class="label">もっと見る</span>
           <span class="count">全{{ len $posts }}件</span>
         </a>
       </div>
@@ -46,7 +45,6 @@
             {{ range first $count .Pages }}{{ partial "card.html" . }}{{ end }}
             <a class="more-rail" href="{{ $term.RelPermalink }}" aria-label="{{ $term.Title }}の記事一覧へ">
               <span class="arrow">→</span>
-              <span class="label">もっと見る</span>
               <span class="count">全{{ len .Pages }}件</span>
             </a>
           </div>

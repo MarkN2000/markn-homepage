@@ -6,25 +6,26 @@
 .shelf-row{display:flex;gap:18px}
 .shelf-row .card{flex:1 1 0;min-width:0}
 
-/* 縦型「もっと見る」レール (PC/モバイル共通) */
+/* 「もっと見る」レール: 丸矢印+件数のみ (背景なし。PC/モバイル共通) */
 .more-rail{
   flex:none;width:76px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
-  background:var(--accent-soft);border:1px solid var(--border);border-radius:var(--radius-m);
-  text-decoration:none;padding:14px 8px;box-shadow:var(--shadow-card);
-  transition:background .15s ease;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  text-decoration:none;
 }
-.more-rail:hover{background:var(--tag-hover)}
 .more-rail .arrow{
-  width:34px;height:34px;border-radius:50%;flex:none;
-  background:var(--accent-deep);color:var(--white);
-  display:flex;align-items:center;justify-content:center;font-size:1.05rem;font-weight:700;
+  width:44px;height:44px;border-radius:50%;flex:none;
+  background:var(--surface);color:var(--accent-deep);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:700;
+  box-shadow:var(--shadow-card);
+  transition:transform .15s ease, background .15s ease;
 }
-.more-rail .label{
-  writing-mode:vertical-rl;color:var(--accent-deep);
-  font-weight:700;font-size:.9rem;letter-spacing:.12em;
+.more-rail:hover .arrow{background:var(--accent-soft);transform:scale(1.08)}
+@media (prefers-reduced-motion:reduce){ .more-rail:hover .arrow{transform:none} }
+.more-rail .count{
+  background:var(--surface);border-radius:999px;padding:3px 10px;
+  color:var(--ink);font-size:.78rem;font-weight:600;white-space:nowrap;
+  box-shadow:var(--shadow-card);
 }
-.more-rail .count{color:var(--muted);font-size:.72rem;white-space:nowrap}
 
 @media (max-width:600px){
   .shelf-row{
