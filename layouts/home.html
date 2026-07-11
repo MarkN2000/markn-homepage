@@ -61,6 +61,9 @@
       <div class="card-grid">
         {{ range first site.Params.home.latestCount $posts }}{{ partial "card.html" . }}{{ end }}
       </div>
+      <div class="section-cta">
+        <a href="{{ "/posts/" | relURL }}">記事一覧へ (全{{ len $posts }}件) {{ partial "icon.html" "arrow-right" }}</a>
+      </div>
     </section>
   </div>
 </main>
