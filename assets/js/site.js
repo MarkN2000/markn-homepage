@@ -119,7 +119,7 @@
         ? '<div class="cover"><img src="' + esc(p.thumbnail) + '" alt="' + esc(p.title) + '" loading="lazy"></div>'
         : '<div class="cover g' + (1 + (hash(p.title) % 4)) + '">' + esc(p.emoji || "📝") + "</div>";
       var meta = "<span>" + esc(p.date) + "</span>";
-      if (p.external) meta += '<span class="ext">外部リンク ↗</span>';
+      if (p.external) meta += '<span class="ext">リンク ↗</span>';
       var tags = p.tags || [];
       tags.slice(0, 3).forEach(function (t) { meta += '<span class="tag">' + esc(t) + "</span>"; });
       if (tags.length > 3) meta += '<span class="tag tag-more">+' + (tags.length - 3) + "</span>";
