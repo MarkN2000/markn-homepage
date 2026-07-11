@@ -1,7 +1,7 @@
 /* ============================================================
    棚 (ピックアップ / タグ棚)
-   PC: カード横並び+右端に「もっと見る」レール
-   モバイル: 横スワイプ+末尾に同レール
+   PC(900px超): カード横並び+右端に「もっと見る」レール
+   タブレット・モバイル(900px以下): 横スワイプ+末尾に同レール
    ============================================================ */
 .shelf-row{display:flex;gap:18px}
 .shelf-row .card{flex:1 1 0;min-width:0}
@@ -28,11 +28,15 @@
   box-shadow:var(--shadow-card);
 }
 
-@media (max-width:600px){
+@media (max-width:900px){
   .shelf-row{
-    overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-left:16px;
-    gap:12px;margin:0 -16px;padding:2px 16px 10px;
+    overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-left:20px;
+    gap:12px;margin:0 -20px;padding:2px 20px 10px;
   }
-  .shelf-row .card{flex:0 0 76%;scroll-snap-align:start}
+  .shelf-row .card{flex:0 0 42%;scroll-snap-align:start}
   .shelf-row .more-rail{width:96px;scroll-snap-align:start}
+}
+@media (max-width:600px){
+  .shelf-row{scroll-padding-left:16px;margin:0 -16px;padding:2px 16px 10px}
+  .shelf-row .card{flex:0 0 76%}
 }

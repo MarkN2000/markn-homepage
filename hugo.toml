@@ -58,12 +58,12 @@ enableRobotsTXT = true
 
   # トップページ構成
   [params.home]
-    pickupCount = 6
-    latestCount = 6
+    pickupCount = 4
+    latestCount = 8
     # タグ棚（配列で増減・入替できる）
     [[params.home.shelves]]
       tag = "作ったもの"
-      count = 3
+      count = 4
 
 [markup]
   [markup.goldmark.renderer]

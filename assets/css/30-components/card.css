@@ -1,7 +1,12 @@
 /* ============================================================
    記事カード
    ============================================================ */
-.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media (min-width:1161px){
+  /* 関連記事は本文カラム(860px)内なので4列にせず3列を維持 */
+  .article-main .card-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:1160px){ .card-grid{grid-template-columns:repeat(3,1fr)} }
 @media (max-width:900px){ .card-grid{grid-template-columns:repeat(2,1fr)} }
 @media (max-width:600px){ .card-grid{grid-template-columns:1fr} }
 
