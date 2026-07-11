@@ -1,6 +1,6 @@
 # markn-homepage
 
-これは、Hugoを使用して構築された個人ホームページのプロジェクトです。Tailwind CSS を使用してスタイリングを行っています。
+これは、Hugoを使用して構築された個人ホームページのプロジェクトです。スタイリングは素のCSS（カスタムプロパティによるデザイントークン方式）で、npm等のパッケージ管理には依存しません。
 コンテンツはMarkdownファイルで直接管理し、GitHubにプッシュすることでCloudflare Pagesを通じてデプロイされます。
 
 ## コード・コンテンツの二次利用について
@@ -28,53 +28,42 @@
 
 * **技術スタック:**
 
-  * 静的サイトジェネレーター: Hugo
-
-  * CSSフレームワーク: Tailwind CSS
-
-  * ホスティング＆デプロイ: Cloudflare Pages
-
+  * 静的サイトジェネレーター: Hugo **v0.164.0 (extended) に固定**
+    - ローカル: `bin/hugo.exe`（gitignore対象。[公式リリース](https://github.com/gohugoio/hugo/releases/tag/v0.164.0)から取得）
+    - Cloudflare Pages: 環境変数 `HUGO_VERSION=0.164.0` を設定すること
+  * CSS: 素のCSS（`assets/css/` を Hugo Pipes で結合・圧縮。ビルドツール不要）
+  * JavaScript: vanilla JS 最小限（`assets/js/site.js`。検索・コードコピー・YouTubeファサード等）
+  * ホスティング＆デプロイ: Cloudflare Pages（GitHub連携の自動ビルド）
   * バージョン管理: GitHub
 
-  * OGP取得API: Cloudflare Pages Functions (Node.jsランタイム)
-  
-  * クライアントサイドスクリプト: JavaScript (動的リンクカード生成)
+* **設計ドキュメント:** リニューアルの確定仕様は `docs/redesign-spec.md`、承認済みデザインは `docs/design-mock.html` を参照。
 
 ## コンテンツ管理
 
-記事やその他のコンテンツは、`content/` ディレクトリ内のMarkdownファイル (`.md`) を直接編集します。
-VSCodeなどのテキストエディタで編集後、変更をGitでコミットし、GitHubリポジリにプッシュすることで、Cloudflare Pagesが自動的にサイトをビルド・デプロイします。
-
-新しい記事を作成する際は、`archetypes/default.md` をテンプレートとして利用できます。
-コマンドラインから新しい記事を作成する場合:
+記事は `content/posts/<YYYY-MM-DD-slug>/index.md`（Page Bundle形式）で管理します。テンプレートは `archetypes/default.md` です。
 
 ```
 hugo new content posts/新しい記事のフォルダ名/index.md
-
 ```
-(Page Bundle形式を推奨)
+
+* **リンクカード・埋め込み**: 前後に空行のある**単独行のURL**を書くだけで、ビルド時に自動変換されます（YouTube→軽量埋め込み、X→静的引用カード、その他→OGPリンクカード）。文中URLや `[テキスト](URL)` は普通のリンクのままです。
+* **キャプション付き画像**: `![alt](画像.png "キャプション")`
+* **前後記事ナビ**: frontmatter に同じ `series: "名前"` を書いた記事同士が日付順で自動接続されます。
+* **トップのピックアップ**: frontmatter に `pickup: true` を書いた記事がトップページに掲載されます。
+* **サムネイルなし記事**: frontmatter の `emoji: "⚡"` がカバーになります（未指定は📝）。
 
 ## 開発環境
 
-* **静的サイトジェネレーター**: Hugo (バージョンはCloudflare Pages環境変数 `HUGO_VERSION` で指定)
-
-* **CSSフレームワーク**: Tailwind CSS
-
-* **パッケージ管理**: npm (Node.js) (主にTailwind CSSビルド用 `package.json` 参照)
-
-ローカルAPIテスト: Cloudflare Pages Functionsのローカル開発には wrangler CLI が利用できますが、現在の構成ではクライアントJavaScriptから /api/fetch-metadata を呼び出すため、Hugoサーバーと連携したテストが必要です。動的リンクカードの表示確認は、モックデータを使用するか（assets/js/main.js内のIS_LOCAL_DEBUGフラグとMOCK_METADATAを参照）、実際にCloudflare Pagesにデプロイして行います。
+Hugo バイナリ1個で完結します（npm / Node.js は不要）。
 
 ### ローカル開発サーバー起動
 
-以下のコマンドでローカル開発サーバーを起動し、変更をリアルタイムでプレビューできます。
-
 ```
-
 hugo server -D
-
 ```
 
-ブラウザで `http://localhost:1313/` にアクセスしてください。
+ブラウザで `http://localhost:1313/` にアクセスしてください（`-D` でドラフトのスタイルガイド記事 `/posts/0000-01-01-styleguide/` も表示されます）。
+スマホ実機で確認する場合は `hugo server -D --bind 0.0.0.0` で起動し、同じWi-Fi内から `http://<PCのIP>:1313/` を開きます。
 
 ### ビルド
 
@@ -82,7 +71,7 @@ hugo server -D
 生成されたファイルは `public/` ディレクトリに出力されます。
 
 ```
-
 hugo --gc --minify
-
 ```
+
+※ OGPリンクカード等の情報はビルド時にリンク先へ取得に行きます（失敗してもフォールバックカードになり、ビルドは失敗しません）。
