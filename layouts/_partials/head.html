@@ -83,8 +83,8 @@
 <link rel="preload" as="image" href="{{ "/images/header-mobile.webp" | relURL }}" media="(max-width: 600px)" fetchpriority="high">
 {{- end }}
 
-{{- /* CSS: assets/css 配下を番号順に結合・圧縮・fingerprint */ -}}
+{{- /* CSS: assets/css 配下を番号順に結合・圧縮してインライン化 (6KB程度なので外部ファイルの往復1回を節約) */ -}}
 {{- $css := union (resources.Match "css/*.css") (resources.Match "css/**/*.css") -}}
 {{- $css = sort $css "Name" -}}
-{{- $bundle := $css | resources.Concat "css/site.css" | minify | fingerprint -}}
-<link rel="stylesheet" href="{{ $bundle.RelPermalink }}">
+{{- $bundle := $css | resources.Concat "css/site.css" | minify -}}
+<style>{{ $bundle.Content | safeCSS }}</style>
