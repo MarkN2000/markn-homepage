@@ -35,12 +35,14 @@
 .link-card .d{font-size:.8rem;color:var(--muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
 .link-card .site{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--muted);margin-top:auto}
 .link-card .favicon{width:14px;height:14px;border-radius:3px;background:var(--accent);flex:none}
-/* OGP画像は正方形固定・ビルド時に中央(Smart)クロップした正方形WebPを表示 */
+/* OGP画像の列は幅112px固定でカードの高さいっぱいに伸ばし、
+   タイトル2行等でカードが伸びた分は object-fit:cover でクロップ(隙間を作らない) */
 .link-card .img{
-  flex:none;width:112px;height:112px;align-self:center;
+  flex:none;width:112px;align-self:stretch;
   background:linear-gradient(135deg,var(--cover-g1a),var(--cover-g1b));
   display:flex;align-items:center;justify-content:center;text-align:center;
   color:var(--accent-deep);font-size:.72rem;letter-spacing:.06em;line-height:1.5;
+  overflow:hidden;
 }
 .link-card .img img{width:100%;height:100%;object-fit:cover}
 .link-card .img.ph{background:var(--accent-soft);font-size:26px}
