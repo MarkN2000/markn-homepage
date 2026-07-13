@@ -1,0 +1,3 @@
+{{- /* 記事シェアボタン (Xポスト + リンクコピー)。.share-row / .share-mini の中で使う */ -}}
+<a href="https://x.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" target="_blank" rel="noopener noreferrer">{{ partial "icon.html" "x" }}ポストする</a>
+<button type="button" class="copy-link" data-url="{{ .Permalink }}">{{ partial "icon.html" "link" }}リンクをコピー</button>

@@ -11,6 +11,12 @@
 .share-row svg{width:15px;height:15px;fill:currentColor}
 .share-row .copied{color:var(--accent-deep)}
 
+/* タイトルカード内の小型シェア行 (タグチップと同じ高さ感、PCのみ表示) */
+.share-mini{justify-content:center;margin:12px 0 0}
+.share-mini button,.share-mini a{font-size:.78rem;line-height:1.7;padding:1px 12px;gap:6px}
+.share-mini svg{width:13px;height:13px}
+@media (max-width:1023px){ .share-mini{display:none} }
+
 .series-nav{margin-top:30px}
 .series-nav .label{font-size:.82rem;color:var(--muted);font-weight:600;margin-bottom:8px}
 .series-nav .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}

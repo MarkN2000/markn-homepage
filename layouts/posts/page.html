@@ -21,6 +21,10 @@
             {{ if and .Lastmod (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}<span>·</span><span>更新: {{ .Lastmod.Format "2006年1月2日" }}</span>{{ end }}
             {{ range .Params.tags }}<a class="tag" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a>{{ end }}
           </div>
+          {{- /* 小型シェア行 (PCのみ表示) */ -}}
+          <div class="share-row share-mini">
+            {{ partial "share-buttons.html" . }}
+          </div>
         </header>
       </div>
 
@@ -40,8 +44,7 @@
 
         {{- /* シェア行 */ -}}
         <div class="share-row">
-          <a href="https://x.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" target="_blank" rel="noopener noreferrer">{{ partial "icon.html" "x" }}ポストする</a>
-          <button type="button" class="copy-link" data-url="{{ .Permalink }}">{{ partial "icon.html" "link" }}リンクをコピー</button>
+          {{ partial "share-buttons.html" . }}
         </div>
 
         {{- /* シリーズナビ (同一 series を日付昇順で前後接続) */ -}}
