@@ -14,7 +14,7 @@ main{padding-bottom:56px}
 .site-header.is-hidden{transform:translateY(-100%)}
 @media (prefers-reduced-motion:reduce){ .site-header{transition:none} }
 .site-header .bar{
-  max-width:var(--site-width);margin:0 auto;padding:10px 20px;
+  max-width:var(--site-width);margin:0 auto;padding:6px 20px;
   display:flex;align-items:center;gap:18px;
 }
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:700;font-size:1.05rem;min-width:0}
@@ -34,7 +34,7 @@ main{padding-bottom:56px}
 .header-sns a:hover{background:var(--accent-soft);color:var(--accent-deep)}
 .header-sns svg{width:17px;height:17px;fill:currentColor}
 @media (max-width:600px){
-  .site-header .bar{padding:10px 14px;gap:10px}
+  .site-header .bar{padding:6px 14px;gap:10px}
   .logo{font-size:.95rem}
   .nav a{padding:6px 8px;font-size:.88rem}
   .header-sns a{width:30px;height:30px}
