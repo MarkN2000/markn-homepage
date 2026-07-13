@@ -1,8 +1,8 @@
 ---
 title: "LUT Match - 画像2枚からLUTを自動生成するツール"
 date: 2026-07-09T12:00:00+09:00
-lastmod:
-description: "元画像と参考画像の2枚から、色合いを再現する3D LUT(.cube)を自動生成するWebアプリケーションです。処理はすべてブラウザ内で完結し、生成したLUTはDaVinci ResolveやPremiere Pro、OBSなどで使用できます。"
+lastmod: 2026-07-13T12:00:00+09:00
+description: "2枚の画像から色合いを再現する3D LUT(.cube)を自動生成する無料のWebサイトです。処理はすべてブラウザ内で完結し、生成したLUTはDaVinci ResolveやPremiere Pro、Resoniteなどで使用できます。"
 tags: ["制作物", "webアプリ"]
 thumbnail: "thumbnail.webp"
 externalUrl: "https://lutmatch.markn2000.com"
@@ -17,7 +17,7 @@ externalUrl: "https://lutmatch.markn2000.com"
 *   **LUT自動生成**: Source(元画像)とReference(目標画像)の2枚から、色合いを再現する3D LUTを自動生成
 *   **3つのマッチモード**: ナチュラル(MKL)、忠実(ヒストグラムマッチング)、バランス(複合処理)から選択可能
 *   **強度調整**: マッチングの適用強度を調整しながらリアルタイムでプレビュー
-*   **柔軟な出力**: 17/33/65サイズの`.cube`ファイルとしてダウンロード
+*   **柔軟な出力**: 17/33/65サイズの`.cube`ファイル、またはresonite.packageとしてダウンロード
 *   **幅広い対応ソフト**: DaVinci Resolve、Premiere Pro、Photoshop、OBS、Resoniteなど多数のソフトで使用可能
 *   **プライバシー保護**: すべての処理はブラウザ内で完結し、画像がサーバーに送信されることはありません
 
