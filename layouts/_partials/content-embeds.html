@@ -12,7 +12,9 @@
   {{- if eq $href $text -}}
     {{- $u := htmlUnescape $href -}}
     {{- $embed := "" -}}
-    {{- if findRE `(?:youtube\.com/watch\?[^"]*v=|youtu\.be/|youtube\.com/shorts/)` $u -}}
+    {{- if eq $u "https://avatars.markn2000.com/catalog.json" -}}
+      {{- $embed = partialCached "embeds/avatar-gallery.html" $u $u -}}
+    {{- else if findRE `(?:youtube\.com/watch\?[^"]*v=|youtu\.be/|youtube\.com/shorts/)` $u -}}
       {{- with (findRESubmatch `(?:[?&]v=|youtu\.be/|shorts/)([A-Za-z0-9_-]{6,})` $u) -}}
         {{- $embed = partialCached "embeds/youtube.html" (index (index . 0) 1) (index (index . 0) 1) -}}
       {{- end -}}
