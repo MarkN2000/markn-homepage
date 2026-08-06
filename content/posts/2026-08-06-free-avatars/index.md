@@ -1,7 +1,7 @@
 ---
 title: "Resonite向け無料アバター配布"
 date: 2026-08-06T02:00:00+09:00
-lastmod: 2026-08-06T19:00:00+09:00
+lastmod: 2026-08-07T03:00:00+09:00
 draft: false
 tags: ["Resonite", "制作物"]
 description: "CC0の100AvatarsをResonite用のresonitepackageに変換しました。無料でダウンロードして使えます。"
