@@ -1,7 +1,7 @@
 ---
 title: "高機能VR日本語キーボード「MarkNキーボード」導入・使い方【Resonite】"
 date: 2025-12-31T1:00:00+09:00
-lastmod: 2026-01-02T15:00:00+09:00
+lastmod: 2026-08-07
 draft: false
 tags: ["Resonite", "制作物"]
 thumbnail: "thumbnail.webp"
@@ -26,6 +26,9 @@ Resoniteでは「キーボードに設定」したアイテムがキーボード
 **手順**:
 
 1. MarkNキーボードを取り出す（[配布場所](https://uni-pocket.com/ja/items/7bbead22-32d7-4ee3-88c9-7beaa78c1c13)から無料で入手）
+
+https://uni-pocket.com/ja/items/7bbead22-32d7-4ee3-88c9-7beaa78c1c13
+
 2. **インベントリに保存**する
 3. **同期が完了するまで待つ**（ダッシュメニューの上に「同期中」や「同期完了」という表示があるはずです）
 4. 保存したキーボードを選択して **「キーボードに設定」** を押す

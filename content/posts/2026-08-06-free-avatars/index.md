@@ -11,6 +11,7 @@ thumbnail: "thumbnail.webp"
 [「100Avatars v24.02.1」](https://github.com/PolygonalMind/100Avatars/releases/tag/v24.02.1)を、Resoniteで使える`.resonitepackage`に変換して公開しています。
 
 こちらのResoniteアイテムを使えばResonite内で閲覧・取得・編集もできます（この方法がおすすめ）
+
 https://uni-pocket.com/ja/items/69e55f2c-f48d-469f-9914-dcbacb1a7d98
 
 下のカードをクリックでダウンロードもできます。ダウンロードしたファイルをResoniteへインポートして使ってください。配布しているアバターもCC0です。
