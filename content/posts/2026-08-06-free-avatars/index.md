@@ -1,6 +1,7 @@
 ---
 title: "Resonite向け無料アバター配布"
 date: 2026-08-06T02:00:00+09:00
+lastmod: 2026-08-06T19:00:00+09:00
 draft: false
 tags: ["Resonite", "制作物"]
 description: "CC0の100AvatarsをResonite用のresonitepackageに変換しました。無料でダウンロードして使えます。"
@@ -19,3 +20,8 @@ https://uni-pocket.com/ja/items/69e55f2c-f48d-469f-9914-dcbacb1a7d98
 もしこれ以外のResonite用無料アバターを探している方は、JPチュートリアルワールドに置いてあるアバターパネルを探すと良いですよ
 
 https://avatars.markn2000.com/catalog.json
+
+
+関連記事
+
+https://markn2000.com/posts/2025-11-24-resonite-avatar-setup-forpro/
