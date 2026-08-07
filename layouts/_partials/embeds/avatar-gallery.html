@@ -1,37 +1,9 @@
-{{- /* R2のカタログをビルド時に取得して出力するアバターダウンロードギャラリー。失敗時は空文字を返し、元のMarkdownリンクを残す。 */ -}}
+{{- /* 閲覧時にR2の最新カタログを表示するアバターダウンロードギャラリー。 */ -}}
 {{- $catalogURL := . -}}
-{{- $remote := try (resources.GetRemote $catalogURL) -}}
-{{- if $remote.Err -}}
-  {{- warnf "avatar-gallery: カタログ取得失敗 %s: %s" $catalogURL $remote.Err -}}
-{{- else -}}
-  {{- $catalog := try (transform.Unmarshal $remote.Value.Content) -}}
-  {{- if $catalog.Err -}}
-    {{- warnf "avatar-gallery: カタログJSON解析失敗 %s: %s" $catalogURL $catalog.Err -}}
-  {{- else -}}
-    {{- $base := replaceRE "[^/]+$" "" $catalogURL -}}
-    <section class="avatar-gallery" aria-label="アバターダウンロード">
-      <p class="avatar-gallery-intro">{{ len $catalog.Value }}体のアバター。カードをクリックするとダウンロードします。</p>
-      <div class="avatar-gallery-grid">
-        {{- range $item := $catalog.Value -}}
-          {{- $path := index $item "path" | default "" -}}
-          {{- $thumbnail := index $item "thumbnail" | default "" -}}
-          {{- if and $path $thumbnail -}}
-            {{- $segments := split $path "/" -}}
-            {{- $name := index $segments (sub (len $segments) 2) -}}
-            {{- $packageURL := $path -}}
-            {{- if not (findRE "^https?://" $packageURL) -}}{{- $packageURL = printf "%s%s" $base $packageURL -}}{{- end -}}
-            {{- $thumbnailURL := $thumbnail -}}
-            {{- if not (findRE "^https?://" $thumbnailURL) -}}{{- $thumbnailURL = printf "%s%s" $base $thumbnailURL -}}{{- end -}}
-            <a class="avatar-gallery-card" href="{{ $packageURL }}" download>
-              <img class="avatar-gallery-thumbnail" src="{{ $thumbnailURL }}" width="72" height="72" alt="{{ $name }} のサムネイル" loading="lazy" decoding="async">
-              <span class="avatar-gallery-content">
-                <span class="avatar-gallery-name">{{ $name }}</span>
-                <span class="avatar-gallery-download">↓ ダウンロード</span>
-              </span>
-            </a>
-          {{- end -}}
-        {{- end -}}
-      </div>
-    </section>
-  {{- end -}}
-{{- end -}}
+<section class="avatar-gallery" data-catalog-url="{{ $catalogURL }}" aria-label="アバターダウンロード" aria-busy="true">
+  <p class="avatar-gallery-intro" aria-live="polite">アバター一覧を読み込んでいます…</p>
+  <div class="avatar-gallery-grid"></div>
+  <p class="avatar-gallery-fallback"><a href="{{ $catalogURL }}">アバター一覧を直接開く</a></p>
+</section>
+{{- $js := resources.Get "js/avatar-gallery.js" | js.Build (dict "minify" true) | fingerprint -}}
+<script src="{{ $js.RelPermalink }}" defer></script>

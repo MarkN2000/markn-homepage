@@ -1,6 +1,7 @@
 /* R2アバターカタログの専用ギャラリー */
 .avatar-gallery{margin:1.8em 0}
 .prose .avatar-gallery-intro{margin:0 0 .8em;color:var(--muted);font-size:.88rem}
+.prose .avatar-gallery-fallback{margin:.8em 0 0;font-size:.88rem}
 .avatar-gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .prose a.avatar-gallery-card{
   display:flex;align-items:center;gap:14px;min-width:0;padding:10px;
