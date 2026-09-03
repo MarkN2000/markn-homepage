@@ -2,7 +2,7 @@
 title: "AndroidスマホでResoniteヘッドレスを動かす方法"
 date: 2026-09-03T12:00:00+09:00
 lastmod:
-draft: true
+draft: false
 tags: ["Resonite", "解説"]
 thumbnail: "thumbnail.webp"
 emoji: "📱"
