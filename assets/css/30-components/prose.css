@@ -40,6 +40,15 @@
 .prose th,.prose td{border:1px solid var(--border);padding:.5em .8em;text-align:left}
 .prose th{background:var(--accent-soft)}
 
+/* 折りたたみは見出しから本文まで同じ背景と枠で範囲を示す */
+.prose details{
+  background:var(--details-bg);border:1px solid var(--border);border-radius:var(--radius-s);
+  margin:var(--details-margin) 0;padding:var(--details-padding);
+  overflow-wrap:anywhere;
+}
+.prose details > summary{cursor:pointer;font-weight:700}
+.prose details > :last-child{margin-bottom:0}
+
 /* コードブロック (render-codeblock フックが .code-wrap で包む) */
 .prose .code-wrap{position:relative;margin:1.6em 0}
 .prose pre{

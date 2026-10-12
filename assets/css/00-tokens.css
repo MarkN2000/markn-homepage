@@ -30,6 +30,9 @@
 
   --tag-hover:#D2EAF7;          /* タグチップ hover 背景 */
   --surface-tint:#F1F8FC;       /* 本文(白)の上に載るカード類の背景 (少し明るい水色) */
+  --details-bg:#F4F6F8;        /* 記事本文の折りたたみ背景 */
+  --details-padding:12px;
+  --details-margin:1.4em;
 
   /* ヒーローの暗幕オーバーレイ・文字 */
   --hero-overlay-top:rgba(18,42,58,.30);
