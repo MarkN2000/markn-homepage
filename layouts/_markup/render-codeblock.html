@@ -2,6 +2,6 @@
        ハイライトは Chroma (noClasses=false)。配色は 40-syntax.css。 */ -}}
 {{- $result := transform.HighlightCodeBlock . -}}
 <div class="code-wrap">
-  <button class="copy" type="button">コピー</button>
+  <button class="copy" type="button" aria-label="コードをコピー" title="コードをコピー" aria-live="polite">{{ partial "icon.html" "copy" }}</button>
   {{ $result.Wrapped }}
 </div>

@@ -18,6 +18,8 @@
   --code-btn-bg:rgba(255,255,255,.09);      /* 同 ボタン背景 */
   --code-btn-border:rgba(255,255,255,.2);   /* 同 ボタン枠線 */
   --code-btn-bg-hover:rgba(255,255,255,.18);/* 同 ボタン hover 背景 */
+  --code-btn-padding:6px;
+  --code-btn-icon-size:18px;
   --brand-youtube:#FF0000;      /* YouTube再生ボタン用ブランド色 */
 
   --white:#fff;                 /* 色付き背景上に載る白文字・アイコン */

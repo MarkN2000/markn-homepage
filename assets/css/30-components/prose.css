@@ -62,6 +62,8 @@
 .code-wrap .copy{
   position:absolute;top:8px;right:8px;font:inherit;font-size:.72rem;font-weight:600;
   color:var(--code-muted);background:var(--code-btn-bg);border:1px solid var(--code-btn-border);
-  border-radius:6px;padding:3px 10px;cursor:pointer;z-index:1;
+  border-radius:6px;padding:var(--code-btn-padding);cursor:pointer;z-index:1;
+  display:flex;align-items:center;justify-content:center;
 }
+.code-wrap .copy svg{display:block;width:var(--code-btn-icon-size);height:var(--code-btn-icon-size)}
 .code-wrap .copy:hover{background:var(--code-btn-bg-hover);color:var(--white)}

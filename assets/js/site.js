@@ -39,12 +39,13 @@
 
   // --- コードブロックのコピーボタン ---
   document.querySelectorAll(".code-wrap .copy").forEach(function (b) {
+    var label = b.innerHTML;
     b.addEventListener("click", function () {
       var pre = b.parentElement.querySelector("pre");
       if (!pre) return;
-      var reset = function () { setTimeout(function () { b.textContent = "コピー"; }, 1600); };
-      var done = function () { b.textContent = "コピーしました"; reset(); };
-      var fail = function () { b.textContent = "コピーできませんでした"; reset(); };
+      var reset = function () { setTimeout(function () { b.innerHTML = label; b.setAttribute("aria-label", "コードをコピー"); }, 1600); };
+      var done = function () { b.textContent = "コピーしました"; b.setAttribute("aria-label", b.textContent); reset(); };
+      var fail = function () { b.textContent = "コピーできませんでした"; b.setAttribute("aria-label", b.textContent); reset(); };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(pre.innerText).then(done, fail);
       } else {
