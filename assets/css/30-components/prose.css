@@ -27,6 +27,7 @@
   font-family:var(--font-mono);font-size:.85em;
   background:var(--accent-soft);color:var(--accent-deep);
   padding:.15em .45em;border-radius:5px;
+  overflow-wrap:anywhere;
 }
 .prose img{border-radius:var(--radius-s)}
 /* 本文の画像(段落直下)のみ中央揃え。埋め込みカード内のfavicon等には効かせない */

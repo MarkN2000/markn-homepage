@@ -37,12 +37,31 @@ emoji: "🧪"
 
 > これは引用ブロックです。The quick brown fox jumps over the lazy dog.
 
+長いインラインコードはスマホ幅でも本文からはみ出さずに折り返されることを確認します。
+
+例: `C:\Program Files (x86)\Steam\steamapps\common\Resonite\rml_libs`
+
+- 空白のない文字列: `abcdefghijklmnopqrstuvwxyz0123456789abcdefghijklmnopqrstuvwxyz0123456789`
+
 ```js
 // コードブロックの例
 function greet(name) {
   return `Hello, ${name}!`;
 }
+// 長い行は折り返さず横スクロール: abcdefghijklmnopqrstuvwxyz0123456789abcdefghijklmnopqrstuvwxyz0123456789
 ```
+
+## 折りたたみ
+
+<details>
+<summary>クリックして開く</summary>
+
+折りたたみ内でも **太字**、`インラインコード`、リストが表示されることを確認します。
+
+- 項目1
+- 項目2
+
+</details>
 
 ## 表
 
