@@ -69,11 +69,12 @@ Gale経由で使う場合、Steamに設定済みの引数は外しておきま�
 </details>
 
 ## MarkNが入れているMod一覧
-
-<details>
-<summary>RML</summary>
+### RMLのmod
 
 `rml_mods`に配置します。
+<details>
+<summary>展開</summary>
+
 
 #### おすすめ
 
@@ -92,8 +93,9 @@ Gale経由で使う場合、Steamに設定済みの引数は外しておきま�
 
 </details>
 
+### BepisLoaderのmod
 <details>
-<summary>BepisLoader</summary>
+<summary>展開</summary>
 
 Galeで管理しています。GaleでMod名を検索してインストールするのがおすすめです。
 ![alt text](rapture_20261012180833.jpg)
@@ -127,6 +129,8 @@ Galeで管理しています。GaleでMod名を検索してインストールす
 一つの`Default`を共用すれば、Modの更新や設定変更を一か所で行えます。
 
 長いパスがショートカットの「リンク先」欄に収まるよう、シンボリックリンクで短くします。
+<details>
+<summary>やり方</summary>
 
 ### シンボリックリンクの作成
 
@@ -182,3 +186,4 @@ mklink /D C:\resmod "%APPDATA%\com.kesomannen.gale\resonite\profiles\Default"
 3. 名前を「Resonite（mod無し）」などにして作成します。
 
 デスクトップ用にする場合は、パスの末尾に半角スペースと`-screen`を付けます。
+</details>
