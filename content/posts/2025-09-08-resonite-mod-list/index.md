@@ -51,7 +51,8 @@ Gale経由で使う場合、Steamに設定済みの引数は外しておきま�
 3. 作成したショートカットからResoniteを起動できます。
 ![alt text](rapture_20261012182055.jpg)
 
-### VR用・デスクトップ用に分ける場合（任意）
+<details>
+<summary>VR用・デスクトップ用に分ける場合（任意）</summary>
 
 起動モード別にショートカットを分けたい場合だけ行います。
 
@@ -65,10 +66,12 @@ Gale経由で使う場合、Steamに設定済みの引数は外しておきま�
 ![alt text](rapture_20261012182240.jpg)
 
 複製後のGale側のModは別管理です。同じプロファイルを共用したい場合は、末尾のおまけを参照してください。
+</details>
 
 ## MarkNが入れているMod一覧
 
-### RML
+<details>
+<summary>RML</summary>
 
 `rml_mods`に配置します。
 
@@ -87,33 +90,37 @@ Gale経由で使う場合、Steamに設定済みの引数は外しておきま�
 - [SimpleScalableMeshOrbs](https://github.com/AwesomeTornado/SimpleScalableMeshOrbs/): メッシュオーブのサイズを変更できます。
 - [SlotInspectorHighlighter](https://github.com/sjsanjsrh/SlotInspectorHighlighter): 選択中のスロットをインスペクタで色付き表示します。
 
-### BepisLoader
+</details>
 
-Galeで管理しています。各リンクから直接ダウンロードするより、GaleでMod名を検索してインストールするのがおすすめです。
+<details>
+<summary>BepisLoader</summary>
+
+Galeで管理しています。GaleでMod名を検索してインストールするのがおすすめです。
 ![alt text](rapture_20261012180833.jpg)
 
 #### 必須級
 
-- [ResoniteModLoaderLoader](https://github.com/DevL0rd/ResoniteModLoaderLoader): RMLのModを使うため、BepisLoaderからRMLを読み込みます。
-- [ResoniteYAP](https://thunderstore.io/c/resonite/p/NepuShiro/ResoniteYAP/): コンポーネントやFluxノードを検索できます。
-- [InspectorScroll](https://thunderstore.io/c/resonite/p/art0007i/InspectorScroll/): ジョイスティックでスクロールできます。
-- [RMLModSettings](https://thunderstore.io/c/resonite/p/NepuShiro/RMLModSettings/): BepisModSettingsからRML側のMod設定を変更できます。
-- [NoHeadMenuDash](https://thunderstore.io/c/resonite/p/art0007i/NoHeadMenuDash/): 手を頭に近づけるとボタンがダッシュメニューに変わる謎仕様を消します。
-- [ResoniteBetterIMESupport](https://thunderstore.io/c/resonite/p/blhsrwznrghfzpr/ResoniteBetterIMESupport/): 日本語入力などの変換中の文字を正しく表示します。
+- `ResoniteModLoaderLoader`: RMLのModを使うため、BepisLoaderからRMLを読み込みます。
+- `RMLModSettings`: BepisModSettingsからRML側のMod設定を変更できます。
+
 
 #### おすすめ
 
-- [DefaultToolOverride](https://thunderstore.io/c/resonite/p/art0007i/DefaultToolOverride/): デスクトップモードで数字キーから出せるツールを変更できます。
-- [SpeedyURLs](https://thunderstore.io/c/resonite/p/LeCloutPanda/SpeedyURLs/): URLを開くまでの待機時間をスキップします。
+- `InspectorScroll`: ジョイスティックでスクロールできます。
+- `ResoniteYAP`: コンポーネントやFluxノードを検索できます。
+- `NoHeadMenuDash`: 手を頭に近づけるとボタンがダッシュメニューに変わる謎仕様を消します。
+- `ResoniteBetterIMESupport`: 日本語入力などの変換中の文字を正しく表示します。
+- `DefaultToolOverride`: デスクトップモードで数字キーから出せるツールを変更できます。
+- `SpeedyURLs`: URLを開くまでの待機時間をスキップします。
 
 #### あると便利
 
-- [ShowDelegates](https://thunderstore.io/c/resonite/p/art0007i/ShowDelegates/): デリゲート一覧を折りたたみ、隠しデリゲートも表示します。
-- [TypePicker](https://thunderstore.io/c/resonite/p/MrTumnus/TypePicker/): コンポーネントやFluxノードの型を選ぶUIを追加します。
-- [ResoniteSpout](https://thunderstore.io/c/resonite/p/Zozokasu/ResoniteSpout/): カメラ映像をSpout経由でOBSなどに出力します。
-- [EnumDropdown](https://thunderstore.io/c/resonite/p/LeCloutPanda/EnumDropdown/): 列挙型（Enum）の値をドロップダウンから選べるようにします。（自分で開いたインスペクターのみ）
-- [MyInspectors](https://thunderstore.io/c/resonite/p/art0007i/MyInspectors/): インスペクタの内容をホストではなく自分側で生成するようにします。（壊れたとき影響範囲が大きいので注意。自分や他人のインスペクターの挙動がおかしくなったらoffにしてみましょう）
-
+- `ShowDelegates`: デリゲート一覧を折りたたみ、隠しデリゲートも表示します。
+- `TypePicker`: コンポーネントやFluxノードの型を選ぶUIを追加します。
+- `ResoniteSpout`: カメラ映像をSpout経由でOBSなどに出力します。
+- `EnumDropdown`: 列挙型（Enum）の値をドロップダウンから選べるようにします。（自分で開いたインスペクターのみ）
+- `MyInspectors`: インスペクタの内容をホストではなく自分側で生成するようにします。（壊れたとき影響範囲が大きいので注意。自分や他人のインスペクターの挙動がおかしくなったらoffにしてみましょう）
+</details>
 
 ## おまけ：同じModプロファイルでVR用・デスクトップ用を使い分ける
 
