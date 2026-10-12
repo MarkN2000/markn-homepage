@@ -10,7 +10,7 @@ description: "MarkNが現在使用しているResoniteのMod一覧。RMLとBepis
 
 RMLとBepisLoaderを併用しています。BepisLoader側はGaleで管理しています（Windows・Steam版）。
 
-**注意**: Modは自己責任で使用してください。アップデートで動かなくなることもあります。不調時はModを無効化して確認し、Mod使用中の問題をResonite公式に報告しないでください。
+**注意**: Modは自己責任で使用してください。アップデートで動かなくなることがよくあります。不調時はModを無効化して確認し、Mod使用中の問題をResonite公式に報告しないでください。
 
 ## ResoniteModLoader（RML）の導入
 
@@ -38,28 +38,31 @@ RMLとBepisLoaderを併用しています。BepisLoader側はGaleで管理して
 
 Gale経由で使う場合、Steamに設定済みの引数は外しておきます（RML用等で設定済みだった場合）。
 
-### Modの追加・更新・設定
+### Modの追加
 
-- 追加：「Install mods」
-- 更新：「Update all」
-- 設定：「Edit mod config」。`BepisModSettings`を入れるとゲーム内でも変更できます。
+1. Resoniteが選択されている状態でサイドバーの`install mods`タブを開く。
+2. modを検索してインストールボタンを押す。この際必須な関連modも自動でインストールインストールされます。
+![galeでmodを検索](rapture_20261012181850.jpg)
 
 ### ショートカットの作成
 
 1. Galeで使うプロファイル（例: `Default`）を選びます。
 2. 「Profile → Create desktop shortcut」でショートカットを作成します。
 3. 作成したショートカットからResoniteを起動できます。
+![alt text](rapture_20261012182055.jpg)
 
 ### VR用・デスクトップ用に分ける場合（任意）
 
 起動モード別にショートカットを分けたい場合だけ行います。
 
 1. `Default`をVR用として残します。
-2. 「Profile → Duplicate profile」で複製し、名前を`Desktop`にします。
+2. 「Profile → Duplicate profile」で複製し、名前を`Desktop`等にします。（手動でプロファイルを追加してmodを一つづつ追加したり、`Exprot as code`等で一覧をコピーしてまとめてインポートでもok）
 3. `Desktop`を選び、「Edit manager settings → Profile settings → Launch → Custom launch arguments」に`-Screen`を追加します。入力後は別の場所をクリックします。
 4. `Desktop`でも「Profile → Create desktop shortcut」でショートカットを作成します。
 
-`-Screen`は**Profile settings側**に入れます。Resonite settings側に入れるとVR用にも適用されます。
+`-Screen`は**Profile settings側**に入れます。Resonite settings側に入れると全プロファイルに適用されます。
+
+![alt text](rapture_20261012182240.jpg)
 
 複製後のGale側のModは別管理です。同じプロファイルを共用したい場合は、末尾のおまけを参照してください。
 
@@ -69,12 +72,9 @@ Gale経由で使う場合、Steamに設定済みの引数は外しておきま�
 
 `rml_mods`に配置しています。
 
-#### 必須級
-
-- [BoundedUIX](https://github.com/lill-la/BoundedUIX): UIXの要素をdevツールで選択し、選択範囲を表示できます。
-
 #### おすすめ
 
+- [BoundedUIX](https://github.com/lill-la/BoundedUIX): UIXの要素をdevツールで選択し、選択範囲を表示できます。
 - [BetterInventoryBrowser](https://github.com/hantabaru1014/BetterInventoryBrowser): インベントリのブックマーク・履歴などが使えるようになります。
 - [Reso-SaveToWhere](https://github.com/rassi0429/Reso-SaveToWhere): 保存先の指定をわかりやすくします。
 
@@ -90,6 +90,7 @@ Gale経由で使う場合、Steamに設定済みの引数は外しておきま�
 ### BepisLoader
 
 Galeで管理しています。各リンクから直接ダウンロードするより、GaleでMod名を検索してインストールするのがおすすめです。
+![alt text](rapture_20261012180833.jpg)
 
 #### 必須級
 
@@ -98,6 +99,7 @@ Galeで管理しています。各リンクから直接ダウンロードする�
 - [InspectorScroll](https://thunderstore.io/c/resonite/p/art0007i/InspectorScroll/): ジョイスティックでスクロールできます。
 - [RMLModSettings](https://thunderstore.io/c/resonite/p/NepuShiro/RMLModSettings/): BepisModSettingsからRML側のMod設定を変更できます。
 - [NoHeadMenuDash](https://thunderstore.io/c/resonite/p/art0007i/NoHeadMenuDash/): 手を頭に近づけるとボタンがダッシュメニューに変わる謎仕様を消します。
+- [ResoniteBetterIMESupport](https://thunderstore.io/c/resonite/p/blhsrwznrghfzpr/ResoniteBetterIMESupport/): 日本語入力などの変換中の文字を正しく表示します。
 
 #### おすすめ
 
@@ -108,13 +110,10 @@ Galeで管理しています。各リンクから直接ダウンロードする�
 
 - [ShowDelegates](https://thunderstore.io/c/resonite/p/art0007i/ShowDelegates/): デリゲート一覧を折りたたみ、隠しデリゲートも表示します。
 - [TypePicker](https://thunderstore.io/c/resonite/p/MrTumnus/TypePicker/): コンポーネントやFluxノードの型を選ぶUIを追加します。
-
-#### そのほか使っている
-
-- [ResoniteBetterIMESupport](https://thunderstore.io/c/resonite/p/blhsrwznrghfzpr/ResoniteBetterIMESupport/): 日本語入力などの変換中の文字を正しく表示します。
 - [ResoniteSpout](https://thunderstore.io/c/resonite/p/Zozokasu/ResoniteSpout/): カメラ映像をSpout経由でOBSなどに出力します。
 - [EnumDropdown](https://thunderstore.io/c/resonite/p/LeCloutPanda/EnumDropdown/): 列挙型（Enum）の値をドロップダウンから選べるようにします。
 - [MyInspectors](https://thunderstore.io/c/resonite/p/art0007i/MyInspectors/): インスペクタの内容をホストではなく自分側で生成するようにします。
+
 
 ## おまけ：同じModプロファイルでVR用・デスクトップ用を使い分ける
 
