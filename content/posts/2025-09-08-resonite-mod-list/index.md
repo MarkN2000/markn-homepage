@@ -8,9 +8,10 @@ thumbnail: "thumbnail.webp"
 description: "MarkNが現在使用しているResoniteのMod一覧。RMLとBepisLoader（Gale）の導入方法、VR・デスクトップ用の起動設定もまとめます。"
 ---
 
-RMLとBepisLoaderを併用しています。BepisLoader側はGaleで管理しています（Windows・Steam版）。
+RMLとBepisLoaderを併用しています。BepisLoader側はGaleで管理しています（Windows・Steam版）。<br>
+できるだけModの数は少なくする方針で運用しています
 
-**注意**: Modは自己責任で使用してください。アップデートで動かなくなることがよくあります。不調時はModを無効化して確認し、Mod使用中の問題をResonite公式に報告しないでください。
+<p style="color:red"><strong style="color:inherit">注意</strong> : Modは自己責任で使用してください。アップデートで動かなくなることがよくあります。不調時はModを無効化して確認し、Mod使用中の問題をResonite公式に報告しないでください。</p>
 
 ## ResoniteModLoader（RML）の導入
 
@@ -69,7 +70,7 @@ Gale経由で使う場合、Steamに設定済みの引数は外しておきま�
 </details>
 
 ## MarkNが入れているMod一覧
-### RMLのmod
+### RMLのMod
 
 `rml_mods`に配置します。
 <details>
@@ -86,6 +87,7 @@ Gale経由で使う場合、Steamに設定済みの引数は外しておきま�
 
 - [LegacyInventoryFix](https://github.com/rassi0429/LegacyInventoryFix): レガシーインベントリを横長にします。
 - [ResoniteScreenshotExtensions](https://github.com/hantabaru1014/ResoniteScreenshotExtensions): スクリーンショットの画質設定やメタデータを追加します。
+- [SessionTweaks](https://github.com/kazu0617/SessionTweaks): フレンド一覧に、セッションオーブ生成やURIコピーのボタンを追加します。
 - [ScalableMaterialOrbs](https://github.com/AlexW-578/ScalableMaterialOrbs/): マテリアルオーブのサイズを変更できます。
 - [ScalableWorldOrbs](https://github.com/XDelta/ScalableWorldOrbs): ワールドオーブのサイズを変更できます。
 - [SimpleScalableMeshOrbs](https://github.com/AwesomeTornado/SimpleScalableMeshOrbs/): メッシュオーブのサイズを変更できます。
@@ -93,7 +95,7 @@ Gale経由で使う場合、Steamに設定済みの引数は外しておきま�
 
 </details>
 
-### BepisLoaderのmod
+### BepisLoaderのMod
 <details>
 <summary>展開</summary>
 
@@ -117,11 +119,11 @@ Galeで管理しています。GaleでMod名を検索してインストールす
 
 #### あると便利
 
-- `ShowDelegates`: デリゲート一覧を折りたたみ、隠しデリゲートも表示します。
+- `ShowDelegates`: デリゲート一覧を折りたたみ、隠しデリゲートも表示します。（自分で開いたインスペクターのみ）
 - `TypePicker`: コンポーネントやFluxノードの型を選ぶUIを追加します。
 - `ResoniteSpout`: カメラ映像をSpout経由でOBSなどに出力します。
 - `EnumDropdown`: 列挙型（Enum）の値をドロップダウンから選べるようにします。（自分で開いたインスペクターのみ）
-- `MyInspectors`: インスペクタの内容をホストではなく自分側で生成するようにします。（壊れたとき影響範囲が大きいので注意。自分や他人のインスペクターの挙動がおかしくなったらoffにしてみましょう）
+- `MyInspectors`: インスペクタの内容をホストではなく自分側で生成するようにします。（壊れたとき影響範囲が大きいので注意。自分や他人のインスペクターの挙動がおかしくなったらまず疑いましょう）
 </details>
 
 ## おまけ：一つのプロファイルでVR・デスクトップ・mod無しのショートカット作る
