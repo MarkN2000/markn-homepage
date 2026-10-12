@@ -70,15 +70,15 @@ Gale経由で使う場合、Steamに設定済みの引数は外しておきま�
 
 ### RML
 
-`rml_mods`に配置しています。
+`rml_mods`に配置します。
 
 #### おすすめ
 
-- [BoundedUIX](https://github.com/lill-la/BoundedUIX): UIXの要素をdevツールで選択し、選択範囲を表示できます。
 - [BetterInventoryBrowser](https://github.com/hantabaru1014/BetterInventoryBrowser): インベントリのブックマーク・履歴などが使えるようになります。
 - [Reso-SaveToWhere](https://github.com/rassi0429/Reso-SaveToWhere): 保存先の指定をわかりやすくします。
+- [BoundedUIX](https://github.com/djsime1/BoundedUIX): UIXの要素をdevツールで選択し、選択範囲を表示できます。（アプデで壊れがち）
 
-#### 個人的に便利で使っている
+#### あると便利
 
 - [LegacyInventoryFix](https://github.com/rassi0429/LegacyInventoryFix): レガシーインベントリを横長にします。
 - [ResoniteScreenshotExtensions](https://github.com/hantabaru1014/ResoniteScreenshotExtensions): スクリーンショットの画質設定やメタデータを追加します。
@@ -106,13 +106,13 @@ Galeで管理しています。各リンクから直接ダウンロードする�
 - [DefaultToolOverride](https://thunderstore.io/c/resonite/p/art0007i/DefaultToolOverride/): デスクトップモードで数字キーから出せるツールを変更できます。
 - [SpeedyURLs](https://thunderstore.io/c/resonite/p/LeCloutPanda/SpeedyURLs/): URLを開くまでの待機時間をスキップします。
 
-#### 個人的に便利で使っている
+#### あると便利
 
 - [ShowDelegates](https://thunderstore.io/c/resonite/p/art0007i/ShowDelegates/): デリゲート一覧を折りたたみ、隠しデリゲートも表示します。
 - [TypePicker](https://thunderstore.io/c/resonite/p/MrTumnus/TypePicker/): コンポーネントやFluxノードの型を選ぶUIを追加します。
 - [ResoniteSpout](https://thunderstore.io/c/resonite/p/Zozokasu/ResoniteSpout/): カメラ映像をSpout経由でOBSなどに出力します。
-- [EnumDropdown](https://thunderstore.io/c/resonite/p/LeCloutPanda/EnumDropdown/): 列挙型（Enum）の値をドロップダウンから選べるようにします。
-- [MyInspectors](https://thunderstore.io/c/resonite/p/art0007i/MyInspectors/): インスペクタの内容をホストではなく自分側で生成するようにします。
+- [EnumDropdown](https://thunderstore.io/c/resonite/p/LeCloutPanda/EnumDropdown/): 列挙型（Enum）の値をドロップダウンから選べるようにします。（自分で開いたインスペクターのみ）
+- [MyInspectors](https://thunderstore.io/c/resonite/p/art0007i/MyInspectors/): インスペクタの内容をホストではなく自分側で生成するようにします。（壊れたとき影響範囲が大きいので注意。自分や他人のインスペクターの挙動がおかしくなったらoffにしてみましょう）
 
 
 ## おまけ：同じModプロファイルでVR用・デスクトップ用を使い分ける
@@ -160,3 +160,18 @@ mklink /D C:\resmod "%APPDATA%\com.kesomannen.gale\resonite\profiles\Default"
 4. Steamを起動した状態で、ショートカットから動作を確認します。
 
 パスは自分のインストール先・リンク名に合わせて変更します。ローダーを更新したら、一度Galeから起動します。
+
+### mod無しショートカットの作成
+
+動作がおかしいときに、modが悪いのか、Resonite自体が悪いのか切り分けするときに使います。バグ報告する際にもこちらで起動します。
+
+1. デスクトップで右クリックし、「新規作成 → ショートカット」を選択します。
+2. 以下のパスを指定します（インストール先に合わせて変更）。
+
+```text
+"C:\Program Files (x86)\Steam\steamapps\common\Resonite\Resonite.exe"
+```
+
+3. 名前を「Resonite（mod無し）」などにして作成します。
+
+デスクトップ用にする場合は、パスの末尾に半角スペースと`-screen`を付けます。
