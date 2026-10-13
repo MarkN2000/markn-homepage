@@ -20,7 +20,7 @@ Resoniteの「新規作成」から出せるレガシーUIを、NeosVRの頃の�
 
 ModローダーやGaleの入れ方は、こちらの記事で紹介しています。
 
-[MarkNが使っているResoniteのMod一覧・導入方法](https://markn2000.com/posts/2025-09-08-resonite-mod-list/)
+https://markn2000.com/posts/2025-09-08-resonite-mod-list/
 
 ソースコードや詳細はこちら。
 
