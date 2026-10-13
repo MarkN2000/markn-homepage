@@ -104,27 +104,27 @@ Galeで管理しています。GaleでMod名を検索してインストールす
 
 #### 必須級
 
-- `ResoniteModLoaderLoader`: RMLのModを使うため、BepisLoaderからRMLを読み込みます。
-- `RMLModSettings`: BepisModSettingsからRML側のMod設定を変更できます。
+- [ResoniteModLoaderLoader](https://github.com/DevL0rd/ResoniteModLoaderLoader): RMLのModを使うため、BepisLoaderからRMLを読み込みます。
+- [RMLModSettings](https://github.com/NepuShiro/RMLModSettings): BepisModSettingsからRML側のMod設定を変更できます。
 
 
 #### おすすめ
 
-- `InspectorScroll`: ジョイスティックでスクロールできます。
-- `ResoniteYAP`: コンポーネントやFluxノードを検索できます。
-- `NoHeadMenuDash`: 手を頭に近づけるとボタンがダッシュメニューに変わる謎仕様を消します。
-- `ResoniteBetterIMESupport`: 日本語入力などの変換中の文字を正しく表示します。
-- `DefaultToolOverride`: デスクトップモードで数字キーから出せるツールを変更できます。
-- `SpeedyURLs`: URLを開くまでの待機時間をスキップします。
+- [InspectorScroll](https://github.com/art0007i/InspectorScroll): ジョイスティックでスクロールできます。
+- [ResoniteYAP](https://github.com/NepuShiro/ResoniteYAP): コンポーネントやFluxノードを検索できます。
+- [NoHeadMenuDash](https://github.com/art0007i/NoHeadMenuDash): 手を頭に近づけるとボタンがダッシュメニューに変わる謎仕様を消します。
+- [ResoniteBetterIMESupport](https://github.com/blhsrwznrghfzpr/ResoniteBetterIMESupport): 日本語入力などの変換中の文字を正しく表示します。
+- [DefaultToolOverride](https://github.com/art0007i/DefaultToolOverride): デスクトップモードで数字キーから出せるツールを変更できます。
+- [SpeedyURLs](https://github.com/lecloutpanda/SpeedyURLs): URLを開くまでの待機時間をスキップします。
 
 #### あると便利
 
-- `ShowDelegates`: デリゲート一覧を折りたたみ、隠しデリゲートも表示します。（自分で開いたインスペクターのみ）
-- `TypePicker`: コンポーネントやFluxノードの型を選ぶUIを追加します。
-- `ResoniteSpout`: カメラ映像をSpout経由でOBSなどに出力します。
-- `EnumDropdown`: 列挙型（Enum）の値をドロップダウンから選べるようにします。（自分で開いたインスペクターのみ）
-- `MyInspectors`: インスペクタの内容をホストではなく自分側で生成するようにします。（壊れたとき影響範囲が大きいので注意。自分や他人のインスペクターの挙動がおかしくなったらまず疑いましょう）
-- `ClassicLegacyUI`: 新規作成のレガシーUIの色等がおかしいのを修正します。NeosVRの頃のような見た目になります。
+- [ShowDelegates](https://github.com/art0007i/ShowDelegates): デリゲート一覧を折りたたみ、隠しデリゲートも表示します。（自分で開いたインスペクターのみ）
+- [TypePicker](https://github.com/TumnusB/TypePicker): コンポーネントやFluxノードの型を選ぶUIを追加します。
+- [ResoniteSpout](https://github.com/Zozokasu/ResoniteSpout): カメラ映像をSpout経由でOBSなどに出力します。
+- [EnumDropdown](https://github.com/LeCloutPanda/EnumDropdown): 列挙型（Enum）の値をドロップダウンから選べるようにします。（自分で開いたインスペクターのみ）
+- [MyInspectors](https://github.com/art0007i/MyInspectors): インスペクタの内容をホストではなく自分側で生成するようにします。（壊れたとき影響範囲が大きいので注意。自分や他人のインスペクターの挙動がおかしくなったらまず疑いましょう）
+- [ClassicLegacyUI](https://github.com/MarkN2000/ClassicLegacyUI): 新規作成のレガシーUIの色等がおかしいのを修正します。NeosVRの頃のような見た目になります。
 </details>
 
 ## おまけ：一つのプロファイルでVR・デスクトップ・mod無しのショートカット作る
