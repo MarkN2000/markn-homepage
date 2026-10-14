@@ -1,6 +1,7 @@
 ---
 title: "【Resonite】Steel Assault Protocolのギミック制作を担当しました"
 date: 2025-03-01T12:00:00+09:00
+lastmod: 2026-10-14T12:00:00+09:00
 tags: ["Resonite", "制作物"]
 description: "大型ロボットに搭乗して戦うResoniteのワールド「Steel Assault Protocol」。MarkNが担当した、Fluxによるシステム構築とギミック全般の実装を紹介します。"
 thumbnail: "thumbnail.jpg"
