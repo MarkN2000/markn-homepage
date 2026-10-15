@@ -1,7 +1,7 @@
 ---
 title: "MarkNが使っているResoniteのMod一覧"
 date: 2025-09-08T12:00:00+09:00
-lastmod: 2026-10-13T12:00:00+09:00
+lastmod: 2026-10-16T12:00:00+09:00
 draft: false
 tags: ["Resonite","解説"]
 thumbnail: "thumbnail.webp"
@@ -125,6 +125,8 @@ Galeで管理しています。GaleでMod名を検索してインストールす
 - [EnumDropdown](https://github.com/LeCloutPanda/EnumDropdown): 列挙型（Enum）の値をドロップダウンから選べるようにします。（自分で開いたインスペクターのみ）
 - [MyInspectors](https://github.com/art0007i/MyInspectors): インスペクタの内容をホストではなく自分側で生成するようにします。（壊れたとき影響範囲が大きいので注意。自分や他人のインスペクターの挙動がおかしくなったらまず疑いましょう）
 - [ClassicLegacyUI](https://github.com/MarkN2000/ClassicLegacyUI): 新規作成のレガシーUIの色等がおかしいのを修正します。NeosVRの頃のような見た目になります。
+- [VideoReloader](https://github.com/MarkN2000/VideoReloader): Cookie取得用ブラウザや優先解像度の変更時などに、動画を自分側で再読み込みできます。
+- [SmoothContacts](https://github.com/MarkN2000/SmoothContacts): フレンド一覧を開いたときや検索を解除したときのフリーズを軽減します。
 </details>
 
 ## おまけ：一つのプロファイルでVR・デスクトップ・mod無しのショートカット作る
