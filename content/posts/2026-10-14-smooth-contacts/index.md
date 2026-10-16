@@ -15,7 +15,7 @@ Resoniteのフレンド一覧（Contacts）を開いたときや、検索欄の�
 
 ## 導入方法
 
-**BepisLoader対応のMod**です。[Gale](https://github.com/Kesomannen/gale)などのModマネージャーで名前で検索して導入するか、[GitHubのReleases](https://github.com/MarkN2000/SmoothContacts/releases)から手動でダウンロードできます。
+**BepisLoader対応のMod**です。[Gale](https://github.com/Kesomannen/gale)などのModマネージャーで名前で検索して導入するか、[GitHubのReleases](https://github.com/MarkN2000/SmoothContacts/releases)や[Thunderstore](https://thunderstore.io/c/resonite/p/markn2000/SmoothContacts/)から手動でダウンロードできます。
 
 ModローダーやGaleの入れ方は、こちらの記事で紹介しています。
 
