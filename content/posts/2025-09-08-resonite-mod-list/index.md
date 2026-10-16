@@ -104,29 +104,29 @@ Galeで管理しています。GaleでMod名を検索してインストールす
 
 #### 必須級
 
-- [ResoniteModLoaderLoader](https://github.com/DevL0rd/ResoniteModLoaderLoader): RMLのModを使うため、BepisLoaderからRMLを読み込みます。
-- [RMLModSettings](https://github.com/NepuShiro/RMLModSettings): BepisModSettingsからRML側のMod設定を変更できます。
+- [ResoniteModLoaderLoader](https://thunderstore.io/c/resonite/p/DevL0rd/ResoniteModLoaderLoader/): RMLのModを使うため、BepisLoaderからRMLを読み込みます。
+- [RMLModSettings](https://thunderstore.io/c/resonite/p/NepuShiro/RMLModSettings/): BepisModSettingsからRML側のMod設定を変更できます。
 
 
 #### おすすめ
 
-- [InspectorScroll](https://github.com/art0007i/InspectorScroll): ジョイスティックでスクロールできます。
-- [ResoniteYAP](https://github.com/NepuShiro/ResoniteYAP): コンポーネントやFluxノードを検索できます。
-- [NoHeadMenuDash](https://github.com/art0007i/NoHeadMenuDash): 手を頭に近づけるとボタンがダッシュメニューに変わる謎仕様を消します。
-- [ResoniteBetterIMESupport](https://github.com/blhsrwznrghfzpr/ResoniteBetterIMESupport): 日本語入力などの変換中の文字を正しく表示します。
-- [DefaultToolOverride](https://github.com/art0007i/DefaultToolOverride): デスクトップモードで数字キーから出せるツールを変更できます。
-- [SpeedyURLs](https://github.com/lecloutpanda/SpeedyURLs): URLを開くまでの待機時間をスキップします。
+- [InspectorScroll](https://thunderstore.io/c/resonite/p/art0007i/InspectorScroll/): ジョイスティックでスクロールできます。
+- [ResoniteYAP](https://thunderstore.io/c/resonite/p/NepuShiro/ResoniteYAP/): コンポーネントやFluxノードを検索できます。
+- [NoHeadMenuDash](https://thunderstore.io/c/resonite/p/art0007i/NoHeadMenuDash/): 手を頭に近づけるとボタンがダッシュメニューに変わる謎仕様を消します。
+- [ResoniteBetterIMESupport](https://thunderstore.io/c/resonite/p/blhsrwznrghfzpr/ResoniteBetterIMESupport/): 日本語入力などの変換中の文字を正しく表示します。
+- [DefaultToolOverride](https://thunderstore.io/c/resonite/p/art0007i/DefaultToolOverride/): デスクトップモードで数字キーから出せるツールを変更できます。
+- [SpeedyURLs](https://thunderstore.io/c/resonite/p/LeCloutPanda/SpeedyURLs/): URLを開くまでの待機時間をスキップします。
 
 #### あると便利
 
-- [ShowDelegates](https://github.com/art0007i/ShowDelegates): デリゲート一覧を折りたたみ、隠しデリゲートも表示します。（自分で開いたインスペクターのみ）
-- [TypePicker](https://github.com/TumnusB/TypePicker): コンポーネントやFluxノードの型を選ぶUIを追加します。
-- [ResoniteSpout](https://github.com/Zozokasu/ResoniteSpout): カメラ映像をSpout経由でOBSなどに出力します。
-- [EnumDropdown](https://github.com/LeCloutPanda/EnumDropdown): 列挙型（Enum）の値をドロップダウンから選べるようにします。（自分で開いたインスペクターのみ）
-- [MyInspectors](https://github.com/art0007i/MyInspectors): インスペクタの内容をホストではなく自分側で生成するようにします。（壊れたとき影響範囲が大きいので注意。自分や他人のインスペクターの挙動がおかしくなったらまず疑いましょう）
-- [ClassicLegacyUI](https://github.com/MarkN2000/ClassicLegacyUI): 新規作成のレガシーUIの色等がおかしいのを修正します。NeosVRの頃のような見た目になります。
-- [VideoReloader](https://github.com/MarkN2000/VideoReloader): Cookie取得用ブラウザや優先解像度の変更時などに、動画を自分側で再読み込みできます。
-- [SmoothContacts](https://github.com/MarkN2000/SmoothContacts): フレンド一覧を開いたときや検索を解除したときのフリーズを軽減します。
+- [ShowDelegates](https://thunderstore.io/c/resonite/p/art0007i/ShowDelegates/): デリゲート一覧を折りたたみ、隠しデリゲートも表示します。（自分で開いたインスペクターのみ）
+- [TypePicker](https://thunderstore.io/c/resonite/p/MrTumnus/TypePicker/): コンポーネントやFluxノードの型を選ぶUIを追加します。
+- [ResoniteSpout](https://thunderstore.io/c/resonite/p/Zozokasu/ResoniteSpout/): カメラ映像をSpout経由でOBSなどに出力します。
+- [EnumDropdown](https://thunderstore.io/c/resonite/p/LeCloutPanda/EnumDropdown/): 列挙型（Enum）の値をドロップダウンから選べるようにします。（自分で開いたインスペクターのみ）
+- [MyInspectors](https://thunderstore.io/c/resonite/p/art0007i/MyInspectors/): インスペクタの内容をホストではなく自分側で生成するようにします。（壊れたとき影響範囲が大きいので注意。自分や他人のインスペクターの挙動がおかしくなったらまず疑いましょう）
+- [ClassicLegacyUI](https://thunderstore.io/c/resonite/p/markn2000/ClassicLegacyUI/): 新規作成のレガシーUIの色等がおかしいのを修正します。NeosVRの頃のような見た目になります。
+- [VideoReloader](https://thunderstore.io/c/resonite/p/markn2000/VideoReloader/): Cookie取得用ブラウザや優先解像度の変更時などに、動画を自分側で再読み込みできます。
+- [SmoothContacts](https://thunderstore.io/c/resonite/p/markn2000/SmoothContacts/): フレンド一覧を開いたときや検索を解除したときのフリーズを軽減します。
 </details>
 
 ## おまけ：一つのプロファイルでVR・デスクトップ・mod無しのショートカット作る
