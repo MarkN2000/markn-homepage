@@ -11,8 +11,6 @@ Resoniteで、今いるセッションの動画を自分側で再読み込みで
 
 Cookieを取得するブラウザや、優先解像度（Preferred Resolution）を変更すると、自動で動画を再読み込みします。Bepis Mod Settingsから手動で再読み込みすることもできます。
 
-再読み込み時は、自分側の映像と音声が一瞬途切れます。
-
 ## 導入方法
 
 **BepisLoader対応のMod**です。[Gale](https://github.com/Kesomannen/gale)などのModマネージャーで名前で検索して導入するか、[GitHubのReleases](https://github.com/MarkN2000/VideoReloader/releases)や[Thunderstore](https://thunderstore.io/c/resonite/p/markn2000/VideoReloader/)から手動でダウンロードできます。
