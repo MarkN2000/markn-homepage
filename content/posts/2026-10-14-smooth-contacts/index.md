@@ -3,7 +3,7 @@ title: "フレンド一覧のフリーズを軽減するResonite Mod「SmoothCon
 date: 2026-10-14T12:00:00+09:00
 draft: false
 tags: ["Resonite", "制作物"]
-thumbnail: "thumbnail.png"
+thumbnail: "thumbnail.webp"
 description: "フレンド一覧を開いたときや、検索を消したときのフリーズを軽減するModを作りました。一覧の更新を小分けにし、Bepis Mod Settingsから処理件数や更新間隔を調整できます。"
 ---
 

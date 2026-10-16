@@ -3,7 +3,7 @@ title: "動画を再読み込みできるResonite Mod「VideoReloader」を作�
 date: 2026-10-16T00:00:00+09:00
 draft: false
 tags: ["Resonite", "制作物"]
-thumbnail: "thumbnail.png"
+thumbnail: "thumbnail.webp"
 description: "今いるセッションの動画を自分側で再読み込みできるModを作りました。Cookie取得用ブラウザや優先解像度の変更後に自動で再読み込みし、手動での再読み込みにも対応しています。"
 ---
 
