@@ -1,7 +1,7 @@
 ---
 title: "MarkNが使っているResoniteのMod一覧"
 date: 2025-09-08T12:00:00+09:00
-lastmod: 2026-10-16T12:00:00+09:00
+lastmod: 2026-10-21T12:00:00+09:00
 draft: false
 tags: ["Resonite","解説"]
 thumbnail: "thumbnail.webp"
@@ -82,6 +82,7 @@ Gale経由で使う場合、Steamに設定済みの引数は外しておきま�
 - [BetterInventoryBrowser](https://github.com/hantabaru1014/BetterInventoryBrowser): インベントリのブックマーク・履歴などが使えるようになります。
 - [Reso-SaveToWhere](https://github.com/rassi0429/Reso-SaveToWhere): 保存先の指定をわかりやすくします。
 - [BoundedUIX](https://github.com/djsime1/BoundedUIX): UIXの要素をdevツールで選択し、選択範囲を表示できます。（アプデで壊れがち）
+- [CherryPick](https://github.com/esnya/CherryPick): コンポーネントやFluxノードを名前で検索できます。
 
 #### あると便利
 
@@ -92,6 +93,8 @@ Gale経由で使う場合、Steamに設定済みの引数は外しておきま�
 - [ScalableWorldOrbs](https://github.com/XDelta/ScalableWorldOrbs): ワールドオーブのサイズを変更できます。
 - [SimpleScalableMeshOrbs](https://github.com/AwesomeTornado/SimpleScalableMeshOrbs/): メッシュオーブのサイズを変更できます。
 - [SlotInspectorHighlighter](https://github.com/sjsanjsrh/SlotInspectorHighlighter): 選択中のスロットをインスペクタで色付き表示します。
+- ResoniteMetricsCounter: 負荷を計測し、重たいギミックを調べられます。とあるアイテムから入手可能。
+- LocalAssetTransferFix: セッションの同期詰まりを解消します。ホストと自分の両方が使うと、より効果的です。とあるアイテムから入手可能。
 
 </details>
 
@@ -111,7 +114,6 @@ Galeで管理しています。GaleでMod名を検索してインストールす
 #### おすすめ
 
 - [InspectorScroll](https://thunderstore.io/c/resonite/p/art0007i/InspectorScroll/): ジョイスティックでスクロールできます。
-- [ResoniteYAP](https://thunderstore.io/c/resonite/p/NepuShiro/ResoniteYAP/): コンポーネントやFluxノードを検索できます。
 - [NoHeadMenuDash](https://thunderstore.io/c/resonite/p/art0007i/NoHeadMenuDash/): 手を頭に近づけるとボタンがダッシュメニューに変わる謎仕様を消します。
 - [ResoniteBetterIMESupport](https://thunderstore.io/c/resonite/p/blhsrwznrghfzpr/ResoniteBetterIMESupport/): 日本語入力などの変換中の文字を正しく表示します。
 - [DefaultToolOverride](https://thunderstore.io/c/resonite/p/art0007i/DefaultToolOverride/): デスクトップモードで数字キーから出せるツールを変更できます。
