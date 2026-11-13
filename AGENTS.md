@@ -28,13 +28,13 @@ Hugo 製の個人ホームページ（https://markn2000.com/ 、ブログ中心�
 ```
 
 - 記事フォルダ名は `YYYY-MM-DD-slug` 形式の Page Bundle（`index.md` + サムネイル + 画像を同フォルダに置く）。
-- OGP/oEmbed はビルド時に取得するため、フルビルドにはネット接続が必要（失敗時はフォールバックカードでビルドは落ちない）。
+- OGP はビルド時に取得するため、フルビルドにはネット接続が必要（失敗時はフォールバックカードでビルドは落ちない）。X公式埋め込みは閲覧時に読み込む。
 
 ## アーキテクチャ
 
 ビルド時のデータフロー: `content/posts/<slug>/index.md` → `layouts/` の Go テンプレートで HTML 生成 → `public/` を Cloudflare Pages が配信。テンプレートは Hugo v0.146+ の新構造（`layouts/baseof.html` + `_partials/` + `_markup/`）。
 
-- **記事フォーマット**: 純粋 Markdown。**前後に空行のある単独行URL**がビルド時に自動変換される（YouTube→ファサード埋め込み、X→oEmbedで静的引用カード、その他→OGPリンクカード）。実装は `layouts/_partials/content-embeds.html`（`.Content` 後処理で `<p><a href=URL>URL</a></p>` 形の段落のみ置換）+ `_partials/embeds/`（youtube / x-card / link-card / meta）。
+- **記事フォーマット**: 純粋 Markdown。**前後に空行のある単独行URL**がビルド時に自動変換される（YouTube→ファサード埋め込み、X→公式埋め込み、その他→OGPリンクカード）。実装は `layouts/_partials/content-embeds.html`（`.Content` 後処理で `<p><a href=URL>URL</a></p>` 形の段落のみ置換）+ `_partials/embeds/`（youtube / x-card / link-card / meta）。
 - **画像・OGPの自己配信**: OGP画像（正方形Smartクロップ）・YouTubeサムネ・faviconはビルド時に `resources.GetRemote` で取得しWebP化して自サイトから配信。キャッシュは永続化せず毎ビルド再取得（仕様決定）。
 - **ページ構成**: トップ `layouts/home.html`（ヒーロー→ピックアップ `pickup: true` →タグ棚 `params.home.shelves` →最新記事。トップのみヘッダーバー非表示）。記事一覧 `section.html`（検索+タグチップ+12件ページネーション。検索インデックスは `section.json` が `/posts/index.json` を生成）。記事 `posts/page.html`（タイトルカード+折りたたみ/追従目次+本文カード+シェア+seriesナビ+関連6件）。
 - **前後記事ナビ**: frontmatter の `series` が同じ記事を日付順で自動接続。

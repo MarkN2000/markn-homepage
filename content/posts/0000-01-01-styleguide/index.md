@@ -68,7 +68,7 @@ function greet(name) {
 | 種類 | 変換結果 |
 |---|---|
 | YouTube | ファサード埋め込み |
-| X | 静的引用カード |
+| X | 公式埋め込み |
 | その他 | OGPリンクカード |
 
 ## キャプション付き画像
@@ -82,6 +82,18 @@ https://www.youtube.com/watch?v=lC3F1dn66FY
 ## X ポスト(単独行URL)
 
 https://x.com/jack/status/20
+
+### 画像付き投稿
+
+https://x.com/XBusiness/status/2022060833933865024
+
+### 動画付き投稿
+
+https://x.com/pichikyo/status/2002571275349471262?s=20
+
+### 返信投稿(親投稿は非表示)
+
+https://x.com/X/status/1978460702399397954
 
 ## 一般サイトのOGPリンクカード(単独行URL)
 

@@ -69,6 +69,14 @@
     });
   });
 
+  // --- X公式埋め込み (投稿があるページで1回だけ読み込む) ---
+  if (document.querySelector(".twitter-tweet")) {
+    var xWidgets = document.createElement("script");
+    xWidgets.src = "https://platform.twitter.com/widgets.js";
+    xWidgets.async = true;
+    document.head.appendChild(xWidgets);
+  }
+
   // --- YouTube ファサード → クリックで本物のプレイヤーに差し替え ---
   document.querySelectorAll(".yt-facade").forEach(function (b) {
     b.addEventListener("click", function () {
